@@ -3,46 +3,434 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+const services = await getCollection('services');
+const featuredServices = services.filter(s => s.data.featured).slice(0, 3);
+
+const projects = await getCollection('projects');
+const featuredProjects = projects.filter(p => p.data.featured).slice(0, 3);
+
+const posts = await getCollection('blog');
+const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			/* Hero Section */
+			.hero {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 6rem 2rem;
+				text-align: center;
+				margin: -3em -1em 0;
+				position: relative;
+				overflow: hidden;
+			}
+			.hero::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+			}
+			.hero-content {
+				position: relative;
+				z-index: 1;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			.hero h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				color: white;
+			}
+			.hero p {
+				font-size: 1.25rem;
+				opacity: 0.95;
+				margin-bottom: 2rem;
+			}
+			.hero-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			.btn {
+				padding: 1rem 2rem;
+				border-radius: 50px;
+				font-weight: bold;
+				text-decoration: none;
+				transition: all 0.3s ease;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			.btn-primary {
+				background: white;
+				color: #667eea;
+			}
+			.btn-primary:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+			}
+			.btn-secondary {
+				background: transparent;
+				color: white;
+				border: 2px solid white;
+			}
+			.btn-secondary:hover {
+				background: white;
+				color: #667eea;
+			}
+
+			/* Sections */
+			.section {
+				padding: 4rem 0;
+			}
+			.section-title {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+			.section-title h2 {
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.section-title p {
+				color: #666;
+				font-size: 1.1rem;
+			}
+
+			/* Services Grid */
+			.services-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+			}
+			.service-card {
+				background: white;
+				padding: 2rem;
+				border-radius: 16px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+				transition: all 0.3s ease;
+				border: 1px solid #eee;
+			}
+			.service-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+			}
+			.service-icon {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+			}
+			.service-card h3 {
+				margin-bottom: 0.5rem;
+				color: #333;
+			}
+			.service-card p {
+				color: #666;
+				margin-bottom: 1rem;
+			}
+			.service-price {
+				color: #667eea;
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+
+			/* Projects Grid */
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 2rem;
+			}
+			.project-card {
+				background: white;
+				border-radius: 16px;
+				overflow: hidden;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+				transition: all 0.3s ease;
+			}
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+			}
+			.project-image {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			}
+			.project-content {
+				padding: 1.5rem;
+			}
+			.project-category {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 0.25rem 0.75rem;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				display: inline-block;
+				margin-bottom: 0.5rem;
+			}
+
+			/* Blog Grid */
+			.blog-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+			}
+			.blog-card {
+				background: white;
+				padding: 1.5rem;
+				border-radius: 16px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+				transition: all 0.3s ease;
+				border-right: 4px solid #667eea;
+			}
+			.blog-card:hover {
+				transform: translateX(-5px);
+			}
+			.blog-date {
+				color: #999;
+				font-size: 0.85rem;
+			}
+
+			/* CTA Section */
+			.cta-section {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 4rem 2rem;
+				text-align: center;
+				border-radius: 24px;
+				margin: 2rem 0;
+			}
+			.cta-section h2 {
+				color: white;
+				margin-bottom: 1rem;
+			}
+			.cta-section p {
+				opacity: 0.95;
+				margin-bottom: 2rem;
+			}
+
+			/* Stats */
+			.stats {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 2rem;
+				padding: 3rem 0;
+				text-align: center;
+			}
+			.stat-item h3 {
+				font-size: 3rem;
+				color: #667eea;
+				margin-bottom: 0.25rem;
+			}
+			.stat-item p {
+				color: #666;
+				margin: 0;
+			}
+
+			/* View All Link */
+			.view-all {
+				text-align: center;
+				margin-top: 2rem;
+			}
+			.view-all a {
+				color: #667eea;
+				font-weight: bold;
+				text-decoration: none;
+			}
+			.view-all a:hover {
+				text-decoration: underline;
+			}
+
+			main {
+				max-width: 1200px;
+				width: 100%;
+			}
+
+			@media (max-width: 768px) {
+				.hero h1 {
+					font-size: 2rem;
+				}
+				.hero {
+					padding: 4rem 1rem;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="hero-content">
+					<h1>🚀 نحوّل أفكارك إلى واقع رقمي</h1>
+					<p>نقدم خدمات تصميم وتطوير مواقع وتطبيقات احترافية بأعلى جودة وأفضل سعر</p>
+					<div class="hero-buttons">
+						<a href="/services" class="btn btn-primary">💼 استعرض خدماتنا</a>
+						<a href="/contact" class="btn btn-secondary">📬 تواصل معنا</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Stats -->
+			<div class="stats">
+				<div class="stat-item">
+					<h3>50+</h3>
+					<p>مشروع مكتمل</p>
+				</div>
+				<div class="stat-item">
+					<h3>30+</h3>
+					<p>عميل سعيد</p>
+				</div>
+				<div class="stat-item">
+					<h3>5+</h3>
+					<p>سنوات خبرة</p>
+				</div>
+				<div class="stat-item">
+					<h3>24/7</h3>
+					<p>دعم فني</p>
+				</div>
+			</div>
+
+			<!-- Services Section -->
+			<section class="section">
+				<div class="section-title">
+					<h2>💼 خدماتنا</h2>
+					<p>نقدم مجموعة متكاملة من الخدمات الرقمية</p>
+				</div>
+				{featuredServices.length > 0 ? (
+					<div class="services-grid">
+						{featuredServices.map((service) => (
+							<div class="service-card">
+								<div class="service-icon">{service.data.icon || '⭐'}</div>
+								<h3>{service.data.title}</h3>
+								<p>{service.data.description}</p>
+								{service.data.price && <div class="service-price">{service.data.price}</div>}
+							</div>
+						))}
+					</div>
+				) : (
+					<div class="services-grid">
+						<div class="service-card">
+							<div class="service-icon">🌐</div>
+							<h3>تصميم مواقع</h3>
+							<p>مواقع احترافية وسريعة ومتوافقة مع جميع الأجهزة</p>
+							<div class="service-price">من 500$</div>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">📱</div>
+							<h3>تطوير تطبيقات</h3>
+							<p>تطبيقات موبايل iOS و Android بأحدث التقنيات</p>
+							<div class="service-price">من 1000$</div>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">🎨</div>
+							<h3>تصميم جرافيك</h3>
+							<p>هوية بصرية كاملة وتصاميم سوشيال ميديا</p>
+							<div class="service-price">من 200$</div>
+						</div>
+					</div>
+				)}
+				<div class="view-all">
+					<a href="/services">عرض جميع الخدمات ←</a>
+				</div>
+			</section>
+
+			<!-- Projects Section -->
+			<section class="section">
+				<div class="section-title">
+					<h2>🎨 أحدث أعمالنا</h2>
+					<p>نماذج من المشاريع التي أنجزناها</p>
+				</div>
+				{featuredProjects.length > 0 ? (
+					<div class="projects-grid">
+						{featuredProjects.map((project) => (
+							<div class="project-card">
+								<div class="project-image"></div>
+								<div class="project-content">
+									<span class="project-category">{project.data.category}</span>
+									<h3>{project.data.title}</h3>
+									<p>{project.data.description}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				) : (
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-image"></div>
+							<div class="project-content">
+								<span class="project-category">تصميم مواقع</span>
+								<h3>موقع شركة تقنية</h3>
+								<p>تصميم وتطوير موقع متكامل لشركة تقنية ناشئة</p>
+							</div>
+						</div>
+						<div class="project-card">
+							<div class="project-image"></div>
+							<div class="project-content">
+								<span class="project-category">تطبيقات</span>
+								<h3>تطبيق متجر إلكتروني</h3>
+								<p>تطبيق موبايل لمتجر إلكتروني مع نظام دفع</p>
+							</div>
+						</div>
+						<div class="project-card">
+							<div class="project-image"></div>
+							<div class="project-content">
+								<span class="project-category">هوية بصرية</span>
+								<h3>براند مطعم</h3>
+								<p>تصميم هوية بصرية كاملة لمطعم جديد</p>
+							</div>
+						</div>
+					</div>
+				)}
+				<div class="view-all">
+					<a href="/projects">عرض جميع الأعمال ←</a>
+				</div>
+			</section>
+
+			<!-- Blog Section -->
+			{recentPosts.length > 0 && (
+				<section class="section">
+					<div class="section-title">
+						<h2>📝 من المدونة</h2>
+						<p>آخر المقالات والنصائح</p>
+					</div>
+					<div class="blog-grid">
+						{recentPosts.map((post) => (
+							<a href={`/blog/${post.id}`} class="blog-card">
+								<span class="blog-date">{post.data.pubDate.toLocaleDateString('ar-EG')}</span>
+								<h3>{post.data.title}</h3>
+								<p>{post.data.description}</p>
+							</a>
+						))}
+					</div>
+					<div class="view-all">
+						<a href="/blog">عرض جميع المقالات ←</a>
+					</div>
+				</section>
+			)}
+
+			<!-- CTA Section -->
+			<section class="cta-section">
+				<h2>🤝 جاهز تبدأ مشروعك؟</h2>
+				<p>تواصل معنا الآن واحصل على استشارة مجانية</p>
+				<div class="hero-buttons">
+					<a href="https://wa.me/201234567890" class="btn btn-primary" target="_blank">
+						💬 واتساب
+					</a>
+					<a href="/contact" class="btn btn-secondary">
+						📧 أرسل رسالة
+					</a>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>

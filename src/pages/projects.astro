@@ -1,0 +1,204 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+---
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+	<head>
+		<BaseHead title={`الأعمال | ${SITE_TITLE}`} description="معرض أعمالنا ومشاريعنا" />
+		<style>
+			.page-hero {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 4rem 2rem;
+				text-align: center;
+				margin: -3em -1em 0;
+			}
+			.page-hero h1 {
+				color: white;
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.page-hero p {
+				opacity: 0.9;
+				font-size: 1.1rem;
+			}
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+				gap: 2rem;
+				padding: 3rem 0;
+			}
+			.project-card {
+				background: white;
+				border-radius: 20px;
+				overflow: hidden;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+				transition: all 0.3s ease;
+				position: relative;
+			}
+			.project-card:hover {
+				transform: translateY(-8px);
+				box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+			}
+			.project-image {
+				width: 100%;
+				height: 220px;
+				object-fit: cover;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 4rem;
+			}
+			.project-content {
+				padding: 1.5rem 2rem 2rem;
+			}
+			.project-card h2 {
+				margin: 0.5rem 0;
+				font-size: 1.3rem;
+				color: #333;
+			}
+			.project-card p {
+				color: #666;
+				margin: 0 0 1rem 0;
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+			.project-category {
+				display: inline-block;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 0.35rem 1rem;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				font-weight: 500;
+			}
+			.project-meta {
+				display: flex;
+				gap: 1rem;
+				margin-top: 1rem;
+				padding-top: 1rem;
+				border-top: 1px solid #eee;
+				font-size: 0.85rem;
+				color: #888;
+			}
+			.featured-badge {
+				position: absolute;
+				top: 1rem;
+				left: 1rem;
+				background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+				color: white;
+				padding: 0.35rem 0.75rem;
+				border-radius: 8px;
+				font-size: 0.75rem;
+				font-weight: bold;
+				z-index: 10;
+			}
+			.project-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				color: #667eea;
+				text-decoration: none;
+				font-weight: bold;
+				transition: gap 0.3s ease;
+			}
+			.project-link:hover {
+				gap: 1rem;
+			}
+			main {
+				width: 1200px;
+				max-width: calc(100% - 2rem);
+				margin: 0 auto;
+				padding: 2rem 1rem;
+			}
+			@media (max-width: 768px) {
+				.projects-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-hero">
+				<h1>🎨 معرض الأعمال</h1>
+				<p>نماذج من المشاريع التي أنجزناها بنجاح</p>
+			</section>
+			
+			{sortedProjects.length > 0 ? (
+				<div class="projects-grid">
+					{sortedProjects.map((project) => (
+						<article class="project-card">
+							{project.data.featured && <span class="featured-badge">⭐ مميز</span>}
+							<div class="project-image">🖼️</div>
+							<div class="project-content">
+								<span class="project-category">{project.data.category}</span>
+								<h2>{project.data.title}</h2>
+								<p>{project.data.description}</p>
+								<a href={`/projects/${project.slug}`} class="project-link">
+									عرض التفاصيل <span>←</span>
+								</a>
+								{project.data.client && (
+									<div class="project-meta">
+										<span>👤 {project.data.client}</span>
+									</div>
+								)}
+							</div>
+						</article>
+					))}
+				</div>
+			) : (
+				<div class="projects-grid">
+					<article class="project-card">
+						<span class="featured-badge">⭐ مميز</span>
+						<div class="project-image">🌐</div>
+						<div class="project-content">
+							<span class="project-category">تصميم مواقع</span>
+							<h2>موقع شركة تقنية</h2>
+							<p>تصميم وتطوير موقع متكامل لشركة تقنية ناشئة مع لوحة تحكم</p>
+							<a href="/contact" class="project-link">عرض التفاصيل <span>←</span></a>
+							<div class="project-meta">
+								<span>👤 شركة تك سوليوشنز</span>
+							</div>
+						</div>
+					</article>
+					<article class="project-card">
+						<div class="project-image">📱</div>
+						<div class="project-content">
+							<span class="project-category">تطبيقات موبايل</span>
+							<h2>تطبيق متجر إلكتروني</h2>
+							<p>تطبيق موبايل iOS و Android لمتجر إلكتروني مع نظام دفع متكامل</p>
+							<a href="/contact" class="project-link">عرض التفاصيل <span>←</span></a>
+							<div class="project-meta">
+								<span>👤 متجر الأناقة</span>
+							</div>
+						</div>
+					</article>
+					<article class="project-card">
+						<div class="project-image">🎨</div>
+						<div class="project-content">
+							<span class="project-category">هوية بصرية</span>
+							<h2>براند مطعم فاخر</h2>
+							<p>تصميم هوية بصرية كاملة تشمل الشعار والألوان والخطوط</p>
+							<a href="/contact" class="project-link">عرض التفاصيل <span>←</span></a>
+							<div class="project-meta">
+								<span>👤 مطعم الذواقة</span>
+							</div>
+						</div>
+					</article>
+				</div>
+			)}
+		</main>
+		<Footer />
+	</body>
+</html>

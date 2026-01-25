@@ -1,0 +1,271 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+	<head>
+		<BaseHead title={`تواصل معنا | ${SITE_TITLE}`} description="تواصل معنا - نحن هنا لمساعدتك" />
+		<style>
+			.page-hero {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 4rem 2rem;
+				text-align: center;
+				margin: -3em -1em 0;
+			}
+			.page-hero h1 {
+				color: white;
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.page-hero p {
+				opacity: 0.9;
+				font-size: 1.1rem;
+			}
+			main {
+				width: 1000px;
+				max-width: calc(100% - 2rem);
+				margin: 0 auto;
+				padding: 2rem 1rem;
+			}
+			.contact-container {
+				display: grid;
+				grid-template-columns: 1.2fr 1fr;
+				gap: 3rem;
+				padding: 3rem 0;
+			}
+			@media (max-width: 768px) {
+				.contact-container {
+					grid-template-columns: 1fr;
+				}
+			}
+			.contact-form {
+				background: white;
+				padding: 2.5rem;
+				border-radius: 20px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+			}
+			.contact-form h2 {
+				margin-bottom: 1.5rem;
+				color: #333;
+			}
+			.form-group {
+				margin-bottom: 1.5rem;
+			}
+			.form-group label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 600;
+				color: #333;
+			}
+			.form-group input,
+			.form-group textarea,
+			.form-group select {
+				width: 100%;
+				padding: 1rem;
+				border: 2px solid #eee;
+				border-radius: 12px;
+				font-size: 1rem;
+				font-family: inherit;
+				transition: border-color 0.3s ease, box-shadow 0.3s ease;
+			}
+			.form-group textarea {
+				min-height: 150px;
+				resize: vertical;
+			}
+			.form-group input:focus,
+			.form-group textarea:focus,
+			.form-group select:focus {
+				outline: none;
+				border-color: #667eea;
+				box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+			}
+			.submit-btn {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 1rem 2.5rem;
+				border: none;
+				border-radius: 50px;
+				font-size: 1.1rem;
+				font-weight: bold;
+				cursor: pointer;
+				width: 100%;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			.submit-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+			}
+			.contact-info {
+				padding: 1rem 0;
+			}
+			.contact-info h2 {
+				margin-bottom: 1.5rem;
+				color: #333;
+			}
+			.contact-item {
+				display: flex;
+				align-items: flex-start;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+				padding: 1.25rem;
+				background: white;
+				border-radius: 16px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+				transition: transform 0.3s ease;
+			}
+			.contact-item:hover {
+				transform: translateX(-5px);
+			}
+			.contact-item-icon {
+				font-size: 2rem;
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				border-radius: 12px;
+			}
+			.contact-item-content strong {
+				display: block;
+				margin-bottom: 0.25rem;
+				color: #333;
+			}
+			.contact-item a {
+				color: #667eea;
+				text-decoration: none;
+				font-weight: 500;
+			}
+			.contact-item a:hover {
+				text-decoration: underline;
+			}
+			.whatsapp-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.75rem;
+				background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+				color: white;
+				padding: 1.25rem 2rem;
+				border-radius: 50px;
+				text-decoration: none;
+				font-weight: bold;
+				font-size: 1.1rem;
+				margin-top: 1.5rem;
+				width: 100%;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			.whatsapp-btn:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-hero">
+				<h1>📬 تواصل معنا</h1>
+				<p>نحن هنا لمساعدتك - راسلنا وسنرد عليك في أقرب وقت</p>
+			</section>
+			
+			<div class="contact-container">
+				<!-- Contact Form -->
+				<div class="contact-form">
+					<h2>✉️ أرسل رسالة</h2>
+					<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+						<p style="display:none;">
+							<label>Don't fill this out: <input name="bot-field" /></label>
+						</p>
+						
+						<div class="form-group">
+							<label for="name">الاسم *</label>
+							<input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required />
+						</div>
+						
+						<div class="form-group">
+							<label for="email">البريد الإلكتروني *</label>
+							<input type="email" id="email" name="email" placeholder="example@email.com" required />
+						</div>
+						
+						<div class="form-group">
+							<label for="phone">رقم الهاتف</label>
+							<input type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx" />
+						</div>
+						
+						<div class="form-group">
+							<label for="service">الخدمة المطلوبة</label>
+							<select id="service" name="service">
+								<option value="">اختر خدمة...</option>
+								<option value="تصميم موقع">🌐 تصميم موقع</option>
+								<option value="تطوير تطبيق">📱 تطوير تطبيق</option>
+								<option value="تصميم جرافيك">🎨 تصميم جرافيك</option>
+								<option value="تحسين SEO">🔍 تحسين SEO</option>
+								<option value="استشارة">💡 استشارة</option>
+								<option value="أخرى">أخرى</option>
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label for="message">الرسالة *</label>
+							<textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+						</div>
+						
+						<button type="submit" class="submit-btn">🚀 إرسال الرسالة</button>
+					</form>
+				</div>
+				
+				<!-- Contact Info -->
+				<div class="contact-info">
+					<h2>📞 أو تواصل مباشرة</h2>
+					
+					<div class="contact-item">
+						<span class="contact-item-icon">📧</span>
+						<div class="contact-item-content">
+							<strong>البريد الإلكتروني</strong>
+							<a href="mailto:hello@example.com">hello@example.com</a>
+						</div>
+					</div>
+					
+					<div class="contact-item">
+						<span class="contact-item-icon">📱</span>
+						<div class="contact-item-content">
+							<strong>الهاتف</strong>
+							<a href="tel:+201234567890">+20 123 456 7890</a>
+						</div>
+					</div>
+					
+					<div class="contact-item">
+						<span class="contact-item-icon">📍</span>
+						<div class="contact-item-content">
+							<strong>الموقع</strong>
+							<span>القاهرة، مصر</span>
+						</div>
+					</div>
+					
+					<div class="contact-item">
+						<span class="contact-item-icon">🕐</span>
+						<div class="contact-item-content">
+							<strong>ساعات العمل</strong>
+							<span>السبت - الخميس: 9ص - 6م</span>
+						</div>
+					</div>
+					
+					<a href="https://wa.me/201234567890?text=مرحبا، أريد الاستفسار عن خدماتكم" 
+					   class="whatsapp-btn" 
+					   target="_blank" 
+					   rel="noopener noreferrer">
+						💬 تواصل عبر واتساب
+					</a>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
