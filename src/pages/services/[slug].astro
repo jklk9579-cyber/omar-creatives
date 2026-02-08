@@ -1,0 +1,418 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map(service => ({
+    params: { slug: service.id },
+    props: service,
+  }));
+}
+
+const service = Astro.props;
+const { Content } = await render(service);
+
+// Define service icons and colors
+const serviceIcons: Record<string, string> = {
+  'web-design': '🌐',
+  'app-development': '📱',
+  'ai-content': '🤖',
+  'ui-ux': '🎨',
+};
+
+const serviceColors: Record<string, string> = {
+  'web-design': '#3b82f6',
+  'app-development': '#8b5cf6',
+  'ai-content': '#22c55e',
+  'ui-ux': '#f59e0b',
+};
+
+const icon = serviceIcons[service.id] || '🔧';
+const color = serviceColors[service.id] || '#f59e0b';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${service.data.title} | ${SITE_TITLE}`} description={service.data.description} />
+    <style define:vars={{ serviceColor: color }}>
+      body {
+        padding-top: 80px;
+      }
+      .service-header {
+        padding: 4rem 2rem 6rem;
+        text-align: center;
+        position: relative;
+      }
+      .service-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+      .back-link:hover {
+        color: var(--accent);
+      }
+      .service-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+      .service-header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .service-header p {
+        color: var(--text-secondary);
+        font-size: 1.25rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      main {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 4rem;
+      }
+      
+      /* Features */
+      .features-section {
+        padding: 3rem 0;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .feature-card {
+        background: var(--bg-card);
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+      .feature-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .feature-card h3 {
+        color: var(--text-primary);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .feature-card p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin: 0;
+        line-height: 1.6;
+      }
+      
+      /* Content */
+      .service-content {
+        padding: 3rem 0;
+        border-top: 1px solid var(--border-color);
+      }
+      .service-content h2 {
+        font-size: 1.75rem;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+      }
+      .service-content :global(p) {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+      }
+      .service-content :global(ul) {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+      }
+      .service-content :global(li) {
+        color: var(--text-secondary);
+        padding: 0.75rem 0;
+        padding-left: 2rem;
+        position: relative;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .service-content :global(li::before) {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 600;
+      }
+      
+      /* Process */
+      .process-section {
+        padding: 3rem 0;
+        border-top: 1px solid var(--border-color);
+      }
+      .section-title {
+        font-size: 1.75rem;
+        color: var(--text-primary);
+        margin-bottom: 2rem;
+      }
+      .process-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .process-step {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+      .step-number {
+        width: 50px;
+        height: 50px;
+        background: rgba(245, 158, 11, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+      .step-content h4 {
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
+      }
+      .step-content p {
+        color: var(--text-secondary);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+      
+      /* Pricing Preview */
+      .pricing-preview {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        margin: 3rem 0;
+        text-align: center;
+      }
+      .pricing-preview h3 {
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+      .pricing-preview .starting-at {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+      .pricing-preview .price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+      }
+      .pricing-preview .price span {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        font-weight: 400;
+      }
+      
+      /* CTA */
+      .cta-section {
+        padding: 4rem 0;
+        text-align: center;
+      }
+      .cta-card {
+        background: var(--bg-card);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+      }
+      .cta-card h2 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+      }
+      .cta-card p {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .cta-btn {
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .cta-btn.primary {
+        background: var(--accent-gradient);
+        color: #000;
+      }
+      .cta-btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+      }
+      .cta-btn.secondary {
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+      }
+      .cta-btn.secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      
+      @media (max-width: 768px) {
+        .service-header h1 {
+          font-size: 2.5rem;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        .process-step {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    
+    <header class="service-header">
+      <a href="/services" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Services
+      </a>
+      <span class="service-icon">{icon}</span>
+      <h1>{service.data.title}</h1>
+      <p>{service.data.description}</p>
+    </header>
+    
+    <main>
+      <!-- Features -->
+      <section class="features-section">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast Delivery</h3>
+            <p>Quick turnaround times without compromising on quality.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Custom Solutions</h3>
+            <p>Tailored to your specific needs and business goals.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Clear Communication</h3>
+            <p>Regular updates and transparent progress tracking.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Ongoing Support</h3>
+            <p>Post-launch support and maintenance included.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Content -->
+      <section class="service-content">
+        <h2>About This Service</h2>
+        <Content />
+      </section>
+      
+      <!-- Process -->
+      <section class="process-section">
+        <h2 class="section-title">How It Works</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Discovery & Consultation</h4>
+              <p>We discuss your project requirements, goals, and vision.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Proposal & Planning</h4>
+              <p>I create a detailed proposal with timeline and pricing.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Design & Development</h4>
+              <p>Your project comes to life with regular check-ins.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Review & Launch</h4>
+              <p>Final review, revisions, and project delivery.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Pricing Preview -->
+      <div class="pricing-preview">
+        <h3>Ready to Get Started?</h3>
+        <p class="starting-at">Starting at</p>
+        <p class="price">$499 <span>/ project</span></p>
+        <a href="/pricing" class="cta-btn primary">View Full Pricing</a>
+      </div>
+      
+      <!-- CTA -->
+      <section class="cta-section">
+        <div class="cta-card">
+          <h2>Let's Build Something Great</h2>
+          <p>Ready to start your project? I'd love to hear about it.</p>
+          <div class="cta-buttons">
+            <a href="/contact" class="cta-btn primary">Get in Touch</a>
+            <a href="/projects" class="cta-btn secondary">View My Work</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <Footer />
+  </body>
+</html>

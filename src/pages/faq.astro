@@ -1,0 +1,476 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+
+const catI18nKeys: Record<string, string> = {
+	"General": "faqPage.catGeneral",
+	"Pricing & Payment": "faqPage.catPricing",
+	"Process & Collaboration": "faqPage.catProcess",
+	"Technical": "faqPage.catTechnical"
+};
+
+const faqs = [
+	{
+		category: "General",
+		questions: [
+			{
+				question: "What services do you offer?",
+				answer: "I offer a comprehensive range of digital services including AI content creation, web development, mobile app development, and UI/UX design. Each service is tailored to meet your specific needs and business goals."
+			},
+			{
+				question: "How long does a typical project take?",
+				answer: "Project timelines vary based on complexity. A simple website might take 2-4 weeks, while a complex web application could take 2-3 months. I'll provide a detailed timeline during our initial consultation."
+			},
+			{
+				question: "Do you work with clients internationally?",
+				answer: "Yes! I work with clients from all around the world. With modern communication tools and flexible scheduling, distance is never a barrier to great collaboration."
+			}
+		]
+	},
+	{
+		category: "Pricing & Payment",
+		questions: [
+			{
+				question: "How do you structure your pricing?",
+				answer: "I offer both project-based and hourly pricing depending on the scope of work. For most projects, I provide a fixed quote after understanding your requirements. Check out the Pricing page for detailed packages."
+			},
+			{
+				question: "What payment methods do you accept?",
+				answer: "I accept various payment methods including bank transfers, PayPal, and major credit cards. For larger projects, I typically work with a 50% upfront deposit."
+			},
+			{
+				question: "Do you offer refunds?",
+				answer: "I'm committed to client satisfaction. If you're not happy with the work, we'll work together to make it right. Refund policies are discussed and agreed upon before project start."
+			}
+		]
+	},
+	{
+		category: "Process & Collaboration",
+		questions: [
+			{
+				question: "How do we get started?",
+				answer: "Simply reach out through the contact form or email. We'll schedule a free consultation to discuss your project, goals, and requirements. From there, I'll provide a proposal and timeline."
+			},
+			{
+				question: "Will I be involved in the development process?",
+				answer: "Absolutely! I believe in collaborative development. You'll receive regular updates, have access to progress previews, and your feedback will be incorporated at every stage."
+			},
+			{
+				question: "What if I need changes after the project is complete?",
+				answer: "I offer post-launch support and maintenance packages. Minor revisions are often included in the initial scope, and additional changes can be arranged at competitive rates."
+			}
+		]
+	},
+	{
+		category: "Technical",
+		questions: [
+			{
+				question: "What technologies do you use?",
+				answer: "I use modern, industry-standard technologies including React, Next.js, Astro, Node.js, and various AI tools. The specific stack is chosen based on what best suits your project needs."
+			},
+			{
+				question: "Do you provide hosting and maintenance?",
+				answer: "Yes, I can help set up hosting on platforms like Vercel, Netlify, or AWS, and offer ongoing maintenance packages to keep your site running smoothly and securely."
+			},
+			{
+				question: "Will my website be mobile-friendly?",
+				answer: "Absolutely! All websites I build are fully responsive and optimized for all devices - from mobile phones to large desktop screens."
+			}
+		]
+	}
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`FAQ | ${SITE_TITLE}`} description="Frequently asked questions about our services" />
+		<style>
+			body {
+				padding-top: 80px;
+			}
+			.page-header {
+				padding: 4rem 2rem;
+				text-align: center;
+				position: relative;
+			}
+			.page-header::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 600px;
+				height: 600px;
+				background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+				pointer-events: none;
+			}
+			.page-header h1 {
+				font-size: 3.5rem;
+				margin-bottom: 1rem;
+				background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				position: relative;
+			}
+			.page-header p {
+				color: var(--text-secondary);
+				font-size: 1.2rem;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			main {
+				max-width: 100%;
+				margin: 0 auto;
+				padding: 0 4rem 5rem;
+			}
+			
+			/* Search Box */
+			.search-box {
+				margin-bottom: 3rem;
+			}
+			.search-input-wrapper {
+				position: relative;
+				max-width: 500px;
+				margin: 0 auto;
+			}
+			.search-input-wrapper svg {
+				position: absolute;
+				left: 1.25rem;
+				top: 50%;
+				transform: translateY(-50%);
+				color: var(--text-muted);
+				width: 20px;
+				height: 20px;
+			}
+			.search-input {
+				width: 100%;
+				padding: 1rem 1rem 1rem 3.5rem;
+				background: var(--bg-card);
+				border: 1px solid var(--border-color);
+				border-radius: 12px;
+				font-size: 1rem;
+				color: var(--text-primary);
+				transition: all 0.3s ease;
+			}
+			.search-input::placeholder {
+				color: var(--text-muted);
+			}
+			.search-input:focus {
+				outline: none;
+				border-color: var(--accent);
+				box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+			}
+			
+			/* Category Tabs */
+			.category-tabs {
+				display: flex;
+				gap: 0.5rem;
+				margin-bottom: 2rem;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			.category-tab {
+				padding: 0.75rem 1.5rem;
+				background: var(--bg-card);
+				border: 1px solid var(--border-color);
+				border-radius: 25px;
+				color: var(--text-secondary);
+				font-weight: 500;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+			.category-tab:hover,
+			.category-tab.active {
+				background: var(--accent);
+				border-color: var(--accent);
+				color: #000;
+			}
+			
+			/* FAQ Categories */
+			.faq-category {
+				margin-bottom: 3rem;
+			}
+			.faq-category-title {
+				font-size: 1.5rem;
+				color: var(--text-primary);
+				margin-bottom: 1.5rem;
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+			}
+			.faq-category-title span {
+				width: 40px;
+				height: 40px;
+				background: rgba(245, 158, 11, 0.1);
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			/* Accordion */
+			.faq-item {
+				background: var(--bg-card);
+				border: 1px solid var(--border-color);
+				border-radius: 12px;
+				margin-bottom: 1rem;
+				overflow: hidden;
+				transition: all 0.3s ease;
+			}
+			.faq-item:hover {
+				border-color: rgba(245, 158, 11, 0.3);
+			}
+			.faq-item.active {
+				border-color: var(--accent);
+			}
+			.faq-question {
+				width: 100%;
+				padding: 1.25rem 1.5rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background: transparent;
+				border: none;
+				color: var(--text-primary);
+				font-size: 1.05rem;
+				font-weight: 500;
+				text-align: left;
+				cursor: pointer;
+				transition: color 0.3s ease;
+			}
+			.faq-item.active .faq-question {
+				color: var(--accent);
+			}
+			.faq-question svg {
+				width: 20px;
+				height: 20px;
+				color: var(--text-muted);
+				transition: transform 0.3s ease, color 0.3s ease;
+				flex-shrink: 0;
+			}
+			.faq-item.active .faq-question svg {
+				transform: rotate(180deg);
+				color: var(--accent);
+			}
+			.faq-answer {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease, padding 0.3s ease;
+			}
+			.faq-item.active .faq-answer {
+				max-height: 300px;
+			}
+			.faq-answer-content {
+				padding: 0 1.5rem 1.25rem;
+				color: var(--text-secondary);
+				line-height: 1.7;
+			}
+			
+			/* CTA Section */
+			.cta-section {
+				text-align: center;
+				padding: 4rem 2rem;
+				background: var(--bg-card);
+				border-radius: 20px;
+				border: 1px solid var(--border-color);
+				margin-top: 4rem;
+			}
+			.cta-icon {
+				font-size: 3rem;
+				margin-bottom: 1.5rem;
+			}
+			.cta-section h2 {
+				font-size: 1.75rem;
+				color: var(--text-primary);
+				margin-bottom: 0.75rem;
+			}
+			.cta-section p {
+				color: var(--text-secondary);
+				margin-bottom: 1.5rem;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.cta-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 1rem 2rem;
+				background: var(--accent-gradient);
+				color: #000;
+				text-decoration: none;
+				border-radius: 10px;
+				font-weight: 600;
+				transition: all 0.3s ease;
+			}
+			.cta-btn:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+			}
+			
+			@media (max-width: 600px) {
+				.page-header h1 {
+					font-size: 2.5rem;
+				}
+				.category-tabs {
+					gap: 0.5rem;
+				}
+				.category-tab {
+					padding: 0.5rem 1rem;
+					font-size: 0.9rem;
+				}
+				.faq-question {
+					font-size: 0.95rem;
+					padding: 1rem;
+				}
+				.faq-answer-content {
+					padding: 0 1rem 1rem;
+					font-size: 0.95rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		
+		<header class="page-header">
+			<h1 data-i18n="faqPage.title">FAQ</h1>
+			<p data-i18n="faqPage.subtitle">Find answers to commonly asked questions about my services</p>
+		</header>
+		
+		<main>
+			<div class="search-box">
+				<div class="search-input-wrapper">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<circle cx="11" cy="11" r="8"></circle>
+						<path d="m21 21-4.35-4.35"></path>
+					</svg>
+					<input type="text" class="search-input" placeholder="Search for answers..." data-i18n-placeholder="faqPage.searchPh" id="faqSearch">
+				</div>
+			</div>
+			
+			<div class="category-tabs">
+				<button class="category-tab active" data-category="all" data-i18n="faqPage.all">All</button>
+				{faqs.map(cat => (
+					<button class="category-tab" data-category={cat.category} data-i18n={catI18nKeys[cat.category]}>{cat.category}</button>
+				))}
+			</div>
+			
+			<div class="faq-container">
+				{faqs.map((category, catIndex) => (
+					<div class="faq-category" data-category={category.category}>
+						<h2 class="faq-category-title">
+							<span>
+								{catIndex === 0 && '❓'}
+								{catIndex === 1 && '💰'}
+								{catIndex === 2 && '🤝'}
+								{catIndex === 3 && '⚙️'}
+							</span>
+							<span data-i18n={catI18nKeys[category.category]}>{category.category}</span>
+						</h2>
+						
+						{category.questions.map((faq, index) => (
+							<div class="faq-item" data-question={faq.question.toLowerCase()} data-answer={faq.answer.toLowerCase()}>
+								<button class="faq-question">
+									<span data-i18n={`faqPage.q${catIndex * 3 + index + 1}`}>{faq.question}</span>
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="6 9 12 15 18 9"></polyline>
+									</svg>
+								</button>
+								<div class="faq-answer">
+									<div class="faq-answer-content" data-i18n={`faqPage.a${catIndex * 3 + index + 1}`}>
+										{faq.answer}
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				))}
+			</div>
+			
+			<div class="cta-section">
+				<div class="cta-icon">💬</div>
+				<h2 data-i18n="faqPage.ctaTitle">Still have questions?</h2>
+				<p data-i18n="faqPage.ctaDesc">Can't find the answer you're looking for? Feel free to reach out!</p>
+				<a href="/contact" class="cta-btn">
+					<span data-i18n="faqPage.ctaBtn">Contact Me</span>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M5 12h14M12 5l7 7-7 7"/>
+					</svg>
+				</a>
+			</div>
+		</main>
+		
+		<Footer />
+		
+		<script>
+			// FAQ Accordion
+			document.querySelectorAll('.faq-question').forEach(button => {
+				button.addEventListener('click', () => {
+					const faqItem = button.parentElement;
+					const isActive = faqItem.classList.contains('active');
+					
+					// Close all other items
+					document.querySelectorAll('.faq-item.active').forEach(item => {
+						if (item !== faqItem) {
+							item.classList.remove('active');
+						}
+					});
+					
+					// Toggle current item
+					faqItem.classList.toggle('active');
+				});
+			});
+			
+			// Category Tabs
+			document.querySelectorAll('.category-tab').forEach(tab => {
+				tab.addEventListener('click', () => {
+					const category = tab.dataset.category;
+					
+					// Update active tab
+					document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+					tab.classList.add('active');
+					
+					// Filter categories
+					document.querySelectorAll('.faq-category').forEach(cat => {
+						if (category === 'all' || cat.dataset.category === category) {
+							cat.style.display = 'block';
+						} else {
+							cat.style.display = 'none';
+						}
+					});
+				});
+			});
+			
+			// Search
+			const searchInput = document.getElementById('faqSearch');
+			searchInput.addEventListener('input', (e) => {
+				const query = e.target.value.toLowerCase();
+				
+				document.querySelectorAll('.faq-item').forEach(item => {
+					const question = item.dataset.question;
+					const answer = item.dataset.answer;
+					
+					if (question.includes(query) || answer.includes(query)) {
+						item.style.display = 'block';
+					} else {
+						item.style.display = 'none';
+					}
+				});
+				
+				// Show all categories when searching
+				if (query) {
+					document.querySelectorAll('.faq-category').forEach(cat => {
+						cat.style.display = 'block';
+					});
+					document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+					document.querySelector('.category-tab[data-category="all"]').classList.add('active');
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,63 +1,641 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
-
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
-
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About | ${SITE_TITLE}`} description="Learn more about Omar Abdelfattah - AI Content Creator, Web & App Developer" />
+		<style>
+			body {
+				padding-top: 80px;
+			}
+			.page-header {
+				padding: 4rem 2rem;
+				text-align: center;
+				position: relative;
+			}
+			.page-header::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 600px;
+				height: 600px;
+				background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+				pointer-events: none;
+			}
+			.page-header h1 {
+				font-size: 3.5rem;
+				margin-bottom: 1rem;
+				background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				position: relative;
+			}
+			.page-header p {
+				color: var(--text-secondary);
+				font-size: 1.2rem;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			main {
+				max-width: 100%;
+				margin: 0 auto;
+				padding: 0 4rem;
+			}
+			
+			/* Hero Section */
+			.about-hero {
+				display: grid;
+				grid-template-columns: 1fr 1.2fr;
+				gap: 4rem;
+				padding: 3rem 0;
+				align-items: center;
+			}
+			.about-image {
+				position: relative;
+			}
+			.about-image img {
+				width: 100%;
+				border-radius: 20px;
+				box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+			}
+			.about-image::before {
+				content: '';
+				position: absolute;
+				top: -20px;
+				left: -20px;
+				right: 20px;
+				bottom: 20px;
+				border: 2px solid var(--accent);
+				border-radius: 20px;
+				z-index: -1;
+			}
+			.about-content h2 {
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+				color: var(--text-primary);
+			}
+			.about-content .subtitle {
+				color: var(--accent);
+				font-size: 1.2rem;
+				font-weight: 500;
+				margin-bottom: 1.5rem;
+			}
+			.about-content p {
+				color: var(--text-secondary);
+				line-height: 1.8;
+				margin-bottom: 1.5rem;
+				font-size: 1.1rem;
+			}
+			
+			/* Stats */
+			.stats-row {
+				display: flex;
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+			.stat-item {
+				text-align: center;
+			}
+			.stat-number {
+				font-size: 2.5rem;
+				font-weight: 700;
+				color: var(--accent);
+			}
+			.stat-label {
+				color: var(--text-secondary);
+				font-size: 0.9rem;
+			}
+			
+			/* Skills Section */
+			.skills-section {
+				padding: 5rem 0;
+			}
+			.section-title {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+			.section-title h2 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				color: var(--text-primary);
+			}
+			.section-title p {
+				color: var(--text-secondary);
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+			}
+			.skill-card {
+				background: var(--bg-card);
+				padding: 2rem;
+				border-radius: 16px;
+				border: 1px solid var(--border-color);
+				transition: all 0.3s ease;
+			}
+			.skill-card:hover {
+				transform: translateY(-5px);
+				border-color: var(--accent);
+				box-shadow: 0 15px 40px rgba(245, 158, 11, 0.1);
+			}
+			.skill-icon {
+				width: 60px;
+				height: 60px;
+				background: rgba(245, 158, 11, 0.1);
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.8rem;
+				margin-bottom: 1.5rem;
+			}
+			.skill-card h3 {
+				color: var(--text-primary);
+				margin-bottom: 0.75rem;
+				font-size: 1.3rem;
+			}
+			.skill-card p {
+				color: var(--text-secondary);
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+			.skill-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-top: 1rem;
+			}
+			.skill-tag {
+				background: rgba(245, 158, 11, 0.1);
+				color: var(--accent);
+				padding: 0.3rem 0.75rem;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				font-weight: 500;
+			}
+			
+			/* Timeline */
+			.timeline-section {
+				padding: 5rem 0;
+				background: var(--bg-secondary);
+				margin: 0 -2rem;
+				padding-left: 2rem;
+				padding-right: 2rem;
+			}
+			.timeline {
+				max-width: 800px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 2px;
+				height: 100%;
+				background: var(--border-color);
+			}
+			.timeline-item {
+				display: flex;
+				gap: 2rem;
+				margin-bottom: 3rem;
+				position: relative;
+			}
+			.timeline-item:nth-child(even) {
+				flex-direction: row-reverse;
+			}
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 20px;
+				transform: translateX(-50%);
+				width: 16px;
+				height: 16px;
+				background: var(--accent);
+				border-radius: 50%;
+				border: 3px solid var(--bg-primary);
+			}
+			.timeline-content {
+				flex: 1;
+				background: var(--bg-card);
+				padding: 1.5rem;
+				border-radius: 12px;
+				border: 1px solid var(--border-color);
+			}
+			.timeline-year {
+				color: var(--accent);
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+			}
+			.timeline-content h4 {
+				color: var(--text-primary);
+				margin-bottom: 0.5rem;
+			}
+			.timeline-content p {
+				color: var(--text-secondary);
+				font-size: 0.95rem;
+			}
+			.timeline-spacer {
+				flex: 1;
+			}
+			
+			/* Tools Section */
+			.tools-section {
+				padding: 5rem 0;
+			}
+			.tools-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+				gap: 1.5rem;
+				justify-items: center;
+			}
+			.tool-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 1.5rem;
+				background: var(--bg-card);
+				border-radius: 12px;
+				border: 1px solid var(--border-color);
+				transition: all 0.3s ease;
+				width: 100%;
+			}
+			.tool-item:hover {
+				transform: translateY(-5px);
+				border-color: var(--accent);
+			}
+			.tool-icon {
+				font-size: 2.5rem;
+			}
+			.tool-name {
+				color: var(--text-secondary);
+				font-size: 0.85rem;
+				text-align: center;
+			}
+			
+			/* CTA Section */
+			.cta-section {
+				padding: 5rem 0;
+				text-align: center;
+			}
+			.cta-card {
+				background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+				padding: 4rem;
+				border-radius: 24px;
+				border: 1px solid rgba(245, 158, 11, 0.2);
+			}
+			.cta-card h2 {
+				font-size: 2.5rem;
+				color: var(--text-primary);
+				margin-bottom: 1rem;
+			}
+			.cta-card p {
+				color: var(--text-secondary);
+				font-size: 1.1rem;
+				max-width: 500px;
+				margin: 0 auto 2rem;
+			}
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			.cta-btn {
+				padding: 1rem 2.5rem;
+				border-radius: 10px;
+				font-weight: 600;
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+			.cta-btn.primary {
+				background: var(--accent-gradient);
+				color: #000;
+			}
+			.cta-btn.primary:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+			}
+			.cta-btn.secondary {
+				background: transparent;
+				color: var(--text-primary);
+				border: 1px solid var(--border-color);
+			}
+			.cta-btn.secondary:hover {
+				border-color: var(--accent);
+				color: var(--accent);
+			}
+			
+			/* Social Links */
+			.social-links {
+				display: flex;
+				gap: 1rem;
+				margin-top: 2rem;
+			}
+			.social-link {
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: var(--bg-card);
+				border: 1px solid var(--border-color);
+				border-radius: 12px;
+				font-size: 1.3rem;
+				color: var(--text-secondary);
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+			.social-link:hover {
+				background: var(--accent);
+				color: #000;
+				border-color: var(--accent);
+				transform: translateY(-3px);
+			}
+			
+			/* Responsive */
+			@media (max-width: 900px) {
+				.about-hero {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+				.about-image {
+					max-width: 400px;
+					margin: 0 auto;
+				}
+				.stats-row {
+					justify-content: center;
+				}
+				.timeline::before {
+					left: 20px;
+				}
+				.timeline-item,
+				.timeline-item:nth-child(even) {
+					flex-direction: row;
+					padding-left: 50px;
+				}
+				.timeline-item::before {
+					left: 20px;
+				}
+				.timeline-spacer {
+					display: none;
+				}
+			}
+			@media (max-width: 600px) {
+				.page-header h1 {
+					font-size: 2.5rem;
+				}
+				.about-content h2 {
+					font-size: 2rem;
+				}
+				.stat-number {
+					font-size: 2rem;
+				}
+				.cta-card {
+					padding: 2rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		
+		<header class="page-header">
+			<h1 data-i18n="aboutPage.title">About Me</h1>
+			<p data-i18n="aboutPage.subtitle">Passionate about creating digital experiences that make a difference</p>
+		</header>
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="about-hero">
+				<div class="about-image">
+					<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop" alt="Omar Abdelfattah" />
+				</div>
+				<div class="about-content">
+					<h2>Omar Abdelfattah</h2>
+					<p class="subtitle" data-i18n="aboutPage.role">AI Content Creator & Full-Stack Developer</p>
+					<p data-i18n="aboutPage.bioEn">
+						Hello! I'm Omar, a developer and designer passionate about technology and creativity. I specialize in creating AI-powered content and developing websites and applications that combine beauty with functionality.
+					</p>
+					
+					<div class="stats-row">
+						<div class="stat-item">
+							<div class="stat-number">5+</div>
+							<div class="stat-label" data-i18n="aboutPage.statYears">Years Experience</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">100+</div>
+							<div class="stat-label" data-i18n="aboutPage.statProjects">Projects Done</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">50+</div>
+							<div class="stat-label" data-i18n="aboutPage.statClients">Happy Clients</div>
+						</div>
+					</div>
+					
+					<div class="social-links">
+						<a href="https://github.com" class="social-link" target="_blank" title="GitHub">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+							</svg>
+						</a>
+						<a href="https://linkedin.com" class="social-link" target="_blank" title="LinkedIn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+							</svg>
+						</a>
+						<a href="https://twitter.com" class="social-link" target="_blank" title="Twitter">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+							</svg>
+						</a>
+						<a href="https://youtube.com" class="social-link" target="_blank" title="YouTube">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Skills Section -->
+			<section class="skills-section">
+				<div class="section-title">
+					<h2 data-i18n="aboutPage.skillsTitle">What I Do</h2>
+					<p data-i18n="aboutPage.skillsSubtitle">Combining creativity with technical expertise to deliver exceptional results</p>
+				</div>
+				
+				<div class="skills-grid">
+					<div class="skill-card">
+						<div class="skill-icon">🤖</div>
+						<h3 data-i18n="aboutPage.aiTitle">AI Content Creation</h3>
+						<p data-i18n="aboutPage.aiDesc">Creating engaging content using cutting-edge AI tools and technologies for maximum impact.</p>
+						<div class="skill-tags">
+							<span class="skill-tag">ChatGPT</span>
+							<span class="skill-tag">Midjourney</span>
+							<span class="skill-tag">Stable Diffusion</span>
+						</div>
+					</div>
+					
+					<div class="skill-card">
+						<div class="skill-icon">🌐</div>
+						<h3 data-i18n="aboutPage.webTitle">Web Development</h3>
+						<p data-i18n="aboutPage.webDesc">Building modern, responsive websites using the latest frameworks and best practices.</p>
+						<div class="skill-tags">
+							<span class="skill-tag">React</span>
+							<span class="skill-tag">Next.js</span>
+							<span class="skill-tag">Astro</span>
+						</div>
+					</div>
+					
+					<div class="skill-card">
+						<div class="skill-icon">📱</div>
+						<h3 data-i18n="aboutPage.appTitle">App Development</h3>
+						<p data-i18n="aboutPage.appDesc">Developing cross-platform mobile applications that provide seamless user experiences.</p>
+						<div class="skill-tags">
+							<span class="skill-tag">React Native</span>
+							<span class="skill-tag">Flutter</span>
+							<span class="skill-tag">iOS</span>
+						</div>
+					</div>
+					
+					<div class="skill-card">
+						<div class="skill-icon">🎨</div>
+						<h3 data-i18n="aboutPage.uiTitle">UI/UX Design</h3>
+						<p data-i18n="aboutPage.uiDesc">Designing beautiful and intuitive interfaces that users love to interact with.</p>
+						<div class="skill-tags">
+							<span class="skill-tag">Figma</span>
+							<span class="skill-tag">Adobe XD</span>
+							<span class="skill-tag">Photoshop</span>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Timeline Section -->
+			<section class="timeline-section">
+				<div class="section-title">
+					<h2 data-i18n="aboutPage.journeyTitle">My Journey</h2>
+					<p data-i18n="aboutPage.journeySubtitle">A brief overview of my professional journey</p>
+				</div>
+				
+				<div class="timeline">
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<div class="timeline-year">2024</div>
+							<h4 data-i18n="aboutPage.t2024">AI Content Creator</h4>
+							<p data-i18n="aboutPage.t2024d">Started creating AI-powered content and exploring new creative possibilities with generative AI.</p>
+						</div>
+						<div class="timeline-spacer"></div>
+					</div>
+					
+					<div class="timeline-item">
+						<div class="timeline-spacer"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2023</div>
+							<h4 data-i18n="aboutPage.t2023">Full-Stack Development</h4>
+							<p data-i18n="aboutPage.t2023d">Expanded skills to include backend development and cloud services.</p>
+						</div>
+					</div>
+					
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<div class="timeline-year">2022</div>
+							<h4 data-i18n="aboutPage.t2022">Freelance Developer</h4>
+							<p data-i18n="aboutPage.t2022d">Started working independently with clients from around the world.</p>
+						</div>
+						<div class="timeline-spacer"></div>
+					</div>
+					
+					<div class="timeline-item">
+						<div class="timeline-spacer"></div>
+						<div class="timeline-content">
+							<div class="timeline-year">2020</div>
+							<h4 data-i18n="aboutPage.t2020">Web Development Journey</h4>
+							<p data-i18n="aboutPage.t2020d">Began learning web development and building my first projects.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Tools Section -->
+			<section class="tools-section">
+				<div class="section-title">
+					<h2 data-i18n="aboutPage.toolsTitle">Tools & Technologies</h2>
+					<p data-i18n="aboutPage.toolsSubtitle">The tools I use to bring ideas to life</p>
+				</div>
+				
+				<div class="tools-grid">
+					<div class="tool-item">
+						<span class="tool-icon">⚛️</span>
+						<span class="tool-name">React</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🔷</span>
+						<span class="tool-name">TypeScript</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🚀</span>
+						<span class="tool-name">Next.js</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🌟</span>
+						<span class="tool-name">Astro</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🎯</span>
+						<span class="tool-name">Node.js</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🐍</span>
+						<span class="tool-name">Python</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🗃️</span>
+						<span class="tool-name">MongoDB</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🐘</span>
+						<span class="tool-name">PostgreSQL</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">🎨</span>
+						<span class="tool-name">Figma</span>
+					</div>
+					<div class="tool-item">
+						<span class="tool-icon">☁️</span>
+						<span class="tool-name">AWS</span>
+					</div>
+				</div>
+			</section>
+			
+			<!-- CTA Section -->
+			<section class="cta-section">
+				<div class="cta-card">
+					<h2 data-i18n="aboutPage.ctaTitle">Let's Work Together</h2>
+					<p data-i18n="aboutPage.ctaDesc">Have a project in mind? I'd love to hear about it and see how we can collaborate.</p>
+					<div class="cta-buttons">
+						<a href="/contact" class="cta-btn primary" data-i18n="aboutPage.ctaPrimary">Get In Touch</a>
+						<a href="/projects" class="cta-btn secondary" data-i18n="aboutPage.ctaSecondary">View My Work</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		
+		<Footer />
+	</body>
+</html>

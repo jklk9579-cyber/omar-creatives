@@ -1,0 +1,221 @@
+---
+---
+
+<div class="lang-switcher" id="langSwitcher">
+  <button class="lang-btn" id="langBtn" aria-label="Switch Language">
+    <span class="lang-flag" id="currentFlag">🇺🇸</span>
+    <span class="lang-text" id="currentLang">EN</span>
+    <svg class="lang-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M6 9l6 6 6-6"/>
+    </svg>
+  </button>
+  <div class="lang-dropdown" id="langDropdown">
+    <button class="lang-option" data-lang="en">
+      <span class="option-flag">🇺🇸</span>
+      <span class="option-text">English</span>
+      <svg class="option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <path d="M5 12l5 5L20 7"/>
+      </svg>
+    </button>
+    <button class="lang-option" data-lang="ar">
+      <span class="option-flag">🇸🇦</span>
+      <span class="option-text">العربية</span>
+      <svg class="option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <path d="M5 12l5 5L20 7"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .lang-switcher {
+    position: relative;
+    z-index: 100;
+  }
+  
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  
+  .lang-switcher.active .lang-btn {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--accent);
+  }
+  
+  .lang-flag {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  .lang-text {
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  
+  .lang-arrow {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
+  }
+  
+  .lang-switcher.active .lang-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 150px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .lang-switcher.active .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+  
+  .lang-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+  }
+  
+  .lang-option.active {
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--accent);
+  }
+  
+  .option-flag {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+  
+  .option-text {
+    flex: 1;
+    font-weight: 500;
+  }
+  
+  .lang-option[data-lang="ar"] .option-text {
+    font-family: "GumelaArabic", "Cairo", sans-serif;
+    font-weight: 300;
+    font-size: 1.05rem;
+  }
+  
+  .option-check {
+    width: 16px;
+    height: 16px;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .lang-option.active .option-check {
+    opacity: 1;
+  }
+  
+  /* RTL */
+  :global([dir="rtl"]) .lang-dropdown {
+    right: auto;
+    left: 0;
+  }
+  
+  :global([dir="rtl"]) .lang-btn {
+    flex-direction: row-reverse;
+  }
+  
+  :global([dir="rtl"]) .lang-option {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+</style>
+
+<script>
+  const switcher = document.getElementById('langSwitcher');
+  const btn = document.getElementById('langBtn');
+  const currentFlag = document.getElementById('currentFlag');
+  const currentLang = document.getElementById('currentLang');
+  const options = document.querySelectorAll('.lang-option');
+  
+  // Get saved language
+  const savedLang = localStorage.getItem('language') || 'en';
+  updateDisplay(savedLang);
+  
+  // Toggle dropdown
+  btn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    switcher?.classList.toggle('active');
+  });
+  
+  // Close on outside click
+  document.addEventListener('click', () => {
+    switcher?.classList.remove('active');
+  });
+  
+  // Handle selection
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const lang = option.getAttribute('data-lang');
+      if (lang && lang !== localStorage.getItem('language')) {
+        localStorage.setItem('language', lang);
+        switcher?.classList.remove('active');
+        setTimeout(() => window.location.reload(), 200);
+      }
+    });
+  });
+  
+  function updateDisplay(lang: string) {
+    if (currentFlag) currentFlag.textContent = lang === 'ar' ? '🇸🇦' : '🇺🇸';
+    if (currentLang) currentLang.textContent = lang === 'ar' ? 'ع' : 'EN';
+    
+    options.forEach(opt => {
+      opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+    });
+    
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+  }
+</script>

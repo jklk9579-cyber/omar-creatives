@@ -1,0 +1,273 @@
+---
+import fs from 'fs';
+import path from 'path';
+
+// Read settings from file
+let settings = {
+  siteName: 'Omar Abdelfattah',
+  siteDescription: 'AI Content Creator, Web & App Developer',
+  email: 'contact@omar.dev',
+  socialLinks: {
+    twitter: '',
+    github: '',
+    linkedin: '',
+    instagram: ''
+  }
+};
+
+try {
+  const settingsPath = path.join(process.cwd(), 'src/content/settings/general.json');
+  if (fs.existsSync(settingsPath)) {
+    const data = fs.readFileSync(settingsPath, 'utf-8');
+    settings = { ...settings, ...JSON.parse(data) };
+  }
+} catch (e) {
+  console.error('Error reading settings:', e);
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+    }
+    .admin-layout { display: flex; min-height: 100vh; }
+    
+    .sidebar {
+      width: 260px;
+      background: #111;
+      border-right: 1px solid #222;
+      padding: 1.5rem;
+      position: fixed;
+      height: 100vh;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #222; }
+    .logo span { color: #f59e0b; }
+    .nav-section { margin-bottom: 2rem; }
+    .nav-title { font-size: 0.75rem; text-transform: uppercase; color: #666; letter-spacing: 1px; margin-bottom: 0.75rem; }
+    .nav-link {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; color: #a0a0a0; text-decoration: none;
+      border-radius: 8px; margin-bottom: 0.25rem; transition: all 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { background: #1a1a1a; color: #fff; }
+    .nav-link.active { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+    
+    .main-content { flex: 1; margin-left: 260px; padding: 2rem; max-width: 900px; }
+    .header { margin-bottom: 2rem; }
+    .header h1 { font-size: 1.75rem; }
+    
+    .btn {
+      padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; display: inline-flex;
+      align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; border: none;
+    }
+    .btn-primary { background: linear-gradient(135deg, #f59e0b, #f97316); color: #000; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3); }
+    .btn-back { background: none; color: #666; padding: 0.5rem 1rem; }
+    .btn-back:hover { color: #fff; }
+    
+    .settings-section {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .settings-section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #a0a0a0;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #f59e0b;
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group small { display: block; margin-top: 0.5rem; color: #666; font-size: 0.8rem; }
+    
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    
+    .info-box {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .info-box p { color: #f59e0b; font-size: 0.9rem; }
+    
+    .view-site {
+      position: fixed; bottom: 2rem; left: 1.5rem; width: 230px;
+    }
+    .view-site a {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.75rem; background: #1a1a1a; border: 1px solid #333;
+      border-radius: 8px; color: #fff; text-decoration: none; font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .view-site a:hover { border-color: #f59e0b; color: #f59e0b; }
+    
+    .save-bar {
+      position: fixed;
+      bottom: 0;
+      left: 260px;
+      right: 0;
+      background: #111;
+      border-top: 1px solid #222;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="logo">Omar<span>.</span> Admin</div>
+      <nav class="nav-section">
+        <div class="nav-title">Main</div>
+        <a href="/admin" class="nav-link">📊 Dashboard</a>
+        <a href="/admin/posts" class="nav-link">📝 Blog Posts</a>
+        <a href="/admin/services" class="nav-link">💼 Services</a>
+        <a href="/admin/projects" class="nav-link">🎨 Projects</a>
+      </nav>
+      <nav class="nav-section">
+        <div class="nav-title">Media</div>
+        <a href="/admin/media" class="nav-link">🖼️ Media Library</a>
+      </nav>
+      <nav class="nav-section">
+        <div class="nav-title">Settings</div>
+        <a href="/admin/settings" class="nav-link active">⚙️ Site Settings</a>
+      </nav>
+      <div class="view-site">
+        <a href="/" target="_blank">🌐 View Website</a>
+      </div>
+    </aside>
+    
+    <main class="main-content">
+      <div class="header">
+        <a href="/admin" class="btn btn-back">← Back</a>
+        <h1>⚙️ Site Settings</h1>
+      </div>
+      
+      <div class="info-box">
+        <p>💡 Settings are stored in <code>src/content/settings/general.json</code>. Edit directly or use Decap CMS.</p>
+      </div>
+      
+      <form id="settingsForm">
+        <div class="settings-section">
+          <h2>🌐 General</h2>
+          <div class="form-group">
+            <label for="siteName">Site Name</label>
+            <input type="text" id="siteName" name="siteName" value={settings.siteName} />
+          </div>
+          <div class="form-group">
+            <label for="siteDescription">Site Description</label>
+            <textarea id="siteDescription" name="siteDescription">{settings.siteDescription}</textarea>
+            <small>Used in meta tags and site header</small>
+          </div>
+        </div>
+        
+        <div class="settings-section">
+          <h2>📧 Contact</h2>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" value={settings.email} />
+          </div>
+        </div>
+        
+        <div class="settings-section">
+          <h2>🔗 Social Links</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="twitter">Twitter / X</label>
+              <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/username" value={settings.socialLinks?.twitter || ''} />
+            </div>
+            <div class="form-group">
+              <label for="github">GitHub</label>
+              <input type="url" id="github" name="github" placeholder="https://github.com/username" value={settings.socialLinks?.github || ''} />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="linkedin">LinkedIn</label>
+              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username" value={settings.socialLinks?.linkedin || ''} />
+            </div>
+            <div class="form-group">
+              <label for="instagram">Instagram</label>
+              <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/username" value={settings.socialLinks?.instagram || ''} />
+            </div>
+          </div>
+        </div>
+        
+        <div class="settings-section">
+          <h2>🎨 Appearance</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="primaryColor">Primary Color</label>
+              <input type="text" id="primaryColor" name="primaryColor" placeholder="#f59e0b" value="#f59e0b" />
+            </div>
+            <div class="form-group">
+              <label for="accentColor">Accent Color</label>
+              <input type="text" id="accentColor" name="accentColor" placeholder="#f97316" value="#f97316" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="settings-section">
+          <h2>🔧 Advanced</h2>
+          <p style="color: #666; margin-bottom: 1rem;">For advanced settings, edit the configuration files directly or use:</p>
+          <a href="/admin/cms" class="btn btn-primary">Open Decap CMS</a>
+        </div>
+      </form>
+    </main>
+    
+    <div class="save-bar">
+      <button type="button" class="btn" style="background: #333; color: #fff;" onclick="window.location.reload()">Reset</button>
+      <button type="submit" form="settingsForm" class="btn btn-primary" onclick="saveSettings(event)">💾 Save Changes</button>
+    </div>
+  </div>
+  
+  <script>
+    function saveSettings(e) {
+      e.preventDefault();
+      alert('Settings saved! In production, this would update the configuration files.\n\nFor now, edit src/content/settings/general.json directly or use Decap CMS.');
+    }
+  </script>
+</body>
+</html>

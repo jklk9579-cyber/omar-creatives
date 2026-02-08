@@ -6,37 +6,55 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 	<head>
-		<BaseHead title={`تواصل معنا | ${SITE_TITLE}`} description="تواصل معنا - نحن هنا لمساعدتك" />
+		<BaseHead title={`Contact | ${SITE_TITLE}`} description="Get in touch - I'm here to help" />
 		<style>
-			.page-hero {
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				color: white;
+			body {
+				padding-top: 80px;
+			}
+			.page-header {
 				padding: 4rem 2rem;
 				text-align: center;
-				margin: -3em -1em 0;
+				position: relative;
 			}
-			.page-hero h1 {
-				color: white;
-				font-size: 2.5rem;
-				margin-bottom: 0.5rem;
+			.page-header::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 600px;
+				height: 600px;
+				background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+				pointer-events: none;
 			}
-			.page-hero p {
-				opacity: 0.9;
-				font-size: 1.1rem;
+			.page-header h1 {
+				font-size: 3.5rem;
+				margin-bottom: 1rem;
+				background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				position: relative;
+			}
+			.page-header p {
+				color: var(--text-secondary);
+				font-size: 1.2rem;
+				max-width: 600px;
+				margin: 0 auto;
 			}
 			main {
-				width: 1000px;
-				max-width: calc(100% - 2rem);
+				width: 100%;
+				max-width: 100%;
 				margin: 0 auto;
-				padding: 2rem 1rem;
+				padding: 0 4rem;
 			}
 			.contact-container {
 				display: grid;
 				grid-template-columns: 1.2fr 1fr;
 				gap: 3rem;
-				padding: 3rem 0;
+				padding: 3rem 0 5rem;
 			}
 			@media (max-width: 768px) {
 				.contact-container {
@@ -44,14 +62,15 @@ import { SITE_TITLE } from '../consts';
 				}
 			}
 			.contact-form {
-				background: white;
+				background: var(--bg-card);
 				padding: 2.5rem;
-				border-radius: 20px;
-				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+				border-radius: 16px;
+				border: 1px solid var(--border-color);
 			}
 			.contact-form h2 {
 				margin-bottom: 1.5rem;
-				color: #333;
+				color: var(--text-primary);
+				font-size: 1.5rem;
 			}
 			.form-group {
 				margin-bottom: 1.5rem;
@@ -59,85 +78,103 @@ import { SITE_TITLE } from '../consts';
 			.form-group label {
 				display: block;
 				margin-bottom: 0.5rem;
-				font-weight: 600;
-				color: #333;
+				font-weight: 500;
+				color: var(--text-secondary);
+				font-size: 0.95rem;
 			}
 			.form-group input,
 			.form-group textarea,
 			.form-group select {
 				width: 100%;
 				padding: 1rem;
-				border: 2px solid #eee;
-				border-radius: 12px;
+				background: var(--bg-primary);
+				border: 1px solid var(--border-color);
+				border-radius: 10px;
 				font-size: 1rem;
 				font-family: inherit;
+				color: var(--text-primary);
 				transition: border-color 0.3s ease, box-shadow 0.3s ease;
 			}
 			.form-group textarea {
 				min-height: 150px;
 				resize: vertical;
 			}
+			.form-group input::placeholder,
+			.form-group textarea::placeholder {
+				color: var(--text-muted);
+			}
 			.form-group input:focus,
 			.form-group textarea:focus,
 			.form-group select:focus {
 				outline: none;
-				border-color: #667eea;
-				box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+				border-color: var(--accent);
+				box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+			}
+			.form-group select option {
+				background: var(--bg-card);
+				color: var(--text-primary);
 			}
 			.submit-btn {
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				color: white;
+				background: var(--accent-gradient);
+				color: #000;
 				padding: 1rem 2.5rem;
 				border: none;
-				border-radius: 50px;
-				font-size: 1.1rem;
-				font-weight: bold;
+				border-radius: 10px;
+				font-size: 1rem;
+				font-weight: 600;
 				cursor: pointer;
 				width: 100%;
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 			}
 			.submit-btn:hover {
 				transform: translateY(-2px);
-				box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+				box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
 			}
 			.contact-info {
 				padding: 1rem 0;
 			}
 			.contact-info h2 {
 				margin-bottom: 1.5rem;
-				color: #333;
+				color: var(--text-primary);
+				font-size: 1.5rem;
 			}
 			.contact-item {
 				display: flex;
 				align-items: flex-start;
 				gap: 1rem;
-				margin-bottom: 1.5rem;
+				margin-bottom: 1rem;
 				padding: 1.25rem;
-				background: white;
-				border-radius: 16px;
-				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-				transition: transform 0.3s ease;
+				background: var(--bg-card);
+				border: 1px solid var(--border-color);
+				border-radius: 12px;
+				transition: all 0.3s ease;
 			}
 			.contact-item:hover {
+				border-color: var(--accent);
 				transform: translateX(-5px);
 			}
 			.contact-item-icon {
-				font-size: 2rem;
-				width: 50px;
-				height: 50px;
+				font-size: 1.5rem;
+				width: 45px;
+				height: 45px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				border-radius: 12px;
+				background: rgba(245, 158, 11, 0.1);
+				border-radius: 10px;
 			}
 			.contact-item-content strong {
 				display: block;
 				margin-bottom: 0.25rem;
-				color: #333;
+				color: var(--text-primary);
+				font-size: 0.95rem;
+			}
+			.contact-item-content span {
+				color: var(--text-secondary);
+				font-size: 0.9rem;
 			}
 			.contact-item a {
-				color: #667eea;
+				color: var(--accent);
 				text-decoration: none;
 				font-weight: 500;
 			}
@@ -151,11 +188,11 @@ import { SITE_TITLE } from '../consts';
 				gap: 0.75rem;
 				background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
 				color: white;
-				padding: 1.25rem 2rem;
-				border-radius: 50px;
+				padding: 1rem 2rem;
+				border-radius: 10px;
 				text-decoration: none;
-				font-weight: bold;
-				font-size: 1.1rem;
+				font-weight: 600;
+				font-size: 1rem;
 				margin-top: 1.5rem;
 				width: 100%;
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -170,73 +207,73 @@ import { SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<section class="page-hero">
-				<h1>📬 تواصل معنا</h1>
-				<p>نحن هنا لمساعدتك - راسلنا وسنرد عليك في أقرب وقت</p>
+			<section class="page-header">
+				<h1 data-i18n="contact.title">Get in Touch</h1>
+				<p data-i18n="contact.subtitle">Have a project in mind? Let's talk about how I can help bring your ideas to life</p>
 			</section>
 			
 			<div class="contact-container">
 				<!-- Contact Form -->
 				<div class="contact-form">
-					<h2>✉️ أرسل رسالة</h2>
+					<h2 data-i18n="contact.formTitle">Send a Message</h2>
 					<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
 						<p style="display:none;">
 							<label>Don't fill this out: <input name="bot-field" /></label>
 						</p>
 						
 						<div class="form-group">
-							<label for="name">الاسم *</label>
-							<input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required />
+							<label for="name" data-i18n="contact.name">Name *</label>
+							<input type="text" id="name" name="name" placeholder="Your name" data-i18n-placeholder="contact.namePh" required />
 						</div>
 						
 						<div class="form-group">
-							<label for="email">البريد الإلكتروني *</label>
-							<input type="email" id="email" name="email" placeholder="example@email.com" required />
+							<label for="email" data-i18n="contact.email">Email *</label>
+							<input type="email" id="email" name="email" placeholder="you@example.com" data-i18n-placeholder="contact.emailPh" required />
 						</div>
 						
 						<div class="form-group">
-							<label for="phone">رقم الهاتف</label>
-							<input type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx" />
+							<label for="phone" data-i18n="contact.phone">Phone</label>
+							<input type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx" data-i18n-placeholder="contact.phonePh" />
 						</div>
 						
 						<div class="form-group">
-							<label for="service">الخدمة المطلوبة</label>
+							<label for="service" data-i18n="contact.service">Service Needed</label>
 							<select id="service" name="service">
-								<option value="">اختر خدمة...</option>
-								<option value="تصميم موقع">🌐 تصميم موقع</option>
-								<option value="تطوير تطبيق">📱 تطوير تطبيق</option>
-								<option value="تصميم جرافيك">🎨 تصميم جرافيك</option>
-								<option value="تحسين SEO">🔍 تحسين SEO</option>
-								<option value="استشارة">💡 استشارة</option>
-								<option value="أخرى">أخرى</option>
+								<option value="" data-i18n="contact.selectService">Select a service...</option>
+								<option value="AI Content" data-i18n="contact.aiContent">🤖 AI Content Creation</option>
+								<option value="Web Development" data-i18n="contact.webDev">🌐 Web Development</option>
+								<option value="App Development" data-i18n="contact.appDev">📱 App Development</option>
+								<option value="UI/UX Design" data-i18n="contact.uiDesign">🎨 UI/UX Design</option>
+								<option value="Consultation" data-i18n="contact.consultation">💡 Consultation</option>
+								<option value="Other" data-i18n="contact.other">Other</option>
 							</select>
 						</div>
 						
 						<div class="form-group">
-							<label for="message">الرسالة *</label>
-							<textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+							<label for="message" data-i18n="contact.message">Message *</label>
+							<textarea id="message" name="message" placeholder="Tell me about your project..." data-i18n-placeholder="contact.messagePh" required></textarea>
 						</div>
 						
-						<button type="submit" class="submit-btn">🚀 إرسال الرسالة</button>
+						<button type="submit" class="submit-btn" data-i18n="contact.submit">Send Message →</button>
 					</form>
 				</div>
 				
 				<!-- Contact Info -->
 				<div class="contact-info">
-					<h2>📞 أو تواصل مباشرة</h2>
+					<h2 data-i18n="contact.infoTitle">Or Reach Out Directly</h2>
 					
 					<div class="contact-item">
 						<span class="contact-item-icon">📧</span>
 						<div class="contact-item-content">
-							<strong>البريد الإلكتروني</strong>
-							<a href="mailto:hello@example.com">hello@example.com</a>
+							<strong data-i18n="contact.emailLabel">Email</strong>
+							<a href="mailto:omar@example.com">omar@example.com</a>
 						</div>
 					</div>
 					
 					<div class="contact-item">
 						<span class="contact-item-icon">📱</span>
 						<div class="contact-item-content">
-							<strong>الهاتف</strong>
+							<strong data-i18n="contact.phoneLabel">Phone</strong>
 							<a href="tel:+201234567890">+20 123 456 7890</a>
 						</div>
 					</div>
@@ -244,24 +281,25 @@ import { SITE_TITLE } from '../consts';
 					<div class="contact-item">
 						<span class="contact-item-icon">📍</span>
 						<div class="contact-item-content">
-							<strong>الموقع</strong>
-							<span>القاهرة، مصر</span>
+							<strong data-i18n="contact.locationLabel">Location</strong>
+							<span data-i18n="contact.locationValue">Cairo, Egypt</span>
 						</div>
 					</div>
 					
 					<div class="contact-item">
 						<span class="contact-item-icon">🕐</span>
 						<div class="contact-item-content">
-							<strong>ساعات العمل</strong>
-							<span>السبت - الخميس: 9ص - 6م</span>
+							<strong data-i18n="contact.hoursLabel">Working Hours</strong>
+							<span data-i18n="contact.hoursValue">Sat - Thu: 9AM - 6PM</span>
 						</div>
 					</div>
 					
-					<a href="https://wa.me/201234567890?text=مرحبا، أريد الاستفسار عن خدماتكم" 
+					<a href="https://wa.me/201234567890?text=Hi Omar, I'm interested in your services" 
 					   class="whatsapp-btn" 
 					   target="_blank" 
-					   rel="noopener noreferrer">
-						💬 تواصل عبر واتساب
+					   rel="noopener noreferrer"
+					   data-i18n="contact.whatsapp">
+						💬 Chat on WhatsApp
 					</a>
 				</div>
 			</div>

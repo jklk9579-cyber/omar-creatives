@@ -1,0 +1,183 @@
+---
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+    }
+    .admin-layout { display: flex; min-height: 100vh; }
+    
+    .sidebar {
+      width: 260px;
+      background: #111;
+      border-right: 1px solid #222;
+      padding: 1.5rem;
+      position: fixed;
+      height: 100vh;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #222; }
+    .logo span { color: #f59e0b; }
+    .nav-section { margin-bottom: 2rem; }
+    .nav-title { font-size: 0.75rem; text-transform: uppercase; color: #666; letter-spacing: 1px; margin-bottom: 0.75rem; }
+    .nav-link {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; color: #a0a0a0; text-decoration: none;
+      border-radius: 8px; margin-bottom: 0.25rem; transition: all 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { background: #1a1a1a; color: #fff; }
+    .nav-link.active { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+    
+    .main-content { flex: 1; margin-left: 260px; padding: 2rem; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .header h1 { font-size: 1.75rem; }
+    
+    .btn {
+      padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; display: inline-flex;
+      align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; border: none;
+    }
+    .btn-primary { background: linear-gradient(135deg, #f59e0b, #f97316); color: #000; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3); }
+    .btn-back { background: none; color: #666; padding: 0.5rem 1rem; }
+    .btn-back:hover { color: #fff; }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .project-card:hover { border-color: #333; transform: translateY(-2px); }
+    .project-image {
+      width: 100%; height: 180px;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .project-image img { width: 100%; height: 100%; object-fit: cover; }
+    .project-info { padding: 1.5rem; }
+    .project-info h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .project-info p { color: #666; font-size: 0.9rem; margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .tag {
+      padding: 0.25rem 0.75rem; background: rgba(245, 158, 11, 0.1);
+      border-radius: 20px; font-size: 0.75rem; color: #f59e0b;
+    }
+    .project-actions { display: flex; gap: 0.5rem; }
+    .action-btn {
+      padding: 0.5rem 1rem; background: #1a1a1a; border: 1px solid #333;
+      border-radius: 6px; color: #fff; text-decoration: none; font-size: 0.85rem;
+      transition: all 0.2s; flex: 1; text-align: center;
+    }
+    .action-btn:hover { border-color: #f59e0b; color: #f59e0b; }
+    
+    .empty-state {
+      text-align: center; padding: 4rem 2rem;
+      background: #111; border: 1px solid #222; border-radius: 12px;
+    }
+    .empty-state p { color: #666; margin-bottom: 1.5rem; }
+    
+    .view-site {
+      position: fixed; bottom: 2rem; left: 1.5rem; width: 230px;
+    }
+    .view-site a {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.75rem; background: #1a1a1a; border: 1px solid #333;
+      border-radius: 8px; color: #fff; text-decoration: none; font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .view-site a:hover { border-color: #f59e0b; color: #f59e0b; }
+  </style>
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="logo">Omar<span>.</span> Admin</div>
+      <nav class="nav-section">
+        <div class="nav-title">Main</div>
+        <a href="/admin" class="nav-link">📊 Dashboard</a>
+        <a href="/admin/posts" class="nav-link">📝 Blog Posts</a>
+        <a href="/admin/services" class="nav-link">💼 Services</a>
+        <a href="/admin/projects" class="nav-link active">🎨 Projects</a>
+      </nav>
+      <nav class="nav-section">
+        <div class="nav-title">Media</div>
+        <a href="/admin/media" class="nav-link">🖼️ Media Library</a>
+      </nav>
+      <nav class="nav-section">
+        <div class="nav-title">Settings</div>
+        <a href="/admin/settings" class="nav-link">⚙️ Site Settings</a>
+      </nav>
+      <div class="view-site">
+        <a href="/" target="_blank">🌐 View Website</a>
+      </div>
+    </aside>
+    
+    <main class="main-content">
+      <div class="header">
+        <div>
+          <a href="/admin" class="btn btn-back">← Back</a>
+          <h1>🎨 Projects</h1>
+        </div>
+        <a href="/admin/cms" class="btn btn-primary">✨ Add Project</a>
+      </div>
+      
+      {projects.length > 0 ? (
+        <div class="projects-grid">
+          {projects.map((project) => (
+            <div class="project-card">
+              <div class="project-image">
+                {project.data.image ? (
+                  <img src={project.data.image} alt={project.data.title} />
+                ) : (
+                  '🎨'
+                )}
+              </div>
+              <div class="project-info">
+                <h3>{project.data.title}</h3>
+                <p>{project.data.description}</p>
+                {project.data.tags && (
+                  <div class="project-tags">
+                    {project.data.tags.slice(0, 3).map((tag: string) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+                <div class="project-actions">
+                  <a href="/projects" class="action-btn" target="_blank">👁️ View</a>
+                  <a href="/admin/cms" class="action-btn">✏️ Edit</a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>No projects added yet. Showcase your work!</p>
+          <a href="/admin/cms" class="btn btn-primary">✨ Add Project</a>
+        </div>
+      )}
+    </main>
+  </div>
+</body>
+</html>

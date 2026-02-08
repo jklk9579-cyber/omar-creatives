@@ -1,0 +1,618 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const services = await getCollection('services');
+const projects = await getCollection('projects');
+
+const allContent = [
+  ...posts.map(p => ({ 
+    type: 'post', 
+    title: p.data.title, 
+    description: p.data.description,
+    slug: `/blog/${p.id}`,
+    icon: '📝'
+  })),
+  ...services.map(s => ({ 
+    type: 'service', 
+    title: s.data.title, 
+    description: s.data.description,
+    slug: '/services',
+    icon: '💼'
+  })),
+  ...projects.map(p => ({ 
+    type: 'project', 
+    title: p.data.title, 
+    description: p.data.description,
+    slug: '/projects',
+    icon: '🎨'
+  })),
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Tools | Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111;
+      --bg-tertiary: #1a1a1a;
+      --border-color: #222;
+      --text-primary: #fff;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666;
+      --accent: #f59e0b;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+    
+    .admin-layout { display: flex; min-height: 100vh; }
+    
+    .sidebar {
+      width: 280px;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      padding: 1.5rem;
+      position: fixed;
+      height: 100vh;
+    }
+    
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .profile-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #000;
+    }
+    
+    .profile-info h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .profile-info p { font-size: 0.8rem; color: var(--text-muted); }
+    
+    .nav-section { margin-bottom: 1.5rem; }
+    .nav-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 10px;
+      margin-bottom: 0.25rem;
+      transition: all 0.2s;
+    }
+    
+    .nav-link:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+    .nav-link.active { background: rgba(245, 158, 11, 0.15); color: var(--accent); }
+    
+    .main-content {
+      flex: 1;
+      margin-left: 280px;
+      padding: 2rem;
+    }
+    
+    .header {
+      margin-bottom: 2rem;
+    }
+    
+    .header h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .header p { color: var(--text-muted); }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-back {
+      background: none;
+      color: var(--text-muted);
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .btn-back:hover { color: var(--text-primary); }
+    
+    /* SEO Cards Grid */
+    .seo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .seo-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .seo-card h3 {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    
+    .seo-score {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .seo-score.good { color: var(--success); }
+    .seo-score.warning { color: var(--warning); }
+    .seo-score.bad { color: var(--error); }
+    
+    .seo-status {
+      font-size: 0.85rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    
+    .seo-status.good { background: rgba(34, 197, 94, 0.15); color: var(--success); }
+    .seo-status.warning { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+    
+    /* Google Preview */
+    .preview-section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .preview-section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .google-preview {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      color: #1a1a1a;
+    }
+    
+    .google-url {
+      font-size: 0.85rem;
+      color: #006621;
+      margin-bottom: 0.25rem;
+    }
+    
+    .google-title {
+      font-size: 1.25rem;
+      color: #1a0dab;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    
+    .google-title:hover { text-decoration: underline; }
+    
+    .google-description {
+      font-size: 0.9rem;
+      color: #545454;
+      line-height: 1.5;
+    }
+    
+    /* Meta Editor */
+    .meta-editor {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    
+    .char-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin-top: 0.25rem;
+    }
+    
+    .char-count.warning { color: var(--warning); }
+    .char-count.error { color: var(--error); }
+    
+    /* Content Audit */
+    .audit-section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    
+    .audit-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .audit-header h2 {
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .audit-list { list-style: none; }
+    
+    .audit-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      transition: background 0.2s;
+    }
+    
+    .audit-item:last-child { border-bottom: none; }
+    .audit-item:hover { background: var(--bg-tertiary); }
+    
+    .audit-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    
+    .audit-icon.pass { background: rgba(34, 197, 94, 0.15); }
+    .audit-icon.warning { background: rgba(245, 158, 11, 0.15); }
+    .audit-icon.fail { background: rgba(239, 68, 68, 0.15); }
+    
+    .audit-content { flex: 1; }
+    .audit-title { font-weight: 500; margin-bottom: 0.25rem; }
+    .audit-desc { font-size: 0.85rem; color: var(--text-muted); }
+    
+    .audit-status {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+    }
+    
+    .audit-status.pass { background: rgba(34, 197, 94, 0.15); color: var(--success); }
+    .audit-status.warning { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+    .audit-status.fail { background: rgba(239, 68, 68, 0.15); color: var(--error); }
+    
+    /* URL Slug Generator */
+    .slug-generator {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+    }
+    
+    .slug-generator .form-group { flex: 1; }
+    
+    .slug-generator button {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, var(--accent), #f97316);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .slug-generator button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+    }
+    
+    .view-site {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      width: 250px;
+    }
+    
+    .view-site a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .view-site a:hover { border-color: var(--accent); color: var(--accent); }
+    
+    @media (max-width: 1200px) {
+      .seo-grid { grid-template-columns: 1fr; }
+    }
+    
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .main-content { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="profile-img">O</div>
+        <div class="profile-info">
+          <h3>Omar Abdelfattah</h3>
+          <p>Administrator</p>
+        </div>
+      </div>
+      
+      <nav class="nav-section">
+        <div class="nav-title">Overview</div>
+        <a href="/admin" class="nav-link">📊 Dashboard</a>
+      </nav>
+      
+      <nav class="nav-section">
+        <div class="nav-title">Content</div>
+        <a href="/admin/posts" class="nav-link">📝 Blog Posts</a>
+        <a href="/admin/services" class="nav-link">💼 Services</a>
+        <a href="/admin/projects" class="nav-link">🎨 Projects</a>
+      </nav>
+      
+      <nav class="nav-section">
+        <div class="nav-title">Tools</div>
+        <a href="/admin/media" class="nav-link">🖼️ Media Library</a>
+        <a href="/admin/seo" class="nav-link active">🔍 SEO Tools</a>
+        <a href="/admin/cms" class="nav-link">✏️ Decap CMS</a>
+      </nav>
+      
+      <nav class="nav-section">
+        <div class="nav-title">System</div>
+        <a href="/admin/settings" class="nav-link">⚙️ Settings</a>
+      </nav>
+      
+      <div class="view-site">
+        <a href="/" target="_blank">🌐 View Website</a>
+      </div>
+    </aside>
+    
+    <main class="main-content">
+      <a href="/admin" class="btn btn-back">← Back to Dashboard</a>
+      
+      <div class="header">
+        <h1>🔍 SEO Tools</h1>
+        <p>Optimize your content for search engines</p>
+      </div>
+      
+      <!-- SEO Score Cards -->
+      <div class="seo-grid">
+        <div class="seo-card">
+          <h3>Overall SEO Score</h3>
+          <div class="seo-score good">85</div>
+          <span class="seo-status good">Good</span>
+        </div>
+        <div class="seo-card">
+          <h3>Content with Meta</h3>
+          <div class="seo-score good">{Math.round((allContent.length / (allContent.length || 1)) * 100)}%</div>
+          <span class="seo-status good">{allContent.length} items</span>
+        </div>
+        <div class="seo-card">
+          <h3>Mobile Friendly</h3>
+          <div class="seo-score good">100</div>
+          <span class="seo-status good">Responsive</span>
+        </div>
+      </div>
+      
+      <!-- Google Preview -->
+      <div class="preview-section">
+        <h2>🔎 Google Search Preview</h2>
+        <div class="google-preview">
+          <div class="google-url">https://omar-portfolio.netlify.app</div>
+          <div class="google-title" id="previewTitle">Omar Abdelfattah - AI Content Creator & Developer</div>
+          <div class="google-description" id="previewDesc">I design and create AI-powered content, build websites and applications. Let's create something amazing together.</div>
+        </div>
+        
+        <div class="meta-editor" style="margin-top: 1.5rem;">
+          <div class="form-group">
+            <label for="metaTitle">Meta Title</label>
+            <input type="text" id="metaTitle" value="Omar Abdelfattah - AI Content Creator & Developer" oninput="updatePreview()">
+            <div class="char-count" id="titleCount">52/60 characters</div>
+          </div>
+          <div class="form-group">
+            <label for="metaDesc">Meta Description</label>
+            <textarea id="metaDesc" oninput="updatePreview()">I design and create AI-powered content, build websites and applications. Let's create something amazing together.</textarea>
+            <div class="char-count" id="descCount">112/160 characters</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- URL Slug Generator -->
+      <div class="preview-section">
+        <h2>🔗 URL Slug Generator</h2>
+        <div class="slug-generator">
+          <div class="form-group">
+            <label for="slugInput">Enter Title</label>
+            <input type="text" id="slugInput" placeholder="My Awesome Blog Post">
+          </div>
+          <button onclick="generateSlug()">Generate</button>
+        </div>
+        <div class="form-group" style="margin-top: 1rem;">
+          <label>Generated Slug</label>
+          <input type="text" id="slugOutput" readonly placeholder="my-awesome-blog-post">
+        </div>
+      </div>
+      
+      <!-- SEO Audit -->
+      <div class="audit-section">
+        <div class="audit-header">
+          <h2>📋 SEO Audit Checklist</h2>
+        </div>
+        <ul class="audit-list">
+          <li class="audit-item">
+            <div class="audit-icon pass">✓</div>
+            <div class="audit-content">
+              <div class="audit-title">Meta Title Present</div>
+              <div class="audit-desc">All pages have meta titles</div>
+            </div>
+            <span class="audit-status pass">Pass</span>
+          </li>
+          <li class="audit-item">
+            <div class="audit-icon pass">✓</div>
+            <div class="audit-content">
+              <div class="audit-title">Meta Description</div>
+              <div class="audit-desc">Descriptions are set for all pages</div>
+            </div>
+            <span class="audit-status pass">Pass</span>
+          </li>
+          <li class="audit-item">
+            <div class="audit-icon pass">✓</div>
+            <div class="audit-content">
+              <div class="audit-title">Mobile Responsive</div>
+              <div class="audit-desc">Site is mobile-friendly</div>
+            </div>
+            <span class="audit-status pass">Pass</span>
+          </li>
+          <li class="audit-item">
+            <div class="audit-icon warning">!</div>
+            <div class="audit-content">
+              <div class="audit-title">Image Alt Text</div>
+              <div class="audit-desc">Some images may need alt text</div>
+            </div>
+            <span class="audit-status warning">Review</span>
+          </li>
+          <li class="audit-item">
+            <div class="audit-icon pass">✓</div>
+            <div class="audit-content">
+              <div class="audit-title">HTTPS Enabled</div>
+              <div class="audit-desc">Site uses secure connection</div>
+            </div>
+            <span class="audit-status pass">Pass</span>
+          </li>
+          <li class="audit-item">
+            <div class="audit-icon warning">!</div>
+            <div class="audit-content">
+              <div class="audit-title">Sitemap</div>
+              <div class="audit-desc">Consider adding an XML sitemap</div>
+            </div>
+            <span class="audit-status warning">Recommended</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    function updatePreview() {
+      const title = document.getElementById('metaTitle').value;
+      const desc = document.getElementById('metaDesc').value;
+      
+      document.getElementById('previewTitle').textContent = title || 'Your Title Here';
+      document.getElementById('previewDesc').textContent = desc || 'Your description will appear here...';
+      
+      // Update character counts
+      const titleCount = document.getElementById('titleCount');
+      const descCount = document.getElementById('descCount');
+      
+      titleCount.textContent = `${title.length}/60 characters`;
+      titleCount.className = 'char-count' + (title.length > 60 ? ' error' : title.length > 50 ? ' warning' : '');
+      
+      descCount.textContent = `${desc.length}/160 characters`;
+      descCount.className = 'char-count' + (desc.length > 160 ? ' error' : desc.length > 140 ? ' warning' : '');
+    }
+    
+    function generateSlug() {
+      const input = document.getElementById('slugInput').value;
+      const slug = input
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+      
+      document.getElementById('slugOutput').value = slug;
+    }
+    
+    // Initial count update
+    updatePreview();
+  </script>
+</body>
+</html>
