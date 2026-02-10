@@ -832,7 +832,7 @@ const activities = [
             🔔
             <span class="dot"></span>
           </button>
-          <a href="/admin/cms" class="btn btn-primary">✨ Create Content</a>
+          <a href="/admin/cms/#/collections/blog/new" class="btn btn-primary">✨ Create Content</a>
         </div>
       </div>
       
@@ -919,7 +919,7 @@ const activities = [
                     <td>{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
                     <td><span class="status-badge status-published">Published</span></td>
                     <td>
-                      <a href="/admin/cms" class="action-btn">✏️</a>
+                      <a href={`/admin/cms/#/collections/blog/entries/${post.id}`} class="action-btn">✏️</a>
                       <a href={`/blog/${post.id}`} class="action-btn" target="_blank">👁️</a>
                     </td>
                   </tr>
@@ -935,21 +935,21 @@ const activities = [
               <h2 class="section-title">⚡ Quick Actions</h2>
             </div>
             <div class="quick-actions">
-              <a href="/admin/cms" class="quick-action">
+              <a href="/admin/cms/#/collections/blog/new" class="quick-action">
                 <span class="quick-action-icon">📝</span>
                 <span class="quick-action-text">New Post</span>
               </a>
-              <a href="/admin/cms" class="quick-action">
+              <a href="/admin/cms/#/collections/projects/new" class="quick-action">
                 <span class="quick-action-icon">🎨</span>
                 <span class="quick-action-text">Add Project</span>
               </a>
-              <a href="/admin/cms" class="quick-action">
+              <a href="/admin/cms/#/collections/services/new" class="quick-action">
                 <span class="quick-action-icon">💼</span>
                 <span class="quick-action-text">New Service</span>
               </a>
-              <a href="/admin/media" class="quick-action">
-                <span class="quick-action-icon">🖼️</span>
-                <span class="quick-action-text">Upload Media</span>
+              <a href="/admin/cms/#/collections/settings" class="quick-action">
+                <span class="quick-action-icon">⚙️</span>
+                <span class="quick-action-text">Settings</span>
               </a>
             </div>
           </div>
@@ -1095,7 +1095,7 @@ const activities = [
       }
       if ((e.metaKey || e.ctrlKey) && e.key === 'n') {
         e.preventDefault();
-        window.location.href = '/admin/cms';
+        window.location.href = '/admin/cms/#/collections/blog/new';
       }
       if (e.key === 'Escape') {
         document.getElementById('shortcutsModal').classList.remove('active');

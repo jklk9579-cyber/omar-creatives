@@ -2,7 +2,11 @@
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
+const services = await getCollection('services');
+const projects = await getCollection('projects');
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const stats = { posts: posts.length, services: services.length, projects: projects.length };
 ---
 
 <!DOCTYPE html>
@@ -10,129 +14,87 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Posts | Admin</title>
+  <title>Blog Posts | Admin Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-primary: #0a0a0a; --bg-secondary: #111; --bg-tertiary: #1a1a1a;
+      --border-color: #222; --text-primary: #fff; --text-secondary: #a0a0a0;
+      --text-muted: #666; --accent: #f59e0b; --accent-hover: #f97316; --success: #22c55e;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
-      color: #fff;
-      min-height: 100vh;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; }
     .admin-layout { display: flex; min-height: 100vh; }
-    
     .sidebar {
-      width: 260px;
-      background: #111;
-      border-right: 1px solid #222;
-      padding: 1.5rem;
-      position: fixed;
-      height: 100vh;
+      width: 280px; background: var(--bg-secondary); border-right: 1px solid var(--border-color);
+      padding: 1.5rem; position: fixed; height: 100vh; overflow-y: auto; z-index: 100;
     }
-    .logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #222; }
-    .logo span { color: #f59e0b; }
-    .nav-section { margin-bottom: 2rem; }
-    .nav-title { font-size: 0.75rem; text-transform: uppercase; color: #666; letter-spacing: 1px; margin-bottom: 0.75rem; }
-    .nav-link {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.75rem 1rem; color: #a0a0a0; text-decoration: none;
-      border-radius: 8px; margin-bottom: 0.25rem; transition: all 0.2s;
-    }
-    .nav-link:hover, .nav-link.active { background: #1a1a1a; color: #fff; }
-    .nav-link.active { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
-    
-    .main-content { flex: 1; margin-left: 260px; padding: 2rem; }
-    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .sidebar-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); }
+    .profile-img { width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #000; }
+    .profile-info h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .profile-info p { font-size: 0.8rem; color: var(--text-muted); }
+    .nav-section { margin-bottom: 1.5rem; }
+    .nav-title { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 0.75rem; padding-left: 0.5rem; }
+    .nav-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; color: var(--text-secondary); text-decoration: none; border-radius: 10px; margin-bottom: 0.25rem; transition: all 0.2s; }
+    .nav-link:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+    .nav-link.active { background: rgba(245, 158, 11, 0.15); color: var(--accent); }
+    .nav-link .badge { margin-left: auto; padding: 0.15rem 0.5rem; background: var(--accent); color: #000; border-radius: 10px; font-size: 0.7rem; font-weight: 600; }
+    .nav-icon { font-size: 1.1rem; }
+    .view-site { position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; }
+    .view-site a { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
+    .view-site a:hover { border-color: var(--accent); color: var(--accent); }
+    .main-content { flex: 1; margin-left: 280px; padding: 2rem; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
     .header h1 { font-size: 1.75rem; }
-    
-    .btn {
-      padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600;
-      text-decoration: none; transition: all 0.2s; display: inline-flex;
-      align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; border: none;
-    }
-    .btn-primary { background: linear-gradient(135deg, #f59e0b, #f97316); color: #000; }
+    .header-actions { display: flex; gap: 0.75rem; }
+    .btn { padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 600; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; border: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #000; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3); }
-    .btn-secondary { background: #1a1a1a; color: #fff; border: 1px solid #333; }
-    .btn-back { background: none; color: #666; padding: 0.5rem 1rem; }
-    .btn-back:hover { color: #fff; }
-    
-    .posts-grid {
-      display: grid;
-      gap: 1rem;
-    }
-    .post-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: all 0.2s;
-    }
-    .post-card:hover { border-color: #333; }
+    .btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border-color); }
+    .btn-back { background: none; color: var(--text-muted); padding: 0.5rem 1rem; }
+    .btn-back:hover { color: var(--text-primary); }
+    .posts-grid { display: grid; gap: 1rem; }
+    .post-card { display: flex; justify-content: space-between; align-items: center; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; transition: all 0.3s; }
+    .post-card:hover { border-color: #333; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
     .post-info h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .post-info p { color: #666; font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .post-meta { display: flex; gap: 1rem; color: #666; font-size: 0.85rem; }
-    .post-actions { display: flex; gap: 0.5rem; }
-    .action-btn {
-      padding: 0.5rem 1rem; background: #1a1a1a; border: 1px solid #333;
-      border-radius: 6px; color: #fff; text-decoration: none; font-size: 0.85rem;
-      transition: all 0.2s;
-    }
-    .action-btn:hover { border-color: #f59e0b; color: #f59e0b; }
-    .action-btn.delete:hover { border-color: #ef4444; color: #ef4444; }
-    
-    .empty-state {
-      text-align: center; padding: 4rem 2rem;
-      background: #111; border: 1px solid #222; border-radius: 12px;
-    }
-    .empty-state p { color: #666; margin-bottom: 1.5rem; }
-    
-    .view-site {
-      position: fixed; bottom: 2rem; left: 1.5rem; width: 230px;
-    }
-    .view-site a {
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-      padding: 0.75rem; background: #1a1a1a; border: 1px solid #333;
-      border-radius: 8px; color: #fff; text-decoration: none; font-size: 0.9rem;
-      transition: all 0.2s;
-    }
-    .view-site a:hover { border-color: #f59e0b; color: #f59e0b; }
+    .post-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; max-width: 600px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .post-meta { display: flex; gap: 1rem; color: var(--text-muted); font-size: 0.85rem; align-items: center; }
+    .post-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .action-btn { padding: 0.5rem 1rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+    .action-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .status-badge { padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 500; background: rgba(34, 197, 94, 0.15); color: var(--success); }
+    .empty-state { text-align: center; padding: 4rem 2rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; }
+    .empty-state .empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .empty-state p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    @media (max-width: 900px) { .sidebar { display: none; } .main-content { margin-left: 0; } .post-card { flex-direction: column; align-items: flex-start; gap: 1rem; } }
   </style>
 </head>
 <body>
   <div class="admin-layout">
     <aside class="sidebar">
-      <div class="logo">Omar<span>.</span> Admin</div>
-      <nav class="nav-section">
-        <div class="nav-title">Main</div>
-        <a href="/admin" class="nav-link">📊 Dashboard</a>
-        <a href="/admin/posts" class="nav-link active">📝 Blog Posts</a>
-        <a href="/admin/services" class="nav-link">💼 Services</a>
-        <a href="/admin/projects" class="nav-link">🎨 Projects</a>
+      <div class="sidebar-header"><div class="profile-img">O</div><div class="profile-info"><h3>Omar Abdelfattah</h3><p>Administrator</p></div></div>
+      <nav class="nav-section"><div class="nav-title">Overview</div><a href="/admin" class="nav-link"><span class="nav-icon">📊</span><span>Dashboard</span></a></nav>
+      <nav class="nav-section"><div class="nav-title">Content</div>
+        <a href="/admin/posts" class="nav-link active"><span class="nav-icon">📝</span><span>Blog Posts</span><span class="badge">{stats.posts}</span></a>
+        <a href="/admin/services" class="nav-link"><span class="nav-icon">💼</span><span>Services</span><span class="badge">{stats.services}</span></a>
+        <a href="/admin/projects" class="nav-link"><span class="nav-icon">🎨</span><span>Projects</span><span class="badge">{stats.projects}</span></a>
       </nav>
-      <nav class="nav-section">
-        <div class="nav-title">Media</div>
-        <a href="/admin/media" class="nav-link">🖼️ Media Library</a>
+      <nav class="nav-section"><div class="nav-title">Tools</div>
+        <a href="/admin/media" class="nav-link"><span class="nav-icon">🖼️</span><span>Media Library</span></a>
+        <a href="/admin/seo" class="nav-link"><span class="nav-icon">🔍</span><span>SEO Tools</span></a>
+        <a href="/admin/cms" class="nav-link"><span class="nav-icon">✏️</span><span>Decap CMS</span></a>
       </nav>
-      <nav class="nav-section">
-        <div class="nav-title">Settings</div>
-        <a href="/admin/settings" class="nav-link">⚙️ Site Settings</a>
-      </nav>
-      <div class="view-site">
-        <a href="/" target="_blank">🌐 View Website</a>
-      </div>
+      <nav class="nav-section"><div class="nav-title">System</div><a href="/admin/settings" class="nav-link"><span class="nav-icon">⚙️</span><span>Settings</span></a></nav>
+      <div class="view-site"><a href="/" target="_blank">🌐 View Website</a></div>
     </aside>
     
     <main class="main-content">
       <div class="header">
-        <div>
-          <a href="/admin" class="btn btn-back">← Back</a>
-          <h1>📝 Blog Posts</h1>
+        <div><a href="/admin" class="btn btn-back">← Dashboard</a><h1>📝 Blog Posts</h1></div>
+        <div class="header-actions">
+          <a href="/admin/cms/#/collections/blog" class="btn btn-secondary">📋 Manage in CMS</a>
+          <a href="/admin/cms/#/collections/blog/new" class="btn btn-primary">✨ New Post</a>
         </div>
-        <a href="/admin/cms" class="btn btn-primary">✨ New Post</a>
       </div>
       
       {sortedPosts.length > 0 ? (
@@ -144,19 +106,21 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
                 <p>{post.data.description}</p>
                 <div class="post-meta">
                   <span>📅 {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span class="status-badge">Published</span>
                 </div>
               </div>
               <div class="post-actions">
                 <a href={`/blog/${post.id}`} class="action-btn" target="_blank">👁️ View</a>
-                <a href="/admin/cms" class="action-btn">✏️ Edit</a>
+                <a href={`/admin/cms/#/collections/blog/entries/${post.id}`} class="action-btn">✏️ Edit in CMS</a>
               </div>
             </div>
           ))}
         </div>
       ) : (
         <div class="empty-state">
+          <div class="empty-icon">📝</div>
           <p>No blog posts yet. Create your first post!</p>
-          <a href="/admin/cms" class="btn btn-primary">✨ Create Post</a>
+          <a href="/admin/cms/#/collections/blog/new" class="btn btn-primary">✨ Create Post</a>
         </div>
       )}
     </main>
