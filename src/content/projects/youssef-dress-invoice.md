@@ -6,8 +6,8 @@ description_ar: "تصميم فاتورة نظيف وعصري لبراند يوس
 date: 2026-02-10
 cover: "/images/printings/Youssef Dress – Invoice  Receipt Design.jpg"
 gallery:
-  - "/images/printings/Youssef Dress – Invoice  Receipt Design.jpg"
   - "/images/printings/Youssef Dress – Invoice  Receipt Design.png"
+  - "/images/printings/Youssef Dress – Invoice  Receipt Design.jpg"
 category: "Print Design"
 category_ar: "تصميم مطبوعات"
 client: "Youssef Dress"
