@@ -12,7 +12,8 @@ const blog = defineCollection({
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			heroImage: image().optional(),
+			// Accept both local asset images and CMS-uploaded string paths
+			heroImage: z.union([image(), z.string()]).optional(),
 		}),
 });
 
@@ -44,6 +45,7 @@ const projects = defineCollection({
 		client_ar: z.string().optional(),
 		link: z.string().optional(),
 		featured: z.boolean().default(false),
+		tags: z.array(z.string()).optional(),
 	}),
 });
 
