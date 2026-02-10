@@ -4,9 +4,9 @@ title_ar: "أركان – تصميم شعار وهوية بصرية"
 description: "The ArKAN logo was designed with a modern geometric approach reflecting strength, stability, and evolution. It relies on abstract layered shapes suggesting construction and foundation, combined with a triangular play/arrow element symbolizing progress and forward movement. Executed in a minimal, professional style suitable for digital platforms and print."
 description_ar: "تم تصميم شعار Arkan بأسلوب هندسي حديث يعكس القوة، الثبات، والتطور. يعتمد الشعار على أشكال مجردة مكوّنة من طبقات متدرجة توحي بالبناء والتأسيس، مع عنصر مثلثي يشبه زر التشغيل أو السهم للأمام، في إشارة إلى التقدم والحركة المستمرة. الهوية البصرية تم تنفيذها بأسلوب Minimal واحترافي."
 date: 2026-02-10
-cover: "/images/logos/arkan.png"
+cover: "/images/logos/arkan concept.png"
 gallery:
-  - "/images/logos/arkan.png"
+  - "/images/logos/arkan concept.png"
 category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "ArKAN"
