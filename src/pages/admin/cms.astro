@@ -13,6 +13,16 @@
   </style>
 </head>
 <body>
+  <script>
+    window.CMS_MANUAL_INIT = true;
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    const configUrl = '/admin/config.yml';
+    fetch(configUrl).then(r => r.text()).then(yml => {
+      const CMS = window.CMS;
+      CMS.init({ config: { load_config_file: true, config_url: configUrl } });
+    });
+  </script>
 </body>
 </html>
