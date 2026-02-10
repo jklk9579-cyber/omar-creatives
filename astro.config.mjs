@@ -8,5 +8,8 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	site: 'https://example.com',
 	output: 'static',
+	image: {
+		service: { entrypoint: 'astro/assets/services/sharp' },
+	},
 	integrations: [mdx(), sitemap()],
 });
