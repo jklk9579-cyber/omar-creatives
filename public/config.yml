@@ -1,9 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: romwear889-dotcom/omar-creatives
   branch: main
-
-# للتجربة المحلية - فعّل السطر ده
-local_backend: true
+  base_url: https://api.netlify.com
+  auth_endpoint: /auth
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
