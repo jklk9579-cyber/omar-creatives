@@ -51,15 +51,20 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Title (EN)", name: "title", widget: "string" }
+      - { label: "Title (AR)", name: "title_ar", widget: "string", required: false }
+      - { label: "Description (EN)", name: "description", widget: "text" }
+      - { label: "Description (AR)", name: "description_ar", widget: "text", required: false }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Cover Image", name: "cover", widget: "image" }
       - { label: "Gallery", name: "gallery", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
-      - { label: "Category", name: "category", widget: "string" }
-      - { label: "Client", name: "client", widget: "string", required: false }
+      - { label: "Category (EN)", name: "category", widget: "string" }
+      - { label: "Category (AR)", name: "category_ar", widget: "string", required: false }
+      - { label: "Client (EN)", name: "client", widget: "string", required: false }
+      - { label: "Client (AR)", name: "client_ar", widget: "string", required: false }
       - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   # =====================
