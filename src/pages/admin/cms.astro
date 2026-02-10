@@ -8,21 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager | Decap CMS</title>
+  <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
   <style>
     body { margin: 0; }
   </style>
 </head>
 <body>
-  <script>
-    window.CMS_MANUAL_INIT = true;
-  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    const configUrl = '/admin/config.yml';
-    fetch(configUrl).then(r => r.text()).then(yml => {
-      const CMS = window.CMS;
-      CMS.init({ config: { load_config_file: true, config_url: configUrl } });
-    });
+</body>
+</html>
   </script>
 </body>
 </html>
