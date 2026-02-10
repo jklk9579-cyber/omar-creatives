@@ -4,9 +4,9 @@ title_ar: "يوسف دريس – تصميم فاتورة"
 description: "A clean and modern invoice design for Youssef Dress that reflects the brand's fashion identity while keeping the layout practical and easy to use. The design focuses on clarity and readability, with well-structured sections for items, prices, totals, and taxes. Brand colors and logo are integrated subtly with a QR code and contact details for enhanced usability."
 description_ar: "تصميم فاتورة نظيف وعصري لبراند يوسف دريس يعكس هوية البراند في مجال الأزياء مع الحفاظ على تنسيق عملي وسهل الاستخدام. التصميم يركز على الوضوح وسهولة القراءة، مع أقسام منظمة للأصناف والأسعار والإجمالي والضرائب، مع دمج ألوان ولوجو البراند بشكل متناسق، وإضافة QR كود ومعلومات التواصل."
 date: 2026-02-10
-cover: "/images/uploads/youssef-dress-invoice-mockup.png"
+cover: "/images/uploads/youssef-dress-invoice-mockup.jpg"
 gallery:
-  - "/images/uploads/youssef-dress-invoice-mockup.png"
+  - "/images/uploads/youssef-dress-invoice-mockup.jpg"
   - "/images/uploads/youssef-dress-invoice.jpg"
 category: "Print Design"
 category_ar: "تصميم مطبوعات"
