@@ -1,9 +1,8 @@
 backend:
-  name: github
-  repo: romwear889-dotcom/omar-creatives
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: /auth
+
+site_url: https://omarcreatives.com
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
