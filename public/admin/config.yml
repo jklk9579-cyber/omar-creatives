@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: romwear889-dotcom/omar-creatives
+  repo: agrimasr31-cloud/omarcreatives
   branch: main
   base_url: https://omarcreatives.com
   auth_endpoint: .netlify/functions/auth
