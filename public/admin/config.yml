@@ -2,8 +2,8 @@ backend:
   name: github
   repo: romwear889-dotcom/omar-creatives
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  base_url: https://omarcreatives.com
+  auth_endpoint: .netlify/functions/auth
 
 site_url: https://omarcreatives.com
 
