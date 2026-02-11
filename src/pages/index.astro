@@ -624,7 +624,7 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				gap: 1.5rem;
-				max-width: 1200px;
+				max-width: 1300px;
 				margin: 0 auto;
 			}
 
@@ -633,10 +633,22 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				position: relative;
 				border-radius: 16px;
 				overflow: hidden;
-				aspect-ratio: 4 / 3;
+				aspect-ratio: 1 / 1;
 				text-decoration: none;
 				cursor: pointer;
 				isolation: isolate;
+				opacity: 0;
+				transform: translateY(30px) scale(0.97);
+				animation: cardReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+			}
+			.project-card:nth-child(1) { animation-delay: 0s; }
+			.project-card:nth-child(2) { animation-delay: 0.1s; }
+			.project-card:nth-child(3) { animation-delay: 0.2s; }
+			.project-card:nth-child(4) { animation-delay: 0.3s; }
+			.project-card:nth-child(5) { animation-delay: 0.4s; }
+			.project-card:nth-child(6) { animation-delay: 0.5s; }
+			@keyframes cardReveal {
+				to { opacity: 1; transform: translateY(0) scale(1); }
 			}
 
 			/* Image */
@@ -661,12 +673,13 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				content: '';
 				position: absolute;
 				inset: 0;
-				background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 45%, transparent 100%);
+				background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, transparent 40%);
 				z-index: 1;
 				transition: opacity 0.4s;
+				opacity: 0;
 			}
 			.project-card:hover .project-image::after {
-				background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.1) 100%);
+				opacity: 1;
 			}
 
 			/* Accent border glow on hover */
@@ -698,44 +711,11 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(245,158,11,0.06);
 			}
 
-			/* Content */
-			.project-content {
-				position: absolute;
-				bottom: 0; left: 0; right: 0;
-				padding: 1.5rem 1.6rem;
-				z-index: 2;
-			}
-
-			.project-tag {
-				display: inline-block;
-				background: rgba(245,158,11,0.15);
-				color: var(--accent);
-				padding: 0.25rem 0.75rem;
-				border-radius: 20px;
-				font-size: 0.65rem;
-				font-weight: 600;
-				letter-spacing: 0.6px;
-				text-transform: uppercase;
-				margin-bottom: 0.5rem;
-				border: 1px solid rgba(245,158,11,0.2);
-			}
-			.project-card h3 {
-				font-size: 1.2rem;
-				color: #fff;
-				font-weight: 700;
-				line-height: 1.35;
-				margin: 0;
-			}
-			.project-card p {
-				font-size: 0.82rem;
-				color: rgba(255,255,255,0.5);
-				line-height: 1.5;
-				margin: 0.4rem 0 0;
-				display: -webkit-box;
-				-webkit-line-clamp: 2;
-				-webkit-box-orient: vertical;
-				overflow: hidden;
-			}
+			/* Content - hidden */
+			.project-content { display: none; }
+			.project-tag { display: none; }
+			.project-card h3 { display: none; }
+			.project-card p { display: none; }
 
 			/* Arrow */
 			.project-card .card-arrow {
@@ -1394,7 +1374,7 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 					<a href="/projects" class="view-all"><span data-i18n="projects.viewAll">View All Projects</span> →</a>
 				</div>
 				<div class="projects-grid stagger-animation">
-				{projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).slice(0, 6).map(project => (
+				{projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).filter(p => !p.id.includes('taraf')).slice(0, 6).map(project => (
 						<a href={`/projects/${project.id}`} class="project-card" style="text-decoration:none;">
 							<div class="card-arrow">
 								<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
