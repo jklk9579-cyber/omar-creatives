@@ -756,6 +756,54 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				.projects-grid { grid-template-columns: 1fr; max-width: 480px; }
 			}
 
+			/* View All Projects CTA */
+			.projects-cta-wrap {
+				text-align: center;
+				margin-top: 3rem;
+			}
+			.projects-cta {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 1rem 2.5rem;
+				font-size: 1rem;
+				font-weight: 600;
+				color: #fff;
+				background: transparent;
+				border: 2px solid rgba(245,158,11,0.5);
+				border-radius: 60px;
+				text-decoration: none;
+				letter-spacing: 0.5px;
+				position: relative;
+				overflow: hidden;
+				transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+			}
+			.projects-cta::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, transparent 50%, rgba(245,158,11,0.15) 100%);
+				opacity: 0;
+				transition: opacity 0.4s;
+			}
+			.projects-cta:hover::before { opacity: 1; }
+			.projects-cta:hover {
+				border-color: var(--accent);
+				box-shadow: 0 0 30px rgba(245,158,11,0.15), 0 8px 30px rgba(0,0,0,0.3);
+				transform: translateY(-3px);
+			}
+			.projects-cta svg {
+				width: 20px; height: 20px;
+				transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+			}
+			.projects-cta:hover svg {
+				transform: translateX(5px);
+			}
+			.projects-cta span {
+				position: relative;
+				z-index: 1;
+			}
+
 			/* Testimonials Section */
 			.testimonials-section {
 				padding: 7rem 0;
@@ -1374,7 +1422,6 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 						<p class="section-label" data-i18n="projects.label">Featured Work</p>
 						<h2 data-i18n="projects.title">Recent Projects</h2>
 					</div>
-					<a href="/projects" class="view-all"><span data-i18n="projects.viewAll">View All Projects</span> →</a>
 				</div>
 				<div class="projects-grid stagger-animation">
 				{projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).filter(p => !p.id.includes('taraf')).slice(0, 9).map(project => (
@@ -1398,6 +1445,12 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 							</div>
 						</a>
 					))}
+				</div>
+				<div class="projects-cta-wrap">
+					<a href="/projects" class="projects-cta">
+						<span data-i18n="projects.viewAll">View All Projects</span>
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+					</a>
 				</div>
 			</section>
 
