@@ -4,7 +4,7 @@ title_ar: "مونتاج سريع – فيديو سوشيال ميديا"
 description: "A short fast-paced visual edit designed for social media, featuring rapid montage, strong visual rhythm, dynamic transitions, and motion graphics that grab attention from the very first second. Optimized for reels, short ads, and modern promotional content."
 description_ar: "فيديو قصير بأسلوب Fast-Paced Visual Edit مخصص للسوشيال ميديا، يعتمد على مونتاج سريع، إيقاع بصري قوي، وانتقالات ديناميكية تجذب الانتباه من أول ثانية. مناسب للريلز والإعلانات القصيرة والمحتوى الترويجي الحديث."
 date: 2026-02-11
-cover: "/images/printings/dr-marwan-banner.jpg"
+cover: "/images/video thumbnails/fast-paced-visual-edit.jpeg"
 gallery: []
 category: "Video Editing"
 category_ar: "مونتاج فيديو"
