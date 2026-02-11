@@ -622,9 +622,9 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 			/* ═══ Projects Grid ═══ */
 			.projects-grid {
 				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 1.75rem;
-				max-width: 1100px;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
+				max-width: 1200px;
 				margin: 0 auto;
 			}
 
@@ -633,7 +633,7 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				position: relative;
 				border-radius: 16px;
 				overflow: hidden;
-				aspect-ratio: 3 / 2.2;
+				aspect-ratio: 4 / 3;
 				text-decoration: none;
 				cursor: pointer;
 				isolation: isolate;
@@ -644,10 +644,12 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				position: absolute;
 				inset: 0;
 				overflow: hidden;
+				background: #111;
 			}
 			.project-image img {
 				width: 100%; height: 100%;
-				object-fit: cover;
+				object-fit: contain;
+				object-position: center;
 				transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 			}
 			.project-card:hover .project-image img {
@@ -764,7 +766,10 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 			}
 
 			/* Responsive */
-			@media (max-width: 700px) {
+			@media (max-width: 900px) {
+				.projects-grid { grid-template-columns: repeat(2, 1fr); }
+			}
+			@media (max-width: 600px) {
 				.projects-grid { grid-template-columns: 1fr; max-width: 480px; }
 			}
 
@@ -1389,7 +1394,7 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 					<a href="/projects" class="view-all"><span data-i18n="projects.viewAll">View All Projects</span> →</a>
 				</div>
 				<div class="projects-grid stagger-animation">
-					{projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).slice(0, 4).map(project => (
+				{projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).slice(0, 6).map(project => (
 						<a href={`/projects/${project.id}`} class="project-card" style="text-decoration:none;">
 							<div class="card-arrow">
 								<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
