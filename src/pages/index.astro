@@ -1424,7 +1424,21 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 					</div>
 				</div>
 				<div class="projects-grid stagger-animation">
-				{projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).filter(p => !p.id.includes('taraf')).slice(0, 9).map(project => (
+				{(() => {
+					const bestIds = [
+						'arkan-business-card',
+						'dr-marwan-banner',
+						'kalista-shirt-set',
+						'seropipe-brand-campaign',
+						'falez-product-showcase',
+						'sale-end-of-season',
+						'romwear-flowa-banner',
+						'souqoom-social-media-cover',
+						'youssef-dress-invoice',
+					];
+					const picked = bestIds.map(id => projects.find(p => p.id === id)).filter(Boolean);
+					return picked;
+				})().map(project => (
 						<a href={`/projects/${project.id}`} class="project-card" style="text-decoration:none;">
 							<div class="card-arrow">
 								<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
