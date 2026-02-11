@@ -1126,18 +1126,18 @@ sortedProjects.forEach(p => { categoryCounts[p.data.category] = (categoryCounts[
 				}, 200);
 			}
 
-			// Click on gallery item to open lightbox
+			// Click on gallery item to navigate directly to project
 			allItems.forEach(function(item) {
 				item.addEventListener('click', function(e) {
 					if (e.target.closest('a')) return;
+					if (e.target.closest('.btn-expand')) return;
 					e.preventDefault();
-					rebuildLightboxItems();
-					var idx = lbItems.indexOf(item);
-					if (idx !== -1) openLightbox(idx);
+					var link = item.getAttribute('data-link');
+					if (link) window.location.href = link;
 				});
 			});
 
-			// Expand buttons
+			// Expand buttons open lightbox
 			document.querySelectorAll('.btn-expand').forEach(function(btn) {
 				btn.addEventListener('click', function(e) {
 					e.stopPropagation();

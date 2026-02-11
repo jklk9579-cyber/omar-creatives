@@ -665,27 +665,57 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				}
 			}
 
-			/* Projects Grid - Elegant Showcase */
+			/* Projects Grid - Premium Showcase */
 			.projects-grid {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
 				gap: 2rem;
 			}
 			.project-card {
+				position: relative;
 				background: var(--bg-card);
 				border: 1px solid var(--border-color);
-				border-radius: 24px;
+				border-radius: 20px;
 				overflow: hidden;
-				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+				transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 				text-decoration: none;
 			}
-			.project-card:hover {
-				transform: translateY(-10px);
-				border-color: rgba(245, 158, 11, 0.4);
-				box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+			.project-card::before {
+				content: '';
+				position: absolute;
+				inset: -1px;
+				border-radius: 20px;
+				padding: 1px;
+				background: linear-gradient(135deg, transparent 30%, rgba(245, 158, 11, 0.5) 50%, transparent 70%);
+				background-size: 300% 300%;
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				opacity: 0;
+				transition: opacity 0.5s;
+				animation: borderShimmer 4s ease infinite;
+				z-index: 2;
+				pointer-events: none;
 			}
+			@keyframes borderShimmer {
+				0% { background-position: 0% 50%; }
+				50% { background-position: 100% 50%; }
+				100% { background-position: 0% 50%; }
+			}
+			.project-card:hover::before { opacity: 1; }
+			.project-card:hover {
+				transform: translateY(-8px);
+				border-color: rgba(245, 158, 11, 0.3);
+				box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 158, 11, 0.06);
+			}
+			.project-card:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+			.project-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+			.project-card:nth-child(3) { grid-column: 2; grid-row: 2; }
+			.project-card:nth-child(4) { grid-column: 1 / span 2; grid-row: 3; }
 			.project-image {
-				height: 280px;
+				height: 100%;
+				min-height: 300px;
 				background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
 				display: flex;
 				align-items: center;
@@ -693,14 +723,16 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				position: relative;
 				overflow: hidden;
 			}
+			.project-card:nth-child(1) .project-image { min-height: 100%; }
+			.project-card:nth-child(4) .project-image { min-height: 340px; }
 			.project-image img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+				transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
 			}
 			.project-card:hover .project-image img {
-				transform: scale(1.08);
+				transform: scale(1.06);
 			}
 			.project-image svg {
 				width: 100px;
@@ -717,31 +749,89 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				content: '';
 				position: absolute;
 				inset: 0;
-				background: linear-gradient(to top, var(--bg-card) 0%, transparent 50%);
+				background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 40%, transparent 70%);
+				z-index: 1;
+				transition: opacity 0.4s;
 			}
 			.project-content {
-				padding: 1.75rem 2rem 2rem;
+				position: absolute;
+				bottom: 0;
+				left: 0; right: 0;
+				padding: 1.75rem 2rem;
+				z-index: 2;
+				transform: translateY(10px);
+				transition: transform 0.4s ease;
+			}
+			.project-card:hover .project-content {
+				transform: translateY(0);
 			}
 			.project-tag {
 				display: inline-block;
-				background: rgba(245, 158, 11, 0.1);
+				background: rgba(245, 158, 11, 0.15);
 				color: var(--accent);
-				padding: 0.35rem 0.9rem;
-				border-radius: 20px;
-				font-size: 0.75rem;
+				padding: 0.3rem 0.85rem;
+				border-radius: 50px;
+				font-size: 0.7rem;
 				font-weight: 600;
-				margin-bottom: 0.75rem;
+				margin-bottom: 0.6rem;
 				letter-spacing: 0.5px;
+				text-transform: uppercase;
+				backdrop-filter: blur(8px);
+				border: 1px solid rgba(245, 158, 11, 0.2);
 			}
 			.project-card h3 {
-				font-size: 1.4rem;
-				margin-bottom: 0.5rem;
-				color: var(--text-primary);
+				font-size: 1.3rem;
+				margin-bottom: 0.4rem;
+				color: #fff;
+				font-weight: 700;
+				line-height: 1.3;
 			}
 			.project-card p {
-				font-size: 0.9rem;
+				font-size: 0.85rem;
 				margin: 0;
-				color: var(--text-secondary);
+				color: rgba(255,255,255,0.6);
+				line-height: 1.5;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				opacity: 0;
+				transform: translateY(8px);
+				transition: all 0.4s ease 0.1s;
+			}
+			.project-card:hover p {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.project-card .card-arrow {
+				position: absolute;
+				top: 1rem; right: 1rem;
+				width: 40px; height: 40px;
+				border-radius: 50%;
+				background: rgba(0,0,0,0.4);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255,255,255,0.1);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 3;
+				opacity: 0;
+				transform: translateY(-8px) rotate(-45deg);
+				transition: all 0.4s ease;
+			}
+			.project-card:hover .card-arrow {
+				opacity: 1;
+				transform: translateY(0) rotate(-45deg);
+			}
+			.project-card .card-arrow:hover {
+				background: rgba(245, 158, 11, 0.2);
+				border-color: var(--accent);
+			}
+			.project-card .card-arrow svg {
+				width: 16px; height: 16px;
+				stroke: #fff;
+				fill: none;
+				stroke-width: 2;
 			}
 
 			/* Testimonials Section */
@@ -884,6 +974,9 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 			@media (max-width: 900px) {
 				.hero h1 { font-size: 2.5rem; }
 				.projects-grid { grid-template-columns: 1fr; }
+				.project-card:nth-child(1) { grid-column: 1; grid-row: auto; }
+				.project-card:nth-child(4) { grid-column: 1; }
+				.project-image { min-height: 260px !important; }
 				.blog-grid { grid-template-columns: 1fr; }
 				.testimonials-grid { grid-template-columns: 1fr; }
 				.stats-row { gap: 2rem; flex-wrap: wrap; }
@@ -1370,8 +1463,11 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				<div class="projects-grid stagger-animation">
 					{projects.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).slice(0, 4).map(project => (
 						<a href={`/projects/${project.id}`} class="project-card" style="text-decoration:none;">
+							<div class="card-arrow">
+								<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+							</div>
 							<div class="project-image" style="position:relative;overflow:hidden;">
-								<img src={project.data.cover} alt={project.data.title} style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" />
+								<img src={project.data.cover} alt={project.data.title} style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);" />
 								{project.data.category === 'Video Creation / Edit' && (
 									<div class="video-ripple-overlay">
 										<div class="vr"></div><div class="vr"></div><div class="vr"></div><div class="vr"></div><div class="vr"></div><div class="vr"></div>
