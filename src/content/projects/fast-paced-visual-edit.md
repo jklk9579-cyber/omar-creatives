@@ -6,13 +6,14 @@ description_ar: "فيديو قصير بأسلوب Fast-Paced Visual Edit مخص�
 date: 2026-02-11
 cover: "/images/uploads/fast-paced-visual-edit.jpeg"
 gallery: []
-category: "Video Editing"
-category_ar: "مونتاج فيديو"
+category: "Video Creation / Edit"
+category_ar: "إنشاء / مونتاج فيديو"
 client: "Omar Creatives"
 client_ar: "عمر كرييتيفز"
 featured: true
 tags:
-  - "Video Editing"
+  - "Video Creation"
+  - "AI Generated"
   - "Motion Graphics"
   - "Reels"
   - "Social Media"
@@ -161,7 +162,7 @@ A short fast-paced visual edit designed for social media, featuring rapid montag
 
 The work focuses on visual storytelling through Visual Effects, Motion Graphics, and rhythmic cutting synchronized with the overall beat, making it ideal for short ads, reels, and modern promotional content.
 
-The editing was executed in a modern style that respects the speed of visual consumption on social platforms while maintaining message clarity and powerful visual impact.
+The video was **created using AI tools**, then edited and refined with professional post-production techniques. The editing was executed in a modern style that respects the speed of visual consumption on social platforms while maintaining message clarity and powerful visual impact.
 
 <div class="video-wave-wrapper">
   <div class="wave-bars">
@@ -194,7 +195,8 @@ The editing was executed in a modern style that respects the speed of visual con
 
 ### Production Details
 
-- **Role:** Video Editing, Motion Graphics, Visuals
+- **Role:** AI Video Creation, Video Editing, Motion Graphics
+- **Created with:** AI-Powered Video Generation
 - **Format:** Vertical (Social Media Optimized — 9:16)
 - **Style:** Fast cuts, dynamic transitions, modern visuals
 - **Rhythm:** Beat-synced editing with rhythmic visual flow
@@ -219,7 +221,7 @@ The editing was executed in a modern style that respects the speed of visual con
 
 العمل يركز على إبراز الفكرة بصريًا من خلال Visual Effects وMotion Graphics وتقطيع إيقاعي متناسق مع الإيقاع العام للفيديو، مما يجعله مناسب للإعلانات القصيرة والريلز والمحتوى الترويجي الحديث.
 
-تم تنفيذ المونتاج بأسلوب عصري يراعي سرعة الاستهلاك البصري على المنصات الاجتماعية مع الحفاظ على وضوح الرسالة وقوة التأثير البصري.
+تم **إنشاء الفيديو باستخدام أدوات الذكاء الاصطناعي**، ثم تم تحريره وتنقيحه بتقنيات بوست بروداكشن احترافية. تم تنفيذ المونتاج بأسلوب عصري يراعي سرعة الاستهلاك البصري على المنصات الاجتماعية مع الحفاظ على وضوح الرسالة وقوة التأثير البصري.
 
 <div class="video-wave-wrapper">
   <div class="wave-bars">
@@ -252,7 +254,8 @@ The editing was executed in a modern style that respects the speed of visual con
 
 ### تفاصيل الإنتاج
 
-- **الدور:** مونتاج فيديو، موشن جرافيكس، مؤثرات بصرية
+- **الدور:** إنشاء فيديو بالذكاء الاصطناعي، مونتاج، موشن جرافيكس
+- **تم الإنشاء بواسطة:** أدوات الذكاء الاصطناعي لتوليد الفيديو
 - **الفورمات:** عمودي (مُحسّن للسوشيال ميديا — 9:16)
 - **الأسلوب:** قص سريع، انتقالات ديناميكية، مرئيات عصرية
 - **الإيقاع:** مونتاج متزامن مع البيت مع تدفق بصري إيقاعي

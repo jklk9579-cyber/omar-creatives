@@ -521,63 +521,60 @@ sortedProjects.forEach(p => { categoryCounts[p.data.category] = (categoryCounts[
 			/* ── Video Wave Overlay ── */
 			.video-wave-overlay {
 				position: absolute;
-				bottom: 0; left: 0; right: 0;
-				height: 60px;
-				display: flex;
-				align-items: flex-end;
-				justify-content: center;
-				gap: 3px;
-				padding-bottom: 12px;
-				background: linear-gradient(to top, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.4) 60%, transparent 100%);
+				inset: 0;
 				z-index: 2;
 				pointer-events: none;
+				overflow: hidden;
 			}
-			.video-wave-overlay .w-bar {
-				width: 3px;
-				border-radius: 3px;
-				background: linear-gradient(180deg, #f59e0b, #f97316);
-				animation: waveBarCard 1.2s ease-in-out infinite;
+			.video-wave-overlay::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.25);
 			}
-			.video-wave-overlay .w-bar:nth-child(1)  { height: 8px;  animation-delay: 0s; }
-			.video-wave-overlay .w-bar:nth-child(2)  { height: 14px; animation-delay: 0.1s; }
-			.video-wave-overlay .w-bar:nth-child(3)  { height: 22px; animation-delay: 0.2s; }
-			.video-wave-overlay .w-bar:nth-child(4)  { height: 16px; animation-delay: 0.3s; }
-			.video-wave-overlay .w-bar:nth-child(5)  { height: 28px; animation-delay: 0.15s; }
-			.video-wave-overlay .w-bar:nth-child(6)  { height: 18px; animation-delay: 0.25s; }
-			.video-wave-overlay .w-bar:nth-child(7)  { height: 24px; animation-delay: 0.05s; }
-			.video-wave-overlay .w-bar:nth-child(8)  { height: 12px; animation-delay: 0.35s; }
-			.video-wave-overlay .w-bar:nth-child(9)  { height: 30px; animation-delay: 0.1s; }
-			.video-wave-overlay .w-bar:nth-child(10) { height: 14px; animation-delay: 0.2s; }
-			.video-wave-overlay .w-bar:nth-child(11) { height: 26px; animation-delay: 0.3s; }
-			.video-wave-overlay .w-bar:nth-child(12) { height: 10px; animation-delay: 0.15s; }
-			.video-wave-overlay .w-bar:nth-child(13) { height: 20px; animation-delay: 0.25s; }
-			.video-wave-overlay .w-bar:nth-child(14) { height: 28px; animation-delay: 0.05s; }
-			.video-wave-overlay .w-bar:nth-child(15) { height: 16px; animation-delay: 0.35s; }
+			/* Ripple circles */
+			.video-wave-overlay .ripple {
+				position: absolute;
+				top: 50%; left: 50%;
+				border-radius: 50%;
+				border: 2px solid rgba(245, 158, 11, 0.5);
+				transform: translate(-50%, -50%) scale(0);
+				animation: rippleWave 3s ease-out infinite;
+			}
+			.video-wave-overlay .ripple:nth-child(1) { width: 60px; height: 60px; animation-delay: 0s; }
+			.video-wave-overlay .ripple:nth-child(2) { width: 120px; height: 120px; animation-delay: 0.5s; }
+			.video-wave-overlay .ripple:nth-child(3) { width: 180px; height: 180px; animation-delay: 1s; }
+			.video-wave-overlay .ripple:nth-child(4) { width: 250px; height: 250px; animation-delay: 1.5s; }
+			.video-wave-overlay .ripple:nth-child(5) { width: 330px; height: 330px; animation-delay: 2s; }
+			.video-wave-overlay .ripple:nth-child(6) { width: 420px; height: 420px; animation-delay: 2.5s; }
+			/* Play button center */
 			.video-wave-overlay .w-play-icon {
 				position: absolute;
 				top: 50%; left: 50%;
-				transform: translate(-50%, -80%);
-				width: 44px; height: 44px;
+				transform: translate(-50%, -50%);
+				width: 52px; height: 52px;
 				background: rgba(245, 158, 11, 0.9);
 				border-radius: 50%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				box-shadow: 0 0 20px rgba(245, 158, 11, 0.4), 0 0 40px rgba(245, 158, 11, 0.15);
+				box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 0 50px rgba(245, 158, 11, 0.2);
 				animation: playPulse 2s ease-in-out infinite;
+				z-index: 3;
 			}
 			.video-wave-overlay .w-play-icon svg {
-				width: 18px; height: 18px;
+				width: 20px; height: 20px;
 				fill: #000;
-				margin-left: 2px;
+				margin-left: 3px;
 			}
-			@keyframes waveBarCard {
-				0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
-				50% { transform: scaleY(1); opacity: 1; }
+			@keyframes rippleWave {
+				0% { transform: translate(-50%, -50%) scale(0); opacity: 0.7; border-color: rgba(245, 158, 11, 0.6); }
+				50% { opacity: 0.35; border-color: rgba(245, 158, 11, 0.3); }
+				100% { transform: translate(-50%, -50%) scale(1); opacity: 0; border-color: rgba(245, 158, 11, 0); }
 			}
 			@keyframes playPulse {
-				0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4), 0 0 40px rgba(245, 158, 11, 0.15); transform: translate(-50%, -80%) scale(1); }
-				50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.6), 0 0 60px rgba(245, 158, 11, 0.25); transform: translate(-50%, -80%) scale(1.08); }
+				0%, 100% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 0 50px rgba(245, 158, 11, 0.2); transform: translate(-50%, -50%) scale(1); }
+				50% { box-shadow: 0 0 35px rgba(245, 158, 11, 0.7), 0 0 70px rgba(245, 158, 11, 0.3); transform: translate(-50%, -50%) scale(1.1); }
 			}
 
 			/* ── Projects Count ── */
@@ -942,12 +939,15 @@ sortedProjects.forEach(p => { categoryCounts[p.data.category] = (categoryCounts[
 						{project.data.featured && <span class="gallery-featured" data-i18n="work.featuredBadge">Featured</span>}
 						<div class="gallery-img">
 							<img src={project.data.cover} alt={project.data.title} loading="lazy" />
-							{project.data.category === 'Video Editing' && (
+							{project.data.category === 'Video Creation / Edit' && (
 								<div class="video-wave-overlay">
+									<div class="ripple"></div>
+									<div class="ripple"></div>
+									<div class="ripple"></div>
+									<div class="ripple"></div>
+									<div class="ripple"></div>
+									<div class="ripple"></div>
 									<div class="w-play-icon"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
-									<div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
-									<div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
-									<div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
 								</div>
 							)}
 							<div class="gallery-overlay">

@@ -174,9 +174,56 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 				0%, 100% { opacity: 1; transform: scale(1); }
 				50% { opacity: 0.7; transform: scale(1.1); }
 			}
-			@keyframes waveBarIdx {
-				0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
-				50% { transform: scaleY(1); opacity: 1; }
+			/* ── Video Ripple Overlay (Homepage) ── */
+			.video-ripple-overlay {
+				position: absolute;
+				inset: 0;
+				z-index: 2;
+				pointer-events: none;
+				overflow: hidden;
+			}
+			.video-ripple-overlay::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.25);
+			}
+			.video-ripple-overlay .vr {
+				position: absolute;
+				top: 50%; left: 50%;
+				border-radius: 50%;
+				border: 2px solid rgba(245, 158, 11, 0.5);
+				transform: translate(-50%, -50%) scale(0);
+				animation: vrRipple 3s ease-out infinite;
+			}
+			.video-ripple-overlay .vr:nth-child(1) { width: 50px; height: 50px; animation-delay: 0s; }
+			.video-ripple-overlay .vr:nth-child(2) { width: 100px; height: 100px; animation-delay: 0.5s; }
+			.video-ripple-overlay .vr:nth-child(3) { width: 150px; height: 150px; animation-delay: 1s; }
+			.video-ripple-overlay .vr:nth-child(4) { width: 210px; height: 210px; animation-delay: 1.5s; }
+			.video-ripple-overlay .vr:nth-child(5) { width: 280px; height: 280px; animation-delay: 2s; }
+			.video-ripple-overlay .vr:nth-child(6) { width: 360px; height: 360px; animation-delay: 2.5s; }
+			.vr-play {
+				position: absolute;
+				top: 50%; left: 50%;
+				transform: translate(-50%, -50%);
+				width: 48px; height: 48px;
+				background: rgba(245, 158, 11, 0.9);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 0 50px rgba(245, 158, 11, 0.2);
+				animation: vrPlayPulse 2s ease-in-out infinite;
+				z-index: 3;
+			}
+			@keyframes vrRipple {
+				0% { transform: translate(-50%, -50%) scale(0); opacity: 0.7; border-color: rgba(245, 158, 11, 0.6); }
+				50% { opacity: 0.35; }
+				100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+			}
+			@keyframes vrPlayPulse {
+				0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 25px rgba(245, 158, 11, 0.5); }
+				50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 35px rgba(245, 158, 11, 0.7); }
 			}
 			
 			.hero h1 {
@@ -1325,10 +1372,10 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 						<a href={`/projects/${project.id}`} class="project-card" style="text-decoration:none;">
 							<div class="project-image" style="position:relative;overflow:hidden;">
 								<img src={project.data.cover} alt={project.data.title} style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" />
-								{project.data.category === 'Video Editing' && (
-									<div style="position:absolute;bottom:0;left:0;right:0;height:55px;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding-bottom:10px;background:linear-gradient(to top,rgba(5,5,5,0.85) 0%,rgba(5,5,5,0.4) 60%,transparent 100%);z-index:2;pointer-events:none;">
-										<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-80%);width:40px;height:40px;background:rgba(245,158,11,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(245,158,11,0.4);"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#000;margin-left:2px;"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
-										{Array.from({length:15}).map((_,i) => <div style={`width:3px;border-radius:3px;background:linear-gradient(180deg,#f59e0b,#f97316);height:${[8,14,22,16,28,18,24,12,30,14,26,10,20,28,16][i]}px;animation:waveBarIdx 1.2s ease-in-out infinite;animation-delay:${[0,0.1,0.2,0.3,0.15,0.25,0.05,0.35,0.1,0.2,0.3,0.15,0.25,0.05,0.35][i]}s;`} />)}
+								{project.data.category === 'Video Creation / Edit' && (
+									<div class="video-ripple-overlay">
+										<div class="vr"></div><div class="vr"></div><div class="vr"></div><div class="vr"></div><div class="vr"></div><div class="vr"></div>
+										<div class="vr-play"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#000;margin-left:3px;"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
 									</div>
 								)}
 							</div>
