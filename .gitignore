@@ -38,3 +38,5 @@ public/*.mp4
 
 # Font zip archives
 public/fonts/*.zip
+
+.vercel
