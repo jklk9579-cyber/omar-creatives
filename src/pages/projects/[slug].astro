@@ -104,6 +104,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeri
 				z-index: 1;
 			}
 			.showreel-container {
+				position: relative;
 				overflow: hidden;
 				border-radius: 0;
 				background: transparent;
@@ -113,6 +114,62 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeri
 				position: sticky;
 				top: 100px;
 				align-self: start;
+			}
+			/* Circle waves overlay for any video (same as projects list) */
+			.showreel-video-wave-overlay {
+				position: absolute;
+				inset: 0;
+				z-index: 2;
+				pointer-events: none;
+				overflow: hidden;
+			}
+			.showreel-video-wave-overlay::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.25);
+			}
+			.showreel-video-wave-overlay .ripple {
+				position: absolute;
+				top: 50%; left: 50%;
+				border-radius: 50%;
+				border: 2px solid rgba(245, 158, 11, 0.5);
+				transform: translate(-50%, -50%) scale(0);
+				animation: showreelRippleWave 3s ease-out infinite;
+			}
+			.showreel-video-wave-overlay .ripple:nth-child(1) { width: 60px; height: 60px; animation-delay: 0s; }
+			.showreel-video-wave-overlay .ripple:nth-child(2) { width: 120px; height: 120px; animation-delay: 0.5s; }
+			.showreel-video-wave-overlay .ripple:nth-child(3) { width: 180px; height: 180px; animation-delay: 1s; }
+			.showreel-video-wave-overlay .ripple:nth-child(4) { width: 250px; height: 250px; animation-delay: 1.5s; }
+			.showreel-video-wave-overlay .ripple:nth-child(5) { width: 330px; height: 330px; animation-delay: 2s; }
+			.showreel-video-wave-overlay .ripple:nth-child(6) { width: 420px; height: 420px; animation-delay: 2.5s; }
+			.showreel-video-wave-overlay .w-play-icon {
+				position: absolute;
+				top: 50%; left: 50%;
+				transform: translate(-50%, -50%);
+				width: 52px; height: 52px;
+				background: rgba(245, 158, 11, 0.9);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 0 50px rgba(245, 158, 11, 0.2);
+				animation: showreelPlayPulse 2s ease-in-out infinite;
+				z-index: 3;
+			}
+			.showreel-video-wave-overlay .w-play-icon svg {
+				width: 20px; height: 20px;
+				fill: #000;
+				margin-left: 3px;
+			}
+			@keyframes showreelRippleWave {
+				0% { transform: translate(-50%, -50%) scale(0); opacity: 0.7; border-color: rgba(245, 158, 11, 0.6); }
+				50% { opacity: 0.35; border-color: rgba(245, 158, 11, 0.3); }
+				100% { transform: translate(-50%, -50%) scale(1); opacity: 0; border-color: rgba(245, 158, 11, 0); }
+			}
+			@keyframes showreelPlayPulse {
+				0%, 100% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 0 50px rgba(245, 158, 11, 0.2); transform: translate(-50%, -50%) scale(1); }
+				50% { box-shadow: 0 0 35px rgba(245, 158, 11, 0.7), 0 0 70px rgba(245, 158, 11, 0.3); transform: translate(-50%, -50%) scale(1.1); }
 			}
 
 			/* ── Content Layout (side by side) ── */
@@ -936,6 +993,16 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeri
 					<video autoplay muted playsinline loop>
 						<source src="/moll1.webm" type="video/webm" />
 					</video>
+					<!-- Circle waves overlay (applies to any video in project detail) -->
+					<div class="showreel-video-wave-overlay">
+						<div class="ripple"></div>
+						<div class="ripple"></div>
+						<div class="ripple"></div>
+						<div class="ripple"></div>
+						<div class="ripple"></div>
+						<div class="ripple"></div>
+						<div class="w-play-icon"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
+					</div>
 				</div>
 			</div>
 		</section>

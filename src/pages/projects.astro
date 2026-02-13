@@ -959,13 +959,14 @@ sortedProjects.forEach(p => { categoryCounts[p.data.category] = (categoryCounts[
 										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 									</a>
 								</div>
-								<span class="overlay-category">{project.data.category}</span>
-								<div class="overlay-title">{project.data.title}</div>
-								<div class="overlay-desc">{project.data.description}</div>
+								<span class="overlay-category"><span class="lang-en">{project.data.category}</span><span class="lang-ar">{project.data.category_ar ?? project.data.category}</span></span>
+								<div class="overlay-title"><span class="lang-en">{project.data.title}</span><span class="lang-ar">{project.data.title_ar ?? project.data.title}</span></div>
+								<div class="overlay-desc"><span class="lang-en">{project.data.description}</span><span class="lang-ar">{project.data.description_ar ?? project.data.description}</span></div>
 								<div class="overlay-footer">
 									<div class="overlay-client">
 										<span class="dot"></span>
-										{project.data.client || 'Personal'}
+										<span class="lang-en">{project.data.client || 'Personal'}</span>
+										<span class="lang-ar">{project.data.client_ar ?? project.data.client ?? 'Personal'}</span>
 									</div>
 									<a class="overlay-view-btn" href={`/projects/${project.id}`}>
 										<span data-i18n="work.viewProject">View</span>

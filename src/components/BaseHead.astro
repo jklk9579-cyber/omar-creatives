@@ -71,12 +71,20 @@ const { title, description, image = FallbackImage } = Astro.props;
   }
 </script>
 
-<!-- Language/RTL Support -->
+<!-- Language/RTL Support + body class for project language switching -->
 <script is:inline>
   (function() {
     const savedLang = localStorage.getItem('language') || 'en';
     document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = savedLang;
+    function setBodyLang() {
+      if (document.body) {
+        document.body.classList.remove('is-en', 'is-ar');
+        document.body.classList.add(savedLang === 'ar' ? 'is-ar' : 'is-en');
+      }
+    }
+    setBodyLang();
+    if (!document.body) document.addEventListener('DOMContentLoaded', setBodyLang);
   })();
 </script>
 

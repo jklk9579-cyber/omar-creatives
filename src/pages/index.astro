@@ -1428,6 +1428,7 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 					const bestIds = [
 						'arkan-business-card',
 						'arkan-website',
+						'insulin-medical-explainer-video',
 						'al-awsat-news',
 						'rom-wear',
 						'dr-marwan-banner',
@@ -1456,9 +1457,10 @@ const recentPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 								)}
 							</div>
 							<div class="project-content">
-								<span class="project-tag">{project.data.category}</span>
-								<h3>{project.data.title}</h3>
-								<p>{project.data.description}</p>
+								<span class="project-tag lang-en">{project.data.category}</span>
+								<span class="project-tag lang-ar">{project.data.category_ar ?? project.data.category}</span>
+								<h3><span class="lang-en">{project.data.title}</span><span class="lang-ar">{project.data.title_ar ?? project.data.title}</span></h3>
+								<p><span class="lang-en">{project.data.description}</span><span class="lang-ar">{project.data.description_ar ?? project.data.description}</span></p>
 							</div>
 						</a>
 					))}
