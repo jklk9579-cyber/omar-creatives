@@ -36,9 +36,16 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeri
 		<style>
 			body { padding-top: 80px; }
 
-			/* ── Language Toggle ── */
+			/* ── Language: show ONLY one language on project detail (title, desc, content body) ── */
 			body.is-en .lang-ar { display: none !important; }
 			body.is-ar .lang-en { display: none !important; }
+			/* Project markdown body: hide the block that doesn't match the switch */
+			.project-content .content-ar,
+			.project-content [id="ar"] { display: none !important; }
+			body.is-ar .project-content .content-ar,
+			body.is-ar .project-content [id="ar"] { display: block !important; }
+			body.is-ar .project-content .content-en,
+			body.is-ar .project-content [id="en"] { display: none !important; }
 			body.is-ar .project-header,
 			body.is-ar .project-title,
 			body.is-ar .project-desc { direction: rtl; text-align: right; }
@@ -835,6 +842,9 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeri
 		</style>
 	</head>
 	<body>
+		<script is:inline>
+			(function(){var l=localStorage.getItem('language')||'en';document.body.classList.remove('is-en','is-ar');document.body.classList.add(l==='ar'?'is-ar':'is-en');})();
+		</script>
 		<div class="page-bg"></div>
 		<Header />
 
@@ -1025,32 +1035,30 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeri
 		</div>
 
 		<script is:inline define:vars={{ galleryImages, cover }}>
-			// ── Language Toggle ──
+			// ── Language: show ONLY one language (English or Arabic) according to switch ──
 			(function() {
 				const lang = localStorage.getItem('language') || 'en';
+				document.body.classList.remove('is-en', 'is-ar');
 				document.body.classList.add(lang === 'ar' ? 'is-ar' : 'is-en');
 
-				// Handle markdown content - show only the active language
 				const contentEl = document.querySelector('.project-content');
 				if (contentEl) {
 					const arSection = contentEl.querySelector('.content-ar');
-					if (lang === 'ar' && arSection) {
-						// Hide English content, show only Arabic
-						const children = Array.from(contentEl.children);
-						children.forEach(child => {
-							if (!child.classList.contains('content-ar')) {
-								child.style.display = 'none';
-							}
-						});
-						// Remove the border-top from content-ar since it's now the only content
-						arSection.style.borderTop = 'none';
-						arSection.style.marginTop = '0';
-						arSection.style.paddingTop = '0';
+					const arBlock = contentEl.querySelector('[id="ar"]');
+					const enBlock = contentEl.querySelector('[id="en"]');
+					if (lang === 'ar') {
+						if (enBlock) { enBlock.style.setProperty('display', 'none', 'important'); }
+						if (arSection) {
+							contentEl.querySelectorAll('.content-en').forEach(el => { el.style.setProperty('display', 'none', 'important'); });
+							arSection.style.borderTop = 'none';
+							arSection.style.marginTop = '0';
+							arSection.style.paddingTop = '0';
+						}
 						contentEl.style.direction = 'rtl';
 						contentEl.style.textAlign = 'right';
-					} else if (arSection) {
-						// English mode - hide Arabic content
-						arSection.style.display = 'none';
+					} else {
+						if (arBlock) { arBlock.style.setProperty('display', 'none', 'important'); }
+						if (arSection) { arSection.style.setProperty('display', 'none', 'important'); }
 					}
 				}
 			})();

@@ -28,6 +28,13 @@
 	--radius-xl: 28px;
 }
 
+/* Language switch: show ONLY one language. Default = English only; when body.is-ar = Arabic only */
+.lang-ar { display: none !important; }
+body.is-ar .lang-ar { display: block !important; }
+body.is-ar .lang-en { display: none !important; }
+body.is-en .lang-ar { display: none !important; }
+body.is-en .lang-en { display: block !important; }
+
 @font-face {
 	font-family: "Inter";
 	src: url("https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2") format("woff2");
