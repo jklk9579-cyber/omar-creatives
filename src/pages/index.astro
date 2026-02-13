@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import { getCollection } from "astro:content";
 
+const allProjects = await getCollection("projects");
 const services = await getCollection("services");
 
 const posts = await getCollection("blog");
@@ -1774,6 +1775,105 @@ const recentPosts = posts
 							</p>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<!-- Projects Section -->
+			<section class="section section-dark">
+				<div class="section-header animate-fadeInUp">
+					<div>
+						<p class="section-label" data-i18n="projects.label">
+							Featured Work
+						</p>
+						<h2 data-i18n="projects.title">Recent Projects</h2>
+					</div>
+				</div>
+				<div class="projects-grid stagger-animation">
+					{
+						(() => {
+							const bestIds = [
+								"arkan-business-card",
+								"al-awsat-news",
+								"rom-wear",
+								"dr-marwan-banner",
+								"kalista-shirt-set",
+								"seropipe-brand-campaign",
+								"falez-product-showcase",
+								"sale-end-of-season",
+								"romwear-flowa-banner",
+								"souqoom-social-media-cover",
+								"youssef-dress-invoice",
+							];
+							const picked = bestIds
+								.map((id) =>
+									allProjects.find((p) => p.id === id),
+								)
+								.filter(Boolean);
+							return picked;
+						})().map((project) => (
+							<a
+								href={`/projects/${project.id}`}
+								class="project-card"
+								style="text-decoration:none;"
+							>
+								<div class="card-arrow">
+									<svg viewBox="0 0 24 24">
+										<path d="M5 12h14M12 5l7 7-7 7" />
+									</svg>
+								</div>
+								<div
+									class="project-image"
+									style="position:relative;overflow:hidden;"
+								>
+									<img
+										src={project.data.cover}
+										alt={project.data.title}
+										style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);"
+									/>
+									{project.data.category ===
+										"Video Creation / Edit" && (
+										<div class="video-ripple-overlay">
+											<div class="vr" />
+											<div class="vr" />
+											<div class="vr" />
+											<div class="vr" />
+											<div class="vr" />
+											<div class="vr" />
+											<div class="vr-play">
+												<svg
+													viewBox="0 0 24 24"
+													style="width:18px;height:18px;fill:#000;margin-left:3px;"
+												>
+													<polygon points="6 3 20 12 6 21 6 3" />
+												</svg>
+											</div>
+										</div>
+									)}
+								</div>
+								<div class="project-content">
+									<span class="project-tag">
+										{project.data.category}
+									</span>
+									<h3>{project.data.title}</h3>
+									<p>{project.data.description}</p>
+								</div>
+							</a>
+						))
+					}
+				</div>
+				<div class="projects-cta-wrap">
+					<a href="/projects" class="projects-cta">
+						<span data-i18n="projects.viewAll"
+							>View All Projects</span
+						>
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+						>
+					</a>
 				</div>
 			</section>
 
