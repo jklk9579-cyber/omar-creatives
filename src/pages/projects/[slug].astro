@@ -29,6 +29,7 @@ const {
 	link,
 	date,
 	featured,
+	video_url,
 } = project.data;
 
 const allProjects = await getCollection("projects");
@@ -186,15 +187,14 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			.showreel-container {
 				position: relative;
 				overflow: hidden;
-				border-radius: 0;
+				border-radius: 20px;
 				background: transparent;
-				border: none;
+				border: 1px solid rgba(255, 255, 255, 0.06);
 				width: 100%;
-				aspect-ratio: 16/9;
+				max-width: 450px; /* Limit width for portrait video */
+				margin: 0 auto 3rem; /* Center and add bottom margin */
+				aspect-ratio: 9/16;
 				direction: ltr; /* Ensure overlay aligns correctly */
-				position: sticky;
-				top: 100px;
-				align-self: start;
 			}
 			/* Circle waves overlay for any video (same as projects list) */
 			.showreel-video-wave-overlay {
@@ -307,10 +307,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 
 			/* ── Content Layout (side by side) ── */
 			.content-layout {
-				display: grid;
-				grid-template-columns: 1fr 300px;
-				gap: 2rem;
-				align-items: start;
+				display: block;
 			}
 			.showreel-container video {
 				display: block;
@@ -1412,29 +1409,48 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				<h2 data-i18n="project.details">Project Details</h2>
 				<div class="line"></div>
 			</div>
+			<div class="showreel-container">
+				{
+					video_url && video_url.includes("drive.google.com") ? (
+						<iframe
+							src={video_url
+								.replace("/view", "/preview")
+								.replace("?usp=drive_link", "")
+								.replace("?usp=sharing", "")}
+							allow="autoplay"
+							allowfullscreen
+							style="width: 100%; height: 100%; border: none;"
+						/>
+					) : video_url ? (
+						<video autoplay muted playsinline loop>
+							<source src={video_url} type="video/mp4" />
+						</video>
+					) : (
+						<video autoplay muted playsinline loop>
+							<source src="/moll1.webm" type="video/webm" />
+						</video>
+					)
+				}
+				<!-- Circle waves overlay (applies to any video in project detail) -->
+				<div class="showreel-video-wave-overlay">
+					<div class="ripple"></div>
+					<div class="ripple"></div>
+					<div class="ripple"></div>
+					<div class="ripple"></div>
+					<div class="ripple"></div>
+					<div class="ripple"></div>
+					<div class="w-play-icon">
+						<svg viewBox="0 0 24 24"
+							><polygon points="6 3 20 12 6 21 6 3"
+							></polygon></svg
+						>
+					</div>
+				</div>
+			</div>
+
 			<div class="content-layout">
 				<div class="project-content">
 					<Content />
-				</div>
-				<div class="showreel-container">
-					<video autoplay muted playsinline loop>
-						<source src="/moll1.webm" type="video/webm" />
-					</video>
-					<!-- Circle waves overlay (applies to any video in project detail) -->
-					<div class="showreel-video-wave-overlay">
-						<div class="ripple"></div>
-						<div class="ripple"></div>
-						<div class="ripple"></div>
-						<div class="ripple"></div>
-						<div class="ripple"></div>
-						<div class="ripple"></div>
-						<div class="w-play-icon">
-							<svg viewBox="0 0 24 24"
-								><polygon points="6 3 20 12 6 21 6 3"
-								></polygon></svg
-							>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>

@@ -44,6 +44,7 @@ const projects = defineCollection({
 		client: z.string().optional(),
 		client_ar: z.string().optional(),
 		link: z.string().optional(),
+		video_url: z.string().optional(),
 		featured: z.boolean().default(false),
 		tags: z.array(z.string()).optional(),
 	}),

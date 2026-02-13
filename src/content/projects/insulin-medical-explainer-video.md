@@ -11,6 +11,7 @@ category_ar: "إنشاء / مونتاج فيديو"
 client: "Omar Creatives"
 client_ar: "عمر كرييتيفز"
 link: "https://drive.google.com/file/d/1Ip6hduCdmx4BaLgShmdcsh1PYA1LRMim/view?usp=sharing"
+video_url: "https://drive.google.com/file/d/1Ip6hduCdmx4BaLgShmdcsh1PYA1LRMim/view?usp=drive_link"
 featured: true
 tags:
   - "Video Creation"
@@ -73,29 +74,3 @@ Using a blend of AI image generation, AI script narration, and dynamic visual ef
 
 </div>
 
-<div class="video-showcase" style="margin-top: 1.5rem;">
-  <iframe
-    src="https://drive.google.com/file/d/1Ip6hduCdmx4BaLgShmdcsh1PYA1LRMim/preview"
-    allow="autoplay"
-    allowfullscreen
-    title="AI-Generated Medical Explainer Video – Insulin"
-  ></iframe>
-</div>
-
-<style>
-.video-showcase {
-  position: relative;
-  max-width: 100%;
-  margin: 2rem auto;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0a0a0a;
-  box-shadow: 0 0 40px rgba(245, 158, 11, 0.15), 0 0 80px rgba(245, 158, 11, 0.05);
-}
-.video-showcase iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-  display: block;
-}
-</style>
