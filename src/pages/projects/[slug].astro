@@ -203,6 +203,9 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				z-index: 2;
 				pointer-events: none;
 				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			.showreel-video-wave-overlay::before {
 				content: "";
@@ -250,10 +253,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				animation-delay: 2.5s;
 			}
 			.showreel-video-wave-overlay .w-play-icon {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
+				position: relative;
 				width: 52px;
 				height: 52px;
 				background: rgba(245, 158, 11, 0.9);
@@ -295,13 +295,13 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 					box-shadow:
 						0 0 25px rgba(245, 158, 11, 0.5),
 						0 0 50px rgba(245, 158, 11, 0.2);
-					transform: translate(-50%, -50%) scale(1);
+					transform: scale(1);
 				}
 				50% {
 					box-shadow:
 						0 0 35px rgba(245, 158, 11, 0.7),
 						0 0 70px rgba(245, 158, 11, 0.3);
-					transform: translate(-50%, -50%) scale(1.1);
+					transform: scale(1.1);
 				}
 			}
 
@@ -316,7 +316,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				display: block;
 				width: 100%;
 				height: 100%;
-				object-fit: contain;
+				object-fit: cover;
 				background: transparent;
 			}
 			.showreel-badge {
