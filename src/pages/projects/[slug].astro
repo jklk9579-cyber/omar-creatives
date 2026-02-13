@@ -190,7 +190,8 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				background: transparent;
 				border: none;
 				width: 100%;
-				aspect-ratio: auto;
+				aspect-ratio: 16/9;
+				direction: ltr; /* Ensure overlay aligns correctly */
 				position: sticky;
 				top: 100px;
 				align-self: start;
@@ -1430,7 +1431,8 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 						<div class="w-play-icon">
 							<svg viewBox="0 0 24 24"
 								><polygon points="6 3 20 12 6 21 6 3"
-								></polygon></svg>
+								></polygon></svg
+							>
 						</div>
 					</div>
 				</div>
