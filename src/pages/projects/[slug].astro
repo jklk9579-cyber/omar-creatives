@@ -176,134 +176,44 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				font-weight: 300;
 			}
 
-			/* ── Showreel Video ── */
-			.showreel-section {
+			/* ── Robot Animation Section ── */
+			.robot-animation-section {
 				max-width: 1200px;
 				margin: 2rem auto 3rem;
 				padding: 0 2rem;
 				position: relative;
 				z-index: 1;
+				display: flex;
+				justify-content: center;
 			}
-			.showreel-container {
-				position: relative;
-				overflow: hidden;
-				border-radius: 20px;
-				background: transparent;
-				border: 1px solid rgba(255, 255, 255, 0.06);
+			.robot-container {
 				width: 100%;
-				max-width: 450px; /* Limit width for portrait video */
-				margin: 0 auto 3rem; /* Center and add bottom margin */
-				aspect-ratio: 9/16;
-				direction: ltr; /* Ensure overlay aligns correctly */
-			}
-			/* Circle waves overlay for any video (same as projects list) */
-			.showreel-video-wave-overlay {
-				position: absolute;
-				inset: 0;
-				z-index: 2;
-				pointer-events: none;
-				overflow: hidden;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
-			.showreel-video-wave-overlay::before {
-				content: "";
-				position: absolute;
-				inset: 0;
-				background: rgba(0, 0, 0, 0.25);
-			}
-			.showreel-video-wave-overlay .ripple {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				border-radius: 50%;
-				border: 2px solid rgba(245, 158, 11, 0.5);
-				transform: translate(-50%, -50%) scale(0);
-				animation: showreelRippleWave 3s ease-out infinite;
-			}
-			.showreel-video-wave-overlay .ripple:nth-child(1) {
-				width: 60px;
-				height: 60px;
-				animation-delay: 0s;
-			}
-			.showreel-video-wave-overlay .ripple:nth-child(2) {
-				width: 120px;
-				height: 120px;
-				animation-delay: 0.5s;
-			}
-			.showreel-video-wave-overlay .ripple:nth-child(3) {
-				width: 180px;
-				height: 180px;
-				animation-delay: 1s;
-			}
-			.showreel-video-wave-overlay .ripple:nth-child(4) {
-				width: 250px;
-				height: 250px;
-				animation-delay: 1.5s;
-			}
-			.showreel-video-wave-overlay .ripple:nth-child(5) {
-				width: 330px;
-				height: 330px;
-				animation-delay: 2s;
-			}
-			.showreel-video-wave-overlay .ripple:nth-child(6) {
-				width: 420px;
-				height: 420px;
-				animation-delay: 2.5s;
-			}
-			.showreel-video-wave-overlay .w-play-icon {
+				max-width: 350px;
 				position: relative;
-				width: 52px;
-				height: 52px;
-				background: rgba(245, 158, 11, 0.9);
-				border-radius: 50%;
 				display: flex;
-				align-items: center;
 				justify-content: center;
-				box-shadow:
-					0 0 25px rgba(245, 158, 11, 0.5),
-					0 0 50px rgba(245, 158, 11, 0.2);
-				animation: showreelPlayPulse 2s ease-in-out infinite;
-				z-index: 3;
+				align-items: center;
 			}
-			.showreel-video-wave-overlay .w-play-icon svg {
-				width: 20px;
-				height: 20px;
-				fill: #000;
-				margin-left: 3px;
+			.robot-container video {
+				width: 100%;
+				height: auto;
+				display: block;
+				background: transparent;
+				/* Optional: subtle shadow for depth without borders */
+				filter: drop-shadow(0 0 30px rgba(245, 158, 11, 0.25));
+				animation: robotFloat 4s ease-in-out infinite;
 			}
-			@keyframes showreelRippleWave {
-				0% {
-					transform: translate(-50%, -50%) scale(0);
-					opacity: 0.7;
-					border-color: rgba(245, 158, 11, 0.6);
-				}
-				50% {
-					opacity: 0.35;
-					border-color: rgba(245, 158, 11, 0.3);
-				}
-				100% {
-					transform: translate(-50%, -50%) scale(1);
-					opacity: 0;
-					border-color: rgba(245, 158, 11, 0);
-				}
-			}
-			@keyframes showreelPlayPulse {
+			@keyframes robotFloat {
 				0%,
 				100% {
-					box-shadow:
-						0 0 25px rgba(245, 158, 11, 0.5),
-						0 0 50px rgba(245, 158, 11, 0.2);
-					transform: scale(1);
+					transform: translateY(0);
 				}
 				50% {
-					box-shadow:
-						0 0 35px rgba(245, 158, 11, 0.7),
-						0 0 70px rgba(245, 158, 11, 0.3);
-					transform: scale(1.1);
+					transform: translateY(-15px);
 				}
 			}
+
+			/* Remove old showreel styles */
 
 			/* ── Content Layout (side by side) ── */
 			.content-layout {
@@ -1409,42 +1319,11 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				<h2 data-i18n="project.details">Project Details</h2>
 				<div class="line"></div>
 			</div>
-			<div class="showreel-container">
-				{
-					video_url && video_url.includes("drive.google.com") ? (
-						<iframe
-							src={video_url
-								.replace("/view", "/preview")
-								.replace("?usp=drive_link", "")
-								.replace("?usp=sharing", "")}
-							allow="autoplay"
-							allowfullscreen
-							style="width: 100%; height: 100%; border: none;"
-						/>
-					) : video_url ? (
-						<video autoplay muted playsinline loop>
-							<source src={video_url} type="video/mp4" />
-						</video>
-					) : (
-						<video autoplay muted playsinline loop>
-							<source src="/moll1.webm" type="video/webm" />
-						</video>
-					)
-				}
-				<!-- Circle waves overlay (applies to any video in project detail) -->
-				<div class="showreel-video-wave-overlay">
-					<div class="ripple"></div>
-					<div class="ripple"></div>
-					<div class="ripple"></div>
-					<div class="ripple"></div>
-					<div class="ripple"></div>
-					<div class="ripple"></div>
-					<div class="w-play-icon">
-						<svg viewBox="0 0 24 24"
-							><polygon points="6 3 20 12 6 21 6 3"
-							></polygon></svg
-						>
-					</div>
+			<div class="robot-animation-section">
+				<div class="robot-container">
+					<video autoplay muted playsinline loop>
+						<source src="/Untitledkkk-1.webm" type="video/webm" />
+					</video>
 				</div>
 			</div>
 
