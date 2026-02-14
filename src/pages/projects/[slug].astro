@@ -179,12 +179,13 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			/* ── Robot Animation Section ── */
 			.robot-animation-section {
 				max-width: 1200px;
-				margin: 2rem auto 3rem;
+				margin: 3rem auto;
 				padding: 0 2rem;
 				position: relative;
-				z-index: 1;
+				z-index: 10; /* Ensure it's on top */
 				display: flex;
 				justify-content: center;
+				min-height: 200px; /* Ensure space even if video is loading */
 			}
 			.robot-container {
 				width: 100%;
@@ -196,12 +197,15 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			}
 			.robot-container video {
 				width: 100%;
+				max-width: 400px;
 				height: auto;
 				display: block;
 				background: transparent;
-				/* Optional: subtle shadow for depth without borders */
 				filter: drop-shadow(0 0 30px rgba(245, 158, 11, 0.25));
 				animation: robotFloat 4s ease-in-out infinite;
+				/* Remove any potential border/background inherited */
+				border: none !important;
+				outline: none !important;
 			}
 			@keyframes robotFloat {
 				0%,
@@ -1314,14 +1318,20 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 		</div>
 
 		<!-- ── Content ── -->
-		<section class="content-section reveal">
+		<section class="content-section">
 			<div class="content-header">
 				<h2 data-i18n="project.details">Project Details</h2>
 				<div class="line"></div>
 			</div>
 			<div class="robot-animation-section">
 				<div class="robot-container">
-					<video autoplay muted playsinline loop>
+					<video
+						autoplay
+						muted
+						playsinline
+						loop
+						style="background: red; border: 5px solid yellow;"
+					>
 						<source src="/Untitledkkk-1.webm" type="video/webm" />
 					</video>
 				</div>
