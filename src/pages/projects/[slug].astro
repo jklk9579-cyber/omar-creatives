@@ -179,7 +179,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			/* ── Video/Robot Animation Section ── */
 			.project-video-section {
 				max-width: 1200px;
-				margin: 3rem auto;
+				margin: 1rem auto 2rem; /* Reduced margin to close gap */
 				padding: 0 2rem;
 				position: relative;
 				z-index: 10;
@@ -188,27 +188,97 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			}
 			.video-wrapper {
 				width: 100%;
-				max-width: 500px; /* Bigger size */
+				max-width: 600px; /* Bigger size as requested */
 				position: relative;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				aspect-ratio: 9/16; /* Enforce 9:16 */
+				aspect-ratio: 9 / 16; /* Strict vertical ratio */
+				background: transparent !important;
+				border: none !important;
+				box-shadow: none !important;
+				overflow: hidden;
 			}
 			.video-wrapper video,
 			.video-wrapper iframe {
 				width: 100%;
 				height: 100%;
 				display: block;
-				background: transparent;
+				background: transparent !important;
 				border: none !important;
 				outline: none !important;
-				border-radius: 12px;
-				overflow: hidden;
+				box-shadow: none !important;
 			}
 			.video-wrapper video {
-				object-fit: contain; /* Show full robot without cropping */
-				filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.3));
+				object-fit: cover; /* Fill the 9:16 space */
+				filter: drop-shadow(
+					0 0 40px rgba(5, 5, 5, 0.8)
+				); /* Deep dark glow */
+			}
+
+			/* Circular Waves Overlay */
+			.video-ripple-overlay {
+				position: absolute;
+				inset: 0;
+				z-index: 2;
+				pointer-events: none;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.video-ripple-overlay .vr {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				border-radius: 50%;
+				border: 1px solid rgba(5, 5, 5, 0.4); /* Dark ripples */
+				transform: translate(-50%, -50%) scale(0);
+				animation: vrRipple 3s ease-out infinite;
+			}
+			.video-ripple-overlay .vr:nth-child(1) {
+				width: 60px;
+				height: 60px;
+				animation-delay: 0s;
+			}
+			.video-ripple-overlay .vr:nth-child(2) {
+				width: 120px;
+				height: 120px;
+				animation-delay: 0.5s;
+			}
+			.video-ripple-overlay .vr:nth-child(3) {
+				width: 180px;
+				height: 180px;
+				animation-delay: 1s;
+			}
+			.video-ripple-overlay .vr:nth-child(4) {
+				width: 260px;
+				height: 260px;
+				animation-delay: 1.5s;
+			}
+			.video-ripple-overlay .vr:nth-child(5) {
+				width: 350px;
+				height: 350px;
+				animation-delay: 2s;
+			}
+			.video-ripple-overlay .vr:nth-child(6) {
+				width: 450px;
+				height: 450px;
+				animation-delay: 2.5s;
+			}
+
+			@keyframes vrRipple {
+				0% {
+					transform: translate(-50%, -50%) scale(0);
+					opacity: 0.8;
+				}
+				100% {
+					transform: translate(-50%, -50%) scale(1.5);
+					opacity: 0;
+				}
+			}
+
+			.video-wrapper video {
 				animation: robotFloat 4s ease-in-out infinite;
 			}
 			@keyframes robotFloat {
@@ -1345,13 +1415,18 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 							</video>
 						) : (
 							<video autoplay muted playsinline loop>
-								<source
-									src="/Untitledkkk-1.webm"
-									type="video/webm"
-								/>
+								<source src="/moll1.webm" type="video/webm" />
 							</video>
 						)
 					}
+					<div class="video-ripple-overlay">
+						<div class="vr"></div>
+						<div class="vr"></div>
+						<div class="vr"></div>
+						<div class="vr"></div>
+						<div class="vr"></div>
+						<div class="vr"></div>
+					</div>
 				</div>
 			</div>
 
