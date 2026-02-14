@@ -3,7 +3,7 @@ export const translations = {
     // Navigation
     nav: {
       home: "Home",
-      services: "Services",
+      services: "Expertise",
       work: "Work",
       testimonials: "Testimonials",
       blog: "Blog",
@@ -26,7 +26,7 @@ export const translations = {
     },
     // About Section
     about: {
-      label: "About Me",
+      label: "My Story",
       title: "Designer, Developer &",
       titleHighlight: "Content Creator",
       lead: "I'm a designer, developer, and AI Specialist who builds brands, crafts digital experiences, and creates content that actually connects with people.",
@@ -40,13 +40,13 @@ export const translations = {
       label: "Services",
       title: "How I Can Help",
       viewAll: "Service Catalog",
-      learnMore: "Learn More",
+      learnMore: "Explore Service",
     },
     // Services Page
     servicesPage: {
       title: "Services",
       subtitle: "I offer a range of professional digital services to help bring your ideas to life",
-      learnMore: "Learn More",
+      learnMore: "Full Details",
       getStarted: "Get Started",
       popular: "Popular",
       featured: "Featured",
@@ -83,7 +83,7 @@ export const translations = {
     testimonials: {
       label: "Reviews",
       title: "Client Outcomes",
-      viewAll: "Client Stories",
+      viewAll: "Success Stories",
     },
     // Blog Section
     blog: {
@@ -107,7 +107,7 @@ export const translations = {
       work: "Project Gallery",
       blog: "Recent Insights",
       pricing: "Pricing Plans",
-      testimonials: "Client Stories",
+      testimonials: "Read Reviews",
       faq: "Common Questions",
       aboutMe: "About Omar",
       getInTouch: "Reach Out",
@@ -125,7 +125,7 @@ export const translations = {
     // Navigation
     nav: {
       home: "الرئيسية",
-      services: "الخدمات",
+      services: "خبراتي",
       work: "أعمالي",
       testimonials: "آراء العملاء",
       blog: "المدونة",
@@ -148,7 +148,7 @@ export const translations = {
     },
     // About Section
     about: {
-      label: "عني",
+      label: "قصتي",
       title: "مصمم ومطور و",
       titleHighlight: "صانع محتوى",
       lead: "أنا مصمم ومطور وخبير ذكاء اصطناعي (AI Specialist) أقوم ببناء العلامات التجارية، وصناعة التجارب الرقمية، وإنشاء محتوى يتواصل حقًا مع الناس.",
@@ -162,13 +162,13 @@ export const translations = {
       label: "خدماتي",
       title: "كيف يمكنني مساعدتك",
       viewAll: "كتالوج الخدمات",
-      learnMore: "اعرف المزيد",
+      learnMore: "استكشف الخدمة",
     },
     // Services Page
     servicesPage: {
       title: "الخدمات",
       subtitle: "أقدم مجموعة من الخدمات الرقمية المهنية لمساعدتك في تحويل أفكارك إلى واقع",
-      learnMore: "اعرف المزيد",
+      learnMore: "التفاصيل الكاملة",
       getStarted: "ابدأ الآن",
       popular: "شائع",
       featured: "مميز",
@@ -205,7 +205,7 @@ export const translations = {
     testimonials: {
       label: "التقييمات",
       title: "ماذا يقول العملاء",
-      viewAll: "قصص النجاح",
+      viewAll: "تجارب ناجحة",
     },
     // Blog Section
     blog: {
@@ -229,7 +229,7 @@ export const translations = {
       work: "معرض الأعمال",
       blog: "رؤى رقمية حديثة",
       pricing: "خطط الأسعار",
-      testimonials: "قصص النجاح",
+      testimonials: "اقرأ التقييمات",
       faq: "أسئلة شائعة",
       aboutMe: "من هو عمر؟",
       getInTouch: "تواصل الآن",
