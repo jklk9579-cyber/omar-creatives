@@ -732,10 +732,11 @@ const recentPosts = posts
 				background: rgba(245, 158, 11, 0.2);
 				transform: scale(1.1);
 			}
-			.service-card h3 {
+			.service-card .service-title {
 				font-size: 1.2rem;
-				margin-bottom: 0.5rem;
+				margin: 0 0 0.5rem 0;
 				font-weight: 600;
+				color: var(--text-primary);
 			}
 			.service-card p {
 				font-size: 0.9rem;
@@ -1130,6 +1131,29 @@ const recentPosts = posts
 					var(--accent),
 					transparent
 				);
+			}
+			.project-content .project-title {
+				font-size: 1.4rem;
+				font-weight: 700;
+				margin: 0.5rem 0;
+				color: var(--text-primary);
+			}
+			.blog-card .blog-title {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: var(--text-primary);
+				margin: 1rem 0;
+				line-height: 1.3;
+				transition: color 0.3s ease;
+			}
+			.blog-card:hover .blog-title {
+				color: var(--accent);
+			}
+			.project-content p,
+			.blog-card p {
+				color: var(--text-secondary);
+				line-height: 1.6;
+				font-size: 0.95rem;
 			}
 			.cta-section h2 {
 				font-size: 2.75rem;
@@ -1703,9 +1727,11 @@ const recentPosts = posts
 						<h2 data-i18n="services.label">Services</h2>
 						<p class="section-desc">
 							I provide a wide range of creative and technical
-							solutions, from high-performance web applications to
-							cutting-edge AI-generated content and brand
-							identities.
+							solutions tailored to your specific needs. From
+							high-performance, responsive web applications built
+							with the latest technologies to cutting-edge
+							AI-generated content and unique brand identities
+							that help you stand out in the digital landscape.
 						</p>
 					</div>
 					<a href="/services" class="view-all"
@@ -1736,7 +1762,7 @@ const recentPosts = posts
 									></path>
 								</svg>
 							</div>
-							<h3>AI Content</h3>
+							<p class="service-title">AI Content</p>
 							<p>
 								Creating stunning visuals and copy with
 								cutting-edge AI tools.
@@ -1756,7 +1782,7 @@ const recentPosts = posts
 									></path>
 								</svg>
 							</div>
-							<h3>Web Development</h3>
+							<p class="service-title">Web Development</p>
 							<p>
 								Fast, modern websites with clean code and great
 								UX.
@@ -1781,7 +1807,7 @@ const recentPosts = posts
 									<path d="M9 5h6"></path>
 								</svg>
 							</div>
-							<h3>App Development</h3>
+							<p class="service-title">App Development</p>
 							<p>
 								Native and cross-platform mobile apps users
 								love.
@@ -1800,7 +1826,7 @@ const recentPosts = posts
 									<path d="M2 12l10 5 10-5"></path>
 								</svg>
 							</div>
-							<h3>UI/UX Design</h3>
+							<p class="service-title">UI/UX Design</p>
 							<p>
 								Beautiful interfaces that tell your brand story.
 							</p>
@@ -1818,8 +1844,11 @@ const recentPosts = posts
 						</p>
 						<h2 data-i18n="projects.title">Recent Projects</h2>
 						<p class="section-desc animate-fadeInUp delay-100">
-							Explore a curated selection of my latest work in web
-							development, AI content, and graphic design.
+							Explore a curated selection of my latest work across
+							various disciplines. From complex web platforms to
+							creative AI experiments and professional graphic
+							design, each project demonstrates a commitment to
+							quality and innovation.
 						</p>
 					</div>
 				</div>
@@ -1878,7 +1907,9 @@ const recentPosts = posts
 									<span class="project-tag">
 										{project.data.category}
 									</span>
-									<h3>{project.data.title}</h3>
+									<p class="project-title">
+										{project.data.title}
+									</p>
 									<p>{project.data.description}</p>
 								</div>
 							</a>
@@ -1911,9 +1942,12 @@ const recentPosts = posts
 						<p class="section-label">Testimonials</p>
 						<h2>What Clients Say</h2>
 						<p class="section-desc">
-							Don't just take my word for it. Here is what some of
-							my recent clients have to say about our creative
-							collaboration.
+							Don't just take my word for it. My reputation is
+							built on successful collaborations and tangible
+							results. Here is what some of my recent clients have
+							to say about our creative collaboration, technical
+							expertise, and the overall impact of our joint
+							projects.
 						</p>
 					</div>
 					<a
@@ -2011,7 +2045,7 @@ const recentPosts = posts
 											},
 										)}
 									</span>
-									<h3>{post.data.title}</h3>
+									<p class="blog-title">{post.data.title}</p>
 									<p>{post.data.description}</p>
 								</a>
 							))}
