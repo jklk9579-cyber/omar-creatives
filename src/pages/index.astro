@@ -838,6 +838,20 @@ const recentPosts = posts
 				opacity: 1;
 			}
 
+			/* Stretched link for SEO and UX */
+			.project-title a,
+			.blog-title a {
+				color: inherit;
+				text-decoration: none;
+			}
+			.project-title a::after,
+			.blog-title a::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				z-index: 10;
+			}
+
 			/* Accent border glow on hover */
 			.project-card::before {
 				content: "";
@@ -1072,6 +1086,7 @@ const recentPosts = posts
 				gap: 2rem;
 			}
 			.blog-card {
+				position: relative;
 				background: var(--bg-card);
 				border: 1px solid var(--border-color);
 				border-radius: 20px;
@@ -1864,11 +1879,7 @@ const recentPosts = posts
 								);
 							return picked;
 						})().map((project) => (
-							<a
-								href={`/projects/${project.id}`}
-								class="project-card"
-								style="text-decoration:none;"
-							>
+							<div class="project-card">
 								<div class="card-arrow">
 									<svg viewBox="0 0 24 24">
 										<path d="M5 12h14M12 5l7 7-7 7" />
@@ -1908,11 +1919,13 @@ const recentPosts = posts
 										{project.data.category}
 									</span>
 									<p class="project-title">
-										{project.data.title}
+										<a href={`/projects/${project.id}`}>
+											{project.data.title}
+										</a>
 									</p>
 									<p>{project.data.description}</p>
 								</div>
-							</a>
+							</div>
 						))
 					}
 				</div>
@@ -2033,7 +2046,7 @@ const recentPosts = posts
 						</div>
 						<div class="blog-grid stagger-animation">
 							{recentPosts.map((post) => (
-								<a href={`/blog/${post.id}`} class="blog-card">
+								<div class="blog-card">
 									<span class="blog-date">
 										{post.data.pubDate.toLocaleDateString(
 											"en-US",
@@ -2044,9 +2057,13 @@ const recentPosts = posts
 											},
 										)}
 									</span>
-									<p class="blog-title">{post.data.title}</p>
+									<p class="blog-title">
+										<a href={`/blog/${post.id}`}>
+											{post.data.title}
+										</a>
+									</p>
 									<p>{post.data.description}</p>
-								</a>
+								</div>
 							))}
 						</div>
 					</section>
