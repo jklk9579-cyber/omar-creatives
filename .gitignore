@@ -28,12 +28,10 @@ pnpm-debug.log*
 *.mp4
 moll-1.webm
 moll.webm
-moll1.webm
 نهخ.webm
 design-reference.pdf
 
 # Large video files in public
-public/*.webm
 public/*.mp4
 
 # Font zip archives
