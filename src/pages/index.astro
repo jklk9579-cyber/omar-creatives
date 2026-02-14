@@ -1791,25 +1791,13 @@ const recentPosts = posts
 				<div class="projects-grid stagger-animation">
 					{
 						(() => {
-							const bestIds = [
-								"al-fanous-coffee",
-								"arkan-business-card",
-								"al-awsat-news",
-								"rom-wear",
-								"dr-marwan-banner",
-								"kalista-shirt-set",
-								"seropipe-brand-campaign",
-								"falez-product-showcase",
-								"sale-end-of-season",
-								"romwear-flowa-banner",
-								"souqoom-social-media-cover",
-								"youssef-dress-invoice",
-							];
-							const picked = bestIds
-								.map((id) =>
-									allProjects.find((p) => p.id === id),
-								)
-								.filter(Boolean);
+							const picked = allProjects
+								.filter((p) => p.data.featured)
+								.sort(
+									(a, b) =>
+										b.data.date.valueOf() -
+										a.data.date.valueOf(),
+								);
 							return picked;
 						})().map((project) => (
 							<a

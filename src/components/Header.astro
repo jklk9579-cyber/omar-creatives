@@ -1,7 +1,7 @@
 ---
-import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
-import LanguageSwitcher from './LanguageSwitcher.astro';
+import { SITE_TITLE } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 ---
 
 <header>
@@ -10,18 +10,39 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 			<img src="/images/logo.png" alt="Omar Creatives" class="logo" />
 		</a>
 		<div class="internal-links">
-			<HeaderLink href="/"><span data-i18n="nav.home">Home</span></HeaderLink>
-			<HeaderLink href="/services"><span data-i18n="nav.services">Services</span></HeaderLink>
-			<HeaderLink href="/projects"><span data-i18n="nav.work">Work</span></HeaderLink>
-			<HeaderLink href="/pricing"><span data-i18n="nav.pricing">Pricing</span></HeaderLink>
-			<HeaderLink href="/testimonials"><span data-i18n="nav.testimonials">Testimonials</span></HeaderLink>
-			<HeaderLink href="/blog"><span data-i18n="nav.blog">Blog</span></HeaderLink>
+			<HeaderLink href="/"
+				><span data-i18n="nav.home">Home</span></HeaderLink
+			>
+			<HeaderLink href="/services"
+				><span data-i18n="nav.services">Services</span></HeaderLink
+			>
+			<HeaderLink href="/projects"
+				><span data-i18n="nav.work">Work</span></HeaderLink
+			>
+			<HeaderLink href="/pricing"
+				><span data-i18n="nav.pricing">Pricing</span></HeaderLink
+			>
+			<HeaderLink href="/testimonials"
+				><span data-i18n="nav.testimonials">Testimonials</span
+				></HeaderLink
+			>
+			<HeaderLink href="/blog"
+				><span data-i18n="nav.blog">Blog</span></HeaderLink
+			>
 		</div>
 		<div class="nav-cta">
 			<LanguageSwitcher />
-			<a href="/contact" class="contact-btn"><span data-i18n="nav.letsTalk">Let's Talk</span></a>
+			<a href="/contact" class="contact-btn"
+				><span data-i18n="nav.letsTalk">Let's Talk</span></a
+			>
 		</div>
-		<button class="mobile-menu-btn" id="mobileMenuBtn">
+		<button
+			class="mobile-menu-btn"
+			id="mobileMenuBtn"
+			aria-label="Toggle Menu"
+			aria-expanded="false"
+			aria-controls="mobileMenu"
+		>
 			<span></span>
 			<span></span>
 			<span></span>
@@ -32,11 +53,15 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 		<a href="/services"><span data-i18n="nav.services">Services</span></a>
 		<a href="/projects"><span data-i18n="nav.work">Work</span></a>
 		<a href="/pricing"><span data-i18n="nav.pricing">Pricing</span></a>
-		<a href="/testimonials"><span data-i18n="nav.testimonials">Testimonials</span></a>
+		<a href="/testimonials"
+			><span data-i18n="nav.testimonials">Testimonials</span></a
+		>
 		<a href="/blog"><span data-i18n="nav.blog">Blog</span></a>
 		<a href="/about"><span data-i18n="nav.about">About</span></a>
 		<a href="/faq"><span data-i18n="nav.faq">FAQ</span></a>
-		<a href="/contact" class="mobile-cta"><span data-i18n="nav.letsTalk">Let's Talk</span></a>
+		<a href="/contact" class="mobile-cta"
+			><span data-i18n="nav.letsTalk">Let's Talk</span></a
+		>
 	</div>
 </header>
 <style>
@@ -105,7 +130,7 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 		transform: translateY(-2px);
 		box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3);
 	}
-	
+
 	/* Mobile Menu Button */
 	.mobile-menu-btn {
 		display: none;
@@ -132,7 +157,7 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 	.mobile-menu-btn.active span:nth-child(3) {
 		transform: rotate(-45deg) translate(5px, -5px);
 	}
-	
+
 	/* Mobile Menu */
 	.mobile-menu {
 		display: none;
@@ -173,9 +198,10 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 		font-weight: 600;
 		margin-top: 0.5rem;
 	}
-	
+
 	@media (max-width: 900px) {
-		.internal-links, .nav-cta {
+		.internal-links,
+		.nav-cta {
 			display: none;
 		}
 		.mobile-menu-btn {
@@ -188,81 +214,82 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 			padding: 1rem;
 		}
 	}
-	
+
 	/* LTR (English) Styles for Header */
 	:global([dir="ltr"]) header {
 		direction: ltr;
 	}
-	
+
 	:global([dir="ltr"]) nav {
 		flex-direction: row;
 	}
-	
+
 	:global([dir="ltr"]) .internal-links {
 		flex-direction: row;
 	}
-	
+
 	:global([dir="ltr"]) .nav-cta {
 		flex-direction: row;
 	}
-	
+
 	/* RTL Styles for Header */
 	:global([dir="rtl"]) header {
 		direction: rtl;
 	}
-	
+
 	:global([dir="rtl"]) nav {
 		flex-direction: row-reverse;
 		direction: rtl;
 	}
-	
+
 	:global([dir="rtl"]) .internal-links {
 		flex-direction: row-reverse;
 		gap: 0.75rem;
 	}
-	
+
 	:global([dir="rtl"]) .internal-links :global(a) {
 		font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 		font-size: 1.9rem;
 		font-weight: 300;
 		padding: 0.75rem 1.25rem;
 	}
-	
+
 	:global([dir="rtl"]) .nav-cta {
 		flex-direction: row-reverse;
 		gap: 0.75rem;
 	}
-	
+
 	:global([dir="rtl"]) .contact-btn {
 		font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 		font-size: 1.7rem;
 		font-weight: 300;
 		padding: 0.85rem 1.5rem;
 	}
-	
+
 	:global([dir="rtl"]) .mobile-menu {
 		text-align: right;
 		direction: rtl;
 	}
-	
+
 	:global([dir="rtl"]) .mobile-menu a {
 		font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 		text-align: right;
 		font-size: 1.9rem;
 		font-weight: 300;
 	}
-	
+
 	:global([dir="rtl"]) .mobile-menu .mobile-cta {
 		text-align: center;
 	}
 </style>
 
 <script>
-	const menuBtn = document.getElementById('mobileMenuBtn');
-	const mobileMenu = document.getElementById('mobileMenu');
-	
-	menuBtn?.addEventListener('click', () => {
-		menuBtn.classList.toggle('active');
-		mobileMenu?.classList.toggle('active');
+	const menuBtn = document.getElementById("mobileMenuBtn");
+	const mobileMenu = document.getElementById("mobileMenu");
+
+	menuBtn?.addEventListener("click", () => {
+		const isExpanded = menuBtn.classList.toggle("active");
+		menuBtn.setAttribute("aria-expanded", isExpanded.toString());
+		mobileMenu?.classList.toggle("active");
 	});
 </script>
