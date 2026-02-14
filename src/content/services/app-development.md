@@ -1,8 +1,8 @@
 ---
-title: "App Development"
-title_ar: "تطوير تطبيقات"
-description: "Mobile and web applications built with the latest technologies"
-description_ar: "نطور تطبيقات موبايل وويب بأحدث التقنيات"
+title: "App & Software Development"
+title_ar: "تطوير التطبيقات والبرمجيات"
+description: "Expert Mobile and Web Application Development. We build fast, high-performance apps with modern UI/UX design and scalable code."
+description_ar: "تطوير تطبيقات الموبايل والويب باحترافية. نصمم تطبيقات سريعة وعالية الأداء مع تصميم واجهة مستخدم حديث وكود قابل للتوسع."
 image: "/images/2073fd38-e3d7-4244-9489-3b5b4e1a47db.jpg"
 icon: "📱"
 order: 2

@@ -1,8 +1,8 @@
 ---
-title: "UI/UX Design"
-title_ar: "تصميم واجهات المستخدم"
-description: "Beautiful and intuitive interfaces that delight users"
-description_ar: "واجهات جميلة وبديهية تسعد المستخدمين وتزيد التفاعل"
+title: "Professional UI/UX Design"
+title_ar: "تصميم واجهات المستخدم (UI/UX)"
+description: "World-class UI/UX Design services. Create beautiful, intuitive digital interfaces that delight users and maximize conversion rates."
+description_ar: "خدمات تصميم واجهات وتجربة المستخدم (UI/UX) عالمية المستوى. اصنع واجهات رقمية جميلة وبديهية تسعد المستخدمين وتزيد من معدلات التحويل."
 image: "/images/9447f0d94bd5148d51141932a8e69acb.jpg"
 icon: "🎨"
 order: 4

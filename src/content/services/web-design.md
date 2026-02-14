@@ -1,8 +1,8 @@
 ---
-title: "Web Design"
-title_ar: "تصميم مواقع"
-description: "Professional, fast, and responsive websites for all devices"
-description_ar: "نصمم مواقع احترافية وسريعة ومتوافقة مع جميع الأجهزة"
+title: "Web Design & Development"
+title_ar: "تصميم وتطوير المواقع"
+description: "Professional Graphic Design and Web Development for high-performance, responsive websites. We build modern digital experiences that rank high."
+description_ar: "تصميم مواقع احترافية وتطوير ويب عالي الأداء. نصمم تجارب رقمية حديثة متوافقة مع محركات البحث وجميع الأجهزة."
 image: "/images/web_development_robots.jpg"
 icon: "🌐"
 order: 1

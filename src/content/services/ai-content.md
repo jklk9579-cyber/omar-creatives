@@ -1,8 +1,8 @@
 ---
-title: "AI Content Creation"
-title_ar: "إنشاء محتوى بالذكاء الاصطناعي"
-description: "Leverage AI to create engaging content and automate workflows"
-description_ar: "استفد من الذكاء الاصطناعي لإنشاء محتوى جذاب وأتمتة سير العمل"
+title: "AI & Digital Content Creation"
+title_ar: "إنشاء المحتوى الرقمي والذكاء الاصطناعي"
+description: "Professional AI Content Creation and Visual Storytelling. Boost your brand with AI-powered graphic design and automated workflows."
+description_ar: "إنشاء محتوى بالذكاء الاصطناعي ورواية القصص البصرية. عزز علامتك التجارية بتصميم جرافيك مدعوم بالذكاء الاصطناعي وأتمتة سير العمل."
 image: "/images/ai_content_robot.jpg"
 icon: "🤖"
 order: 3

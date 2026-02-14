@@ -17,7 +17,29 @@ const recentPosts = posts
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={SITE_TITLE}
+			description={SITE_DESCRIPTION}
+			keywords="Graphic Design, Web Design, UI/UX design, AI Content, App Development, Logo Design, Omar Abdelfattah, Creative Studio Cairo, تصميم جرافيك, تصميم مواقع, تطوير تطبيقات, برمجيات"
+		/>
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "ProfessionalService",
+				name: SITE_TITLE,
+				description: SITE_DESCRIPTION,
+				url: "https://omarcreatives.com",
+				logo: "https://omarcreatives.com/favicon.png",
+				address: {
+					"@type": "PostalAddress",
+					addressLocality: "Cairo",
+					addressCountry: "Egypt",
+				},
+				priceRange: "$$",
+			})}
+		/>
 		<style>
 			/* Hero Section - Premium Design */
 			.hero {

@@ -10,11 +10,12 @@ interface Props {
   title: string;
   description: string;
   image?: ImageMetadata;
+  keywords?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title, description, image = FallbackImage, keywords } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -29,6 +30,16 @@ const { title, description, image = FallbackImage } = Astro.props;
   href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
+
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#f59e0b" />
+<meta
+  name="keywords"
+  content={keywords ||
+    "Graphic Design, Web Design, UI/UX Design, App Development, Logo Design, Freelance, Omar Abdelfattah, تصميم جرافيك, تصميم مواقع, تصميم تطبيقات, تصميم شعارات, هوية بصرية, صانع محتوى"}
+/>
+<meta name="author" content={SITE_TITLE} />
 
 <!-- Font preloads -->
 <link
@@ -59,14 +70,38 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={new URL(image.src, Astro.url).href} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={new URL(image.src, Astro.url).href} />
+
+<!-- Structured Data (JSON-LD) -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_TITLE,
+    url: "https://omarcreatives.com",
+    logo: "https://omarcreatives.com/favicon.png",
+    description: description,
+  })}
+/>
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_TITLE,
+    url: "https://omarcreatives.com",
+  })}
+/>
 
 <!-- Netlify Identity Widget (for CMS login) -->
 <script

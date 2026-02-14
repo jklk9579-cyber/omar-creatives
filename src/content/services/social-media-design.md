@@ -1,8 +1,8 @@
 ---
-title: "Social Media Design"
-title_ar: "تصميم السوشيال ميديا"
-description: "Eye-catching social media graphics and templates that boost engagement and professionalize your online presence."
-description_ar: "تصاميم وقوالب جذابة لمواقع التواصل الاجتماعي تزيد من التفاعل وتضفي احترافية على تواجدك الإلكتروني."
+title: "Social Media Design & Graphics"
+title_ar: "تصميم جرافيك للسوشيال ميديا"
+description: "Eye-catching Social Media graphics and templates. Boost your engagement with professional designs tailored for Instagram, LinkedIn, and more."
+description_ar: "تصاميم جرافيك وقوالب جذابة لمواقع التواصل الاجتماعي. عزز تفاعلك بتصاميم احترافية مخصصة لإنستغرام ولينكد إن وغيرها."
 image: "/images/social_media_robot.jpg"
 icon: "📱"
 order: 6

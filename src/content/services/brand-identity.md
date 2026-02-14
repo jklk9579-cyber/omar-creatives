@@ -1,8 +1,8 @@
 ---
-title: "Brand Identity"
-title_ar: "الهوية الشخصية والتجارية"
-description: "Developing comprehensive brand identities (Personal & Commercial) that create a lasting impression and build trust."
-description_ar: "تطوير هويات بصرية متكاملة (شخصية وتجارية) تترك انطباعاً دائماً وتبني الثقة مع جمهورك."
+title: "Brand Identity Studio"
+title_ar: "استوديو الهوية البصرية"
+description: "Developing comprehensive Brand Identities and Visual Strategies. We help businesses in Cairo and beyond build trust through professional design."
+description_ar: "تطوير هويات بصرية متكاملة واستراتيجيات بصرية. نساعد الشركات في القاهرة وخارجها على بناء الثقة من خلال تصميم احترافي."
 image: "/images/291a09a9-2318-45ac-b943-78ca4e12012d-1771093254.jpeg"
 icon: "🎭"
 order: 7

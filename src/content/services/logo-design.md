@@ -1,8 +1,8 @@
 ---
-title: "Logo Design"
-title_ar: "تصميم الهوية البصرية واللوغو"
-description: "Crafting unique, memorable logos that represent your brand's essence and stand the test of time."
-description_ar: "تصميم شعارات فريدة لا تُنسى تعبر عن جوهر علامتك التجارية وتصمد أمام اختبار الزمن."
+title: "Logo & Graphic Design"
+title_ar: "تصميم الشعارات والجرافيك"
+description: "Expert Graphic Design and Logo Creation. We craft unique, memorable visual identities that define your brand and stand the test of time."
+description_ar: "خدمات تصميم جرافيك احترافية وتصميم شعارات مبتكرة. نصنع هويات بصرية فريدة لا تُنسى تعبر عن جوهر علامتك التجارية."
 image: "/images/ai_robot_designer.jpg"
 icon: "✒️"
 order: 5

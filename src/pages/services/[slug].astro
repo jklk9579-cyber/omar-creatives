@@ -49,6 +49,22 @@ const color = serviceColors[service.id] || "#f59e0b";
     <BaseHead
       title={`${service.data.title} | ${SITE_TITLE}`}
       description={service.data.description}
+      keywords={`${service.data.title}, Graphic Design, Web Design, UI/UX, Branding, ${service.data.title_ar || ""}, تصميم جرافيك, تصميم مواقع`}
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: service.data.title,
+        description: service.data.description,
+        provider: {
+          "@type": "Person",
+          name: SITE_TITLE,
+          url: "https://omarcreatives.com",
+        },
+      })}
     />
     <style define:vars={{ serviceColor: color }}>
       body {
