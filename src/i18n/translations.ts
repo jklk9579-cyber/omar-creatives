@@ -8,7 +8,6 @@ export const translations = {
       testimonials: "Testimonials",
       blog: "Blog",
       about: "About",
-      faq: "FAQ",
       letsTalk: "Let's Talk",
     },
     // Hero Section
@@ -40,7 +39,7 @@ export const translations = {
     services: {
       label: "Services",
       title: "What I Do",
-      viewAll: "View All",
+      viewAll: "View All Services",
       learnMore: "Learn More",
     },
     // Services Page
@@ -65,6 +64,13 @@ export const translations = {
       socialDesc: "Eye-catching social media graphics and templates that boost engagement and professionalize your online presence.",
       brandTitle: "Brand Identity",
       brandDesc: "Developing comprehensive brand identities (Personal & Commercial) that create a lasting impression and build trust.",
+      learnMoreAI: "Learn more about AI Content Creation",
+      learnMoreWeb: "Learn more about Web Development",
+      learnMoreApp: "Learn more about App Development",
+      learnMoreUI: "Learn more about UI/UX Design",
+      learnMoreLogo: "Learn more about Logo Design",
+      learnMoreSocial: "Learn more about Social Media Design",
+      learnMoreBrand: "Learn more about Brand Identity",
     },
     // Projects Section
     projects: {
@@ -72,6 +78,12 @@ export const translations = {
       title: "Recent Projects",
       viewAll: "View All Projects",
       viewProject: "View Project",
+    },
+    // Testimonials Section
+    testimonials: {
+      label: "Testimonials",
+      title: "What Clients Say",
+      viewAll: "View All Testimonials",
     },
     // Blog Section
     blog: {
@@ -110,7 +122,6 @@ export const translations = {
       testimonials: "آراء العملاء",
       blog: "المدونة",
       about: "عني",
-      faq: "الأسئلة الشائعة",
       letsTalk: "تواصل معي",
     },
     // Hero Section
@@ -142,7 +153,7 @@ export const translations = {
     services: {
       label: "الخدمات",
       title: "What I Do",
-      viewAll: "عرض الكل",
+      viewAll: "عرض كافة الخدمات",
       learnMore: "اعرف المزيد",
     },
     // Services Page
@@ -167,6 +178,13 @@ export const translations = {
       socialDesc: "تصاميم وقوالب جذابة لمواقع التواصل الاجتماعي تزيد من التفاعل وتضفي احترافية على تواجدك الإلكتروني.",
       brandTitle: "الهوية الشخصية والتجارية",
       brandDesc: "تطوير هويات بصرية متكاملة (شخصية وتجارية) تترك انطباعاً دائماً وتبني الثقة مع جمهورك.",
+      learnMoreAI: "تعرف على خدمة إنشاء المحتوى بالذكاء الاصطناعي",
+      learnMoreWeb: "تعرف على خدمة تطوير المواقع",
+      learnMoreApp: "تعرف على خدمة تطوير التطبيقات",
+      learnMoreUI: "تعرف على خدمة تصميم واجهات المستخدم",
+      learnMoreLogo: "تعرف على خدمة تصميم الشعارات",
+      learnMoreSocial: "تعرف على خدمة تصميم السوشيال ميديا",
+      learnMoreBrand: "تعرف على خدمة الهوية البصرية",
     },
     // Projects Section
     projects: {
@@ -174,6 +192,12 @@ export const translations = {
       title: "مشاريع حديثة",
       viewAll: "عرض كل المشاريع",
       viewProject: "عرض المشروع",
+    },
+    // Testimonials Section
+    testimonials: {
+      label: "آراء العملاء",
+      title: "ماذا يقول العملاء",
+      viewAll: "عرض كافة التقييمات",
     },
     // Blog Section
     blog: {

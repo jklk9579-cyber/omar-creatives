@@ -293,8 +293,19 @@ const sortedServices = services.sort(
 										href={`/services/${service.id}`}
 										class="service-link"
 									>
-										<span data-i18n="servicesPage.learnMore">
-											Learn More
+										<span
+											data-i18n={`servicesPage.learnMore${service.id
+												.split("-")
+												.map(
+													(s) =>
+														s
+															.charAt(0)
+															.toUpperCase() +
+														s.slice(1),
+												)
+												.join("")}`}
+										>
+											{service.data.title}
 										</span>{" "}
 										<span>→</span>
 									</a>
