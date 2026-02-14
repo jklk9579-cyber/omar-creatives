@@ -1,135 +1,246 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
 
-const services = await getCollection('services');
-const sortedServices = services.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+const services = await getCollection("services");
+const sortedServices = services.sort(
+	(a, b) => (a.data.order || 0) - (b.data.order || 0),
+);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Services | ${SITE_TITLE}`} description="Professional digital services" />
+		<BaseHead
+			title={`Services | ${SITE_TITLE}`}
+			description="Professional digital services"
+		/>
 		<style>
 			body {
 				padding-top: 80px;
+				background-color: var(--bg-primary);
 			}
 			.page-header {
-				padding: 4rem 2rem;
+				padding: 6rem 2rem 4rem;
 				text-align: center;
 				position: relative;
+				z-index: 1;
 			}
 			.page-header::before {
-				content: '';
+				content: "";
 				position: absolute;
-				top: 0;
+				top: 50%;
 				left: 50%;
-				transform: translateX(-50%);
-				width: 600px;
-				height: 600px;
-				background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+				transform: translate(-50%, -50%);
+				width: 800px;
+				height: 800px;
+				background: radial-gradient(
+					circle,
+					rgba(245, 158, 11, 0.15) 0%,
+					transparent 70%
+				);
 				pointer-events: none;
+				z-index: -1;
 			}
 			.page-header h1 {
-				font-size: 3.5rem;
-				margin-bottom: 1rem;
-				background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+				font-size: 4rem;
+				margin-bottom: 1.5rem;
+				background: linear-gradient(
+					135deg,
+					#fff 30%,
+					var(--accent) 100%
+				);
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
 				background-clip: text;
-				position: relative;
+				font-weight: 800;
+				letter-spacing: -0.02em;
 			}
 			.page-header p {
 				color: var(--text-secondary);
-				font-size: 1.2rem;
-				max-width: 600px;
+				font-size: 1.25rem;
+				max-width: 700px;
 				margin: 0 auto;
+				line-height: 1.6;
 			}
 			.services-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-				gap: 1.5rem;
-				padding: 3rem 0 5rem;
+				grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+				gap: 2rem;
+				padding: 2rem 0 6rem;
 			}
 			.service-card {
-				background: var(--bg-card);
-				border: 1px solid var(--border-color);
-				border-radius: 16px;
-				padding: 2rem;
-				transition: all 0.3s ease;
+				background: rgba(255, 255, 255, 0.02);
+				backdrop-filter: blur(15px);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 28px;
+				transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+				position: relative;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				opacity: 0;
+				transform: translateY(30px);
+				animation: fadeInUp 0.8s forwards;
+			}
+			.service-card:nth-child(1) {
+				animation-delay: 0.1s;
+			}
+			.service-card:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+			.service-card:nth-child(3) {
+				animation-delay: 0.3s;
+			}
+			.service-card:nth-child(4) {
+				animation-delay: 0.4s;
+			}
+
+			@keyframes fadeInUp {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.service-card:hover {
+				border-color: rgba(245, 158, 11, 0.3);
+				transform: translateY(-10px);
+				box-shadow:
+					0 20px 40px rgba(0, 0, 0, 0.4),
+					0 0 0 1px rgba(245, 158, 11, 0.1);
+			}
+
+			.service-img-container {
+				width: 100%;
+				height: 240px;
 				position: relative;
 				overflow: hidden;
 			}
-			.service-card::before {
-				content: '';
+			.service-img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.7s ease;
+			}
+			.service-card:hover .service-img {
+				transform: scale(1.1);
+			}
+			.service-img-container::after {
+				content: "";
 				position: absolute;
-				top: 0;
+				bottom: 0;
 				left: 0;
 				right: 0;
-				height: 2px;
-				background: var(--accent-gradient);
-				opacity: 0;
-				transition: opacity 0.3s ease;
+				height: 60%;
+				background: linear-gradient(
+					to top,
+					rgba(10, 10, 10, 0.9) 0%,
+					rgba(10, 10, 10, 0.4) 50%,
+					transparent 100%
+				);
+				z-index: 1;
 			}
-			.service-card:hover {
-				border-color: var(--accent);
-				transform: translateY(-5px);
+
+			/* Removed redundant icon overlay for cleaner look */
+			.service-icon-overlay {
+				display: none;
 			}
-			.service-card:hover::before {
-				opacity: 1;
+
+			.service-content {
+				padding: 2rem;
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
 			}
-			.service-icon {
-				font-size: 3rem;
-				margin-bottom: 1.5rem;
-				display: block;
-			}
+
 			.service-card h2 {
 				margin: 0 0 1rem 0;
-				font-size: 1.4rem;
+				font-size: 1.6rem;
 				color: var(--text-primary);
+				font-weight: 700;
 			}
 			.service-card p {
 				color: var(--text-secondary);
-				margin: 0 0 1.5rem 0;
-				line-height: 1.7;
-			}
-			.service-price {
-				font-weight: 700;
-				color: var(--accent);
-				font-size: 1.25rem;
-				margin-bottom: 1rem;
+				margin: 0 0 2rem 0;
+				line-height: 1.8;
+				font-size: 1.1rem;
+				flex-grow: 1;
 			}
 			.service-link {
 				display: inline-flex;
 				align-items: center;
-				gap: 0.5rem;
-				color: var(--accent);
+				gap: 0.75rem;
+				color: var(--text-primary);
 				text-decoration: none;
 				font-weight: 600;
-				transition: gap 0.3s ease;
+				transition: all 0.3s ease;
+				padding: 0.75rem 0;
+				width: fit-content;
+				border-bottom: 2px solid transparent;
 			}
 			.service-link:hover {
-				gap: 1rem;
+				color: var(--accent);
+				gap: 1.25rem;
+				border-bottom-color: var(--accent);
 			}
 			.featured-badge {
 				position: absolute;
-				top: 1rem;
-				right: 1rem;
+				top: 1.5rem;
+				right: 1.5rem;
 				background: var(--accent-gradient);
 				color: #000;
-				padding: 0.25rem 0.75rem;
-				border-radius: 20px;
-				font-size: 0.75rem;
-				font-weight: 700;
+				padding: 0.4rem 1.25rem;
+				border-radius: 50px;
+				font-size: 0.85rem;
+				font-weight: 800;
+				z-index: 10;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+				border: 1px solid rgba(255, 255, 255, 0.1);
 			}
 			main {
-				width: 1100px;
-				max-width: calc(100% - 2rem);
+				width: 1200px;
+				max-width: calc(100% - 3rem);
 				margin: 0 auto;
-				padding: 0 1rem;
+				padding: 0 1.5rem;
+			}
+
+			@media (max-width: 768px) {
+				.page-header h1 {
+					font-size: 2.8rem;
+				}
+				.services-grid {
+					grid-template-columns: 1fr;
+				}
+				main {
+					max-width: 100%;
+				}
+			}
+
+			/* RTL Overrides */
+			:global([dir="rtl"]) .service-icon-overlay {
+				left: auto;
+				right: 1.5rem;
+			}
+			:global([dir="rtl"]) .featured-badge {
+				right: auto;
+				left: 1.5rem;
+			}
+			:global([dir="rtl"]) .service-card {
+				text-align: right;
+			}
+			:global([dir="rtl"]) .service-link {
+				flex-direction: row-reverse;
+			}
+			:global([dir="rtl"]) .service-card h2,
+			:global([dir="rtl"]) .service-card p,
+			:global([dir="rtl"]) .service-price {
+				font-family: "Cairo", "Tajawal", sans-serif;
 			}
 		</style>
 	</head>
@@ -138,60 +249,182 @@ const sortedServices = services.sort((a, b) => (a.data.order || 0) - (b.data.ord
 		<main>
 			<section class="page-header">
 				<h1 data-i18n="servicesPage.title">Services</h1>
-				<p data-i18n="servicesPage.subtitle">I offer a range of professional digital services to help bring your ideas to life</p>
+				<p data-i18n="servicesPage.subtitle">
+					I offer a range of professional digital services to help
+					bring your ideas to life
+				</p>
 			</section>
-			
-			{sortedServices.length > 0 ? (
-				<div class="services-grid">
-					{sortedServices.map((service) => (
+
+			{
+				sortedServices.length > 0 ? (
+					<div class="services-grid">
+						{sortedServices.map((service) => (
+							<article class="service-card">
+								{service.data.featured && (
+									<span
+										class="featured-badge"
+										data-i18n="servicesPage.featured"
+									>
+										Featured
+									</span>
+								)}
+								<div class="service-img-container">
+									{service.data.image && (
+										<img
+											src={service.data.image}
+											alt={service.data.title}
+											class="service-img"
+										/>
+									)}
+								</div>
+								<div class="service-content">
+									<h2
+										data-i18n={`servicesPage.${service.id.split("-")[0]}Title`}
+									>
+										{service.data.title}
+									</h2>
+									<p
+										data-i18n={`servicesPage.${service.id.split("-")[0]}Desc`}
+									>
+										{service.data.description}
+									</p>
+
+									<a
+										href={`/services/${service.id}`}
+										class="service-link"
+									>
+										<span data-i18n="servicesPage.learnMore">
+											Learn More
+										</span>{" "}
+										<span>→</span>
+									</a>
+								</div>
+							</article>
+						))}
+					</div>
+				) : (
+					<div class="services-grid">
 						<article class="service-card">
-							{service.data.featured && <span class="featured-badge">Featured</span>}
-							<span class="service-icon">{service.data.icon || '⭐'}</span>
-							<h2>{service.data.title}</h2>
-							<p>{service.data.description}</p>
-							{service.data.price && (
-								<div class="service-price">{service.data.price}</div>
-							)}
-							<a href={`/services/${service.slug}`} class="service-link">
-							<span data-i18n="servicesPage.learnMore">Learn More</span> <span>→</span>
-							</a>
+							<span
+								class="featured-badge"
+								data-i18n="servicesPage.popular"
+							>
+								Popular
+							</span>
+							<div class="service-img-container">
+								<img
+									src="/images/ai_content_robot.jpg"
+									alt="AI Content"
+									class="service-img"
+								/>
+							</div>
+							<div class="service-content">
+								<h2 data-i18n="servicesPage.aiTitle">
+									AI Content Creation
+								</h2>
+								<p data-i18n="servicesPage.aiDesc">
+									Leverage AI to create engaging content,
+									automate workflows, and enhance your digital
+									presence
+								</p>
+
+								<a
+									href="/contact"
+									class="service-link"
+									data-i18n="servicesPage.getStarted"
+								>
+									Get Started <span>→</span>
+								</a>
+							</div>
 						</article>
-					))}
-				</div>
-			) : (
-				<div class="services-grid">
-					<article class="service-card">
-						<span class="featured-badge" data-i18n="servicesPage.popular">Popular</span>
-						<span class="service-icon">🤖</span>
-						<h2 data-i18n="servicesPage.aiTitle">AI Content Creation</h2>
-						<p data-i18n="servicesPage.aiDesc">Leverage AI to create engaging content, automate workflows, and enhance your digital presence</p>
-						<div class="service-price">From $300</div>
-						<a href="/contact" class="service-link" data-i18n="servicesPage.getStarted">Get Started <span>→</span></a>
-					</article>
-					<article class="service-card">
-						<span class="featured-badge" data-i18n="servicesPage.popular">Popular</span>
-						<span class="service-icon">🌐</span>
-						<h2 data-i18n="servicesPage.webTitle">Web Development</h2>
-						<p data-i18n="servicesPage.webDesc">Modern, fast, and responsive websites built with the latest technologies and best practices</p>
-						<div class="service-price">From $500</div>
-						<a href="/contact" class="service-link" data-i18n="servicesPage.getStarted">Get Started <span>→</span></a>
-					</article>
-					<article class="service-card">
-						<span class="service-icon">📱</span>
-						<h2 data-i18n="servicesPage.appTitle">App Development</h2>
-						<p data-i18n="servicesPage.appDesc">Cross-platform mobile applications for iOS and Android with seamless user experience</p>
-						<div class="service-price">From $1,000</div>
-						<a href="/contact" class="service-link" data-i18n="servicesPage.getStarted">Get Started <span>→</span></a>
-					</article>
-					<article class="service-card">
-						<span class="service-icon">🎨</span>
-						<h2 data-i18n="servicesPage.uiTitle">UI/UX Design</h2>
-						<p data-i18n="servicesPage.uiDesc">Beautiful, intuitive interfaces that delight users and drive engagement</p>
-						<div class="service-price">From $400</div>
-						<a href="/contact" class="service-link" data-i18n="servicesPage.getStarted">Get Started <span>→</span></a>
-					</article>
-				</div>
-			)}
+						<article class="service-card">
+							<span
+								class="featured-badge"
+								data-i18n="servicesPage.popular"
+							>
+								Popular
+							</span>
+							<div class="service-img-container">
+								<img
+									src="/images/web_development_robots.jpg"
+									alt="Web Development"
+									class="service-img"
+								/>
+							</div>
+							<div class="service-content">
+								<h2 data-i18n="servicesPage.webTitle">
+									Web Development
+								</h2>
+								<p data-i18n="servicesPage.webDesc">
+									Modern, fast, and responsive websites built
+									with the latest technologies and best
+									practices
+								</p>
+
+								<a
+									href="/contact"
+									class="service-link"
+									data-i18n="servicesPage.getStarted"
+								>
+									Get Started <span>→</span>
+								</a>
+							</div>
+						</article>
+						<article class="service-card">
+							<div class="service-img-container">
+								<img
+									src="/images/2073fd38-e3d7-4244-9489-3b5b4e1a47db.jpg"
+									alt="App Development"
+									class="service-img"
+								/>
+							</div>
+							<div class="service-content">
+								<h2 data-i18n="servicesPage.appTitle">
+									App Development
+								</h2>
+								<p data-i18n="servicesPage.appDesc">
+									Cross-platform mobile applications for iOS
+									and Android with seamless user experience
+								</p>
+
+								<a
+									href="/contact"
+									class="service-link"
+									data-i18n="servicesPage.getStarted"
+								>
+									Get Started <span>→</span>
+								</a>
+							</div>
+						</article>
+						<article class="service-card">
+							<div class="service-img-container">
+								<img
+									src="/images/9447f0d94bd5148d51141932a8e69acb.jpg"
+									alt="UI/UX Design"
+									class="service-img"
+								/>
+							</div>
+							<div class="service-content">
+								<h2 data-i18n="servicesPage.uiTitle">
+									UI/UX Design
+								</h2>
+								<p data-i18n="servicesPage.uiDesc">
+									Beautiful, intuitive interfaces that delight
+									users and drive engagement
+								</p>
+
+								<a
+									href="/contact"
+									class="service-link"
+									data-i18n="servicesPage.getStarted"
+								>
+									Get Started <span>→</span>
+								</a>
+							</div>
+						</article>
+					</div>
+				)
+			}
 		</main>
 		<Footer />
 	</body>

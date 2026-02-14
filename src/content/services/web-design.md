@@ -1,26 +1,28 @@
 ---
-title: "تصميم مواقع"
-description: "نصمم مواقع احترافية وسريعة ومتوافقة مع جميع الأجهزة"
+title: "Web Design"
+title_ar: "تصميم مواقع"
+description: "Professional, fast, and responsive websites for all devices"
+description_ar: "نصمم مواقع احترافية وسريعة ومتوافقة مع جميع الأجهزة"
+image: "/images/web_development_robots.jpg"
 icon: "🌐"
-price: "من 500$"
 order: 1
 featured: true
 ---
 
-## تصميم مواقع احترافية
+## Professional Web Design
 
-نقدم خدمة تصميم مواقع متكاملة تشمل:
+We provide integrated web design services including:
 
-- ✅ تصميم عصري ومتجاوب
-- ✅ سرعة تحميل عالية
-- ✅ متوافق مع SEO
-- ✅ لوحة تحكم سهلة
-- ✅ دعم فني مستمر
+- ✅ Modern and responsive design
+- ✅ High loading speed
+- ✅ SEO compatible
+- ✅ Easy control panel
+- ✅ Continuous technical support
 
-### ماذا تحصل؟
+### What do you get?
 
-1. تصميم مخصص حسب هويتك
-2. صفحات غير محدودة
-3. نموذج تواصل
-4. ربط السوشيال ميديا
-5. شهادة SSL مجانية
+1. Custom design according to your identity
+2. Unlimited pages
+3. Contact form
+4. Social media integration
+5. Free SSL certificate

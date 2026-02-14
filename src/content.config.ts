@@ -21,9 +21,11 @@ const services = defineCollection({
 	loader: glob({ base: './src/content/services', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
 		title: z.string(),
+		title_ar: z.string().optional(),
 		description: z.string(),
+		description_ar: z.string().optional(),
+		image: z.string().optional(),
 		icon: z.string().optional(),
-		price: z.string().optional(),
 		order: z.number().default(0),
 		featured: z.boolean().default(false),
 	}),

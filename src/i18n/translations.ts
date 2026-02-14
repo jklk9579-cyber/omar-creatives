@@ -5,7 +5,6 @@ export const translations = {
       home: "Home",
       services: "Services",
       work: "Work",
-      pricing: "Pricing",
       testimonials: "Testimonials",
       blog: "Blog",
       about: "About",
@@ -43,6 +42,29 @@ export const translations = {
       title: "What I Do",
       viewAll: "View All",
       learnMore: "Learn More",
+    },
+    // Services Page
+    servicesPage: {
+      title: "Services",
+      subtitle: "I offer a range of professional digital services to help bring your ideas to life",
+      learnMore: "Learn More",
+      getStarted: "Get Started",
+      popular: "Popular",
+      featured: "Featured",
+      aiTitle: "AI Content Creation",
+      aiDesc: "Leverage AI to create engaging content, automate workflows, and enhance your digital presence",
+      webTitle: "Web Development",
+      webDesc: "Modern, fast, and responsive websites built with the latest technologies and best practices",
+      appTitle: "App Development",
+      appDesc: "Cross-platform mobile applications for iOS and Android with seamless user experience",
+      uiTitle: "UI/UX Design",
+      uiDesc: "Beautiful, intuitive interfaces that delight users and drive engagement",
+      logoTitle: "Logo Design",
+      logoDesc: "Crafting unique, memorable logos that represent your brand's essence and stand the test of time.",
+      socialTitle: "Social Media Design",
+      socialDesc: "Eye-catching social media graphics and templates that boost engagement and professionalize your online presence.",
+      brandTitle: "Brand Identity",
+      brandDesc: "Developing comprehensive brand identities (Personal & Commercial) that create a lasting impression and build trust.",
     },
     // Projects Section
     projects: {
@@ -85,7 +107,6 @@ export const translations = {
       home: "الرئيسية",
       services: "الخدمات",
       work: "أعمالي",
-      pricing: "الأسعار",
       testimonials: "آراء العملاء",
       blog: "المدونة",
       about: "عني",
@@ -120,9 +141,32 @@ export const translations = {
     // Services Section
     services: {
       label: "الخدمات",
-      title: "ما أقدمه",
+      title: "What I Do",
       viewAll: "عرض الكل",
       learnMore: "اعرف المزيد",
+    },
+    // Services Page
+    servicesPage: {
+      title: "الخدمات",
+      subtitle: "أقدم مجموعة من الخدمات الرقمية المهنية لمساعدتك في تحويل أفكارك إلى واقع",
+      learnMore: "اعرف المزيد",
+      getStarted: "ابدأ الآن",
+      popular: "شائع",
+      featured: "مميز",
+      aiTitle: "إنشاء محتوى بالذكاء الاصطناعي",
+      aiDesc: "استفد من الذكاء الاصطناعي لإنشاء محتوى جذاب وأتمتة سير العمل وتعزيز تواجدك الرقمي",
+      webTitle: "تطوير المواقع",
+      webDesc: "مواقع حديثة وسريعة ومتجاوبة مبنية بأحدث التقنيات وأفضل الممارسات",
+      appTitle: "تطوير التطبيقات",
+      appDesc: "تطبيقات جوال متعددة المنصات لـ iOS و Android بتجربة مستخدم سلسة",
+      uiTitle: "تصميم واجهات المستخدم",
+      uiDesc: "واجهات جميلة وبديهية تسعد المستخدمين وتزيد التفاعل",
+      logoTitle: "تصميم الهوية البصرية واللوغو",
+      logoDesc: "تصميم شعارات فريدة لا تُنسى تعبر عن جوهر علامتك التجارية وتصمد أمام اختبار الزمن.",
+      socialTitle: "تصميم السوشيال ميديا",
+      socialDesc: "تصاميم وقوالب جذابة لمواقع التواصل الاجتماعي تزيد من التفاعل وتضفي احترافية على تواجدك الإلكتروني.",
+      brandTitle: "الهوية الشخصية والتجارية",
+      brandDesc: "تطوير هويات بصرية متكاملة (شخصية وتجارية) تترك انطباعاً دائماً وتبني الثقة مع جمهورك.",
     },
     // Projects Section
     projects: {
@@ -166,5 +210,7 @@ export type TranslationKey = keyof typeof translations.en;
 
 export function getTranslation(lang: Language, section: string, key: string): string {
   const langData = translations[lang] as any;
-  return langData?.[section]?.[key] || translations.en[section as keyof typeof translations.en]?.[key as any] || key;
+  const enData = translations.en as any;
+
+  return langData?.[section]?.[key] || enData?.[section]?.[key] || key;
 }

@@ -1,22 +1,24 @@
 ---
-title: "تطوير تطبيقات"
-description: "نطور تطبيقات موبايل وويب بأحدث التقنيات"
+title: "App Development"
+title_ar: "تطوير تطبيقات"
+description: "Mobile and web applications built with the latest technologies"
+description_ar: "نطور تطبيقات موبايل وويب بأحدث التقنيات"
+image: "/images/2073fd38-e3d7-4244-9489-3b5b4e1a47db.jpg"
 icon: "📱"
-price: "من 1000$"
 order: 2
 featured: true
 ---
 
-## تطوير تطبيقات احترافية
+## Professional App Development
 
-نقدم خدمة تطوير تطبيقات شاملة:
+We provide comprehensive app development services:
 
-- ✅ تطبيقات iOS و Android
-- ✅ تطبيقات ويب Progressive
-- ✅ واجهات مستخدم سلسة
-- ✅ أداء عالي
+- ✅ iOS and Android applications
+- ✅ Progressive Web Apps (PWA)
+- ✅ Seamless user interfaces
+- ✅ High performance
 
-### التقنيات المستخدمة
+### Technologies Used
 
 - React Native
 - Flutter
