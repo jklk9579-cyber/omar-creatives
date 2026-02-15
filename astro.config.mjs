@@ -9,7 +9,7 @@ import preact from '@astrojs/preact';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://omarcreatives.com',
-    output: 'hybrid',
+    output: 'static',
     image: {
         service: { entrypoint: 'astro/assets/services/sharp' },
     },
