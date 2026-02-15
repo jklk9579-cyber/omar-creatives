@@ -1,5 +1,6 @@
 ---
 const today = new Date();
+import ChatWidget from "./ChatWidget";
 ---
 
 <footer>
@@ -117,7 +118,9 @@ const today = new Date();
 			Made with 💛 and lots of ☕
 		</p>
 	</div>
+	<ChatWidget client:load />
 </footer>
+
 <style>
 	footer {
 		background: var(--bg-secondary);
