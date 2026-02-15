@@ -182,11 +182,19 @@ async function askAI(msg: string, history: Message[]): Promise<string> {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: apiMessages }),
     });
-    if (!res.ok) {
-        const e = await res.json();
-        throw new Error(e.error || `Error ${res.status}`);
+
+    const text = await res.text();
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch (e) {
+        console.error("Chat API non-json response:", text);
+        throw new Error(`Invalid AI response (JSON Error). Status: ${res.status}`);
     }
-    const data = await res.json();
+
+    if (!res.ok) {
+        throw new Error(data.error || `Error ${res.status}`);
+    }
     return data.choices?.[0]?.message?.content || "Sorry, I couldn't generate a reply.";
 }
 

@@ -1,5 +1,7 @@
 # build output
 dist/
+.netlify/
+build/
 # generated types
 .astro/
 

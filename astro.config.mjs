@@ -6,12 +6,17 @@ import { defineConfig } from 'astro/config';
 
 import preact from '@astrojs/preact';
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://omarcreatives.com',
-    output: 'static',
-    image: {
-        service: { entrypoint: 'astro/assets/services/sharp' },
-    },
-    integrations: [mdx(), sitemap(), preact()],
+  site: 'https://omarcreatives.com',
+  output: 'static',
+
+  image: {
+      service: { entrypoint: 'astro/assets/services/sharp' },
+  },
+
+  integrations: [mdx(), sitemap(), preact()],
+  adapter: netlify(),
 });

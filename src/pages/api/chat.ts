@@ -1,8 +1,15 @@
 import type { APIRoute } from 'astro';
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
-    const body = await request.json();
-    const { messages } = body;
+    let messages;
+    try {
+        const body = await request.json();
+        messages = body.messages;
+    } catch (err) {
+        return new Response(JSON.stringify({ error: 'Missing or invalid request body' }), { status: 400 });
+    }
 
     const GROQ_API_KEY = import.meta.env.GROQ_API_KEY;
 
