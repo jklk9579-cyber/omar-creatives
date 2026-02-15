@@ -1879,7 +1879,11 @@ const recentPosts = posts
 								);
 							return picked;
 						})().map((project) => (
-							<div class="project-card">
+							<a
+								href={`/projects/${project.id}`}
+								class="project-card"
+								style="text-decoration:none;color:inherit;display:block;"
+							>
 								<div class="card-arrow">
 									<svg viewBox="0 0 24 24">
 										<path d="M5 12h14M12 5l7 7-7 7" />
@@ -1919,13 +1923,11 @@ const recentPosts = posts
 										{project.data.category}
 									</span>
 									<p class="project-title">
-										<a href={`/projects/${project.id}`}>
-											{project.data.title}
-										</a>
+										{project.data.title}
 									</p>
 									<p>{project.data.description}</p>
 								</div>
-							</div>
+							</a>
 						))
 					}
 				</div>
