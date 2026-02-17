@@ -5,6 +5,18 @@ import CookieConsent from "./CookieConsent.astro";
 ---
 
 <footer>
+	<div class="footer-cta">
+		<div class="cta-inner">
+			<h2 data-i18n="cta.title">Ready to Start Your Project?</h2>
+			<p data-i18n="cta.description">
+				Let's collaborate and bring your vision to life with modern
+				design and cutting-edge technology.
+			</p>
+			<a href="/contact" class="btn-primary" data-i18n="cta.button"
+				>Get in Touch</a
+			>
+		</div>
+	</div>
 	<div class="footer-content">
 		<div class="footer-brand">
 			<h3>Omar<span>.</span></h3>
@@ -133,6 +145,69 @@ import CookieConsent from "./CookieConsent.astro";
 		padding: 4rem 4rem 2rem;
 		margin-top: 0;
 	}
+	.footer-cta {
+		padding: 4rem 2rem;
+		background: linear-gradient(
+			135deg,
+			rgba(245, 158, 11, 0.05) 0%,
+			transparent 100%
+		);
+		border-bottom: 1px solid var(--border-color);
+		margin-bottom: 4rem;
+		text-align: center;
+		border-radius: 24px;
+		position: relative;
+		overflow: hidden;
+	}
+	.footer-cta::before {
+		content: "";
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(
+			circle,
+			rgba(245, 158, 11, 0.1) 0%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+	.cta-inner {
+		position: relative;
+		z-index: 1;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	.footer-cta h2 {
+		font-size: 2.5rem;
+		color: var(--text-primary);
+		margin-bottom: 1rem;
+		letter-spacing: -0.02em;
+	}
+	.footer-cta p {
+		color: var(--text-secondary);
+		font-size: 1.1rem;
+		margin-bottom: 2rem;
+		line-height: 1.6;
+	}
+	.footer-cta .btn-primary {
+		display: inline-flex;
+		align-items: center;
+		padding: 1rem 2.5rem;
+		background: var(--accent);
+		color: #000;
+		text-decoration: none;
+		border-radius: 50px;
+		font-weight: 700;
+		font-size: 1.1rem;
+		transition: all 0.3s ease;
+		box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+	}
+	.footer-cta .btn-primary:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
+	}
 	.footer-content {
 		max-width: 100%;
 		margin: 0 auto;
@@ -239,6 +314,16 @@ import CookieConsent from "./CookieConsent.astro";
 
 	:global([dir="rtl"]) .footer-brand {
 		text-align: right;
+	}
+	:global([dir="rtl"]) .footer-cta h2 {
+		font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
+		font-weight: 400;
+	}
+	:global([dir="rtl"]) .footer-cta p {
+		font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
+	}
+	:global([dir="rtl"]) .footer-cta .btn-primary {
+		font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 	}
 
 	:global([dir="rtl"]) .footer-brand p {
