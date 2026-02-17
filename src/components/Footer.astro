@@ -1,6 +1,7 @@
 ---
 const today = new Date();
 import ChatWidget from "./ChatWidget";
+import CookieConsent from "./CookieConsent.astro";
 ---
 
 <footer>
@@ -122,6 +123,7 @@ import ChatWidget from "./ChatWidget";
 		</p>
 	</div>
 	<ChatWidget client:load />
+	<CookieConsent />
 </footer>
 
 <style>

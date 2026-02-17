@@ -120,6 +120,12 @@ export const translations = {
       error: "Something went wrong",
       backHome: "Back to Home",
     },
+    cookie: {
+      title: "We value your privacy",
+      description: "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept\", you consent to our use of cookies.",
+      accept: "Accept",
+      decline: "Decline",
+    },
   },
   ar: {
     // Navigation
@@ -241,6 +247,12 @@ export const translations = {
       loading: "جاري التحميل...",
       error: "حدث خطأ ما",
       backHome: "العودة للرئيسية",
+    },
+    cookie: {
+      title: "نحن نحترم خصوصيتك",
+      description: "نستخدم ملفات تعريف الارتباط لتحسين تجربة التصفح الخاصة بك، وتقديم إعلانات أو محتوى مخصص، وتحليل حركة المرور لدينا. بالنقر على \"قبول\"، فإنك توافق على استخدامنا لملفات تعريف الارتباط.",
+      accept: "قبول",
+      decline: "رفض",
     },
   },
 };
