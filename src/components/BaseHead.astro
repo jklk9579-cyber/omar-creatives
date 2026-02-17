@@ -37,6 +37,9 @@ const { title, description, image = FallbackImage, keywords } = Astro.props;
       analytics_storage: "denied",
       wait_for_update: 500,
     });
+    // Advanced Consent Mode features
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", true);
   } else {
     const consent = JSON.parse(localStorage.getItem("cookie-consent"));
     gtag("consent", "default", consent);
