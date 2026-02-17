@@ -51,6 +51,35 @@ const color = serviceColors[service.id] || "#f59e0b";
       description={service.data.description}
       keywords={`${service.data.title}, Graphic Design, Web Design, UI/UX, Branding, ${service.data.title_ar || ""}, تصميم جرافيك, تصميم مواقع`}
     />
+    <!-- BreadcrumbList Schema -->
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://omarcreatives.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://omarcreatives.com/services",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: service.data.title,
+            item: `https://omarcreatives.com/services/${service.id}`,
+          },
+        ],
+      })}
+    />
     <script
       is:inline
       type="application/ld+json"
@@ -63,6 +92,11 @@ const color = serviceColors[service.id] || "#f59e0b";
           "@type": "Person",
           name: SITE_TITLE,
           url: "https://omarcreatives.com",
+        },
+        areaServed: "Worldwide",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Design & Development Services",
         },
       })}
     />

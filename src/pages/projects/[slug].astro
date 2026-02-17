@@ -60,6 +60,53 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			title={`${title} | ${SITE_TITLE}`}
 			description={description}
 		/>
+		<!-- BreadcrumbList Schema -->
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				itemListElement: [
+					{
+						"@type": "ListItem",
+						position: 1,
+						name: "Home",
+						item: "https://omarcreatives.com",
+					},
+					{
+						"@type": "ListItem",
+						position: 2,
+						name: "Projects",
+						item: "https://omarcreatives.com/projects",
+					},
+					{
+						"@type": "ListItem",
+						position: 3,
+						name: title,
+						item: `https://omarcreatives.com/projects/${project.id}`,
+					},
+				],
+			})}
+		/>
+		<!-- CreativeWork / SoftwareApplication Schema -->
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "CreativeWork",
+				name: title,
+				description: description,
+				author: {
+					"@type": "Person",
+					name: SITE_TITLE,
+				},
+				datePublished: date,
+				genre: category,
+				image: cover.src,
+			})}
+		/>
 		<style>
 			body {
 				padding-top: 80px;
