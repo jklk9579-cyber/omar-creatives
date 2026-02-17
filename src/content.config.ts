@@ -8,12 +8,15 @@ const blog = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
+			title_ar: z.string().optional(),
 			description: z.string(),
+			description_ar: z.string().optional(),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			// Accept both local asset images and CMS-uploaded string paths
-			heroImage: z.union([image(), z.string()]).optional(),
+			heroImage: z.string().optional(),
+			tags: z.array(z.string()).optional(),
 		}),
 });
 

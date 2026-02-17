@@ -4,7 +4,7 @@ title_ar: "مستقبل العلامات التجارية في القاهرة: �
 description: "Discover how AI-powered design and content creation are revolutionizing businesses in Egypt. Learn how to stay ahead of the curve."
 description_ar: "اكتشف كيف يحدث التصميم وإنشاء المحتوى المدعوم بالذكاء الاصطناعي ثورة في الشركات في مصر. تعلم كيف تظل في الصدارة."
 pubDate: 2026-02-17
-heroImage: "/images/blog/ai_branding_cairo.jpg"
+heroImage: "/images/ai_content_robot.jpg"
 tags: ["AI", "Branding", "Cairo", "Design"]
 ---
 
