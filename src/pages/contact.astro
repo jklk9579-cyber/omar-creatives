@@ -1,14 +1,17 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Contact | ${SITE_TITLE}`} description="Get in touch - I'm here to help" />
+		<BaseHead
+			title={`Contact | ${SITE_TITLE}`}
+			description="Get in touch - I'm here to help"
+		/>
 		<style>
 			body {
 				padding-top: 80px;
@@ -19,14 +22,18 @@ import { SITE_TITLE } from '../consts';
 				position: relative;
 			}
 			.page-header::before {
-				content: '';
+				content: "";
 				position: absolute;
 				top: 0;
 				left: 50%;
 				transform: translateX(-50%);
 				width: 600px;
 				height: 600px;
-				background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+				background: radial-gradient(
+					circle,
+					rgba(245, 158, 11, 0.1) 0%,
+					transparent 70%
+				);
 				pointer-events: none;
 			}
 			.page-header h1 {
@@ -93,7 +100,9 @@ import { SITE_TITLE } from '../consts';
 				font-size: 1rem;
 				font-family: inherit;
 				color: var(--text-primary);
-				transition: border-color 0.3s ease, box-shadow 0.3s ease;
+				transition:
+					border-color 0.3s ease,
+					box-shadow 0.3s ease;
 			}
 			.form-group textarea {
 				min-height: 150px;
@@ -124,7 +133,9 @@ import { SITE_TITLE } from '../consts';
 				font-weight: 600;
 				cursor: pointer;
 				width: 100%;
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				transition:
+					transform 0.3s ease,
+					box-shadow 0.3s ease;
 			}
 			.submit-btn:hover {
 				transform: translateY(-2px);
@@ -186,7 +197,7 @@ import { SITE_TITLE } from '../consts';
 				align-items: center;
 				justify-content: center;
 				gap: 0.75rem;
-				background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+				background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
 				color: white;
 				padding: 1rem 2rem;
 				border-radius: 10px;
@@ -195,7 +206,9 @@ import { SITE_TITLE } from '../consts';
 				font-size: 1rem;
 				margin-top: 1.5rem;
 				width: 100%;
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				transition:
+					transform 0.3s ease,
+					box-shadow 0.3s ease;
 			}
 			.whatsapp-btn:hover {
 				transform: translateY(-3px);
@@ -209,101 +222,236 @@ import { SITE_TITLE } from '../consts';
 		<main>
 			<section class="page-header">
 				<h1 data-i18n="contact.title">Get in Touch</h1>
-				<p data-i18n="contact.subtitle">Have a project in mind? Let's talk about how I can help bring your ideas to life</p>
+				<p data-i18n="contact.subtitle">
+					Have a project in mind? Let's talk about how I can help
+					bring your ideas to life
+				</p>
 			</section>
-			
+
 			<div class="contact-container">
 				<!-- Contact Form -->
 				<div class="contact-form">
 					<h2 data-i18n="contact.formTitle">Send a Message</h2>
-					<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-						<p style="display:none;">
-							<label>Don't fill this out: <input name="bot-field" /></label>
-						</p>
-						
+					<form
+						id="contact-form"
+						action="https://formsubmit.co/omarabdelfattah460@gmail.com"
+						method="POST"
+					>
+						<!-- Honeypot -->
+						<input type="text" name="_honey" style="display:none" />
+						<!-- Disable Captcha for better UX (optional, remove if spam occurs) -->
+						<input type="hidden" name="_captcha" value="false" />
+						<!-- Success Page Redirect (Optional, handled by JS below) -->
+						<!-- <input type="hidden" name="_next" value="https://omarcreatives.com/thanks"> -->
+
 						<div class="form-group">
-							<label for="name" data-i18n="contact.name">Name *</label>
-							<input type="text" id="name" name="name" placeholder="Your name" data-i18n-placeholder="contact.namePh" required />
+							<label for="name" data-i18n="contact.name"
+								>Name *</label
+							>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								placeholder="Your name"
+								data-i18n-placeholder="contact.namePh"
+								required
+							/>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="email" data-i18n="contact.email">Email *</label>
-							<input type="email" id="email" name="email" placeholder="you@example.com" data-i18n-placeholder="contact.emailPh" required />
+							<label for="email" data-i18n="contact.email"
+								>Email *</label
+							>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								placeholder="you@example.com"
+								data-i18n-placeholder="contact.emailPh"
+								required
+							/>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="phone" data-i18n="contact.phone">Phone</label>
-							<input type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx" data-i18n-placeholder="contact.phonePh" />
+							<label for="phone" data-i18n="contact.phone"
+								>Phone</label
+							>
+							<input
+								type="tel"
+								id="phone"
+								name="phone"
+								placeholder="+20 xxx xxx xxxx"
+								data-i18n-placeholder="contact.phonePh"
+							/>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="service" data-i18n="contact.service">Service Needed</label>
+							<label for="service" data-i18n="contact.service"
+								>Service Needed</label
+							>
 							<select id="service" name="service">
-								<option value="" data-i18n="contact.selectService">Select a service...</option>
-								<option value="AI Content" data-i18n="contact.aiContent">🤖 AI Content Creation</option>
-								<option value="Web Development" data-i18n="contact.webDev">🌐 Web Development</option>
-								<option value="App Development" data-i18n="contact.appDev">📱 App Development</option>
-								<option value="UI/UX Design" data-i18n="contact.uiDesign">🎨 UI/UX Design</option>
-								<option value="Consultation" data-i18n="contact.consultation">💡 Consultation</option>
-								<option value="Other" data-i18n="contact.other">Other</option>
+								<option
+									value=""
+									data-i18n="contact.selectService"
+									>Select a service...</option
+								>
+								<option
+									value="AI Content"
+									data-i18n="contact.aiContent"
+									>🤖 AI Content Creation</option
+								>
+								<option
+									value="Web Development"
+									data-i18n="contact.webDev"
+									>🌐 Web Development</option
+								>
+								<option
+									value="App Development"
+									data-i18n="contact.appDev"
+									>📱 App Development</option
+								>
+								<option
+									value="UI/UX Design"
+									data-i18n="contact.uiDesign"
+									>🎨 UI/UX Design</option
+								>
+								<option
+									value="Consultation"
+									data-i18n="contact.consultation"
+									>💡 Consultation</option
+								>
+								<option value="Other" data-i18n="contact.other"
+									>Other</option
+								>
 							</select>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="message" data-i18n="contact.message">Message *</label>
-							<textarea id="message" name="message" placeholder="Tell me about your project..." data-i18n-placeholder="contact.messagePh" required></textarea>
+							<label for="message" data-i18n="contact.message"
+								>Message *</label
+							>
+							<textarea
+								id="message"
+								name="message"
+								placeholder="Tell me about your project..."
+								data-i18n-placeholder="contact.messagePh"
+								required></textarea>
 						</div>
-						
-						<button type="submit" class="submit-btn" data-i18n="contact.submit">Send Message →</button>
+
+						<button
+							type="submit"
+							class="submit-btn"
+							id="submit-btn"
+							data-i18n="contact.submit">Send Message →</button
+						>
+						<p
+							id="form-status"
+							style="text-align:center;margin-top:1rem;font-weight:600;display:none;"
+						>
+						</p>
 					</form>
 				</div>
-				
+
 				<!-- Contact Info -->
 				<div class="contact-info">
 					<h2 data-i18n="contact.infoTitle">Or Reach Out Directly</h2>
-					
+
 					<div class="contact-item">
 						<span class="contact-item-icon">📧</span>
 						<div class="contact-item-content">
-							<strong data-i18n="contact.emailLabel">Email</strong>
-							<a href="mailto:omar@example.com">omar@example.com</a>
+							<strong data-i18n="contact.emailLabel">Email</strong
+							>
+							<a href="mailto:omarabdelfattah460@gmail.com"
+								>omarabdelfattah460@gmail.com</a
+							>
 						</div>
 					</div>
-					
+
 					<div class="contact-item">
 						<span class="contact-item-icon">📱</span>
 						<div class="contact-item-content">
-							<strong data-i18n="contact.phoneLabel">Phone</strong>
-							<a href="tel:+201234567890">+20 123 456 7890</a>
+							<strong data-i18n="contact.phoneLabel">Phone</strong
+							>
+							<a href="tel:+201211867464">+20 121 186 7464</a>
 						</div>
 					</div>
-					
+
 					<div class="contact-item">
 						<span class="contact-item-icon">📍</span>
 						<div class="contact-item-content">
-							<strong data-i18n="contact.locationLabel">Location</strong>
-							<span data-i18n="contact.locationValue">Cairo, Egypt</span>
+							<strong data-i18n="contact.locationLabel"
+								>Location</strong
+							>
+							<span data-i18n="contact.locationValue"
+								>Cairo, Egypt</span
+							>
 						</div>
 					</div>
-					
+
 					<div class="contact-item">
 						<span class="contact-item-icon">🕐</span>
 						<div class="contact-item-content">
-							<strong data-i18n="contact.hoursLabel">Working Hours</strong>
-							<span data-i18n="contact.hoursValue">Sat - Thu: 9AM - 6PM</span>
+							<strong data-i18n="contact.hoursLabel"
+								>Working Hours</strong
+							>
+							<span data-i18n="contact.hoursValue"
+								>Sat - Thu: 9AM - 6PM</span
+							>
 						</div>
 					</div>
-					
-					<a href="https://wa.me/201234567890?text=Hi Omar, I'm interested in your services" 
-					   class="whatsapp-btn" 
-					   target="_blank" 
-					   rel="noopener noreferrer"
-					   data-i18n="contact.whatsapp">
+
+					<a
+						href="https://wa.me/201211867464?text=Hi Omar, I'm interested in your services"
+						class="whatsapp-btn"
+						target="_blank"
+						rel="noopener noreferrer"
+						data-i18n="contact.whatsapp"
+					>
 						💬 Chat on WhatsApp
 					</a>
 				</div>
 			</div>
 		</main>
 		<Footer />
+		<script is:inline>
+			const form = document.getElementById("contact-form");
+			const statusEl = document.getElementById("form-status");
+			const submitBtn = document.getElementById("submit-btn");
+
+			form.addEventListener("submit", async (e) => {
+				e.preventDefault();
+				submitBtn.disabled = true;
+				submitBtn.textContent = "Sending...";
+				statusEl.style.display = "none";
+
+				try {
+					const response = await fetch(form.action, {
+						method: "POST",
+						body: new FormData(form),
+						headers: {
+							Accept: "application/json",
+						},
+					});
+
+					if (response.ok) {
+						statusEl.textContent =
+							"✅ Message sent! Check your email to confirm if this is your first time using FormSubmit.";
+						statusEl.style.color = "#22c55e";
+						statusEl.style.display = "block";
+						form.reset();
+					} else {
+						throw new Error("Submission failed");
+					}
+				} catch (error) {
+					statusEl.textContent =
+						"❌ Something went wrong. Please try WhatsApp instead.";
+					statusEl.style.color = "#ef4444";
+					statusEl.style.display = "block";
+				} finally {
+					submitBtn.disabled = false;
+					submitBtn.textContent = "Send Message →";
+				}
+			});
+		</script>
 	</body>
 </html>

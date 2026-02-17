@@ -35,12 +35,18 @@ const { title, description, image = FallbackImage, keywords } = Astro.props;
 <!-- SEO Meta Tags -->
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#f59e0b" />
+
+<!-- Google Search Console Verification (replace YOUR_VERIFICATION_CODE with your actual code) -->
+<meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
 <meta
   name="keywords"
   content={keywords ||
     "Graphic Design, Web Design, UI/UX Design, App Development, Logo Design, Freelance, Omar Abdelfattah, تصميم جرافيك, تصميم مواقع, تصميم تطبيقات, تصميم شعارات, هوية بصرية, صانع محتوى"}
 />
 <meta name="author" content={SITE_TITLE} />
+
+<!-- Google Search Console Verification -->
+<meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
 
 <!-- Font preloads -->
 <link
@@ -104,21 +110,12 @@ const { title, description, image = FallbackImage, keywords } = Astro.props;
   })}
 />
 
-<!-- Netlify Identity Widget (for CMS login) -->
+<!-- Cloudflare Web Analytics -->
 <script
   is:inline
-  src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script is:inline>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
+  defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "YOUR_CF_ANALYTICS_TOKEN"}'></script>
 
 <!-- Language/RTL Support + body class for project language switching -->
 <script is:inline>
