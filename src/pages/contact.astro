@@ -406,6 +406,7 @@ import { SITE_TITLE } from "../consts";
 						target="_blank"
 						rel="noopener noreferrer"
 						data-i18n="contact.whatsapp"
+						onclick="gtag('event', 'click_whatsapp', {'event_category': 'contact', 'event_label': 'contact_page_btn'});"
 					>
 						💬 Chat on WhatsApp
 					</a>
@@ -434,6 +435,14 @@ import { SITE_TITLE } from "../consts";
 					});
 
 					if (response.ok) {
+						// Google Analytics Event
+						if (typeof gtag === "function") {
+							gtag("event", "form_submission", {
+								event_category: "engagement",
+								event_label: "contact_form_success",
+							});
+						}
+
 						statusEl.textContent =
 							"✅ Message sent! Check your email to confirm if this is your first time using FormSubmit.";
 						statusEl.style.color = "#22c55e";

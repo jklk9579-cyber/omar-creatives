@@ -110,6 +110,18 @@ const { title, description, image = FallbackImage, keywords } = Astro.props;
   })}
 />
 
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPQYT5XQP4"
+></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+</script>
+
 <!-- Cloudflare Web Analytics -->
 <script
   is:inline
