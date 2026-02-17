@@ -1,14 +1,22 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const {
+	title,
+	title_ar,
+	description,
+	description_ar,
+	pubDate,
+	updatedDate,
+	heroImage,
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -31,27 +39,77 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				box-shadow: var(--box-shadow);
 			}
 			.prose {
-				width: 720px;
+				width: 800px;
 				max-width: calc(100% - 2em);
 				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+				padding: 3rem 1em;
+				color: var(--text-secondary);
+				line-height: 1.8;
 			}
 			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
+				margin-bottom: 3rem;
+				padding: 2rem 0;
 				text-align: center;
-				line-height: 1;
+				border-bottom: 1px solid var(--border-color);
 			}
 			.title h1 {
-				margin: 0 0 0.5em 0;
+				margin: 0 0 0.5rem 0;
+				font-size: 3rem;
+				color: var(--text-primary);
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+				color: var(--text-secondary);
+				font-size: 1.1rem;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+
+			/* Bilingual Toggle Styles */
+			.content-en,
+			.content-ar {
+				display: none;
+			}
+
+			:global([dir="ltr"]) .content-en {
+				display: block;
+			}
+			:global([dir="ltr"]) .title-en {
+				display: block;
+			}
+			:global([dir="ltr"]) .title-ar {
+				display: none;
+			}
+
+			:global([dir="rtl"]) .content-ar {
+				display: block;
+			}
+			:global([dir="rtl"]) .title-ar {
+				display: block;
+			}
+			:global([dir="rtl"]) .title-en {
+				display: none;
+			}
+
+			:global([dir="rtl"]) .prose {
+				direction: rtl;
+				font-family: var(--font-arabic);
+				font-weight: 300;
+				font-size: 1.25rem;
+			}
+			:global([dir="rtl"]) .title h1 {
+				font-family: "GumelaArabic", sans-serif;
+				font-weight: 300;
+			}
+
+			@media (max-width: 720px) {
+				.title h1 {
+					font-size: 2rem;
+				}
+				main {
+					padding: 0 1.5rem;
+				}
 			}
 		</style>
 	</head>
@@ -61,11 +119,25 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && (
-						typeof heroImage === 'string'
-							? <img width="1020" height="510" src={heroImage} alt="" style="display:block;margin:0 auto;border-radius:12px;" />
-							: <Image width={1020} height={510} src={heroImage} alt="" />
-					)}
+					{
+						heroImage &&
+							(typeof heroImage === "string" ? (
+								<img
+									width="1020"
+									height="510"
+									src={heroImage}
+									alt=""
+									style="display:block;margin:0 auto;border-radius:12px;"
+								/>
+							) : (
+								<Image
+									width={1020}
+									height={510}
+									src={heroImage}
+									alt=""
+								/>
+							))
+					}
 				</div>
 				<div class="prose">
 					<div class="title">
@@ -74,18 +146,48 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							{
 								updatedDate && (
 									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
+										Last updated on{" "}
+										<FormattedDate date={updatedDate} />
 									</div>
 								)
 							}
 						</div>
-						<h1>{title}</h1>
-						<hr />
+						<h1 class="title-en">{title}</h1>
+						<h1 class="title-ar">{title_ar || title}</h1>
 					</div>
-					<slot />
+					<div class="blog-content">
+						<slot />
+					</div>
 				</div>
 			</article>
 		</main>
 		<Footer />
+		<script>
+			// Script to split content into English and Arabic based on the delimiter
+			function setupBilingualContent() {
+				const contentContainer =
+					document.querySelector(".blog-content");
+				if (!contentContainer) return;
+
+				const html = contentContainer.innerHTML;
+				const delimiter = "<!-- ARABIC_CONTENT -->";
+
+				if (html.includes(delimiter)) {
+					const [en, ar] = html.split(delimiter);
+					contentContainer.innerHTML = `
+						<div class="content-en">${en}</div>
+						<div class="content-ar">${ar}</div>
+					`;
+				} else {
+					// Fallback for posts without the delimiter - show as English
+					contentContainer.innerHTML = `<div class="content-en">${html}</div>`;
+				}
+			}
+
+			// Initialize
+			setupBilingualContent();
+
+			// Re-run on language change (if handled via events, but CSS handles visibility)
+		</script>
 	</body>
 </html>

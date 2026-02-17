@@ -87,6 +87,8 @@ async function generateBlog() {
   
   [English Content in Markdown]
   
+  <!-- ARABIC_CONTENT -->
+  
   [Arabic Content in Markdown]
   
   Requirements:
