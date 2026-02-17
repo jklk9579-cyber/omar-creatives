@@ -28,6 +28,6 @@ jobs:
         run: |
           git config --global user.name "AI Blog Bot"
           git config --global user.email "bot@omarcreatives.com"
-          git add src/content/blog/*.md
-          git commit -m "chore: auto-generate daily blog post [skip ci]" || echo "No changes to commit"
+          git add src/content/blog/*.md src/assets/blog-*.jpg
+          git commit -m "chore: auto-generate blog post with image" || echo "No changes to commit"
           git push origin main
