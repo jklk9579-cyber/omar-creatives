@@ -48,7 +48,7 @@ async function generateBlog() {
   description: "[Short English description, 1-2 sentences]"
   description_ar: "[Short Arabic description, 1-2 sentences]"
   pubDate: [YYYY-MM-DD]
-  heroImage: "/images/ai_content_robot.jpg"
+  heroImage: "../../assets/blog-placeholder-5.jpg"
   tags: ["AI", "Design", "Web Development"]
   ---
   

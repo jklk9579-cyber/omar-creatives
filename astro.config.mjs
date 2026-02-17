@@ -10,9 +10,6 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://omarcreatives.com',
   output: 'static',
-  image: {
-    service: { entrypoint: 'astro/assets/services/sharp' },
-  },
   integrations: [mdx(), sitemap(), preact()],
   adapter: cloudflare(),
 });

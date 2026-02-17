@@ -15,7 +15,7 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			// Accept both local asset images and CMS-uploaded string paths
-			heroImage: z.string().optional(),
+			heroImage: z.union([image(), z.string()]).optional(),
 			tags: z.array(z.string()).optional(),
 		}),
 });
