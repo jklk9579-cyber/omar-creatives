@@ -188,7 +188,7 @@ const posts = (await getCollection("blog")).sort(
 											"string" ? (
 												<img
 													src={post.data.heroImage}
-													alt=""
+													alt={post.data.title}
 													loading="lazy"
 												/>
 											) : (
@@ -196,7 +196,7 @@ const posts = (await getCollection("blog")).sort(
 													width={800}
 													height={450}
 													src={post.data.heroImage}
-													alt=""
+													alt={post.data.title}
 												/>
 											))}
 									</div>
