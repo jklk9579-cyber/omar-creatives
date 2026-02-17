@@ -2,7 +2,7 @@ name: Daily AI Blog Generation
 
 on:
   schedule:
-    - cron: '0 9 * * *' # Every day at 9:00 AM UTC
+    - cron: '0 0,8,16 * * *' # Every 8 hours (Midnight, 8 AM, 4 PM UTC)
   workflow_dispatch: # Allow manual trigger
 
 jobs:

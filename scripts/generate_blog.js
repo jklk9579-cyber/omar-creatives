@@ -17,11 +17,23 @@ const TOPICS = [
     "Maximizing Social Media Engagement with AI Content",
     "Choosing the Right Tech Stack for Your Startup",
     "The Role of AI in Personal Branding",
+    "Why Cairo Businesses are Switching to Astro for Performance",
+    "The Impact of Arabic Typography in Modern Web Design",
+    "How to Automate Your Content Strategy for 2026",
+    "The Growth of E-commerce in Egypt: A Design Perspective",
+    "AI-Powered Video Marketing: The New Frontier",
+    "Building Trust with Your Audience Through UX Design",
+    "The Future of Freelancing in the Middle East",
+    "Visual Storytelling: Why Your Brand Needs a Narrative",
+    "Optimizing Your Website for Local Search in Egypt",
+    "The Ethics of AI in Creative Content Creation",
 ];
 
 async function generateBlog() {
     const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
-    const date = new Date().toISOString().split('T')[0];
+    const now = new Date();
+    const date = now.toISOString().split('T')[0];
+    const time = now.getHours().toString().padStart(2, '0') + now.getMinutes().toString().padStart(2, '0');
     const slug = topic.toLowerCase().replace(/ /g, '-').replace(/[^\w-]/g, '');
 
     console.log(`Generating blog for topic: ${topic}`);
@@ -76,7 +88,7 @@ async function generateBlog() {
         const data = await response.json();
         const content = data.choices[0].message.content;
 
-        const fileName = `${date}-${slug}.md`;
+        const fileName = `${date}-${time}-${slug}.md`;
         const filePath = path.join('src', 'content', 'blog', fileName);
 
         fs.writeFileSync(filePath, content);
