@@ -122,7 +122,13 @@ async function generateBlog() {
         }
 
         const data = await response.json();
-        const content = data.choices[0].message.content;
+        let content = data.choices[0].message.content;
+
+        // Force the correct heroImage path — AI often ignores the one we provide
+        content = content.replace(
+            /heroImage:\s*"[^"]*"/,
+            `heroImage: "${heroImagePath}"`
+        );
 
         const fileName = `${date}-${time}-${slug}.md`;
         const filePath = path.join('src', 'content', 'blog', fileName);
