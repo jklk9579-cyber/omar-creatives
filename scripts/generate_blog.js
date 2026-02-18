@@ -20,7 +20,7 @@ const TOPICS = [
     { topic: "The Role of AI in Personal Branding", unsplash: "1635070041078-e363dbe005cb" },
     { topic: "Why Cairo Businesses are Switching to Astro for Performance", unsplash: "1551288049-bebda4e38f71" },
     { topic: "The Impact of Arabic Typography in Modern Web Design", unsplash: "1618172193622-ae2d025f4032" },
-    { topic: "How to Automate Your Content Strategy for 2026", unsplash: "1531297484001-80022131f40a" },
+    { topic: "How to Automate Your Content Strategy for 2026", unsplash: "1460925895917-afdab827c52f" },
     { topic: "The Growth of E-commerce in Egypt: A Design Perspective", unsplash: "1556742049-0cfed4f6a45d" },
     { topic: "AI-Powered Video Marketing: The New Frontier", unsplash: "1536240478700-b869070f9279" },
     { topic: "Building Trust with Your Audience Through UX Design", unsplash: "1552664730-d307ca884978" },

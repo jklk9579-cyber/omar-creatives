@@ -4,7 +4,7 @@ title_ar: "كيفية توفير خطة المحتوى التلقائي لعام
 description: "Discover the benefits of automating your content strategy and learn how to implement it for your business in 2026. Omar Creatives can help you get started."
 description_ar: "اكتشف فوائد توفير خطة المحتوى التلقائي وتعلم كيفية تنفيذها لأعمالك في عام 2026. يمكن أن يساعدكم عمر كريتيفز في 시작 ذلك."
 pubDate: 2026-02-18
-heroImage: "../../assets/blog-placeholder-5.jpg"
+heroImage: "../../assets/blog-how-to-automate-your-content-strategy-for-2026.jpg"
 tags: ["AI", "Content Automation", "Digital Marketing"]
 ---
 
