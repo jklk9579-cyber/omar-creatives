@@ -53,7 +53,7 @@ async function downloadImage(slug, unsplashId) {
         return `../../assets/${imageName}`;
     } catch (error) {
         console.warn(`Image download failed, using placeholder: ${error.message}`);
-        return '../../assets/blog-placeholder-5.jpg';
+        return '../../assets/blog-placeholder-1.jpg';
     }
 }
 

@@ -4,7 +4,7 @@ title_ar: "تسويق الفيديو بمساعدة الذكاء الاصطنا�
 description: "Discover how AI-powered video marketing is revolutionizing the way businesses reach their audience in Egypt and beyond. Learn how Omar Creatives is leading the charge in this exciting new field."
 description_ar: "اكتشف كيف يغيّر تسويق الفيديو بمساعدة الذكاء الاصطناعي الطريقة التي تتواصل بها الشركات مع جمهورها في مصر وخارجها. تعرّف على كيفية قيادة عمر كريتيفز لهذا المجال الجديد والمثير."
 pubDate: 2026-02-18
-heroImage: "../../assets/blog-placeholder-5.jpg"
+heroImage: "../../assets/blog-placeholder-1.jpg"
 tags: ["AI", "Design", "Web Development"]
 ---
 
