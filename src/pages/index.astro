@@ -12,6 +12,11 @@ const posts = await getCollection("blog");
 const recentPosts = posts
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
+
+import { Image } from "astro:assets";
+import heroImg from "../../public/images/omar-hero.png";
+import aboutImg from "../../public/images/Whisk_56e400572677958b2404ce020db28a2adr (1).png";
+import robotImg from "../../public/images/robot.png";
 ---
 
 <!doctype html>
@@ -1611,8 +1616,9 @@ const recentPosts = posts
 							data-i18n="hero.description"
 						>
 							I craft digital experiences that blend cutting-edge
-							AI, modern web technologies, and thoughtful design
-							to help brands stand out.
+							AI Content Creation, modern Web & App Development,
+							and stunning Graphic Design to help brands stand
+							out.
 						</p>
 						<div class="hero-cta animate-fadeInUp delay-300">
 							<a href="/projects" class="btn btn-primary">
@@ -1639,9 +1645,10 @@ const recentPosts = posts
 					</div>
 					<div class="hero-image-container animate-fadeInUp">
 						<div class="hero-image-circle"></div>
-						<img
-							src="/images/omar-hero.png"
+						<Image
+							src={heroImg}
 							alt="Omar Abdelfattah"
+							loading="eager"
 						/>
 						<div class="hero-side-elements hero-quote">
 							<div class="hero-quote-icon">"</div>
@@ -1667,10 +1674,7 @@ const recentPosts = posts
 			<section class="section">
 				<div class="about-intro">
 					<div class="about-image animate-fadeInUp">
-						<img
-							src="/images/Whisk_56e400572677958b2404ce020db28a2adr (1).png"
-							alt="Omar Abdelfattah"
-						/>
+						<Image src={aboutImg} alt="Omar Abdelfattah" />
 					</div>
 					<div class="about-text">
 						<p class="section-label" data-i18n="about.label">
@@ -1757,7 +1761,7 @@ const recentPosts = posts
 				</div>
 				<div class="services-container">
 					<div class="robot-mascot animate-fadeInUp">
-						<img src="/images/robot.png" alt="AI Robot Mascot" />
+						<Image src={robotImg} alt="AI Robot Mascot" />
 					</div>
 					<div class="services-grid stagger-animation">
 						<div class="service-card">
@@ -2087,6 +2091,7 @@ const recentPosts = posts
 							href="https://wa.me/201211867464"
 							class="btn btn-primary"
 							target="_blank"
+							rel="noopener noreferrer"
 							onclick="gtag('event', 'click_whatsapp', {'event_category': 'hero', 'event_label': 'hero_cta_btn'});"
 						>
 							<svg

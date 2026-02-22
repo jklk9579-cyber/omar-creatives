@@ -104,7 +104,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				},
 				datePublished: date,
 				genre: category,
-				image: cover.src,
+				image: cover,
 			})}
 		/>
 		<style>
@@ -1405,7 +1405,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 					<a
 						href={link}
 						target="_blank"
-						rel="noopener"
+						rel="noopener noreferrer"
 						class="btn-primary"
 					>
 						<svg
