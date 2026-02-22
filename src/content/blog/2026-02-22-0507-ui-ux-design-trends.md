@@ -4,7 +4,7 @@ title_ar: "تصميم واجهة المستخدم وتجربة المستخدم:
 description: "Stay ahead of the curve with these critical UI/UX design trends that are shaping digital products today."
 description_ar: "ابقَ في الطليعة مع هذه الاتجاهات الهامة لتصميم واجهة المستخدم/تجربة المستخدم التي تشكل المنتجات الرقمية اليوم."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0507-ui-ux-design-trends.jpg"
 tags: ["UI/UX", "Trends", "Web Design"]
 ---
 

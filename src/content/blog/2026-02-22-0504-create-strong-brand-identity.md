@@ -4,7 +4,7 @@ title_ar: "كيفية إنشاء هوية بصرية قوية لعلامتك ا�
 description: "A strong brand identity is more than just a logo. Learn the key graphic design principles that will make your business unforgettable."
 description_ar: "الهوية القوية للعلامة التجارية هي أكثر من مجرد شعار. تعلم مبادئ التصميم الجرافيكي الأساسية التي ستجعل عملك لا يُنسى."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0504-create-strong-brand-identity.jpg"
 tags: ["Graphic Design", "Branding", "Marketing"]
 ---
 

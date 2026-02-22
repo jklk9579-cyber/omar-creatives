@@ -4,7 +4,7 @@ title_ar: "ماذا يفعل المطور الإبداعي وكيف يمكنه �
 description: "A blend of logic and beauty: Learn why hiring a creative developer is the ultimate competitive advantage for your digital products."
 description_ar: "مزيج من المنطق والجمال: تعرف على سبب كون توظيف مطور إبداعي هو الميزة التنافسية المثلى لمنتجاتك الرقمية."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0506-what-does-a-creative-developer-do.jpg"
 tags: ["Development", "Careers", "Creative Industry"]
 ---
 

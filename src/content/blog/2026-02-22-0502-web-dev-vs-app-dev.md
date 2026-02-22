@@ -4,7 +4,7 @@ title_ar: "تطوير الويب مقابل تطوير التطبيقات: أي�
 description: "Choosing between web dev and app dev can be tricky. Here's a comprehensive guide to help you decide which platform will serve your business goals best."
 description_ar: "قد يكون الاختيار بين الويب والتطبيقات صعباً. إليك دليل شامل لمساعدتك في تحديد المنصة التي تخدم أهداف عملك بشكل أفضل."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0502-web-dev-vs-app-dev.jpg"
 tags: ["Web Development", "App Development", "Strategy"]
 ---
 

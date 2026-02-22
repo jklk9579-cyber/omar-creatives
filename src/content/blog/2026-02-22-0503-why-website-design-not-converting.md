@@ -4,7 +4,7 @@ title_ar: "لماذا لا يقوم تصميم موقعك بتحويل الزو�
 description: "High traffic but low sales? Discover the hidden design flaws that might be hurting your conversion rates and how to fix them."
 description_ar: "حركة مرور عالية ولكن مبيعات منخفضة؟ اكتشف عيوب التصميم الخفية التي قد تضر بمعدلات التحويل وكيفية إصلاحها."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0503-why-website-design-not-converting.jpg"
 tags: ["UI/UX", "Web Design", "Conversion Rate"]
 ---
 

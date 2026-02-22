@@ -4,7 +4,7 @@ title_ar: "ما هو إنشاء المحتوى بالذكاء الاصطناعي
 description: "Discover how AI-powered content creation is revolutionizing digital marketing, how it works, and how you can leverage it for your brand."
 description_ar: "اكتشف كيف يُحدث إنشاء المحتوى بالذكاء الاصطناعي ثورة في التسويق الرقمي، كيف يعمل، وكيف يمكنك استخدامه لصالح علامتك التجارية."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0501-what-is-ai-powered-content-creation.jpg"
 tags: ["AI", "Content Marketing", "Digital Strategy"]
 ---
 

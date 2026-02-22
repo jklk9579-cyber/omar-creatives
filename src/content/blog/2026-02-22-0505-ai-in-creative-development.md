@@ -4,7 +4,7 @@ title_ar: "الذكاء الاصطناعي في التطوير الإبداعي:
 description: "Discover how AI bridges the gap between creative imagination and technical execution in modern development."
 description_ar: "اكتشف كيف يسد الذكاء الاصطناعي الفجوة بين الخيال الإبداعي والتنفيذ التقني في التطوير الحديث."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0505-ai-in-creative-development.jpg"
 tags: ["AI", "Creative Development", "Innovation"]
 ---
 

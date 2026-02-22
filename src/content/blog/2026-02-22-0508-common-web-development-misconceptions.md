@@ -4,7 +4,7 @@ title_ar: "المفاهيم الخاطئة الشائعة في تطوير الو
 description: "Busting the most persistent myths about web development to help you make better digital decisions."
 description_ar: "تفنيد أكثر الأساطير رسوخًا حول تطوير الويب لمساعدتك في اتخاذ قرارات رقمية أفضل."
 pubDate: 2026-02-22
-heroImage: "../../assets/blog-placeholder-1.jpg"
+heroImage: "../../assets/blog-2026-02-22-0508-common-web-development-misconceptions.jpg"
 tags: ["Web Development", "Tech Advice", "Myths"]
 ---
 
