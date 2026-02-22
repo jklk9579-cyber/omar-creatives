@@ -77,9 +77,7 @@ const { title, description, image = FallbackImage, keywords } = Astro.props;
 />
 
 <!-- Bilingual SEO -->
-<link rel="alternate" hreflang="en" href={canonicalURL} />
-<link rel="alternate" hreflang="ar" href={canonicalURL} />
-<link rel="alternate" hreflang="x-default" href={canonicalURL} />
+<!-- Removed hreflang tags to fix Search Console URL mapping errors since translations are handled client-side on the same URL -->
 
 <!-- SEO Meta Tags -->
 <meta name="robots" content="index, follow" />
@@ -133,21 +131,33 @@ const { title, description, image = FallbackImage, keywords } = Astro.props;
   type="application/ld+json"
   set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE_TITLE,
-    url: "https://omarcreatives.com",
-    logo: "https://omarcreatives.com/favicon.png",
-    description: description,
-  })}
-/>
-<script
-  is:inline
-  type="application/ld+json"
-  set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: SITE_TITLE,
-    url: "https://omarcreatives.com",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://omarcreatives.com/#website",
+        url: "https://omarcreatives.com",
+        name: SITE_TITLE,
+        description: description,
+        publisher: {
+          "@id": "https://omarcreatives.com/#organization",
+        },
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://omarcreatives.com/#organization",
+        name: "Omar Creatives",
+        url: "https://omarcreatives.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://omarcreatives.com/favicon.png",
+        },
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+20-121-186-7464",
+          contactType: "customer service",
+        },
+      },
+    ],
   })}
 />
 
