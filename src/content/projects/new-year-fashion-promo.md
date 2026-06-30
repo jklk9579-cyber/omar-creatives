@@ -4,7 +4,7 @@ title_ar: "بوست أزياء – عرض السنة الجديدة"
 description: "A trendy fashion promotional design featuring a model with modern graphic elements like torn paper, repeated typography, and a discount sticker to convey a seasonal sale feel."
 description_ar: "تصميم ترويجي للأزياء بأسلوب عصري يعتمد على صورة موديل رئيسية مع عناصر جرافيك لإيصال إحساس العرض الموسمي والخصم."
 date: 2025-12-28
-cover: "/images/scocial media designs/بوست أزياء.png"
+cover: "/images/scocial media designs/file-1782863820091-442.png"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Brand.Co"

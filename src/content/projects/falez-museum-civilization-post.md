@@ -4,7 +4,7 @@ title_ar: "بوست المتحف – طفل أمام قطعة أثرية – ب�
 description: "A storytelling social media post featuring a child gazing at an ancient artifact behind museum glass, with a visual quote connecting civilization's beauty with creativity, subtly integrating the Falez brand identity."
 description_ar: "تصميم قائم على مشهد قصصي يجمع بين طفل وقطعة أثرية خلف زجاج العرض، مع اقتباس نصي يعزز فكرة التقاء الحضارة بالإبداع. الإعلان يعتمد على البعد العاطفي والقصصي بدل الطرح الإعلاني المباشر."
 date: 2025-09-05
-cover: "/images/scocial media designs/3) بوست المتحف (طفل أمام قطعة أثرية – براند Falz).png"
+cover: "/images/scocial media designs/3-Falz.png"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Falez"

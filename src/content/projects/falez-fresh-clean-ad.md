@@ -4,7 +4,7 @@ title_ar: "إعلان منتج فالز – كينج الانتعاش"
 description: "A fresh and clean product advertisement for Falez deodorant cream featuring the product as a hero shot surrounded by ice cubes and water droplets to reinforce the feeling of freshness and coolness."
 description_ar: "إعلان منتج بأسلوب Fresh & Clean يركز على المنتج في المنتصف مع عناصر بصرية من ثلج وقطرات مياه لتعزيز إحساس الانتعاش والبرودة والنظافة."
 date: 2025-07-15
-cover: "/images/scocial media designs/إعلان منتج Falz.png"
+cover: "/images/scocial media designs/Falz.png"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Falez"

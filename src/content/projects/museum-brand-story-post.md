@@ -4,7 +4,7 @@ title_ar: "بوست المتحف – براند الفانوس"
 description: "A social media brand storytelling post featuring an iconic museum image with a visual quote connecting civilization's beauty with creativity, subtly integrating the Al-Fanous coffee brand identity."
 description_ar: "تصميم سوشيال ميديا مبني على صورة أيقونية للمتحف مع اقتباس بصري يوصل فكرة جمال الحضارة يلتقي بالإبداع، مع توظيف ذكي لشعار البراند."
 date: 2025-09-10
-cover: "/images/scocial media designs/بوست المتحف.png"
+cover: "/images/scocial media designs/file-1782863820091-627.png"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Al-Fanous Mills & Roasters"

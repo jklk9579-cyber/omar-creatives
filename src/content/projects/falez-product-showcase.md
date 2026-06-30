@@ -4,7 +4,7 @@ title_ar: "فالز – تصميم عرض منتجات سوشيال ميديا"
 description: "A social media product showcase design for Falez brand, presenting products in a 3D scene within a Facebook-like interface, using illustrated characters and graphic elements to convey a sense of vibrancy and youthful energy."
 description_ar: "تصميم عرض منتجات لسوشيال ميديا لبراند Falez، بيقدم المنتجات في مشهد ثلاثي الأبعاد داخل واجهة تشبه فيسبوك، مع استخدام شخصيات مرسومة وعناصر جرافيك لدعم الإحساس بالحيوية والشباب."
 date: 2026-02-10
-cover: "/images/scocial media designs/2) Falez – Product Showcase Social Media Design.jpg"
+cover: "/images/scocial media designs/2-Falez-Product-Showcase-Social-Media-Design.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Falez"

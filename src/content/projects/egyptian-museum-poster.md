@@ -4,7 +4,7 @@ title_ar: "بوستر افتتاح المتحف المصري الكبير"
 description: "Promotional design for the Grand Egyptian Museum opening event, blending Pharaonic heritage with a modern futuristic style using neon frames and contemporary visuals."
 description_ar: "تصميم ترويجي لحدث افتتاح المتحف المصري الكبير، بيجمع بين الهوية الفرعونية واللمسة العصرية باستخدام إطار نيوني حديث مع تمثال فرعوني بأسلوب معاصر."
 date: 2025-09-07
-cover: "/images/scocial media designs/المتحف.png"
+cover: "/images/scocial media designs/file-1782863820091-91.png"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Vital Care"

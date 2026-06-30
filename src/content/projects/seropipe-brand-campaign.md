@@ -4,7 +4,7 @@ title_ar: "إعلان Seropipe – مجموعة منتجات + شخصية عام
 description: "A brand campaign ad for Seropipe featuring the full product line alongside a public figure to build trust and credibility, with a unified green visual language."
 description_ar: "تصميم إعلان لبراند Seropipe يعرض مجموعة المنتجات في مشهد موحّد مع وجود شخصية عامة لإضافة عنصر الثقة والمصداقية. التكوين البصري بيوازن بين إبراز المنتجات وبناء حضور إنساني داعم للرسالة الإعلانية."
 date: 2025-08-10
-cover: "/images/scocial media designs/1) إعلان Seropipe (مجموعة منتجات + شخصية عامة).jpg"
+cover: "/images/scocial media designs/1-Seropipe.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Seropipe"

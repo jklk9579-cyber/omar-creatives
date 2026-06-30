@@ -4,7 +4,7 @@ title_ar: "تخفيضات نهاية الموسم"
 description: "A visually rich end-of-season sale advertisement featuring a model in ornate traditional attire within a warm, detail-filled scene. The promotional text (SALE / UP TO 40% OFF) is seamlessly integrated with the image to deliver the discount message directly while maintaining a luxurious aesthetic."
 description_ar: "إعلان بيع نهاية الموسم بأسلوب غني بصريًا، يعتمد على موديل بلبس تقليدي مزخرف داخل مشهد دافئ ومليان تفاصيل. النصوص الإعلانية مدموجة مع الصورة (SALE / UP TO 40% OFF) لإيصال رسالة الخصم بشكل مباشر مع الحفاظ على الطابع الفاخر."
 date: 2026-02-10
-cover: "/images/scocial media designs/Sale – End of Season.jpeg"
+cover: "/images/scocial media designs/Sale-End-of-Season.jpeg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Fashion Brand"

@@ -4,7 +4,7 @@ title_ar: "غلاف فيسبوك – شركة Code Spire"
 description: "A social media cover design for a tech/creative company showcasing digital brilliance and technical creativity through bold colors and illustrative elements reflecting programming and design."
 description_ar: "تصميم غلاف سوشيال ميديا لشركة تقنية يبرز فكرة الإبداع الرقمي والعمل التقني، باستخدام ألوان قوية ورسومات توضيحية تعكس مجال البرمجة والتصميم."
 date: 2025-11-15
-cover: "/images/scocial media designs/غلاف شركة.jpg"
+cover: "/images/scocial media designs/file-1782863820091-808.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Code Spire"
