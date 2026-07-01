@@ -9,7 +9,7 @@ import netlify from '@astrojs/netlify';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://omarcreatives.com',
-  output: 'hybrid',
+  output: 'static',
   adapter: netlify(),
   integrations: [mdx(), sitemap(), preact()],
 });
