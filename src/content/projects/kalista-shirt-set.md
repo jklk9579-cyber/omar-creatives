@@ -4,7 +4,7 @@ title_ar: "ذا شيرت سيت – كاليستا"
 description: "A modern, minimal fashion ad centered on the model as the key element within a warm-toned backdrop. The clean composition with the bold 'the shirt set' headline draws the eye directly to the product, conveying a sense of elegance and comfort."
 description_ar: "إعلان أزياء بأسلوب عصري وبسيط، يركز على الموديل كعنصر أساسي داخل المشهد مع خلفية بلون دافئ موحّد. التكوين نظيف، والعنوان الكبير 'the shirt set' بيقود العين مباشرة للمنتج، مع إبراز الإحساس بالأناقة والراحة في نفس الوقت."
 date: 2026-02-10
-cover: "/images/scocial media designs/The-Shirt-Set-Kalista.jpeg"
+cover: "/images/scocial-media-designs/The-Shirt-Set-Kalista.jpeg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Kalista"

@@ -4,7 +4,7 @@ title_ar: "سوقكم – غلاف سوشيال ميديا / تصميم هوية
 description: "A modern social media cover design reflecting the identity of Souqoom e-commerce platform. The work presents the concept of online shopping through illustrations representing purchasing, payment, and products within a Facebook-like interface, with clear branding and visual identity."
 description_ar: "تصميم واجهة سوشيال ميديا بأسلوب عصري يعكس هوية منصة Souqoom للتجارة الإلكترونية. العمل بيعرض فكرة التسوق أونلاين من خلال عناصر مرسومة (Illustrations) تمثل الشراء، الدفع، والمنتجات داخل واجهة تشبه فيسبوك، مع إبراز اللوجو والهوية البصرية للبراند بشكل واضح."
 date: 2026-02-10
-cover: "/images/scocial media designs/1-Souqoom-Social-Media-Cover-Brand-Visual.jpg"
+cover: "/images/scocial-media-designs/1-Souqoom-Social-Media-Cover-Brand-Visual.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Souqoom"

@@ -4,7 +4,7 @@ title_ar: "بانر عرض ملابس ROMWEAR – كوليكشن Flowa"
 description: "A promotional fashion banner for the ROMWEAR Flowa Premium Collection, featuring models wearing the clothing with a clear discount offer and direct commercial layout designed for conversions."
 description_ar: "تصميم بانر ترويجي لعرض ملابس يركز على الموديلات والخصم بطريقة مباشرة وواضحة، مع توزيع نظيف للعناصر البصرية والنصوص، يخدم هدف البيع السريع."
 date: 2025-10-05
-cover: "/images/scocial media designs/file-1782863820091-448.jpg"
+cover: "/images/scocial-media-designs/file-1782863820091-448.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "ROMWEAR"

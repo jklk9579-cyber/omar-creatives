@@ -4,7 +4,7 @@ title_ar: "إعلان شامبو Seropipe – ترطيب مكثف للشعر"
 description: "A lifestyle product ad for Seropipe hair shampoo featuring the product in a realistic bathroom setting with warm lighting to convey daily care, simplicity, and trust."
 description_ar: "تصميم إعلان منتج يركز على العبوة في مشهد واقعي مع إضاءة دافئة توصل إحساس العناية اليومية والروتين البسيط والموثوق."
 date: 2025-06-20
-cover: "/images/scocial media designs/Seropipe.jpg"
+cover: "/images/scocial-media-designs/Seropipe.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Seropipe"

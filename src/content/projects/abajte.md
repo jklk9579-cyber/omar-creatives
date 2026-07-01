@@ -7,7 +7,7 @@ date: 2025-12-20
 cover: "/images/logos/abaytee1.png"
 gallery:
   - "/images/logos/abaytee1.png"
-  - "/images/logos/abaytee sliver.png"
+  - "/images/logos/abaytee-sliver.png"
   - "/images/logos/abaytee2.jpg"
 category: "Logo Design"
 category_ar: "تصميم شعار"

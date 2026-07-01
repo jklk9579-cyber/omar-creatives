@@ -4,7 +4,7 @@ title_ar: "إعلان فالز – فيتنس وأسلوب حياة"
 description: "A dynamic lifestyle advertisement linking the Falez product with an active lifestyle through an athletic character, vibrant graphic elements, and a social media mockup showing the design in real-world context."
 description_ar: "تصميم إعلان يربط المنتج بأسلوب حياة نشيط من خلال شخصية رياضية وعناصر جرافيك حيوية، مع عرض التصميم داخل إطار سوشيال ميديا لإظهار شكله في الاستخدام الحقيقي."
 date: 2025-08-01
-cover: "/images/scocial media designs/4-Falz-Fitness-Lifestyle-Social-Mockup.jpg"
+cover: "/images/scocial-media-designs/4-Falz-Fitness-Lifestyle-Social-Mockup.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Falez"

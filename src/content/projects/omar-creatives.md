@@ -4,7 +4,7 @@ title_ar: "عمر كرييتيفز"
 description: "A modern personal brand identity designed for a creative professional working in design, digital content, and visual production. Combines an illustrated portrait with bold contemporary typography."
 description_ar: "هوية علامة تجارية شخصية عصرية مصممة لمحترف إبداعي يعمل في التصميم والمحتوى الرقمي والإنتاج البصري. تجمع بين رسم بورتريه وخطوط عصرية جريئة."
 date: 2024-09-01
-cover: "/images/logos/omar creatives.jpg"
+cover: "/images/logos/omar-creatives.jpg"
 category: "Personal Brand"
 category_ar: "علامة شخصية"
 client: "Omar Creatives"

@@ -4,7 +4,7 @@ title_ar: "إعلان منتج – كريم ديودورانت"
 description: "A clean and elegant social media product ad focusing on the product as the hero, with a premium podium display and soft visual elements that convey freshness and cleanliness."
 description_ar: "تصميم إعلان منتج موجه للسوشيال ميديا بأسلوب نظيف ومرتب، يركز على المنتج في المنتصف مع خلفية أنيقة وعناصر خفيفة لتعزيز إحساس النعومة والنظافة."
 date: 2025-08-20
-cover: "/images/scocial media designs/file-1782863820091-646.jpg"
+cover: "/images/scocial-media-designs/file-1782863820091-646.jpg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Falez"

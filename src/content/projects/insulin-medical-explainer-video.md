@@ -4,7 +4,7 @@ title_ar: "فيديو طبي تعليمي بالذكاء الاصطناعي – 
 description: "A professionally edited medical animation and explainer video about insulin, created entirely with AI tools. Combines generative visuals, motion graphics, text animations, and cutting-edge montage editing to educate viewers about insulin's concept, function, and importance in the human body."
 description_ar: "فيديو طبي تعليمي وأنيميشن عن الإنسولين، من تحرير احترافي ومُنشأ بالكامل بأدوات الذكاء الاصطناعي. يجمع بين صور مولّدة بالذكاء الاصطناعي، رسوم حركية، نصوص متحركة ومونتاج حديث لتوعية المشاهدين بمفهوم الإنسولين ووظيفته وأهميته في الجسم."
 date: 2026-02-12
-cover: "/images/video thumbnails/insulin-medical-explainer.png"
+cover: "/images/video-thumbnails/insulin-medical-explainer.png"
 gallery: []
 category: "Video Creation / Edit"
 category_ar: "إنشاء / مونتاج فيديو"

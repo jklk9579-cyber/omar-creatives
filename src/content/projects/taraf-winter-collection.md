@@ -4,7 +4,7 @@ title_ar: "بوستر أزياء – كوليكشن الشتاء – طرف"
 description: "A modern, clean fashion social media poster for TARAF Clothing Brand, featuring a model as the main visual element with balanced typography and a calm, elegant color palette. The vertical format is optimized for Instagram and digital campaigns, blending lifestyle photography with subtle graphic touches to convey elegance, warmth, and style."
 description_ar: "تصميم بوستر أزياء بأسلوب عصري وبسيط لبراند TARAF، بيعتمد بشكل أساسي على الموديل كعنصر بصري رئيسي مع استخدام تايبوجرافي نظيف وتكوين متوازن. الألوان هادئة وأنيقة وبتخدم هوية البراند، وبتحافظ على تركيز العين على المنتج نفسه. المقاس الطولي مناسب لإعلانات السوشيال ميديا، خصوصًا إنستجرام والحملات الرقمية."
 date: 2026-02-10
-cover: "/images/scocial media designs/taraf.jpeg"
+cover: "/images/scocial-media-designs/taraf.jpeg"
 category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "TARAF Clothing Brand"
