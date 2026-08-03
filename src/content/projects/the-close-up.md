@@ -33,11 +33,13 @@ tags:
 }
 .video-showcase video {
   width: 100%;
-  max-height: 700px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
   border: none;
   display: block;
   border-radius: 16px;
   outline: none;
+  background: #000;
 }
 .video-wave-wrapper {
   position: relative;

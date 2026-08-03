@@ -236,15 +236,16 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			}
 			.video-wrapper {
 				width: 100%;
-				max-width: 600px; /* Bigger size as requested */
+				max-width: 900px; /* Responsive widescreen player */
 				position: relative;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				aspect-ratio: 9 / 16; /* Strict vertical ratio */
-				background: transparent !important;
-				border: none !important;
-				box-shadow: none !important;
+				aspect-ratio: 16 / 9; /* Widescreen 16:9 ratio for natural resolution */
+				background: #0a0a0a !important;
+				border-radius: 16px;
+				border: 1px solid rgba(255, 255, 255, 0.08) !important;
+				box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
 				overflow: hidden;
 			}
 			.video-wrapper video,
@@ -258,10 +259,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				box-shadow: none !important;
 			}
 			.video-wrapper video {
-				object-fit: cover; /* Fill the 9:16 space */
-				filter: drop-shadow(
-					0 0 40px rgba(5, 5, 5, 0.8)
-				); /* Deep dark glow */
+				object-fit: contain; /* Show full native video resolution without pixelation/cropping */
 			}
 
 			/* Circular Waves Overlay */
