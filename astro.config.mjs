@@ -10,6 +10,9 @@ export default defineConfig({
   output: 'static',
   adapter: cloudflare({
     imageService: 'compile',
+    platformProxy: {
+      enabled: true,
+    },
   }),
   integrations: [mdx(), sitemap(), preact()],
 });
