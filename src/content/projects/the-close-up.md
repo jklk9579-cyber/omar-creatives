@@ -125,7 +125,7 @@ Designed for portfolio presentation, this video highlights advanced editing tech
 </div>
 
 <div class="video-showcase">
-  <video controls playsinline poster="/images/video-thumbnails/the-close-up.jpeg">
+  <video controls playsinline preload="metadata" poster="/images/video-thumbnails/the-close-up.jpeg">
     <source src="/the-close-up.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
