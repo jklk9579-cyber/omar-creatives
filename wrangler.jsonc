@@ -1,9 +1,10 @@
 {
-  "name": "omar-creatives",
+  "name": "omar-creatives1",
   "compatibility_date": "2026-08-03",
   "compatibility_flags": ["nodejs_compat"],
   "main": "./dist/_worker.js/index.js",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "exclude": ["_worker.js"]
   }
 }
