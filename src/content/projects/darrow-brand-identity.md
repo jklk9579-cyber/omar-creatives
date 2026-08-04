@@ -7,6 +7,10 @@ date: 2026-08-04
 cover: "/images/logos/darrow-logo.png"
 gallery:
   - "/images/logos/darrow-logo.png"
+  - "/images/darrow/darrow-1.png"
+  - "/images/darrow/darrow-2.png"
+  - "/images/darrow/darrow-3.png"
+  - "/images/darrow/darrow-4.png"
 category: "Brand Identity"
 category_ar: "الهوية البصرية"
 client: "Darrow"
