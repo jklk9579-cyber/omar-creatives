@@ -262,126 +262,9 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				object-fit: contain; /* Show full native video resolution without pixelation/cropping */
 			}
 
-			/* Circular Waves Overlay */
-			.video-ripple-overlay {
-				position: absolute;
-				inset: 0;
-				z-index: 2;
-				pointer-events: none;
-				overflow: hidden;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
-			.video-ripple-overlay .vr {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				border-radius: 50%;
-				border: 1px solid rgba(5, 5, 5, 0.4); /* Dark ripples */
-				transform: translate(-50%, -50%) scale(0);
-				animation: vrRipple 3s ease-out infinite;
-			}
-			.video-ripple-overlay .vr:nth-child(1) {
-				width: 60px;
-				height: 60px;
-				animation-delay: 0s;
-			}
-			.video-ripple-overlay .vr:nth-child(2) {
-				width: 120px;
-				height: 120px;
-				animation-delay: 0.5s;
-			}
-			.video-ripple-overlay .vr:nth-child(3) {
-				width: 180px;
-				height: 180px;
-				animation-delay: 1s;
-			}
-			.video-ripple-overlay .vr:nth-child(4) {
-				width: 260px;
-				height: 260px;
-				animation-delay: 1.5s;
-			}
-			.video-ripple-overlay .vr:nth-child(5) {
-				width: 350px;
-				height: 350px;
-				animation-delay: 2s;
-			}
-			.video-ripple-overlay .vr:nth-child(6) {
-				width: 450px;
-				height: 450px;
-				animation-delay: 2.5s;
-			}
-
-			@keyframes vrRipple {
-				0% {
-					transform: translate(-50%, -50%) scale(0);
-					opacity: 0.8;
-				}
-				100% {
-					transform: translate(-50%, -50%) scale(1.5);
-					opacity: 0;
-				}
-			}
-
-			.video-wrapper video {
-				animation: robotFloat 4s ease-in-out infinite;
-			}
-			@keyframes robotFloat {
-				0%,
-				100% {
-					transform: translateY(0);
-				}
-				50% {
-					transform: translateY(-20px);
-				}
-			}
-
-			/* Remove old showreel styles */
-
-			/* ── Content Layout (side by side) ── */
+			/* ── Content Layout ── */
 			.content-layout {
 				display: block;
-			}
-			.showreel-container video {
-				display: block;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				background: transparent;
-			}
-			.showreel-badge {
-				position: absolute;
-				bottom: 1rem;
-				left: 1rem;
-				display: inline-flex;
-				align-items: center;
-				gap: 0.4rem;
-				background: rgba(0, 0, 0, 0.6);
-				backdrop-filter: blur(10px);
-				padding: 0.4rem 0.8rem;
-				border-radius: 20px;
-				font-size: 0.75rem;
-				color: #fff;
-				font-weight: 500;
-			}
-			.pulse-dot {
-				width: 7px;
-				height: 7px;
-				background: #f59e0b;
-				border-radius: 50%;
-				animation: pulse 2s ease-in-out infinite;
-			}
-			@keyframes pulse {
-				0%,
-				100% {
-					opacity: 1;
-					transform: scale(1);
-				}
-				50% {
-					opacity: 0.5;
-					transform: scale(0.8);
-				}
 			}
 
 			/* ── Animations ── */
@@ -1210,19 +1093,8 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				.gallery-section {
 					padding: 0 1rem;
 				}
-				.showreel-section {
-					padding: 0 1rem;
-				}
-				.showreel-container {
-					border-radius: 0;
-					max-width: 100%;
-				}
 				.content-layout {
 					grid-template-columns: 1fr;
-				}
-				.content-layout .showreel-container {
-					max-width: 300px;
-					margin: 0 auto;
 				}
 				.gallery-grid {
 					grid-template-columns: 1fr 1fr;
@@ -1443,36 +1315,28 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				<h2 data-i18n="project.details">Project Details</h2>
 				<div class="line"></div>
 			</div>
-			<div class="project-video-section">
-				<div class="video-wrapper">
-					{
-						video_url && video_url.includes("drive.google.com") ? (
-							<iframe
-								src={video_url
-									.replace("/view", "/preview")
-									.replace("?usp=drive_link", "")
-									.replace("?usp=sharing", "")}
-								allow="autoplay"
-								allowfullscreen
-							/>
-						) : video_url ? (
-							<video autoplay muted playsinline loop>
-								<source src={video_url} type="video/mp4" />
-							</video>
-						) : (
-							<div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a,#1a1a2e)"></div>
-						)
-					}
-					<div class="video-ripple-overlay">
-						<div class="vr"></div>
-						<div class="vr"></div>
-						<div class="vr"></div>
-						<div class="vr"></div>
-						<div class="vr"></div>
-						<div class="vr"></div>
+			{
+				video_url && (
+					<div class="project-video-section">
+						<div class="video-wrapper">
+							{video_url.includes("drive.google.com") ? (
+								<iframe
+									src={video_url
+										.replace("/view", "/preview")
+										.replace("?usp=drive_link", "")
+										.replace("?usp=sharing", "")}
+									allow="autoplay"
+									allowfullscreen
+								/>
+							) : (
+								<video controls playsinline preload="metadata">
+									<source src={video_url} type="video/mp4" />
+								</video>
+							)}
+						</div>
 					</div>
-				</div>
-			</div>
+				)
+			}
 
 			<div class="content-layout">
 				<div class="project-content">
