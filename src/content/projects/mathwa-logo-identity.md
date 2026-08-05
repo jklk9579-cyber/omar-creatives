@@ -4,9 +4,9 @@ title_ar: "جمعية مثوى الأهلية – تصميم شعار وهوية
 description: "A symbolic circular emblem for the Mathwa Al-Ahliyah Association, featuring a stylized tree cradled by cupped open hands — framed by an arched green banner and warm gold detailing — expressing care, dignity, mercy, and nurtured growth."
 description_ar: "شعار دائري رمزي لجمعية مثوى الأهلية، يجمع بين شجرة منمقة تحتضنها كفّان مفتوحتان، في إطار من شريط أخضر مقوّس وتفاصيل ذهبية دافئة، يعبّر عن الرعاية والكرامة والرحمة والنمو."
 date: 2026-08-05
-cover: "/images/logos/mathwa-logo.png"
+cover: "/images/logos/mathwa-logo.jpg"
 gallery:
-  - "/images/logos/mathwa-logo.png"
+  - "/images/logos/mathwa-logo.jpg"
 category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "Mathwa Al-Ahliyah Association"
