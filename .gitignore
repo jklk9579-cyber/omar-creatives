@@ -36,8 +36,9 @@ design-reference.pdf
 
 # Large video files in public
 public/*.mp4
-# Ship the About Us project video with the site
+# Ship project videos with the site
 !public/about-video.mp4
+!public/vision-2030.mp4
 
 # Font zip archives
 public/fonts/*.zip
