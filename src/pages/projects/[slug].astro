@@ -4,7 +4,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE } from "../../consts";
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
 	const projects = await getCollection("projects");
@@ -15,7 +15,6 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { Content } = await render(project);
 const {
 	title,
 	title_ar,
@@ -29,7 +28,6 @@ const {
 	client_ar,
 	link,
 	date,
-	featured,
 	video_url,
 } = project.data;
 
@@ -46,7 +44,6 @@ const relatedProjects = sorted
 	.slice(0, 3);
 
 const galleryImages = gallery || [];
-const allImages = galleryImages;
 const formattedDate = new Date(date).toLocaleDateString("en-US", {
 	year: "numeric",
 	month: "long",
@@ -120,19 +117,6 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			body.is-ar .lang-en {
 				display: none !important;
 			}
-			/* Project markdown body: hide the block that doesn't match the switch */
-			.project-content .content-ar,
-			.project-content [id="ar"] {
-				display: none !important;
-			}
-			body.is-ar .project-content .content-ar,
-			body.is-ar .project-content [id="ar"] {
-				display: block !important;
-			}
-			body.is-ar .project-content .content-en,
-			body.is-ar .project-content [id="en"] {
-				display: none !important;
-			}
 			body.is-ar .project-header,
 			body.is-ar .project-title,
 			body.is-ar .project-desc {
@@ -168,12 +152,10 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				text-align: right;
 			}
 			body.is-ar .gallery-header,
-			body.is-ar .content-header,
 			body.is-ar .related-header {
 				flex-direction: row-reverse;
 			}
 			body.is-ar .gallery-header .line,
-			body.is-ar .content-header .line,
 			body.is-ar .related-header .line {
 				background: linear-gradient(
 					270deg,
@@ -214,17 +196,12 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			body.is-ar .card-cat,
 			body.is-ar .card-client,
 			body.is-ar .gallery-header h2,
-			body.is-ar .content-header h2,
 			body.is-ar .related-header h2 {
 				font-family: "GumelaArabic", "Cairo", sans-serif;
 				font-weight: 300;
 			}
-			body.is-ar .project-content {
-				font-family: "GumelaArabic", "Cairo", sans-serif;
-				font-weight: 300;
-			}
 
-			/* ── Video/Robot Animation Section ── */
+			/* ── Video Section ── */
 			.project-video-section {
 				max-width: 1200px;
 				margin: 1rem auto 2rem; /* Reduced margin to close gap */
@@ -260,11 +237,6 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			}
 			.video-wrapper video {
 				object-fit: contain; /* Show full native video resolution without pixelation/cropping */
-			}
-
-			/* ── Content Layout ── */
-			.content-layout {
-				display: block;
 			}
 
 			/* ── Animations ── */
@@ -820,88 +792,6 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				z-index: 10;
 			}
 
-			/* ── Content Section ── */
-			.content-section {
-				max-width: 1200px;
-				margin: 0 auto 4rem;
-				padding: 0 2rem;
-				position: relative;
-				z-index: 1;
-			}
-			.content-header {
-				display: flex;
-				align-items: center;
-				gap: 1rem;
-				margin-bottom: 2rem;
-			}
-			.content-header h2 {
-				font-size: 1.4rem;
-				font-weight: 700;
-				color: #fff;
-				margin: 0;
-			}
-			.content-header .line {
-				flex: 1;
-				height: 1px;
-				background: linear-gradient(
-					90deg,
-					rgba(245, 158, 11, 0.3),
-					transparent
-				);
-			}
-			.project-content {
-				background: rgba(255, 255, 255, 0.02);
-				border: 1px solid rgba(255, 255, 255, 0.06);
-				border-radius: 20px;
-				padding: 2.5rem;
-				line-height: 1.8;
-			}
-			.project-content h2 {
-				font-size: 1.4rem;
-				font-weight: 700;
-				color: #fff;
-				margin: 2rem 0 1rem;
-				padding-bottom: 0.5rem;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-			}
-			.project-content h2:first-child {
-				margin-top: 0;
-			}
-			.project-content h3 {
-				font-size: 1.15rem;
-				font-weight: 600;
-				color: rgba(255, 255, 255, 0.9);
-				margin: 1.5rem 0 0.75rem;
-			}
-			.project-content p {
-				color: rgba(255, 255, 255, 0.65);
-				margin: 0 0 1rem;
-			}
-			.project-content ul,
-			.project-content ol {
-				color: rgba(255, 255, 255, 0.65);
-				padding-left: 1.5rem;
-				margin: 0 0 1.5rem;
-			}
-			.project-content li {
-				margin-bottom: 0.4rem;
-			}
-			.project-content strong {
-				color: rgba(255, 255, 255, 0.9);
-			}
-			.project-content .content-ar {
-				direction: rtl;
-				text-align: right;
-				border-top: 1px solid rgba(255, 255, 255, 0.06);
-				margin-top: 2rem;
-				padding-top: 2rem;
-			}
-			.project-content .content-ar ul,
-			.project-content .content-ar ol {
-				padding-left: 0;
-				padding-right: 1.5rem;
-			}
-
 			/* ── Project Navigation ── */
 			.project-nav {
 				max-width: 1200px;
@@ -1093,19 +983,9 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				.gallery-section {
 					padding: 0 1rem;
 				}
-				.content-layout {
-					grid-template-columns: 1fr;
-				}
 				.gallery-grid {
 					grid-template-columns: 1fr 1fr;
 					gap: 0.75rem;
-				}
-				.content-section {
-					padding: 0 1rem;
-				}
-				.project-content {
-					padding: 1.5rem;
-					border-radius: 14px;
 				}
 				.project-nav {
 					padding: 0 1rem;
@@ -1309,41 +1189,29 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			</button>
 		</div>
 
-		<!-- ── Content ── -->
-		<section class="content-section">
-			<div class="content-header">
-				<h2 data-i18n="project.details">Project Details</h2>
-				<div class="line"></div>
-			</div>
-			{
-				video_url && (
-					<div class="project-video-section">
-						<div class="video-wrapper">
-							{video_url.includes("drive.google.com") ? (
-								<iframe
-									src={video_url
-										.replace("/view", "/preview")
-										.replace("?usp=drive_link", "")
-										.replace("?usp=sharing", "")}
-									allow="autoplay"
-									allowfullscreen
-								/>
-							) : (
-								<video controls playsinline preload="metadata">
-									<source src={video_url} type="video/mp4" />
-								</video>
-							)}
-						</div>
+		<!-- ── Project Video ── -->
+		{
+			video_url && (
+				<div class="project-video-section">
+					<div class="video-wrapper">
+						{video_url.includes("drive.google.com") ? (
+							<iframe
+								src={video_url
+									.replace("/view", "/preview")
+									.replace("?usp=drive_link", "")
+									.replace("?usp=sharing", "")}
+								allow="autoplay"
+								allowfullscreen
+							/>
+						) : (
+							<video controls playsinline preload="metadata">
+								<source src={video_url} type="video/mp4" />
+							</video>
+						)}
 					</div>
-				)
-			}
-
-			<div class="content-layout">
-				<div class="project-content">
-					<Content />
 				</div>
-			</div>
-		</section>
+			)
+		}
 		{
 			galleryImages.length > 0 && (
 				<section class="gallery-section reveal">
@@ -1551,53 +1419,6 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				const lang = localStorage.getItem("language") || "en";
 				document.body.classList.remove("is-en", "is-ar");
 				document.body.classList.add(lang === "ar" ? "is-ar" : "is-en");
-
-				const contentEl = document.querySelector(".project-content");
-				if (contentEl) {
-					const arSection = contentEl.querySelector(".content-ar");
-					const arBlock = contentEl.querySelector('[id="ar"]');
-					const enBlock = contentEl.querySelector('[id="en"]');
-					if (lang === "ar") {
-						if (enBlock) {
-							enBlock.style.setProperty(
-								"display",
-								"none",
-								"important",
-							);
-						}
-						if (arSection) {
-							contentEl
-								.querySelectorAll(".content-en")
-								.forEach((el) => {
-									el.style.setProperty(
-										"display",
-										"none",
-										"important",
-									);
-								});
-							arSection.style.borderTop = "none";
-							arSection.style.marginTop = "0";
-							arSection.style.paddingTop = "0";
-						}
-						contentEl.style.direction = "rtl";
-						contentEl.style.textAlign = "right";
-					} else {
-						if (arBlock) {
-							arBlock.style.setProperty(
-								"display",
-								"none",
-								"important",
-							);
-						}
-						if (arSection) {
-							arSection.style.setProperty(
-								"display",
-								"none",
-								"important",
-							);
-						}
-					}
-				}
 			})();
 
 			// ── Lightbox ──
