@@ -4,12 +4,10 @@ title_ar: "دارو – الهوية البصرية"
 description: "A complete brand identity for Darrow, built around a distinctive logo mark, a refined color and typography system, and clear visual guidelines that keep the brand consistent across digital and print touchpoints."
 description_ar: "هوية بصرية متكاملة لعلامة Darrow، مبنية على شعار مميز ونظام ألوان وخطوط منسق، مع إرشادات بصرية واضحة تحافظ على اتساق العلامة عبر الوسائط الرقمية والمطبوعة."
 date: 2026-08-04
-cover: "/images/logos/darrow-logo.png"
+cover: "/images/darrow/darrow-1.png"
 gallery:
-  - "/images/logos/darrow-logo.png"
   - "/images/darrow/darrow-1.png"
   - "/images/darrow/darrow-2.png"
-  - "/images/darrow/darrow-3.png"
   - "/images/darrow/darrow-4.png"
 category: "Brand Identity"
 category_ar: "الهوية البصرية"
