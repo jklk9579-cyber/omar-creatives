@@ -410,6 +410,17 @@ code {
 /* Smooth scroll behavior */
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+/* Page header decorative glows are larger than the viewport; clip them so
+   they never force horizontal scroll on mobile */
+.page-header {
+	overflow: hidden;
 }
 
 /* Reduced motion preference */

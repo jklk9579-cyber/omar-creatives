@@ -1582,6 +1582,19 @@ import robotImg from "../../public/images/robot.png";
 			:global([dir="rtl"]) .hero-side-elements {
 				text-align: right;
 			}
+
+			/* RTL + Mobile: keep section headers stacked so view-all links never overflow */
+			@media (max-width: 600px) {
+				:global([dir="rtl"]) .section-header {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 1rem;
+				}
+				:global([dir="rtl"]) .section-header .view-all {
+					align-self: flex-start;
+					margin-left: 0;
+				}
+			}
 		</style>
 	</head>
 	<body>
