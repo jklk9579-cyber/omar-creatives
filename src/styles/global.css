@@ -512,20 +512,20 @@ html {
 
 /* Navigation RTL */
 [dir="rtl"] nav {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .internal-links {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .nav-cta {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 /* Section Labels RTL */
 [dir="rtl"] .section-label {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .section-label::before {
@@ -543,7 +543,7 @@ html {
 }
 
 [dir="rtl"] .hero-eyebrow {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .hero h1 .line {
@@ -552,7 +552,7 @@ html {
 
 [dir="rtl"] .hero-cta {
 	justify-content: flex-start;
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .hero-description {
@@ -570,12 +570,12 @@ html {
 }
 
 [dir="rtl"] .about-cta {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 /* Section Headers RTL */
 [dir="rtl"] .section-header {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .section-header .section-title-group {
@@ -610,13 +610,13 @@ html {
 
 [dir="rtl"] .card-link,
 [dir="rtl"] .project-link {
-	flex-direction: row-reverse;
+	flex-direction: row;
 	gap: 0.5rem;
 }
 
 /* Buttons & Icons RTL */
 [dir="rtl"] .btn {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .btn svg,
@@ -632,7 +632,7 @@ html {
 }
 
 [dir="rtl"] .footer-links {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .link-group {
@@ -640,7 +640,7 @@ html {
 }
 
 [dir="rtl"] .footer-bottom {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 /* CTA Section RTL */
@@ -650,7 +650,7 @@ html {
 
 [dir="rtl"] .cta-section .cta-buttons {
 	justify-content: flex-start;
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 /* Blog Section RTL */
@@ -659,7 +659,7 @@ html {
 }
 
 [dir="rtl"] .blog-meta {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 /* Projects Section RTL */
@@ -673,7 +673,7 @@ html {
 
 /* View All Links RTL */
 [dir="rtl"] .view-all {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 /* Form Elements RTL */
@@ -698,7 +698,7 @@ html {
 
 /* Stats RTL */
 [dir="rtl"] .stats-row {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 [dir="rtl"] .stat-item {
@@ -707,7 +707,7 @@ html {
 
 /* Eyebrow/Labels RTL */
 [dir="rtl"] .hero-eyebrow {
-	flex-direction: row-reverse;
+	flex-direction: row;
 	gap: 0.75rem;
 }
 
@@ -730,7 +730,7 @@ html {
 }
 
 [dir="rtl"] .testimonial-author {
-	flex-direction: row-reverse;
+	flex-direction: row;
 }
 
 /* Project tags RTL */
