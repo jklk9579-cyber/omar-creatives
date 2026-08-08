@@ -208,8 +208,16 @@ import LanguageSwitcher from "./LanguageSwitcher.astro";
 	}
 
 	@media (max-width: 900px) {
-		.internal-links,
+		.internal-links {
+			display: none;
+		}
+		/* Keep the language switcher visible on mobile */
 		.nav-cta {
+			display: flex;
+			gap: 0.5rem;
+			margin-inline-start: auto;
+		}
+		.nav-cta .contact-btn {
 			display: none;
 		}
 		.mobile-menu-btn {

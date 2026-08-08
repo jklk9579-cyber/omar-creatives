@@ -191,7 +191,11 @@ const ogImageUrl =
 <!-- Language/RTL Support + body class for project language switching -->
 <script is:inline>
   (function () {
-    const savedLang = localStorage.getItem("language") || "en";
+    // Default to Arabic on mobile devices, English on desktop
+    const defaultLang = window.matchMedia("(max-width: 900px)").matches
+      ? "ar"
+      : "en";
+    const savedLang = localStorage.getItem("language") || defaultLang;
     document.documentElement.dir = savedLang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = savedLang;
     function setBodyLang() {

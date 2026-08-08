@@ -180,8 +180,9 @@
   const currentLang = document.getElementById('currentLang');
   const options = document.querySelectorAll('.lang-option');
   
-  // Get saved language
-  const savedLang = localStorage.getItem('language') || 'en';
+  // Get saved language (Arabic is the default on mobile)
+  const defaultLang = window.matchMedia('(max-width: 900px)').matches ? 'ar' : 'en';
+  const savedLang = localStorage.getItem('language') || defaultLang;
   updateDisplay(savedLang);
   
   // Toggle dropdown

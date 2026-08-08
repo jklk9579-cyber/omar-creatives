@@ -560,8 +560,13 @@ const translations = {
   }
 };
 
+function getDefaultLanguage() {
+  // Default to Arabic on mobile devices, English on desktop
+  return window.matchMedia('(max-width: 900px)').matches ? 'ar' : 'en';
+}
+
 function getCurrentLanguage() {
-  return localStorage.getItem('language') || 'en';
+  return localStorage.getItem('language') || getDefaultLanguage();
 }
 
 function translate(key) {
