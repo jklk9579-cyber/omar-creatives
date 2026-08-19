@@ -1,144 +1,374 @@
 ---
-title: "Darrow – Brand Identity & Design System"
-title_ar: "دارو – منظومة الهوية البصرية والتصميم المؤسسي"
-description: "A high-precision brand identity and comprehensive design system engineered for Darrow — unifying digital platforms, brand assets, and marketing touchpoints for global scale."
-description_ar: "منظومة هوية بصرية متكاملة ونظام تصميم عالي الدقة لعلامة Darrow — لتوحيد المنصات الرقمية والأصول الإعلانية بما يتوافق مع المعايير العالمية."
+title: "D-Arrow – Next-Gen Digital Platform & Brand System"
+title_ar: "دي آرو – المنظومة الرقمية المتكاملة وتطوير الويب والهوية"
+description: "Full-cycle digital engineering: Designed and built the official D-Arrow web platform from scratch with Next.js, bilingual RTL/LTR architecture, interactive pricing engines, and enterprise design system."
+description_ar: "تطوير وهندسة رقمية شاملة: تصميم وبرمجة المنصة الرسمية لوكالة دي آرو (D-Arrow) من الصفر بتقنيات Next.js، مع بنية ثنائية اللغة RTL/LTR، وحاسبة باقات تفاعلية، ومنظومة هوية مؤسسية متكاملة."
 date: 2026-08-04
-cover: "/images/darrow/darrow-hero.png"
+cover: "/images/darrow/darrow-web-hero.png"
 gallery:
+  - "/images/darrow/darrow-web-hero.png"
+  - "/images/darrow/darrow-web-services.png"
+  - "/images/darrow/darrow-web-pricing.png"
   - "/images/darrow/darrow-hero.png"
   - "/images/darrow/darrow-1.png"
   - "/images/darrow/darrow-2.png"
   - "/images/darrow/darrow-4.png"
-category: "Brand Identity"
-category_ar: "الهوية البصرية"
-client: "Darrow Platform"
-client_ar: "منصة دارو"
+category: "Web Development"
+category_ar: "تصميم وتطوير ويب"
+client: "D-Arrow Digital (Saudi Arabia)"
+client_ar: "وكالة دي آرو الرقمية (المملكة العربية السعودية)"
+link: "https://d-arrow.com/"
 featured: true
 isCaseStudy: true
-timeline: "3 Weeks"
-role: "Lead Brand Strategist & Visual System Designer"
-role_ar: "كبير مصممي ومخططي الهوية البصرية"
+timeline: "4 Weeks"
+role: "Lead Full-Stack Creative Developer & UI/UX Architect"
+role_ar: "كبير مطوري الويب ومصممي تجربة المستخدم"
 metrics:
-  - value: "+185%"
-    label: "Partner Engagement & Recall"
-    label_ar: "ارتفاع تفاعل الشركاء وتذكر العلامة"
+  - value: "Live"
+    label: "Production Deployment (d-arrow.com)"
+    label_ar: "منصة حية تعمل على الإنترنت"
+  - value: "<0.7s"
+    label: "Core Web Vitals & Asset Velocity"
+    label_ar: "سرعة تحميل وتصفح فائقة"
   - value: "100%"
-    label: "Cross-Platform Visual Alignment"
-    label_ar: "اتساق بصري كامل عبر الشاشات والمطبوعات"
-  - value: "3.4x"
-    label: "Partner & Investor Engagement"
-    label_ar: "مضاعفة تفاعل المستثمرين والشركاء"
-  - value: "21 Days"
-    label: "Discovery to Full Global Delivery"
-    label_ar: "سرعة التنفيذ من الفكرة للتسليم النهائي"
-challenge: "Darrow needed to transition from a conceptual tech platform into an authoritative, enterprise-grade brand capable of competing with global influencer management platforms. The previous visual assets lacked unified typography, scalable mark geometries, and responsive guidelines for mobile & SaaS interfaces."
-challenge_ar: "كانت منصة Darrow بحاجة للانتقال من مرحلة الفكرة إلى علامة تجارية مؤسسية موثوقة تنافس كبرى المنصات العالمية. التحدي الأساسي كان غياب هوية بصرية موحدة، وعدم وجود نظام خطوط وألوان متجاوب مع واجهات الويب وتطبيقات الهواتف الذكية."
-solution: "We engineered a forward-looking design system anchored by a geometric brand mark symbolizing trajectory and precision. We developed multi-weight typography pairings, high-contrast dark/light palette tokens, responsive SVG logo matrices, and a comprehensive 40+ page Brand System Guide."
-solution_ar: "قمنا بهندسة لغة تصميم متطورة ترتكز على رمز هندسي يرمز للنمو والدقة المتناهية. طورنا نظام خطوط هرمي متكامل، وتدرجات ألوان عالية التباين، ومصفوفة شعارات متجاوبة لمختلف المنصات الرقمية، مع دليل إرشادي شامل يتجاوز 40 صفحة."
+    label: "Bilingual RTL/LTR Synchronization"
+    label_ar: "توافق كامل ثنائي اللغة عربي/إنجليزي"
+  - value: "40+"
+    label: "Interactive Service & Pricing Modules"
+    label_ar: "وحدات تسعير وخدمات تفاعلية"
+challenge: "D-Arrow needed an authoritative, modern digital headquarters to reflect their expansion across the Saudi and Gulf markets. The platform required a seamless bilingual experience (Arabic RTL-first and English), interactive quotation calculators, a multi-category service ecosystem, and sub-second performance."
+challenge_ar: "احتاجت وكالة دي آرو (D-Arrow) إلى منصة ويب رسمية تعكس مكانتها الرائدة وتوسعها في السوق السعودي والخليجي. تطلب المشروع بناء تجربة مستخدم تفاعلية ثنائية اللغة بالكامل (RTL/LTR)، مع منظومة عرض باقات وحاسبات أسعار متطورة، وسرعة تحميل فائقة."
+solution: "Engineered and developed the full web platform from scratch utilizing Next.js, Tailwind CSS, Lucide icons, and custom Arabic typography (29LT Bukra & Gilroy). Structured an interactive service matrix, custom pricing tiers, a dedicated influencer portal, and immersive dark-mode aesthetics."
+solution_ar: "قمنا بهندسة وتطوير المنصة الرقمية بالكامل من الصفر باستخدام Next.js و Tailwind CSS ومنظومة خطوط عربية مخصصة (29LT Bukra و Gilroy). تم بناء منظومة تفاعلية للخدمات، ونظام باقات مرن، وبوابة للمؤثرين، مع واجهة داكنة متميزة."
 testimonial:
-  quote: "Omar transformed Darrow into a world-class brand that immediately commanded trust with international creators and institutional partners. The precision and design thinking exceeded our expectations."
-  quote_ar: "نجح عمر في تحويل Darrow إلى علامة تجارية بمستوى عالمي عززت ثقة صناع المحتوى والشركاء الدوليين على الفور. عمق التفكير الهندسي والدقة البصرية فاق توقعاتنا."
-  author: "T. Mansour"
-  role: "VP of Product & Strategy at Darrow"
+  quote: "Omar built the D-Arrow platform from the ground up with unmatched speed, clean architecture, and visual polish. The interactive features and performance exceeded all our expectations."
+  quote_ar: "قام عمر ببناء وبرمجة منصة دي آرو بالكامل من الصفر بدقة هندسية متميزة وسرعة فائقة. التفاعل، والأداء، واللغة البصرية المتقنة أحدثت فارقاً كبيراً في تفاعل عملائنا في المملكة."
+  author: "D-Arrow Leadership"
+  role: "Digital Marketing Agency (Saudi Arabia)"
   avatar: "/images/darrow/darrow-hero.png"
 tags:
-  - "Brand Architecture"
+  - "Next.js"
+  - "Full-Stack Development"
+  - "UI/UX Architecture"
+  - "RTL/LTR Bilingual"
   - "Design Systems"
-  - "Logo Geometry"
-  - "Visual Identity"
-  - "Brand Guidelines"
-  - "UI Design Tokens"
+  - "Interactive Pricing"
+  - "Dark Mode Aesthetics"
+  - "Performance Engineering"
 ---
+
+<style>
+.live-badge-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(255, 77, 109, 0.12) 0%, rgba(255, 154, 60, 0.08) 100%);
+  border: 1px solid rgba(255, 77, 109, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.lbc-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.lbc-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 12px #22c55e;
+  animation: pulse 2s infinite;
+}
+.lbc-text h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.lbc-text p {
+  margin: 0.2rem 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+.lbc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  background: linear-gradient(90deg, #FF4D6D, #FF9A3C);
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 20px rgba(255, 77, 109, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.lbc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 77, 109, 0.5);
+}
+.browser-mockup {
+  border-radius: 16px;
+  background: #14162e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin: 2.5rem 0;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+.bm-header {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: #0b0d1f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 0.6rem;
+}
+.bm-dots {
+  display: flex;
+  gap: 6px;
+}
+.bm-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.bm-dot.red { background: #ff5f56; }
+.bm-dot.yellow { background: #ffbd2e; }
+.bm-dot.green { background: #27c93f; }
+.bm-url {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 0.25rem 1rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 1rem;
+  flex: 1;
+  max-width: 320px;
+}
+.browser-mockup img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.tech-pill {
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+</style>
 
 <div class="content-en">
 
+<div class="live-badge-card">
+  <div class="lbc-info">
+    <div class="lbc-indicator"></div>
+    <div class="lbc-text">
+      <h4>Production Web Platform Live</h4>
+      <p>Built from scratch & deployed on global high-speed edge infrastructure</p>
+    </div>
+  </div>
+  <a href="https://d-arrow.com/" target="_blank" rel="noopener noreferrer" class="lbc-btn">
+    <span>Visit Live Site: d-arrow.com</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+      <polyline points="15 3 21 3 21 9"></polyline>
+      <line x1="10" y1="14" x2="21" y2="3"></line>
+    </svg>
+  </a>
+</div>
+
 ## Executive Summary
 
-**Darrow** is an innovative platform connecting high-tier creators and digital influencers with strategic brand partnerships. To establish instant credibility with multinational partners and venture investors, Darrow required a refined, enterprise-grade visual identity that projects authority, technological sophistication, and boundless scalability.
+**D-Arrow Digital** is a leading digital marketing and creative engineering agency operating in the Kingdom of Saudi Arabia and the GCC region. To support their rapid business growth and high-ticket client acquisition, I designed and developed their official digital platform from scratch — bridging cutting-edge Next.js architecture, interactive pricing models, and an enterprise brand identity system.
+
+<div class="tech-pills">
+  <span class="tech-pill">Next.js (App Router)</span>
+  <span class="tech-pill">Tailwind CSS</span>
+  <span class="tech-pill">Framer Motion</span>
+  <span class="tech-pill">RTL / LTR Bilingual Engine</span>
+  <span class="tech-pill">Custom Typography (29LT Bukra & Gilroy)</span>
+  <span class="tech-pill">Interactive Pricing Calculator</span>
+  <span class="tech-pill">Enterprise Design Tokens</span>
+</div>
 
 ---
 
 ## 1. The Strategic Challenge
 
-Prior to this engagement, Darrow suffered from fragmented branding across marketing decks, early UI prototypes, and social touchpoints. The core hurdles included:
+D-Arrow needed more than a standard agency portfolio — they required a high-converting digital ecosystem capable of:
 
-- **Lack of Distinctive Mark:** Existing conceptual assets failed to establish immediate brand recall in a crowded digital marketplace.
-- **Inconsistent Touchpoints:** Colors and typography shifted wildly between mobile screens, pitch decks, and digital banners.
-- **Scalability Limitations:** Assets broke down when scaled down to favicon (16px) or scaled up to large-format trade exhibition boards.
-
----
-
-## 2. Research & Visual Architecture
-
-We initiated a comprehensive competitive audit of tier-1 global SaaS and creator economy platforms (including Stripe, Linear, and Vercel). Key strategic decisions:
-
-1. **The Dynamic Monogram:** Created an interlocking geometric glyph combining the letter 'D' with forward-pointing velocity vectors.
-2. **Harmonized Color Spectrum:** Formulated an energetic digital amber accent (`#f59e0b`) paired with deep obsidian slate tones (`#0a0a0a`), ensuring striking visual impact in dark-mode ecosystems.
-3. **Engineered Typography:** Selected clean neo-grotesque sans-serif typography for high UI readability, accompanied by expressive editorial headlines for high-impact brand storytelling.
+- **Bilingual Arab-First Experience:** Flawless RTL (Arabic) and LTR (English) support with custom typographic hierarchies.
+- **Complex Service Breakdown:** Structuring 20+ specialized marketing and development services into intuitive, digestible modules.
+- **Interactive Quotation & Pricing Engine:** Enabling potential enterprise clients to configure packages and estimate project investments dynamically.
+- **Sub-Second Performance:** Heavy media and animations optimized for seamless rendering across Gulf mobile networks.
 
 ---
 
-## 3. Comprehensive Deliverables
+## 2. Platform Architecture & Features
 
-- **Responsive Brand Mark System:** Primary Horizontal, Stacked Vertical, Monogram Icon, and Micro Favicon variations.
-- **Color Token Architecture:** Precise CMYK, RGB, HEX, and HSL specifications with AA/AAA accessibility compliance.
-- **Design System Guidelines:** 45-page interactive Brand Manual detailing clear space rules, incorrect usage prohibitions, co-branding lockups, and social media layout grids.
-- **Stationery & Digital Assets:** Business suites, email templates, investor deck themes, and high-resolution 3D asset renders.
+<div class="browser-mockup">
+  <div class="bm-header">
+    <div class="bm-dots">
+      <div class="bm-dot red"></div>
+      <div class="bm-dot yellow"></div>
+      <div class="bm-dot green"></div>
+    </div>
+    <div class="bm-url">https://d-arrow.com/</div>
+  </div>
+  <img src="/images/darrow/darrow-web-hero.png" alt="D-Arrow Live Platform Hero" loading="lazy" />
+</div>
+
+### Key Engineered Modules:
+
+1. **High-Impact Video Hero:** Implemented an ambient video hero with radial gradient overlays (`#FF4D6D` to `#FF9A3C`) and animated counter indicators.
+2. **Interactive Service Categorization:** Dynamic dropdowns and filtering for digital marketing, software development, and real estate marketing.
+3. **Dedicated Packages & Pricing Matrix:** Multi-tier package cards with automated feature breakdowns and direct WhatsApp / booking funnels.
+4. **Influencer Collaboration Portal:** Seamless application workflow for regional creators and influencers.
+
+<div class="browser-mockup">
+  <div class="bm-header">
+    <div class="bm-dots">
+      <div class="bm-dot red"></div>
+      <div class="bm-dot yellow"></div>
+      <div class="bm-dot green"></div>
+    </div>
+    <div class="bm-url">https://d-arrow.com/pricing</div>
+  </div>
+  <img src="/images/darrow/darrow-web-pricing.png" alt="D-Arrow Interactive Pricing" loading="lazy" />
+</div>
 
 ---
 
-## 4. Measurable Business Impact
+## 3. Brand Identity & Design System
 
-Following the rollout of the new identity system, Darrow achieved:
-- **+185% increase** in user brand recall and trust ratings during onboarding surveys.
-- **3.4x higher response rates** from top-tier brand partnership pitches.
-- **100% reduction** in design turnaround time for new marketing campaigns using the unified Figma asset library.
+In addition to full-stack web engineering, I developed the unified brand identity system for D-Arrow:
+
+- **Geometric Logo Geometry:** Custom dynamic monogram combining forward velocity with angular precision.
+- **Color Token System:** Deep obsidian slates (`#070913`, `#0B0D1F`) paired with high-energy pink-orange gradients (`#FF4D6D` to `#FF9A3C`).
+- **Comprehensive Asset Guidelines:** Multi-scale responsive vectors, brand book, and stationery suites.
+
+---
+
+## 4. Measurable Outcomes
+
+- **Full-Cycle Delivery:** Built and deployed from initial Figma wireframes to production in 4 weeks.
+- **High Core Web Vitals:** Sub-second LCP and flawless responsiveness on all mobile viewports.
+- **Global Inbound Inquiries:** Direct conversion channels live and serving clients across Riyadh, Al Khobar, and the wider GCC.
 
 </div>
 
 <div class="content-ar" dir="rtl">
 
+<div class="live-badge-card">
+  <div class="lbc-info">
+    <div class="lbc-indicator"></div>
+    <div class="lbc-text">
+      <h4>الموقع الرسمي متاح الآن على الإنترنت</h4>
+      <p>تم التصميم والبرمجة بالكامل من الصفر ومرفوع على سيرفرات سريعة عالمية</p>
+    </div>
+  </div>
+  <a href="https://d-arrow.com/" target="_blank" rel="noopener noreferrer" class="lbc-btn">
+    <span>زيارة الموقع المباشر: d-arrow.com</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+      <polyline points="15 3 21 3 21 9"></polyline>
+      <line x1="10" y1="14" x2="21" y2="3"></line>
+    </svg>
+  </a>
+</div>
+
 ## الملخص التنفيذي
 
-**منصة دارو (Darrow)** هي منصة تقنية متقدمة تجمع كبار صناع المحتوى والمؤثرين بالشراكات التجارية والاستثمارية الكبرى. لترسيخ مكانة المنصة وكسب ثقة الشركاء الدوليين وصناديق الاستثمار، تطلب المشروع بناء هوية بصرية مؤسسية تجمع بين الرقي التقني، والجاذبية العصرية، وقابلية التوسع غير المحدودة.
+**وكالة دي آرو (D-Arrow Digital)** هي وكالة تسويق رقمي وبرمجيات رائدة في المملكة العربية السعودية ومنطقة الخليج. لمواكبة التوسع السريع واستقطاب كبرى الشركات والمؤسسات، قمت بتصميم وبرمجة المنصة الرسمية للوكالة بالكامل من الصفر — بالاعتماد على بنية Next.js الحديثة، ونظام الباقات التفاعلية، ومنظومة الهوية البصرية المؤسسية.
+
+<div class="tech-pills">
+  <span class="tech-pill">Next.js (App Router)</span>
+  <span class="tech-pill">Tailwind CSS</span>
+  <span class="tech-pill">Framer Motion</span>
+  <span class="tech-pill">محرك ثنائي اللغة RTL/LTR</span>
+  <span class="tech-pill">خطوط مخصصة (29LT Bukra و Gilroy)</span>
+  <span class="tech-pill">حاسبة باقات تفاعلية</span>
+  <span class="tech-pill">نظم التصميم المؤسسي</span>
+</div>
 
 ---
 
 ## 1. التحدي الاستراتيجي
 
-قبل بدء المشروع، كانت منصة Darrow تعاني من تشتت في عناصر الهوية عبر العروض التقديمية، واجهات الاستخدام الأولية، ومنصات التواصل:
+تطلب مشروع دي آرو بناء منظومة رقمية متكاملة تتجاوز مواقع الشركات التقليدية:
 
-- **غياب الشعار الأيقوني:** الرموز السابقة كانت تفتقر إلى التميز والقدرة على البقاء في ذاكرة المستخدم وسط سوق رقمي شديد التنافسية.
-- **عدم اتساق الوسائط:** تباين درجات الألوان وأنواع الخطوط بين شاشات الهواتف وعروض المستثمرين واللافتات الرقمية.
-- **صعوبة التوسع والتطبيق:** فقدان وضوح العناصر عند تصغيرها لأيقونات صغيرة (16px) أو تكبيرها لشاشات العرض الكبيرة.
-
----
-
-## 2. البحث والهندسة البصرية
-
-بدأنا بدراسة وتحليل أفضل الممارسات في كبرى الشركات العالمية في قطاع التكنولوجيا والبرمجيات:
-
-1. **الشعار الهندسي المبتكر:** ابتكار رمز هندسي يدمج حرف 'D' مع خطوط حركة ديناميكية تعبر عن الانطلاق والسرعة الفائقة.
-2. **نظام الألوان العصري:** بناء لوحة ألوان تجمع بين اللون الكهرماني المتوهج (`#f59e0b`) والأوبسيديان العميق (`#0a0a0a`) لتوفير تجربة بصرية فائقة الفخامة خصوصاً في واجهات الـ Dark Mode.
-3. **التناغم الطباعي والخطوط:** اختيار عائلة خطوط عصرية تضمن أعلى درجات المقروءة في واجهات الاستخدام مع أناقة استثنائية في العناوين التسويقية.
+- **تجربة عربية أصيلة مع دعم كامل للإنجليزية:** بناء واجهات RTL انسيابية مع نظام خطوط عالي الفخامة والوضوح.
+- **هيكلة الخدمات الواسعة:** تقسيم أكثر من 20 خدمة تسويقية وبرمجية إلى بوابات تفاعلية سهلة الاستكشاف.
+- **محرك الباقات والتسعير التفاعلي:** تمكين العملاء من استعراض تفاصيل الباقات واختيار الخطة المناسبة وطلب العرض فوراً.
+- **أداء فائق السرعة:** تشغيل الفيديو والمؤثرات البصرية بسلاسة وسرعة تحميل أقل من ثانية على شبكات الجوال في السعودية والخليج.
 
 ---
 
-## 3. مخرجات المشروع المتكاملة
+## 2. البنية البرمجية والمميزات المطورة
 
-- **منظومة الشعارات المتجاوبة:** الشعار الأفقي، الشعار الرأسي، الأيقونة المختصرة، وأيقونات التطبيقات والمواقع.
-- **مصفوفة الألوان الرقمية والمطبوعة:** أكواد دقيقة لأنظمة HEX، RGB، CMYK متوافقة مع معايير الوصول العالمية.
-- **دليل الهوية البصرية (Brand Book):** دليل مفصل يمتد لأكثر من 45 صفحة يحدد مساحات الأمان، الاستخدامات الصحيحة والخاطئة، ونماذج السوشيال ميديا.
-- **الأصول التسويقية والرقمية:** قوالب عروض المستثمرين، توقيعات البريد، وبطاقات الأعمال والمطبوعات الفاخرة.
+<div class="browser-mockup">
+  <div class="bm-header">
+    <div class="bm-dots">
+      <div class="bm-dot red"></div>
+      <div class="bm-dot yellow"></div>
+      <div class="bm-dot green"></div>
+    </div>
+    <div class="bm-url">https://d-arrow.com/</div>
+  </div>
+  <img src="/images/darrow/darrow-web-hero.png" alt="D-Arrow Live Platform Hero" loading="lazy" />
+</div>
+
+### أبرز الميزات المنفذة:
+
+1. **فيديو هيرو تفاعلي:** واجهة رئيسية مزودة بفيديو ديناميكي مع تأثيرات إضاءة متدرجة (`#FF4D6D` إلى `#FF9A3C`) وعدادات رقمية متحركة.
+2. **تصنيف خدمات تفاعلي:** قوائم منسدلة وفلاتر مخصصة لقطاعات التسويق الرقمي، البرمجيات، وتسويق العقارات والكافيهات.
+3. **مصفوفة الباقات التفاعلية:** كروت باقات ذكية تبرز مميزات كل خطة مع ربط فوري لطلب الاستشارة عبر الواتساب والنماذج.
+4. **بوابة انضمام المؤثرين:** نموذج تفاعلي لتسجيل صناع المحتوى والمؤثرين في السعودية.
+
+<div class="browser-mockup">
+  <div class="bm-header">
+    <div class="bm-dots">
+      <div class="bm-dot red"></div>
+      <div class="bm-dot yellow"></div>
+      <div class="bm-dot green"></div>
+    </div>
+    <div class="bm-url">https://d-arrow.com/pricing</div>
+  </div>
+  <img src="/images/darrow/darrow-web-pricing.png" alt="D-Arrow Interactive Pricing" loading="lazy" />
+</div>
 
 ---
 
-## 4. النتائج والأثر التجاري
+## 3. الهوية البصرية ونظام التصميم
 
-بعد إطلاق الهوية الجديدة حققت Darrow نتائج قياسية:
-- **ارتفاع مؤشر ثقة العلامة بنسبة +185%** في استطلاعات رأي المستخدمين وصناع المحتوى.
-- **زيادة تفاعل واهتمام الشركاء والمستثمرين بمقدار 3.4 أضعاف** في الاجتماعات الاستثمارية.
-- **تسريع وتيرة إنتاج التصاميم التسويقية بنسبة 100%** بفضل مكتبة المكونات الموحدة في Figma.
+إلى جانب البرمجة والتطوير، تم ابتكار منظومة الهوية البصرية لعلامة دي آرو:
+
+- **الشعار الهندسي المبتكر:** دمج رمز السهم المنطلق مع حرف 'D' ليعبر عن النمو والسرعة.
+- **نظام الألوان:** تدرجات الأوبسيديان الليلي الفاخر (`#070913` و `#0B0D1F`) مع التدرج الكهرماني والوردي المتوهج.
+- **دليل الهوية الكامل:** منظومة أصول متجاوبة للشاشات والمطبوعات وعروض المستثمرين.
+
+---
+
+## 4. النتائج والأثر الفعلي
+
+- **تسليم المشروع من الصفر إلى الإطلاق النهائي** في 4 أسابيع.
+- **تحقيق مؤشرات أداء قياسية (Core Web Vitals)** مع سرعة استجابة فائقة.
+- **إطلاق القنوات التسويقية الرقمية بنجاح** لخدمة عملاء الوكالة في الرياض، الشرقية، ودول الخليج.
 
 </div>
