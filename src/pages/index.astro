@@ -706,10 +706,8 @@ import robotImg from "../../public/images/robot.png";
 
 			/* Services Section Layout */
 			.services-container {
-				display: grid;
-				grid-template-columns: 0.6fr 1.4fr;
-				gap: 2rem;
-				align-items: center;
+				width: 100%;
+				display: block;
 			}
 			.robot-mascot {
 				position: relative;
@@ -775,8 +773,9 @@ import robotImg from "../../public/images/robot.png";
 			/* Services Grid - Premium Cards */
 			.services-grid {
 				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 1.25rem;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.75rem;
+				width: 100%;
 			}
 			.service-card {
 				background: linear-gradient(
@@ -1511,16 +1510,14 @@ import robotImg from "../../public/images/robot.png";
 			}
 
 			/* Responsive */
-			@media (max-width: 1100px) {
-				.services-container {
-					grid-template-columns: 1fr;
-					gap: 2rem;
-				}
-				.robot-mascot {
-					max-width: 280px;
-				}
+			@media (max-width: 1024px) {
 				.services-grid {
 					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+			@media (max-width: 768px) {
+				.services-grid {
+					grid-template-columns: 1fr;
 				}
 			}
 			@media (max-width: 900px) {
@@ -2236,8 +2233,7 @@ import robotImg from "../../public/images/robot.png";
 						<span class="lang-ar">تفاصيل الخبرات</span> →
 					</a>
 				</div>
-				<div class="services-container">
-					<div class="services-grid stagger-animation" style="grid-template-columns: repeat(3, 1fr); width: 100%;">
+				<div class="services-grid stagger-animation">
 						<div class="service-card">
 							<div class="service-icon">
 								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -2288,7 +2284,6 @@ import robotImg from "../../public/images/robot.png";
 							</p>
 						</div>
 					</div>
-				</div>
 			</section>
 
 			<!-- Projects Section -->
