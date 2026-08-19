@@ -4,11 +4,11 @@ title_ar: "دي آرو – المنظومة الرقمية المتكاملة و
 description: "Full-cycle digital engineering: Designed and built the official D-Arrow web platform from scratch with Next.js, bilingual RTL/LTR architecture, interactive pricing engines, influencer portal, and enterprise design system."
 description_ar: "تطوير وهندسة رقمية شاملة: تصميم وبرمجة المنصة الرسمية لوكالة دي آرو (D-Arrow) من الصفر بتقنيات Next.js، مع بنية ثنائية اللغة RTL/LTR، وحاسبة باقات تفاعلية، وبوابة المؤثرين، ومنظومة هوية مؤسسية متكاملة."
 date: 2026-08-04
-cover: "/images/darrow/mockup-darrow-hero.webp"
+cover: "/images/darrow/darrow-ai-hero-mockup.jpg"
 gallery:
-  - "/images/darrow/mockup-darrow-hero.webp"
-  - "/images/darrow/mockup-darrow-influencer.webp"
-  - "/images/darrow/mockup-darrow-pricing.webp"
+  - "/images/darrow/darrow-ai-hero-mockup.jpg"
+  - "/images/darrow/darrow-ai-influencer-mockup.jpg"
+  - "/images/darrow/darrow-ai-pricing-mockup.jpg"
   - "/images/darrow/mockup-darrow-cafe.webp"
   - "/images/darrow/mockup-darrow-store.webp"
   - "/images/darrow/darrow-hero.png"
@@ -116,34 +116,35 @@ tags:
   box-shadow: 0 10px 35px rgba(255, 77, 109, 0.6);
 }
 
-/* Premium Device Mockup Display */
-.device-showcase-block {
+/* Studio Photorealistic Mockup Frames */
+.studio-mockup-block {
   margin: 3.5rem 0;
 }
-.dsb-title {
+.smb-title {
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
-.dsb-desc {
+.smb-desc {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.65);
   margin-bottom: 1.25rem;
   line-height: 1.6;
 }
-.device-mockup-frame {
-  border-radius: 20px;
+.studio-mockup-frame {
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 77, 109, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.85), 0 0 50px rgba(255, 77, 109, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
-.device-mockup-frame:hover {
-  border-color: rgba(255, 77, 109, 0.4);
-  transform: translateY(-4px);
+.studio-mockup-frame:hover {
+  border-color: rgba(255, 77, 109, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.9), 0 0 60px rgba(255, 77, 109, 0.2);
 }
-.device-mockup-frame img {
+.studio-mockup-frame img {
   width: 100%;
   height: auto;
   display: block;
@@ -151,12 +152,12 @@ tags:
 
 /* Video Player Box */
 .video-showcase-box {
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   background: #0b0d1f;
   border: 1px solid rgba(255, 77, 109, 0.3);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(255, 77, 109, 0.15);
-  margin: 3rem 0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 50px rgba(255, 77, 109, 0.15);
+  margin: 3.5rem 0;
 }
 .video-showcase-box video {
   width: 100%;
@@ -271,7 +272,41 @@ tags:
 
 ---
 
-## 1. Live Video Showcase & Ambient Animations
+## 1. Photorealistic 3D Studio Mockups & Live Portals
+
+<div class="studio-mockup-block">
+  <div class="smb-title">01. Next-Generation Homepage & Hero Experience</div>
+  <p class="smb-desc">
+    Photorealistic studio shot of the space-black MacBook Pro displaying the live D-Arrow interface with neon magenta edge lighting and real-time counters.
+  </p>
+  <div class="studio-mockup-frame">
+    <img src="/images/darrow/darrow-ai-hero-mockup.jpg" alt="D-Arrow Homepage 3D Studio Mockup" loading="lazy" />
+  </div>
+</div>
+
+<div class="studio-mockup-block">
+  <div class="smb-title">02. Influencer Collaboration & Onboarding Portal</div>
+  <p class="smb-desc">
+    iPad Pro and iPhone 15 Pro dual device mockup displaying the dedicated creator onboarding portal across Saudi Arabia.
+  </p>
+  <div class="studio-mockup-frame">
+    <img src="/images/darrow/darrow-ai-influencer-mockup.jpg" alt="D-Arrow Influencer Portal 3D Device Mockup" loading="lazy" />
+  </div>
+</div>
+
+<div class="studio-mockup-block">
+  <div class="smb-title">03. Interactive Packages & Quotation Engine</div>
+  <p class="smb-desc">
+    Angled MacBook Pro studio showcase displaying the multi-tier pricing and interactive package comparison calculator.
+  </p>
+  <div class="studio-mockup-frame">
+    <img src="/images/darrow/darrow-ai-pricing-mockup.jpg" alt="D-Arrow Pricing Packages 3D Studio Mockup" loading="lazy" />
+  </div>
+</div>
+
+---
+
+## 2. Live Video Showcase & Ambient Animations
 
 <div class="video-showcase-box">
   <div class="vsb-header">
@@ -283,61 +318,7 @@ tags:
 
 ---
 
-## 2. Core Engineered Portals & Realistic Device Mockups
-
-<div class="device-showcase-block">
-  <div class="dsb-title">01. Next-Generation Homepage & Hero Experience</div>
-  <p class="dsb-desc">
-    Engineered with dynamic video background integration, ambient gradient lighting (#FF4D6D to #FF9A3C), and real-time metric counter animations.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-hero.webp" alt="D-Arrow Homepage MacBook Mockup" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">02. Influencer Collaboration & Onboarding Portal</div>
-  <p class="dsb-desc">
-    A dedicated onboarding platform for content creators and digital influencers across Saudi Arabia, streamlining campaign matching and registration.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-influencer.webp" alt="D-Arrow Influencer Portal Mockup" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">03. Interactive Packages & Quotation Engine</div>
-  <p class="dsb-desc">
-    A multi-tier pricing calculator allowing prospective clients to explore service scopes, compare features, and initiate customized quotes seamlessly.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-pricing.webp" alt="D-Arrow Pricing Packages Mockup" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">04. Specialized Industry Hubs (Cafes, Restaurants, Automotive, Retail)</div>
-  <p class="dsb-desc">
-    Tailored project hubs providing industry-specific digital solutions, market analysis, and case study breakdowns for regional business owners.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-cafe.webp" alt="D-Arrow Industry Hubs Mockup" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">05. Digital Store & Product Solutions</div>
-  <p class="dsb-desc">
-    Integrated digital store offering ready-to-deploy software packages, branding kits, and pre-packaged marketing campaigns.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-store.webp" alt="D-Arrow Digital Store Mockup" loading="lazy" />
-  </div>
-</div>
-
----
-
-## 3. Platform Architecture & Features
+## 3. Platform Architecture & Engineering
 
 <div class="feature-grid-cards">
   <div class="feature-card-item">
@@ -415,7 +396,41 @@ In addition to full-stack web engineering, I developed the unified brand identit
 
 ---
 
-## 1. استعراض الفيديو والتفاعلات الحية
+## 1. استعراض الموكابس ثلاثية الأبعاد (3D Studio Mockups)
+
+<div class="studio-mockup-block">
+  <div class="smb-title">01. الواجهة الرئيسية التفاعلية (Homepage & Hero)</div>
+  <p class="smb-desc">
+    موكاب استوديو واقعي لجهاز MacBook Pro بلون Space Black يعرض واجهة دي آرو الحقيقية مع إضاءة نيون محيطية وعدادات الخبرة.
+  </p>
+  <div class="studio-mockup-frame">
+    <img src="/images/darrow/darrow-ai-hero-mockup.jpg" alt="واجهة دي آرو الرئيسية في موكاب ماك بوك واقعي" loading="lazy" />
+  </div>
+</div>
+
+<div class="studio-mockup-block">
+  <div class="smb-title">02. بوابة انضمام وتسجيل المؤثرين (Influencer Portal)</div>
+  <p class="smb-desc">
+    موكاب واقعي لجهاز iPad Pro و iPhone 15 Pro يعرض بوابة صناع المحتوى والمؤثرين في السعودية.
+  </p>
+  <div class="studio-mockup-frame">
+    <img src="/images/darrow/darrow-ai-influencer-mockup.jpg" alt="بوابة المؤثرين دي آرو في موكاب أجهزة واقعي" loading="lazy" />
+  </div>
+</div>
+
+<div class="studio-mockup-block">
+  <div class="smb-title">03. مصفوفة الباقات وحاسبة الأسعار التفاعلية (Pricing Engine)</div>
+  <p class="smb-desc">
+    موكاب استوديو بزاوية احترافية يعرض نظام مقارنة الباقات واختيار الخطة المناسبة وطلب الاستشارة.
+  </p>
+  <div class="studio-mockup-frame">
+    <img src="/images/darrow/darrow-ai-pricing-mockup.jpg" alt="باقات دي آرو في موكاب ماك بوك واقعي" loading="lazy" />
+  </div>
+</div>
+
+---
+
+## 2. استعراض الفيديو والتفاعلات الحية
 
 <div class="video-showcase-box">
   <div class="vsb-header">
@@ -423,60 +438,6 @@ In addition to full-stack web engineering, I developed the unified brand identit
     <div class="vsb-url">https://d-arrow.com/influencer • التجربة التفاعلية الحية</div>
   </div>
   <video src="/images/darrow/darrow-showcase-video.mp4" controls autoplay muted loop playsinline></video>
-</div>
-
----
-
-## 2. البوابات والموديولات المطورة في موكابس أجهزة واقعية
-
-<div class="device-showcase-block">
-  <div class="dsb-title">01. الواجهة الرئيسية التفاعلية (Homepage & Hero)</div>
-  <p class="dsb-desc">
-    واجهة مدمجة بفيديو ديناميكي مع إضاءة متدرجة باللونين الوردي والبرتقالي وعدادات خبرة متحركة لحظياً.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-hero.webp" alt="واجهة دي آرو الرئيسية داخل ماك بوك" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">02. بوابة انضمام وتسجيل المؤثرين (Influencer Portal)</div>
-  <p class="dsb-desc">
-    بوابة مخصصة تتيح للمؤثرين وصناع المحتوى في السعودية الانضمام إلى شبكة دي آرو والمشاركة في الحملات الإعلانية.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-influencer.webp" alt="بوابة المؤثرين دي آرو داخل ماك بوك" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">03. مصفوفة الباقات وحاسبة الأسعار التفاعلية (Pricing Engine)</div>
-  <p class="dsb-desc">
-    نظام باقات متكامل يسمح للشركات بمقارنة المزايا واختيار الباقة المناسبة وطلب عرض السعر فوراً.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-pricing.webp" alt="باقات دي آرو داخل ماك بوك" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">04. قطاعات المشاريع المتخصصة (طور مشروعك: كافيهات، مطاعم، سيارات، أزياء)</div>
-  <p class="dsb-desc">
-    صفحات متخصصة لكل قطاع تجاري تقدم حلولاً تسويقية مخصصة تناسب طبيعة النشاط واحتياجات السوق السعودي.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-cafe.webp" alt="قطاع الكافيهات والمطاعم داخل ماك بوك" loading="lazy" />
-  </div>
-</div>
-
-<div class="device-showcase-block">
-  <div class="dsb-title">05. متجر دي آرو الرقمي (Digital Agency Store)</div>
-  <p class="dsb-desc">
-    متجر إلكتروني متكامل للحلول والمنتجات الرقمية الجاهزة وباقات الهوية والتسويق السريع.
-  </p>
-  <div class="device-mockup-frame">
-    <img src="/images/darrow/mockup-darrow-store.webp" alt="متجر دي آرو داخل ماك بوك" loading="lazy" />
-  </div>
 </div>
 
 ---
