@@ -73,74 +73,104 @@ import robotImg from "../../public/images/robot.png";
 				display: flex;
 				justify-content: center;
 				align-items: flex-end;
-				min-height: 700px;
+				min-height: 650px;
 			}
 
 			.hero-image-circle {
 				position: absolute;
-				bottom: 0;
+				bottom: 5%;
 				left: 50%;
 				transform: translateX(-50%);
-				width: 520px;
-				height: 520px;
-				background: linear-gradient(180deg, #f59e0b 0%, #ea580c 100%);
+				width: 480px;
+				height: 480px;
+				background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(234, 88, 12, 0.15) 50%, transparent 75%);
+				filter: blur(40px);
 				border-radius: 50%;
 				z-index: 0;
+				pointer-events: none;
 			}
 
 			.hero-image-container img {
 				position: relative;
 				z-index: 1;
-				height: 750px;
+				height: 680px;
+				max-width: 100%;
 				width: auto;
 				object-fit: contain;
 				object-position: bottom;
+				filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
 			}
 
 			.hero-side-elements {
 				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				width: 200px;
+				background: rgba(18, 18, 18, 0.85);
+				backdrop-filter: blur(16px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 18px;
+				padding: 1.1rem 1.3rem;
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(245, 158, 11, 0.1);
+				z-index: 2;
+				max-width: 240px;
 			}
 
 			.hero-quote {
-				left: -220px;
+				left: -20px;
+				bottom: 25%;
 			}
 
 			.hero-stats-side {
-				right: -220px;
+				right: -20px;
+				top: 30%;
 				text-align: right;
+			}
+
+			:global([dir="rtl"]) .hero-quote {
+				left: auto;
+				right: -20px;
+				bottom: 25%;
+				text-align: right;
+			}
+
+			:global([dir="rtl"]) .hero-stats-side {
+				right: auto;
+				left: -20px;
+				top: 30%;
+				text-align: left;
 			}
 
 			.hero-quote-icon {
 				color: var(--accent);
-				font-size: 2rem;
-				margin-bottom: 0.5rem;
+				font-size: 1.5rem;
+				line-height: 1;
+				margin-bottom: 0.35rem;
 			}
 
 			.hero-quote-text {
 				color: var(--text-secondary);
-				font-size: 0.9rem;
-				line-height: 1.6;
+				font-size: 0.82rem;
+				line-height: 1.5;
 				font-style: italic;
+				margin: 0;
 			}
 
 			.hero-stars {
 				color: var(--accent);
-				font-size: 1.25rem;
-				margin-bottom: 0.5rem;
+				font-size: 1.1rem;
+				letter-spacing: 2px;
+				margin-bottom: 0.35rem;
 			}
 
 			.hero-experience {
-				font-size: 1.75rem;
+				font-size: 1.4rem;
 				font-weight: 700;
-				color: var(--text-secondary);
+				color: #fff;
+				line-height: 1.2;
 			}
 
 			.hero-experience span {
-				font-size: 0.85rem;
-				font-weight: 400;
+				font-size: 0.78rem;
+				font-weight: 500;
+				color: var(--text-muted);
 				display: block;
 			}
 
@@ -1291,6 +1321,47 @@ import robotImg from "../../public/images/robot.png";
 				transform: translateY(-2px);
 			}
 
+			/* ── Brand Trust Strip ── */
+			.brand-trust-strip {
+				max-width: 1300px;
+				margin: -1.5rem auto 4rem;
+				padding: 0 2rem;
+				text-align: center;
+				position: relative;
+				z-index: 5;
+			}
+			.bts-label {
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: rgba(255, 255, 255, 0.4);
+				margin-bottom: 1.25rem;
+				font-weight: 600;
+			}
+			.bts-logos {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 2.8rem;
+				flex-wrap: wrap;
+				padding: 1.25rem 2rem;
+				background: rgba(255, 255, 255, 0.015);
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				border-radius: 18px;
+			}
+			.bts-logo-item {
+				font-size: 1rem;
+				font-weight: 800;
+				letter-spacing: 0.12em;
+				color: rgba(255, 255, 255, 0.35);
+				transition: all 0.3s ease;
+				text-transform: uppercase;
+			}
+			.bts-logo-item:hover {
+				color: #f59e0b;
+				transform: translateY(-2px);
+			}
+
 			/* ── High-Impact Case Studies Showcase on Homepage ── */
 			.case-studies-spotlight-section {
 				max-width: 1400px;
@@ -2015,6 +2086,23 @@ import robotImg from "../../public/images/robot.png";
 							<span class="lang-ar">محادثة توظيف مباشرة</span>
 						</a>
 					</div>
+				</div>
+			</section>
+
+			<!-- ── Brand Trust Strip ── -->
+			<section class="brand-trust-strip animate-fadeInUp delay-300">
+				<p class="bts-label">
+					<span class="lang-en">Trusted by Global Ventures, Media Networks & Architecture Leaders</span>
+					<span class="lang-ar">موثوق من قِبل مؤسسات إعلامية وشركات عقارية وعلامات تجارية رائدة</span>
+				</p>
+				<div class="bts-logos">
+					<span class="bts-logo-item">DARROW</span>
+					<span class="bts-logo-item">ARKAN LUXURY</span>
+					<span class="bts-logo-item">AL-AWSAT NEWS</span>
+					<span class="bts-logo-item">SOUQOOM</span>
+					<span class="bts-logo-item">MATHWA</span>
+					<span class="bts-logo-item">KALISTA</span>
+					<span class="bts-logo-item">SEROPIPE</span>
 				</div>
 			</section>
 

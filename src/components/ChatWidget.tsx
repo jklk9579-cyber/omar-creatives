@@ -3,48 +3,27 @@ import { useState, useRef, useEffect } from 'preact/hooks';
 // ─── Inline Styles (injected on mount) ───────────────────────────────
 const CHAT_STYLES = `
 /* ── Chat Widget Container ── */
-.chat-widget{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;font-family:'Orbito','Inter',system-ui,sans-serif}
+.chat-widget{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;font-family:'Inter',system-ui,sans-serif}
 
 /* ── Mascot Toggle Button ── */
 .chat-toggle-btn{
-  width:110px;height:110px;border-radius:50%;border:none;cursor:pointer;
+  width:60px;height:60px;border-radius:50%;border:1px solid rgba(245,158,11,0.3);cursor:pointer;
   display:flex;align-items:center;justify-content:center;padding:0;
-  background:#050505;
-  box-shadow:0 12px 48px rgba(0,0,0,0.7),0 0 0 1px rgba(255,255,255,0.1),0 0 30px rgba(245,158,11,0.15);
-  transition:all .4s cubic-bezier(.16,1,.3,1);
+  background:#0a0a0a;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6),0 0 20px rgba(245,158,11,0.2);
+  transition:all .3s cubic-bezier(.16,1,.3,1);
   position:relative;
 }
-.chat-toggle-btn img{width:90px;height:90px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(245,158,11,0.4));transition:transform .4s cubic-bezier(.16,1,.3,1)}
-.chat-toggle-btn:hover{transform:scale(1.1) translateY(-6px);box-shadow:0 18px 60px rgba(0,0,0,0.8),0 0 0 2px rgba(245,158,11,0.4),0 0 40px rgba(245,158,11,0.2)}
-.chat-toggle-btn:hover img{transform:scale(1.05) rotate(5deg)}
-.chat-toggle-btn.open{background:#111;box-shadow:0 6px 20px rgba(0,0,0,0.4);width:85px;height:85px}
+.chat-toggle-btn img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(245,158,11,0.4));transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.chat-toggle-btn:hover{transform:scale(1.08) translateY(-3px);border-color:rgba(245,158,11,0.6);box-shadow:0 15px 40px rgba(0,0,0,0.8),0 0 25px rgba(245,158,11,0.35)}
+.chat-toggle-btn:hover img{transform:scale(1.05)}
+.chat-toggle-btn.open{background:#151515;border-color:rgba(255,255,255,0.2);box-shadow:0 6px 20px rgba(0,0,0,0.5);width:54px;height:54px}
 .chat-toggle-btn.open .close-x{display:flex}
 .chat-toggle-btn.open img{display:none}
-.close-x{display:none;color:#f59e0b;font-size:2.5rem;width:100%;height:100%;align-items:center;justify-content:center}
+.close-x{display:none;color:#f59e0b;font-size:1.8rem;width:100%;height:100%;align-items:center;justify-content:center}
 
 /* ── Notification Popup ── */
-.chat-notification{
-  position:absolute;bottom:106px;right:0;
-  background:rgba(15,15,15,0.92);backdrop-filter:blur(20px);
-  color:#fff;padding:1.4rem 1.6rem;
-  border-radius:28px 28px 4px 28px;
-  box-shadow:0 25px 80px rgba(0,0,0,0.7),0 0 0 1px rgba(245,158,11,0.3);
-  min-width:300px;max-width:360px;
-  animation:notifIn .6s cubic-bezier(.34,1.56,.64,1) both;
-  cursor:pointer;transition:all .4s cubic-bezier(.16,1,.3,1);
-  border:1px solid rgba(245,158,11,0.2);
-}
-.chat-notification:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 30px 100px rgba(0,0,0,0.8),0 0 0 1px rgba(245,158,11,0.5)}
-.chat-notification-header{display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem}
-.chat-notification-header img{width:36px;height:36px;border-radius:50%;border:2px solid #22c55e;background:#000;padding:2px;box-shadow:0 0 15px rgba(34,197,94,0.4)}
-.chat-notification-header span{font-family:'Motivate',sans-serif;font-weight:700;font-size:1.15rem;color:#f59e0b;letter-spacing:0.8px;text-transform:uppercase}
-.chat-notification p{margin:0;font-size:.95rem;line-height:1.65;color:rgba(255,255,255,0.9)}
-.chat-notification-close{position:absolute;top:12px;right:16px;background:none;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:1.2rem;transition:all .2s;z-index:2}
-@keyframes notifIn{
-  0%{opacity:0;transform:translateY(30px) scale(0.8) rotate(-2deg)}
-  70%{transform:translateY(-10px) scale(1.05) rotate(1deg)}
-  100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
-}
+.chat-notification{display:none;}
 
 /* ── Unread Badge (The Sign) ── */
 .unread-badge{

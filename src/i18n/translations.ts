@@ -12,17 +12,17 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      available: "Available for new projects",
+      available: "Available for High-Impact Roles & Advisory",
       greeting: "I'm",
       name: "Omar Abdelfattah",
-      title1: "Creative Developer",
-      title2: "& AI Specialist",
-      description: "I craft digital experiences in Cairo that blend cutting-edge AI, modern web technologies, and thoughtful design to help brands stand out.",
-      viewWork: "View Recent Work",
-      letsTalk: "Start a Project",
-      quote: "Omar's exceptional design and development skills ensure our project's success. Highly Recommended",
+      title1: "Creative Technologist",
+      title2: "& AI Systems Architect",
+      description: "Architecting high-performance web applications, enterprise design systems, and generative AI media that drive measurable growth for global brands.",
+      viewWork: "Explore Case Studies",
+      letsTalk: "Book Strategy Call",
+      quote: "Omar's rare mastery of design engineering and AI media transformed our digital presence with unmatched speed and polish.",
       years: "Years",
-      experience: "Experience",
+      experience: "Top 1% Track Record",
     },
     // About Section
     about: {
@@ -140,17 +140,17 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      available: "متاح لمشاريع جديدة",
+      available: "متاح للتعاقدات الكبرى والأدوار القيادية",
       greeting: "أنا",
       name: "عمر عبدالفتاح",
-      title1: "مطور مبدع",
-      title2: "وخبير ذكاء اصطناعي",
-      description: "أصنع تجارب رقمية في القاهرة تجمع بين الذكاء الاصطناعي المتطور وتقنيات الويب الحديثة والتصميم المدروس لمساعدة العلامات التجارية على التميز.",
-      viewWork: "شاهد آخر الأعمال",
-      letsTalk: "ابدأ مشروعك حالاً",
-      quote: "مهارات عمر الاستثنائية في التصميم والتطوير تضمن نجاح مشروعنا. أنصح به بشدة",
+      title1: "مهندس واجهات إبداعية",
+      title2: "وخبير حلول الذكاء الاصطناعي",
+      description: "أهندس تجارب رقمية فائقة الأداء، ونظم تصميم متقدمة، ومحتوى ذكاء اصطناعي تفاعلي يحقق نتائج ونمواً ملموساً للعلامات التجارية الرائدة عالمياً وإقليمياً.",
+      viewWork: "استكشف دراسات الحالة",
+      letsTalk: "حجز جلسة استشارية",
+      quote: "جمع عمر النادر بين هندسة البرمجيات والتصميم العالمي والذكاء الاصطناعي أحدث نقلة استثنائية في نتائج ومبيعات مشاريعنا.",
       years: "سنوات",
-      experience: "الخبرة",
+      experience: "سجل نجاحات قياسي",
     },
     // About Section
     about: {
