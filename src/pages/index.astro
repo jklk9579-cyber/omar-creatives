@@ -180,6 +180,8 @@ import robotImg from "../../public/images/robot.png";
 				width: 100%;
 				height: 100vh;
 				min-height: 100vh;
+				padding-top: 145px;
+				box-sizing: border-box;
 				overflow: hidden;
 				background: #000;
 				display: flex;
@@ -191,7 +193,7 @@ import robotImg from "../../public/images/robot.png";
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				object-position: center;
+				object-position: center 20%;
 				display: block;
 			}
 
@@ -204,6 +206,14 @@ import robotImg from "../../public/images/robot.png";
 				background: linear-gradient(to bottom, transparent, #070913);
 				pointer-events: none;
 				z-index: 2;
+			}
+
+			@media (max-width: 900px) {
+				.cinematic-video-hero {
+					padding-top: 95px;
+					height: calc(100vh - 95px);
+					min-height: 550px;
+				}
 			}
 
 			/* Hero Profile Section (Below Video) */
