@@ -306,19 +306,7 @@ tags:
 
 ---
 
-## 2. Live Video Showcase & Ambient Animations
-
-<div class="video-showcase-box">
-  <div class="vsb-header">
-    <div class="vsb-dots"><div class="vsb-dot red"></div><div class="vsb-dot yellow"></div><div class="vsb-dot green"></div></div>
-    <div class="vsb-url">https://d-arrow.com/influencer • Live Experience</div>
-  </div>
-  <video src="/images/darrow/darrow-showcase-video.mp4" controls autoplay muted loop playsinline></video>
-</div>
-
----
-
-## 3. Platform Architecture & Engineering
+## 2. Platform Architecture & Engineering
 
 <div class="feature-grid-cards">
   <div class="feature-card-item">
@@ -341,7 +329,7 @@ tags:
 
 ---
 
-## 4. Brand Identity & Design System
+## 3. Brand Identity & Design System
 
 In addition to full-stack web engineering, I developed the unified brand identity system for D-Arrow:
 
@@ -351,7 +339,7 @@ In addition to full-stack web engineering, I developed the unified brand identit
 
 ---
 
-## 5. Measurable Outcomes
+## 4. Measurable Outcomes
 
 - **Full-Cycle Delivery:** Built and deployed from initial Figma architecture to production in 4 weeks.
 - **Flawless Multi-Device Responsiveness:** Fully optimized for mobile, tablet, and ultra-wide displays.
@@ -430,19 +418,7 @@ In addition to full-stack web engineering, I developed the unified brand identit
 
 ---
 
-## 2. استعراض الفيديو والتفاعلات الحية
-
-<div class="video-showcase-box">
-  <div class="vsb-header">
-    <div class="vsb-dots"><div class="vsb-dot red"></div><div class="vsb-dot yellow"></div><div class="vsb-dot green"></div></div>
-    <div class="vsb-url">https://d-arrow.com/influencer • التجربة التفاعلية الحية</div>
-  </div>
-  <video src="/images/darrow/darrow-showcase-video.mp4" controls autoplay muted loop playsinline></video>
-</div>
-
----
-
-## 3. المميزات الهندسية والتقنية
+## 2. المميزات الهندسية والتقنية
 
 <div class="feature-grid-cards">
   <div class="feature-card-item">
