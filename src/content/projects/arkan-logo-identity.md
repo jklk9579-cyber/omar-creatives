@@ -11,7 +11,7 @@ category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "ArKAN"
 client_ar: "أركان"
-featured: true
+featured: false
 tags:
   - Logo Design
   - Branding

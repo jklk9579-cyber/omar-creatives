@@ -12,7 +12,7 @@ client: "Omar Creatives"
 client_ar: "عمر كرييتيفز"
 link: "https://drive.google.com/file/d/1Ip6hduCdmx4BaLgShmdcsh1PYA1LRMim/view?usp=sharing"
 video_url: "https://drive.google.com/file/d/1Ip6hduCdmx4BaLgShmdcsh1PYA1LRMim/view?usp=drive_link"
-featured: true
+featured: false
 tags:
   - "Video Creation"
   - "AI Generated"

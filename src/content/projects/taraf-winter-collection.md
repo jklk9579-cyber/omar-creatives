@@ -9,7 +9,7 @@ category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "TARAF Clothing Brand"
 client_ar: "طرف للأزياء"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

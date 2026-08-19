@@ -11,7 +11,7 @@ category_ar: "إنشاء / مونتاج فيديو"
 client: "Vision 2030"
 client_ar: "رؤية 2030"
 video_url: "/vision-2030.mp4"
-featured: true
+featured: false
 tags:
   - "Video Creation"
   - "Vision 2030"

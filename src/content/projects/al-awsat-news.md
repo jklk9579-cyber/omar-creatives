@@ -78,7 +78,7 @@ Modern digital journalism requires balancing high editorial throughput with zero
 
 - **+340% growth** in organic pageviews within the first quarter post-launch.
 - **-45% reduction** in homepage and article bounce rate.
-- **0.5s Largest Contentful Paint (LCP)**, placing Al-Awsat News in the top 1% fastest media portals globally.
+- **0.5s Largest Contentful Paint (LCP)**, delivering lightning-fast load times during peak editorial traffic surges.
 
 </div>
 
@@ -112,6 +112,6 @@ Modern digital journalism requires balancing high editorial throughput with zero
 
 - **نمو المشاهدات اليومية بنسبة +340%** خلال الربع الأول من إطلاق التصميم الجديد.
 - **انخفاض معدل ارتداد القراء بنسبة -45%**.
-- **سرعة تحميل قياسية 0.5 ثانية (LCP)** جعلت المنصة ضمن أسرع 1% من البوابات الإخبارية عالمياً.
+- **سرعة تحميل قياسية 0.5 ثانية (LCP)** ضمنت استقرار الموقع وسرعته الفائقة أثناء ذروة الأخبار العاجلة.
 
 </div>

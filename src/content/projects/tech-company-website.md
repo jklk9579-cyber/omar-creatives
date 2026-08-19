@@ -10,7 +10,7 @@ category_ar: "تصميم مواقع"
 client: "Tech Solutions"
 client_ar: "شركة تك سوليوشنز"
 link: "https://example.com"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

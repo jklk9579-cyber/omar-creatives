@@ -11,7 +11,7 @@ category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Dr. Marwan Amr"
 client_ar: "د. مروان عمرو"
-featured: true
+featured: false
 tags:
   - "Medical"
   - "Banner"

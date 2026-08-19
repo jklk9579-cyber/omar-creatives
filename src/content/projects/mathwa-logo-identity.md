@@ -11,7 +11,7 @@ category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "Mathwa Al-Ahliyah Association"
 client_ar: "جمعية مثوى الأهلية"
-featured: true
+featured: false
 tags:
   - Logo Design
   - Branding

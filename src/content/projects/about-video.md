@@ -11,7 +11,7 @@ category_ar: "إنشاء / مونتاج فيديو"
 client: "D-Arrow"
 client_ar: "دارو"
 video_url: "/about-video.mp4"
-featured: true
+featured: false
 tags:
   - "Video Creation"
   - "Showreel"

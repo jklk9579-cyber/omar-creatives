@@ -9,7 +9,7 @@ category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Kalista"
 client_ar: "كاليستا"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

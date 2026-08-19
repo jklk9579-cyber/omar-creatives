@@ -11,7 +11,7 @@ category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "Arkan"
 client_ar: "أركان"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

@@ -11,7 +11,7 @@ category_ar: "إنشاء / مونتاج فيديو"
 client: "Omar Creatives"
 client_ar: "عمر كرييتيفز"
 video_url: "/the-close-up.mp4"
-featured: true
+featured: false
 tags:
   - "Video Creation"
   - "Cinematic"

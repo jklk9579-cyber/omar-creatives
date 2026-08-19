@@ -12,7 +12,7 @@ category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "Souqoom"
 client_ar: "سوقوم"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

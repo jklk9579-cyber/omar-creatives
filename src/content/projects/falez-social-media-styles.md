@@ -9,7 +9,7 @@ category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Falez"
 client_ar: "فالز"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

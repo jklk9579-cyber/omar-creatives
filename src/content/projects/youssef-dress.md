@@ -12,7 +12,7 @@ category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "Youssef Dress"
 client_ar: "يوسف دريس"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

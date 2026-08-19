@@ -9,7 +9,7 @@ category: "Social Media Design"
 category_ar: "تصميم سوشيال ميديا"
 client: "Fashion Brand"
 client_ar: "براند أزياء"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

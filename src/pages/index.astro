@@ -1213,118 +1213,10 @@ import robotImg from "../../public/images/robot.png";
 				margin-bottom: 1rem;
 				font-weight: 700;
 			}
-			/* ── Recruiter & Executive QuickBar ── */
-			.recruiter-quickbar {
-				max-width: 1300px;
-				margin: -2.5rem auto 4rem;
-				padding: 0 2rem;
-				position: relative;
-				z-index: 10;
-			}
-			.rq-inner {
-				background: rgba(18, 18, 18, 0.75);
-				backdrop-filter: blur(24px);
-				border: 1px solid rgba(245, 158, 11, 0.25);
-				border-radius: 24px;
-				padding: 1.5rem 2.2rem;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				flex-wrap: wrap;
-				gap: 1.5rem;
-				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.08);
-			}
-			.rq-meta {
-				display: flex;
-				align-items: center;
-				gap: 1.25rem;
-				flex-wrap: wrap;
-			}
-			.rq-badge {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.5rem;
-				padding: 0.35rem 0.85rem;
-				background: rgba(34, 197, 94, 0.12);
-				border: 1px solid rgba(34, 197, 94, 0.3);
-				border-radius: 50px;
-				font-size: 0.75rem;
-				font-weight: 700;
-				color: #4ade80;
-				letter-spacing: 0.05em;
-				text-transform: uppercase;
-			}
-			.rq-badge .dot {
-				width: 7px;
-				height: 7px;
-				background: #22c55e;
-				border-radius: 50%;
-				box-shadow: 0 0 8px #22c55e;
-				animation: pulse 2s infinite;
-			}
-			.rq-title {
-				font-size: 0.95rem;
-				color: rgba(255, 255, 255, 0.9);
-				font-weight: 600;
-			}
-			.rq-title span {
-				color: #f59e0b;
-			}
-			.rq-timezone {
-				font-size: 0.8rem;
-				color: rgba(255, 255, 255, 0.5);
-				display: flex;
-				align-items: center;
-				gap: 0.4rem;
-			}
-			.rq-actions {
-				display: flex;
-				align-items: center;
-				gap: 0.85rem;
-				flex-wrap: wrap;
-			}
-			.rq-btn-cv {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.5rem;
-				padding: 0.65rem 1.4rem;
-				background: var(--accent-gradient);
-				color: #000;
-				font-size: 0.85rem;
-				font-weight: 700;
-				border-radius: 50px;
-				text-decoration: none;
-				box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
-				transition: transform 0.25s ease, box-shadow 0.25s ease;
-			}
-			.rq-btn-cv:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45);
-			}
-			.rq-btn-call {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.5rem;
-				padding: 0.65rem 1.3rem;
-				background: rgba(255, 255, 255, 0.05);
-				border: 1px solid rgba(255, 255, 255, 0.15);
-				color: #fff;
-				font-size: 0.85rem;
-				font-weight: 600;
-				border-radius: 50px;
-				text-decoration: none;
-				transition: all 0.25s ease;
-			}
-			.rq-btn-call:hover {
-				background: rgba(255, 255, 255, 0.12);
-				border-color: rgba(255, 255, 255, 0.3);
-				transform: translateY(-2px);
-			}
-
 			/* ── Brand Trust Strip ── */
 			.brand-trust-strip {
 				max-width: 1300px;
-				margin: -1.5rem auto 4rem;
+				margin: 1rem auto 5rem;
 				padding: 0 2rem;
 				text-align: center;
 				position: relative;
@@ -2047,48 +1939,6 @@ import robotImg from "../../public/images/robot.png";
 				</div>
 			</section>
 
-			<!-- ── Recruiter & Executive Fast-Track Bar ── -->
-			<section class="recruiter-quickbar animate-fadeInUp delay-200">
-				<div class="rq-inner">
-					<div class="rq-meta">
-						<span class="rq-badge">
-							<span class="dot"></span>
-							<span class="lang-en">Available for Senior Roles</span>
-							<span class="lang-ar">متاح للتوظيف والتعاقدات الكبرى</span>
-						</span>
-						<div class="rq-title">
-							<span class="lang-en">Top 1% Senior Creative Developer & AI Specialist</span>
-							<span class="lang-ar">كبير مطوري الواجهات الإبداعية وخبير الذكاء الاصطناعي</span>
-						</div>
-						<div class="rq-timezone">
-							<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-								<circle cx="12" cy="12" r="10"></circle>
-								<polyline points="12 6 12 12 16 14"></polyline>
-							</svg>
-							<span>EST / GMT / GST Friendly (Async & Realtime)</span>
-						</div>
-					</div>
-					<div class="rq-actions">
-						<a href="/contact" class="rq-btn-cv">
-							<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
-								<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-								<polyline points="7 10 12 15 17 10"></polyline>
-								<line x1="12" y1="15" x2="12" y2="3"></line>
-							</svg>
-							<span class="lang-en">Request Executive CV</span>
-							<span class="lang-ar">طلب السيرة الذاتية</span>
-						</a>
-						<a href="https://wa.me/201027170133?text=Hi%20Omar,%20we%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20senior%20role/contract" target="_blank" rel="noopener noreferrer" class="rq-btn-call">
-							<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-								<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-							</svg>
-							<span class="lang-en">Direct Screening Chat</span>
-							<span class="lang-ar">محادثة توظيف مباشرة</span>
-						</a>
-					</div>
-				</div>
-			</section>
-
 			<!-- ── Brand Trust Strip ── -->
 			<section class="brand-trust-strip animate-fadeInUp delay-300">
 				<p class="bts-label">
@@ -2103,6 +1953,119 @@ import robotImg from "../../public/images/robot.png";
 					<span class="bts-logo-item">MATHWA</span>
 					<span class="bts-logo-item">KALISTA</span>
 					<span class="bts-logo-item">SEROPIPE</span>
+				</div>
+			</section>
+
+			<!-- ── Premier Case Studies Spotlight ── -->
+			<section class="case-studies-spotlight-section">
+				<div class="section-header animate-fadeInUp">
+					<div>
+						<p class="section-label">
+							<span class="lang-en">Proven Track Record & Case Studies</span>
+							<span class="lang-ar">دراسات حالة وأعمال استراتيجية</span>
+						</p>
+						<h2>
+							<span class="lang-en">Featured Case Studies</span>
+							<span class="lang-ar">أبرز دراسات الحالة</span>
+						</h2>
+						<p class="section-desc">
+							<span class="lang-en">Deep dives into projects demonstrating user-centric design, engineering craft, and brand transformation.</span>
+							<span class="lang-ar">استعراض تفصيلي لأبرز المشاريع التي تجمع بين دقة التصميم والهندسة البرمجية وتطوير الهوية.</span>
+						</p>
+					</div>
+					<a href="/projects" class="view-all">
+						<span class="lang-en">All Case Studies</span>
+						<span class="lang-ar">جميع دراسات الحالة</span> →
+					</a>
+				</div>
+
+				<div class="spotlight-grid">
+					{
+						allProjects
+							.filter((p) => p.data.isCaseStudy)
+							.slice(0, 4)
+							.map((project) => {
+								const metric = project.data.metrics && project.data.metrics[0];
+								return (
+									<a href={`/projects/${project.id}`} class="spotlight-card animate-fadeInUp">
+										<div class="spotlight-media">
+											<img src={project.data.cover} alt={project.data.title} loading="lazy" />
+											{metric && (
+												<div class="spotlight-metric-pill">
+													<div class="smp-val">{metric.value}</div>
+													<div class="smp-lbl lang-en">{metric.label}</div>
+													<div class="smp-lbl lang-ar">{metric.label_ar || metric.label}</div>
+												</div>
+											)}
+										</div>
+										<div class="spotlight-body">
+											<div class="spotlight-top-meta">
+												<span class="spotlight-cat lang-en">{project.data.category}</span>
+												<span class="spotlight-cat lang-ar">{project.data.category_ar || project.data.category}</span>
+												<span class="spotlight-cs-badge">Case Study</span>
+											</div>
+											<h3 class="spotlight-heading lang-en">{project.data.title}</h3>
+											<h3 class="spotlight-heading lang-ar">{project.data.title_ar || project.data.title}</h3>
+											<p class="spotlight-desc lang-en">{project.data.description}</p>
+											<p class="spotlight-desc lang-ar">{project.data.description_ar || project.data.description}</p>
+											<div class="spotlight-action">
+												<span class="lang-en">Explore Case Study & Process</span>
+												<span class="lang-ar">استعراض تفاصيل المشروع والنتائج</span>
+												<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+													<path d="M5 12h14M12 5l7 7-7 7"></path>
+												</svg>
+											</div>
+										</div>
+									</a>
+								);
+							})
+					}
+				</div>
+			</section>
+
+			<!-- ── Core Capabilities & Approach ── -->
+			<section class="seniority-pillars-section">
+				<div class="section-header animate-fadeInUp">
+					<div>
+						<p class="section-label">
+							<span class="lang-en">Capabilities & Approach</span>
+							<span class="lang-ar">المنهجية والقدرات الأساسية</span>
+						</p>
+						<h2>
+							<span class="lang-en">How I Work With Teams & Founders</span>
+							<span class="lang-ar">كيف أعمل مع الفرق والمشاريع</span>
+						</h2>
+					</div>
+				</div>
+				<div class="pillars-grid">
+					<div class="pillar-card animate-fadeInUp delay-100">
+						<div class="pillar-num">01 / DESIGN × CODE</div>
+						<div class="pillar-title lang-en">Design + Code Synergy</div>
+						<div class="pillar-title lang-ar">دمج التصميم الراقي مع البرمجة</div>
+						<p class="pillar-desc lang-en">Eliminate designer-developer friction. I architect full design systems in Figma and build them in pixel-perfect, accessible, and high-performance production code.</p>
+						<p class="pillar-desc lang-ar">إنهاء الفجوة بين المصمم والمبرمج. أهندس نظم التصميم في فيجما وأقوم ببرمجتها بدقة متناهية وأعلى كفاءة برمجية.</p>
+					</div>
+					<div class="pillar-card animate-fadeInUp delay-200">
+						<div class="pillar-num">02 / AI-ACCELERATED</div>
+						<div class="pillar-title lang-en">Generative AI Acceleration</div>
+						<div class="pillar-title lang-ar">تسريع الإنتاج بالذكاء الاصطناعي</div>
+						<p class="pillar-desc lang-en">Leveraging modern generative AI tools and visual pipelines (cinematic media, asset generation, workflow automation) to speed up delivery while maintaining high craft standards.</p>
+						<p class="pillar-desc lang-ar">استخدام أحدث أدوات ومسارات الذكاء الاصطناعي التوليدي لتسريع وتيرة الإنتاج مع الحفاظ على أعلى معايير الجودة البصرية.</p>
+					</div>
+					<div class="pillar-card animate-fadeInUp delay-300">
+						<div class="pillar-num">03 / BUSINESS-AWARE</div>
+						<div class="pillar-title lang-en">Outcome & Retention Mindset</div>
+						<div class="pillar-title lang-ar">التركيز على القيمة وتجربة المستخدم</div>
+						<p class="pillar-desc lang-en">Beyond visuals: every interaction, typography choice, and content layout is structured around user clarity, trust, and business objectives.</p>
+						<p class="pillar-desc lang-ar">الهدف ليس مجرد مظهر جميل، بل هندسة كل عنصر وتفاعل لتعزيز وضوح الرسالة وثقة المستخدم وتحقيق أهداف المشروع.</p>
+					</div>
+					<div class="pillar-card animate-fadeInUp delay-400">
+						<div class="pillar-num">04 / SELF-DIRECTED</div>
+						<div class="pillar-title lang-en">Async & Autonomous Execution</div>
+						<div class="pillar-title lang-ar">استقلالية وتواصل سلس</div>
+						<p class="pillar-desc lang-en">Clear communication, proactive async updates, clean git history, structured documentation, and smooth collaboration across distributed time zones.</p>
+						<p class="pillar-desc lang-ar">تواصل واضح ومباشر، وتحديثات منتظمة وتوثيق دقيق، مع مرونة تامة في العمل والتنسيق عبر فرق العمل عن بُعد.</p>
+					</div>
 				</div>
 			</section>
 
@@ -2286,119 +2249,6 @@ import robotImg from "../../public/images/robot.png";
 								Beautiful interfaces that tell your brand story.
 							</p>
 						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- ── Premier Enterprise Case Studies Spotlight ── -->
-			<section class="case-studies-spotlight-section">
-				<div class="section-header animate-fadeInUp">
-					<div>
-						<p class="section-label">
-							<span class="lang-en">Proven Track Record & ROI</span>
-							<span class="lang-ar">دراسات حالة ونتائج أعمال مثبتة</span>
-						</p>
-						<h2>
-							<span class="lang-en">Featured Case Studies</span>
-							<span class="lang-ar">أبرز دراسات الحالة والنجاحات</span>
-						</h2>
-						<p class="section-desc">
-							<span class="lang-en">Deep dives into high-stakes projects demonstrating measurable business impact, engineering craft, and brand transformation.</span>
-							<span class="lang-ar">استعراض تفصيلي لأبرز المشاريع الاستراتيجية التي حققت نتائج ملموسة ونقلات نوعية في الأداء والأرباح.</span>
-						</p>
-					</div>
-					<a href="/projects" class="view-all">
-						<span class="lang-en">All Case Studies</span>
-						<span class="lang-ar">جميع دراسات الحالة</span> →
-					</a>
-				</div>
-
-				<div class="spotlight-grid">
-					{
-						allProjects
-							.filter((p) => p.data.isCaseStudy)
-							.slice(0, 4)
-							.map((project) => {
-								const metric = project.data.metrics && project.data.metrics[0];
-								return (
-									<a href={`/projects/${project.id}`} class="spotlight-card animate-fadeInUp">
-										<div class="spotlight-media">
-											<img src={project.data.cover} alt={project.data.title} loading="lazy" />
-											{metric && (
-												<div class="spotlight-metric-pill">
-													<div class="smp-val">{metric.value}</div>
-													<div class="smp-lbl lang-en">{metric.label}</div>
-													<div class="smp-lbl lang-ar">{metric.label_ar || metric.label}</div>
-												</div>
-											)}
-										</div>
-										<div class="spotlight-body">
-											<div class="spotlight-top-meta">
-												<span class="spotlight-cat lang-en">{project.data.category}</span>
-												<span class="spotlight-cat lang-ar">{project.data.category_ar || project.data.category}</span>
-												<span class="spotlight-cs-badge">Case Study</span>
-											</div>
-											<h3 class="spotlight-heading lang-en">{project.data.title}</h3>
-											<h3 class="spotlight-heading lang-ar">{project.data.title_ar || project.data.title}</h3>
-											<p class="spotlight-desc lang-en">{project.data.description}</p>
-											<p class="spotlight-desc lang-ar">{project.data.description_ar || project.data.description}</p>
-											<div class="spotlight-action">
-												<span class="lang-en">Explore Case Study & Metrics</span>
-												<span class="lang-ar">استعراض دراسة الحالة والأرقام</span>
-												<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-													<path d="M5 12h14M12 5l7 7-7 7"></path>
-												</svg>
-											</div>
-										</div>
-									</a>
-								);
-							})
-					}
-				</div>
-			</section>
-
-			<!-- ── Seniority Advantage / Why Top Companies Hire Omar ── -->
-			<section class="seniority-pillars-section">
-				<div class="section-header animate-fadeInUp">
-					<div>
-						<p class="section-label">
-							<span class="lang-en">Executive Value Proposition</span>
-							<span class="lang-ar">القيمة المضافة للشركات الكبرى</span>
-						</p>
-						<h2>
-							<span class="lang-en">Why Global Teams & Founders Hire Me</span>
-							<span class="lang-ar">لماذا توظفني كبرى الشركات والمؤسسات</span>
-						</h2>
-					</div>
-				</div>
-				<div class="pillars-grid">
-					<div class="pillar-card animate-fadeInUp delay-100">
-						<div class="pillar-num">01 / UNICORN CRAFT</div>
-						<div class="pillar-title lang-en">Design + Code Synergy</div>
-						<div class="pillar-title lang-ar">دمج التصميم الراقي مع البرمجة</div>
-						<p class="pillar-desc lang-en">Eliminate the designer-developer friction. I architect full design systems in Figma and build them in pixel-perfect, production-grade code.</p>
-						<p class="pillar-desc lang-ar">إنهاء الفجوة بين المصمم والمبرمج. أهندس نظم التصميم في فيجما وأقوم ببرمجتها بدقة متناهية وأعلى كفاءة برمجية.</p>
-					</div>
-					<div class="pillar-card animate-fadeInUp delay-200">
-						<div class="pillar-num">02 / 10X SPEED</div>
-						<div class="pillar-title lang-en">Generative AI Acceleration</div>
-						<div class="pillar-title lang-ar">تسريع الإنتاج بالذكاء الاصطناعي</div>
-						<p class="pillar-desc lang-en">Leveraging advanced AI pipelines (Cinematic video, image generation, automated workflows) to cut production timelines by 80% without losing quality.</p>
-						<p class="pillar-desc lang-ar">استخدام أحدث أدوات ومسارات الذكاء الاصطناعي التوليدي لتقليص أوقات الإنتاج بنسبة 80% مع مضاعفة الجودة البصرية.</p>
-					</div>
-					<div class="pillar-card animate-fadeInUp delay-300">
-						<div class="pillar-num">03 / ROI DRIVEN</div>
-						<div class="pillar-title lang-en">Business & Conversion Focus</div>
-						<div class="pillar-title lang-ar">التركيز على العائد والتحويل التجاري</div>
-						<p class="pillar-desc lang-en">Beyond aesthetics: every interaction, typography choice, and layout hierarchy is engineered to maximize user trust, retention, and inbound conversion.</p>
-						<p class="pillar-desc lang-ar">الهدف ليس مجرد مظهر جميل، بل هندسة كل عنصر وتفاعل لزيادة ثقة العميل، ومعدلات بقاء الزوار، ومضاعفة المبيعات.</p>
-					</div>
-					<div class="pillar-card animate-fadeInUp delay-400">
-						<div class="pillar-num">04 / AUTONOMOUS</div>
-						<div class="pillar-title lang-en">Async & Time-Zone Fluent</div>
-						<div class="pillar-title lang-ar">استقلالية وسرعة تواصل عالمية</div>
-						<p class="pillar-desc lang-en">Zero micromanagement required. Proactive daily async updates, clean git history, enterprise documentation, and full EST/GMT/GST time-zone overlap.</p>
-						<p class="pillar-desc lang-ar">العمل باستقلالية واحترافية تامة مع تحديثات يومية منتظمة وتوثيق دقيق، مع مرونة التوافق مع مختلف النطاقات الزمنية العالمية.</p>
 					</div>
 				</div>
 			</section>

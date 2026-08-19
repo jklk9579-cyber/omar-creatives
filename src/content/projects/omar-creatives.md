@@ -9,7 +9,7 @@ category: "Personal Brand"
 category_ar: "علامة شخصية"
 client: "Omar Creatives"
 client_ar: "عمر كرييتيفز"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

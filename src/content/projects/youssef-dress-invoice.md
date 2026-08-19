@@ -12,7 +12,7 @@ category: "Print Design"
 category_ar: "تصميم مطبوعات"
 client: "Youssef Dress"
 client_ar: "يوسف دريس"
-featured: true
+featured: false
 tags:
   - Print Design
   - Invoice Design

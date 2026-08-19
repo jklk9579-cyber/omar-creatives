@@ -8,8 +8,8 @@ cover: "/images/uploads/fast-paced-visual-edit.jpeg"
 gallery: []
 category: "Video Creation / Edit"
 category_ar: "إنشاء / مونتاج فيديو"
-client: "Global Media & Viral Campaigns"
-client_ar: "حملات السوشيال ميديا العالمية"
+client: "Commercial & Social Media Showcase"
+client_ar: "حملات إعلانية وسوشيال ميديا"
 featured: true
 isCaseStudy: true
 timeline: "4 Days"

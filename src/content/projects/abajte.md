@@ -13,7 +13,7 @@ category: "Logo Design"
 category_ar: "تصميم شعار"
 client: "Abajte"
 client_ar: "أباجتي"
-featured: true
+featured: false
 ---
 
 <div class="content-en">

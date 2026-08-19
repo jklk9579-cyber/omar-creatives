@@ -11,7 +11,7 @@ category: "Print Design"
 category_ar: "تصميم مطبوعات"
 client: "Arkan"
 client_ar: "أركان"
-featured: true
+featured: false
 tags:
   - Business Card
   - Print Design
