@@ -1,14 +1,18 @@
 ---
 title: "D-Arrow – Next-Gen Digital Platform & Brand System"
 title_ar: "دي آرو – المنظومة الرقمية المتكاملة وتطوير الويب والهوية"
-description: "Full-cycle digital engineering: Designed and built the official D-Arrow web platform from scratch with Next.js, bilingual RTL/LTR architecture, interactive pricing engines, and enterprise design system."
-description_ar: "تطوير وهندسة رقمية شاملة: تصميم وبرمجة المنصة الرسمية لوكالة دي آرو (D-Arrow) من الصفر بتقنيات Next.js، مع بنية ثنائية اللغة RTL/LTR، وحاسبة باقات تفاعلية، ومنظومة هوية مؤسسية متكاملة."
+description: "Full-cycle digital engineering: Designed and built the official D-Arrow web platform from scratch with Next.js, bilingual RTL/LTR architecture, interactive pricing engines, influencer portal, and enterprise design system."
+description_ar: "تطوير وهندسة رقمية شاملة: تصميم وبرمجة المنصة الرسمية لوكالة دي آرو (D-Arrow) من الصفر بتقنيات Next.js، مع بنية ثنائية اللغة RTL/LTR، وحاسبة باقات تفاعلية، وبوابة المؤثرين، ومنظومة هوية مؤسسية متكاملة."
 date: 2026-08-04
 cover: "/images/darrow/darrow-web-hero.png"
 gallery:
   - "/images/darrow/darrow-web-hero.png"
+  - "/images/darrow/darrow-influencer.png"
+  - "/images/darrow/darrow-pricing-full.png"
+  - "/images/darrow/darrow-cafe.png"
+  - "/images/darrow/darrow-store.png"
+  - "/images/darrow/darrow-why-us.png"
   - "/images/darrow/darrow-web-services.png"
-  - "/images/darrow/darrow-web-pricing.png"
   - "/images/darrow/darrow-hero.png"
   - "/images/darrow/darrow-1.png"
   - "/images/darrow/darrow-2.png"
@@ -25,21 +29,21 @@ role: "Lead Full-Stack Creative Developer & UI/UX Architect"
 role_ar: "كبير مطوري الويب ومصممي تجربة المستخدم"
 metrics:
   - value: "Live"
-    label: "Production Deployment (d-arrow.com)"
+    label: "Production Platform (d-arrow.com)"
     label_ar: "منصة حية تعمل على الإنترنت"
   - value: "<0.7s"
-    label: "Core Web Vitals & Asset Velocity"
+    label: "Core Web Vitals & Load Speed"
     label_ar: "سرعة تحميل وتصفح فائقة"
   - value: "100%"
     label: "Bilingual RTL/LTR Synchronization"
     label_ar: "توافق كامل ثنائي اللغة عربي/إنجليزي"
-  - value: "40+"
-    label: "Interactive Service & Pricing Modules"
-    label_ar: "وحدات تسعير وخدمات تفاعلية"
-challenge: "D-Arrow needed an authoritative, modern digital headquarters to reflect their expansion across the Saudi and Gulf markets. The platform required a seamless bilingual experience (Arabic RTL-first and English), interactive quotation calculators, a multi-category service ecosystem, and sub-second performance."
-challenge_ar: "احتاجت وكالة دي آرو (D-Arrow) إلى منصة ويب رسمية تعكس مكانتها الرائدة وتوسعها في السوق السعودي والخليجي. تطلب المشروع بناء تجربة مستخدم تفاعلية ثنائية اللغة بالكامل (RTL/LTR)، مع منظومة عرض باقات وحاسبات أسعار متطورة، وسرعة تحميل فائقة."
-solution: "Engineered and developed the full web platform from scratch utilizing Next.js, Tailwind CSS, Lucide icons, and custom Arabic typography (29LT Bukra & Gilroy). Structured an interactive service matrix, custom pricing tiers, a dedicated influencer portal, and immersive dark-mode aesthetics."
-solution_ar: "قمنا بهندسة وتطوير المنصة الرقمية بالكامل من الصفر باستخدام Next.js و Tailwind CSS ومنظومة خطوط عربية مخصصة (29LT Bukra و Gilroy). تم بناء منظومة تفاعلية للخدمات، ونظام باقات مرن، وبوابة للمؤثرين، مع واجهة داكنة متميزة."
+  - value: "8+"
+    label: "Custom Portals & Interactive Engines"
+    label_ar: "بوابات ومحركات تسعير تفاعلية"
+challenge: "D-Arrow needed an authoritative, modern digital headquarters to reflect their expansion across the Saudi and Gulf markets. The platform required a seamless bilingual experience (Arabic RTL-first and English), interactive quotation calculators, a multi-category service ecosystem, influencer onboarding portals, and sub-second performance."
+challenge_ar: "احتاجت وكالة دي آرو (D-Arrow) إلى منصة ويب رسمية تعكس مكانتها الرائدة وتوسعها في السوق السعودي والخليجي. تطلب المشروع بناء تجربة مستخدم تفاعلية ثنائية اللغة بالكامل (RTL/LTR)، مع منظومة عرض باقات وحاسبات أسعار متطورة، وبوابة متخصصة للمؤثرين، وسرعة تحميل فائقة."
+solution: "Engineered and developed the full web platform from scratch utilizing Next.js, Tailwind CSS, Lucide icons, and custom Arabic typography (29LT Bukra & Gilroy). Structured an interactive service matrix, custom pricing tiers, a dedicated influencer portal, digital store, and immersive dark-mode aesthetics."
+solution_ar: "قمنا بهندسة وتطوير المنصة الرقمية بالكامل من الصفر باستخدام Next.js و Tailwind CSS ومنظومة خطوط عربية مخصصة (29LT Bukra و Gilroy). تم بناء منظومة تفاعلية للخدمات، ونظام باقات مرن، وبوابة للمؤثرين، ومتجر رقمي، مع واجهة داكنة متميزة."
 testimonial:
   quote: "Omar built the D-Arrow platform from the ground up with unmatched speed, clean architecture, and visual polish. The interactive features and performance exceeded all our expectations."
   quote_ar: "قام عمر ببناء وبرمجة منصة دي آرو بالكامل من الصفر بدقة هندسية متميزة وسرعة فائقة. التفاعل، والأداء، واللغة البصرية المتقنة أحدثت فارقاً كبيراً في تفاعل عملائنا في المملكة."
@@ -51,9 +55,9 @@ tags:
   - "Full-Stack Development"
   - "UI/UX Architecture"
   - "RTL/LTR Bilingual"
-  - "Design Systems"
+  - "Influencer Portal"
   - "Interactive Pricing"
-  - "Dark Mode Aesthetics"
+  - "Design Systems"
   - "Performance Engineering"
 ---
 
@@ -63,113 +67,185 @@ tags:
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(135deg, rgba(255, 77, 109, 0.12) 0%, rgba(255, 154, 60, 0.08) 100%);
-  border: 1px solid rgba(255, 77, 109, 0.3);
-  border-radius: 20px;
-  padding: 1.5rem 2rem;
-  margin: 2rem 0;
+  border: 1px solid rgba(255, 77, 109, 0.35);
+  border-radius: 24px;
+  padding: 1.5rem 2.2rem;
+  margin: 2rem 0 3rem;
   gap: 1.5rem;
   flex-wrap: wrap;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 77, 109, 0.1);
 }
 .lbc-info {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 .lbc-indicator {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: #22c55e;
-  box-shadow: 0 0 12px #22c55e;
+  box-shadow: 0 0 16px #22c55e;
   animation: pulse 2s infinite;
 }
 .lbc-text h4 {
   margin: 0;
   color: #fff;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 .lbc-text p {
-  margin: 0.2rem 0 0;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
 }
 .lbc-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.75rem 1.6rem;
+  padding: 0.85rem 1.8rem;
   background: linear-gradient(90deg, #FF4D6D, #FF9A3C);
   color: #fff !important;
   font-weight: 700;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 20px rgba(255, 77, 109, 0.35);
+  font-size: 0.95rem;
+  box-shadow: 0 6px 25px rgba(255, 77, 109, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .lbc-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(255, 77, 109, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(255, 77, 109, 0.6);
+}
+
+/* Premium Device Mockups */
+.mockup-container {
+  margin: 3.5rem 0;
+  position: relative;
+}
+.mockup-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.mockup-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 .browser-mockup {
-  border-radius: 16px;
+  border-radius: 20px;
   background: #14162e;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
-  margin: 2.5rem 0;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(255, 77, 109, 0.08);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+.browser-mockup:hover {
+  border-color: rgba(255, 77, 109, 0.35);
+  transform: translateY(-4px);
 }
 .bm-header {
   display: flex;
   align-items: center;
-  padding: 0.8rem 1.2rem;
+  padding: 0.9rem 1.4rem;
   background: #0b0d1f;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  gap: 0.6rem;
+  gap: 0.8rem;
 }
 .bm-dots {
   display: flex;
-  gap: 6px;
+  gap: 7px;
 }
 .bm-dot {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
 }
 .bm-dot.red { background: #ff5f56; }
 .bm-dot.yellow { background: #ffbd2e; }
 .bm-dot.green { background: #27c93f; }
 .bm-url {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  padding: 0.25rem 1rem;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 0.3rem 1.2rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
   margin-left: 1rem;
   flex: 1;
-  max-width: 320px;
+  max-width: 360px;
+  font-family: monospace;
 }
-.browser-mockup img {
+.browser-mockup img, .browser-mockup video {
   width: 100%;
   display: block;
   object-fit: cover;
 }
+
+/* Video Showcase Box */
+.video-showcase-box {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0b0d1f;
+  border: 1px solid rgba(255, 77, 109, 0.25);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 77, 109, 0.15);
+  margin: 3rem 0;
+}
+.video-showcase-box video {
+  width: 100%;
+  display: block;
+  border-radius: 0 0 20px 20px;
+}
+
 .tech-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 2.5rem;
 }
 .tech-pill {
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.1rem;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: #f59e0b;
   font-weight: 600;
+}
+.feature-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+.feature-card-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.6rem;
+  transition: all 0.3s ease;
+}
+.feature-card-item:hover {
+  border-color: rgba(255, 77, 109, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-3px);
+}
+.feature-card-item h4 {
+  color: #fff;
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+.feature-card-item p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
 }
 </style>
 
@@ -180,11 +256,11 @@ tags:
     <div class="lbc-indicator"></div>
     <div class="lbc-text">
       <h4>Production Web Platform Live</h4>
-      <p>Built from scratch & deployed on global high-speed edge infrastructure</p>
+      <p>Architected & built from scratch — Deployed on high-performance global edge infrastructure</p>
     </div>
   </div>
   <a href="https://d-arrow.com/" target="_blank" rel="noopener noreferrer" class="lbc-btn">
-    <span>Visit Live Site: d-arrow.com</span>
+    <span>Visit Live Site (d-arrow.com)</span>
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
       <polyline points="15 3 21 3 21 9"></polyline>
@@ -195,7 +271,7 @@ tags:
 
 ## Executive Summary
 
-**D-Arrow Digital** is a leading digital marketing and creative engineering agency operating in the Kingdom of Saudi Arabia and the GCC region. To support their rapid business growth and high-ticket client acquisition, I designed and developed their official digital platform from scratch — bridging cutting-edge Next.js architecture, interactive pricing models, and an enterprise brand identity system.
+**D-Arrow Digital** is an award-winning digital marketing and creative engineering agency operating in the Kingdom of Saudi Arabia and the Gulf region. To match their regional expansion and attract high-ticket enterprise clients, I engineered their official digital platform from the ground up — uniting cutting-edge Next.js architecture, an interactive pricing calculator, dedicated industry portals, and a scalable brand identity system.
 
 <div class="tech-pills">
   <span class="tech-pill">Next.js (App Router)</span>
@@ -204,72 +280,150 @@ tags:
   <span class="tech-pill">RTL / LTR Bilingual Engine</span>
   <span class="tech-pill">Custom Typography (29LT Bukra & Gilroy)</span>
   <span class="tech-pill">Interactive Pricing Calculator</span>
-  <span class="tech-pill">Enterprise Design Tokens</span>
+  <span class="tech-pill">Influencer Onboarding Portal</span>
+  <span class="tech-pill">Digital Agency Store</span>
 </div>
 
 ---
 
-## 1. The Strategic Challenge
+## 1. Video Showcase & Dynamic Interactions
 
-D-Arrow needed more than a standard agency portfolio — they required a high-converting digital ecosystem capable of:
-
-- **Bilingual Arab-First Experience:** Flawless RTL (Arabic) and LTR (English) support with custom typographic hierarchies.
-- **Complex Service Breakdown:** Structuring 20+ specialized marketing and development services into intuitive, digestible modules.
-- **Interactive Quotation & Pricing Engine:** Enabling potential enterprise clients to configure packages and estimate project investments dynamically.
-- **Sub-Second Performance:** Heavy media and animations optimized for seamless rendering across Gulf mobile networks.
-
----
-
-## 2. Platform Architecture & Features
-
-<div class="browser-mockup">
+<div class="video-showcase-box">
   <div class="bm-header">
     <div class="bm-dots">
       <div class="bm-dot red"></div>
       <div class="bm-dot yellow"></div>
       <div class="bm-dot green"></div>
     </div>
-    <div class="bm-url">https://d-arrow.com/</div>
+    <div class="bm-url">https://d-arrow.com/influencer • Live Experience</div>
   </div>
-  <img src="/images/darrow/darrow-web-hero.png" alt="D-Arrow Live Platform Hero" loading="lazy" />
-</div>
-
-### Key Engineered Modules:
-
-1. **High-Impact Video Hero:** Implemented an ambient video hero with radial gradient overlays (`#FF4D6D` to `#FF9A3C`) and animated counter indicators.
-2. **Interactive Service Categorization:** Dynamic dropdowns and filtering for digital marketing, software development, and real estate marketing.
-3. **Dedicated Packages & Pricing Matrix:** Multi-tier package cards with automated feature breakdowns and direct WhatsApp / booking funnels.
-4. **Influencer Collaboration Portal:** Seamless application workflow for regional creators and influencers.
-
-<div class="browser-mockup">
-  <div class="bm-header">
-    <div class="bm-dots">
-      <div class="bm-dot red"></div>
-      <div class="bm-dot yellow"></div>
-      <div class="bm-dot green"></div>
-    </div>
-    <div class="bm-url">https://d-arrow.com/pricing</div>
-  </div>
-  <img src="/images/darrow/darrow-web-pricing.png" alt="D-Arrow Interactive Pricing" loading="lazy" />
+  <video src="/images/darrow/darrow-showcase-video.mp4" controls autoplay muted loop playsinline></video>
 </div>
 
 ---
 
-## 3. Brand Identity & Design System
+## 2. Core Engineered Portals & Modules
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>01. Next-Generation Homepage & Hero Experience</span>
+  </div>
+  <p class="mockup-desc">
+    Engineered with dynamic video background integration, ambient gradient lighting (#FF4D6D to #FF9A3C), and real-time metric counter animations.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/</div>
+    </div>
+    <img src="/images/darrow/darrow-web-hero.png" alt="D-Arrow Homepage Hero" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>02. Influencer Collaboration & Onboarding Portal</span>
+  </div>
+  <p class="mockup-desc">
+    A dedicated onboarding platform for content creators and digital influencers across Saudi Arabia, streamlining campaign matching and registration.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/influencer</div>
+    </div>
+    <img src="/images/darrow/darrow-influencer.png" alt="D-Arrow Influencer Portal" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>03. Interactive Packages & Quotation Engine</span>
+  </div>
+  <p class="mockup-desc">
+    A multi-tier pricing calculator allowing prospective clients to explore service scopes, compare features, and initiate customized quotes seamlessly.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/pricing</div>
+    </div>
+    <img src="/images/darrow/darrow-pricing-full.png" alt="D-Arrow Pricing Packages" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>04. Specialized Industry Hubs (Cafes, Restaurants, Automotive, Retail)</span>
+  </div>
+  <p class="mockup-desc">
+    Tailored project hubs providing industry-specific digital solutions, market analysis, and case study breakdowns for regional business owners.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/projects/cafe</div>
+    </div>
+    <img src="/images/darrow/darrow-cafe.png" alt="D-Arrow Industry Hubs" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>05. Digital Store & Product Solutions</span>
+  </div>
+  <p class="mockup-desc">
+    Integrated digital store offering ready-to-deploy software packages, branding kits, and pre-packaged marketing campaigns.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/store</div>
+    </div>
+    <img src="/images/darrow/darrow-store.png" alt="D-Arrow Digital Store" loading="lazy" />
+  </div>
+</div>
+
+---
+
+## 3. Platform Architecture & Features
+
+<div class="feature-grid-cards">
+  <div class="feature-card-item">
+    <h4>Bilingual RTL / LTR Architecture</h4>
+    <p>Flawless Arabic-first typography hierarchy paired with seamless English toggle across all pages and interactive components.</p>
+  </div>
+  <div class="feature-card-item">
+    <h4>Custom Type System</h4>
+    <p>High-precision font loading utilizing 29LT Bukra for Arabic headings and Gilroy / TT Hoves for English numerical & UI data.</p>
+  </div>
+  <div class="feature-card-item">
+    <h4>Dynamic Dropdown Matrix</h4>
+    <p>Contextual navigation menus with icon badges, category previews, and deep linking across 20+ specialized service domains.</p>
+  </div>
+  <div class="feature-card-item">
+    <h4>Sub-Second Performance</h4>
+    <p>Built with Next.js App Router and optimized asset pipelines, delivering <0.7s LCP on GCC mobile networks.</p>
+  </div>
+</div>
+
+---
+
+## 4. Brand Identity & Design System
 
 In addition to full-stack web engineering, I developed the unified brand identity system for D-Arrow:
 
-- **Geometric Logo Geometry:** Custom dynamic monogram combining forward velocity with angular precision.
-- **Color Token System:** Deep obsidian slates (`#070913`, `#0B0D1F`) paired with high-energy pink-orange gradients (`#FF4D6D` to `#FF9A3C`).
-- **Comprehensive Asset Guidelines:** Multi-scale responsive vectors, brand book, and stationery suites.
+- **Geometric Mark Geometry:** Dynamic monogram combining forward velocity with angular precision.
+- **Color Token Architecture:** Obsidian slates (`#070913`, `#0B0D1F`) paired with high-energy pink-orange gradients (`#FF4D6D` to `#FF9A3C`).
+- **Comprehensive Asset Guidelines:** Multi-scale responsive vectors, brand manual, and stationery suites.
 
 ---
 
-## 4. Measurable Outcomes
+## 5. Measurable Outcomes
 
-- **Full-Cycle Delivery:** Built and deployed from initial Figma wireframes to production in 4 weeks.
-- **High Core Web Vitals:** Sub-second LCP and flawless responsiveness on all mobile viewports.
-- **Global Inbound Inquiries:** Direct conversion channels live and serving clients across Riyadh, Al Khobar, and the wider GCC.
+- **Full-Cycle Delivery:** Built and deployed from initial Figma architecture to production in 4 weeks.
+- **Flawless Multi-Device Responsiveness:** Fully optimized for mobile, tablet, and ultra-wide displays.
+- **Live Inbound Conversions:** Serving clients across Riyadh, Al Khobar, and the wider GCC region at [d-arrow.com](https://d-arrow.com/).
 
 </div>
 
@@ -295,7 +449,7 @@ In addition to full-stack web engineering, I developed the unified brand identit
 
 ## الملخص التنفيذي
 
-**وكالة دي آرو (D-Arrow Digital)** هي وكالة تسويق رقمي وبرمجيات رائدة في المملكة العربية السعودية ومنطقة الخليج. لمواكبة التوسع السريع واستقطاب كبرى الشركات والمؤسسات، قمت بتصميم وبرمجة المنصة الرسمية للوكالة بالكامل من الصفر — بالاعتماد على بنية Next.js الحديثة، ونظام الباقات التفاعلية، ومنظومة الهوية البصرية المؤسسية.
+**وكالة دي آرو (D-Arrow Digital)** هي وكالة تسويق رقمي وبرمجيات رائدة في المملكة العربية السعودية ومنطقة الخليج. لمواكبة التوسع السريع واستقطاب كبرى الشركات والمؤسسات، قمت بتصميم وبرمجة المنصة الرسمية للوكالة بالكامل من الصفر — بالاعتماد على بنية Next.js الحديثة، ونظام الباقات التفاعلية، وبوابة المؤثرين، ومنظومة الهوية البصرية المؤسسية.
 
 <div class="tech-pills">
   <span class="tech-pill">Next.js (App Router)</span>
@@ -304,58 +458,136 @@ In addition to full-stack web engineering, I developed the unified brand identit
   <span class="tech-pill">محرك ثنائي اللغة RTL/LTR</span>
   <span class="tech-pill">خطوط مخصصة (29LT Bukra و Gilroy)</span>
   <span class="tech-pill">حاسبة باقات تفاعلية</span>
-  <span class="tech-pill">نظم التصميم المؤسسي</span>
+  <span class="tech-pill">بوابة تسجيل المؤثرين</span>
+  <span class="tech-pill">متجر دي آرو الرقمي</span>
 </div>
 
 ---
 
-## 1. التحدي الاستراتيجي
+## 1. استعراض الفيديو والتفاعلات الحية
 
-تطلب مشروع دي آرو بناء منظومة رقمية متكاملة تتجاوز مواقع الشركات التقليدية:
-
-- **تجربة عربية أصيلة مع دعم كامل للإنجليزية:** بناء واجهات RTL انسيابية مع نظام خطوط عالي الفخامة والوضوح.
-- **هيكلة الخدمات الواسعة:** تقسيم أكثر من 20 خدمة تسويقية وبرمجية إلى بوابات تفاعلية سهلة الاستكشاف.
-- **محرك الباقات والتسعير التفاعلي:** تمكين العملاء من استعراض تفاصيل الباقات واختيار الخطة المناسبة وطلب العرض فوراً.
-- **أداء فائق السرعة:** تشغيل الفيديو والمؤثرات البصرية بسلاسة وسرعة تحميل أقل من ثانية على شبكات الجوال في السعودية والخليج.
-
----
-
-## 2. البنية البرمجية والمميزات المطورة
-
-<div class="browser-mockup">
+<div class="video-showcase-box">
   <div class="bm-header">
     <div class="bm-dots">
       <div class="bm-dot red"></div>
       <div class="bm-dot yellow"></div>
       <div class="bm-dot green"></div>
     </div>
-    <div class="bm-url">https://d-arrow.com/</div>
+    <div class="bm-url">https://d-arrow.com/influencer • التجربة التفاعلية الحية</div>
   </div>
-  <img src="/images/darrow/darrow-web-hero.png" alt="D-Arrow Live Platform Hero" loading="lazy" />
-</div>
-
-### أبرز الميزات المنفذة:
-
-1. **فيديو هيرو تفاعلي:** واجهة رئيسية مزودة بفيديو ديناميكي مع تأثيرات إضاءة متدرجة (`#FF4D6D` إلى `#FF9A3C`) وعدادات رقمية متحركة.
-2. **تصنيف خدمات تفاعلي:** قوائم منسدلة وفلاتر مخصصة لقطاعات التسويق الرقمي، البرمجيات، وتسويق العقارات والكافيهات.
-3. **مصفوفة الباقات التفاعلية:** كروت باقات ذكية تبرز مميزات كل خطة مع ربط فوري لطلب الاستشارة عبر الواتساب والنماذج.
-4. **بوابة انضمام المؤثرين:** نموذج تفاعلي لتسجيل صناع المحتوى والمؤثرين في السعودية.
-
-<div class="browser-mockup">
-  <div class="bm-header">
-    <div class="bm-dots">
-      <div class="bm-dot red"></div>
-      <div class="bm-dot yellow"></div>
-      <div class="bm-dot green"></div>
-    </div>
-    <div class="bm-url">https://d-arrow.com/pricing</div>
-  </div>
-  <img src="/images/darrow/darrow-web-pricing.png" alt="D-Arrow Interactive Pricing" loading="lazy" />
+  <video src="/images/darrow/darrow-showcase-video.mp4" controls autoplay muted loop playsinline></video>
 </div>
 
 ---
 
-## 3. الهوية البصرية ونظام التصميم
+## 2. البوابات والموديولات المطورة
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>01. الواجهة الرئيسية التفاعلية (Homepage & Hero)</span>
+  </div>
+  <p class="mockup-desc">
+    واجهة مدمجة بفيديو ديناميكي مع إضاءة متدرجة باللونين الوردي والبرتقالي وعدادات خبرة متحركة لحظياً.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/</div>
+    </div>
+    <img src="/images/darrow/darrow-web-hero.png" alt="واجهة دي آرو الرئيسية" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>02. بوابة انضمام وتسجيل المؤثرين (Influencer Portal)</span>
+  </div>
+  <p class="mockup-desc">
+    بوابة مخصصة تتيح للمؤثرين وصناع المحتوى في السعودية الانضمام إلى شبكة دي آرو والمشاركة في الحملات الإعلانية.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/influencer</div>
+    </div>
+    <img src="/images/darrow/darrow-influencer.png" alt="بوابة المؤثرين دي آرو" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>03. مصفوفة الباقات وحاسبة الأسعار التفاعلية (Pricing Engine)</span>
+  </div>
+  <p class="mockup-desc">
+    نظام باقات متكامل يسمح للشركات بمقارنة المزايا واختيار الباقة المناسبة وطلب عرض السعر فوراً.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/pricing</div>
+    </div>
+    <img src="/images/darrow/darrow-pricing-full.png" alt="باقات دي آرو" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>04. قطاعات المشاريع المتخصصة (طور مشروعك: كافيهات، مطاعم، سيارات، أزياء)</span>
+  </div>
+  <p class="mockup-desc">
+    صفحات متخصصة لكل قطاع تجاري تقدم حلولاً تسويقية مخصصة تناسب طبيعة النشاط واحتياجات السوق السعودي.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/projects/cafe</div>
+    </div>
+    <img src="/images/darrow/darrow-cafe.png" alt="قطاع الكافيهات والمطاعم" loading="lazy" />
+  </div>
+</div>
+
+<div class="mockup-container">
+  <div class="mockup-title">
+    <span>05. متجر دي آرو الرقمي (Digital Agency Store)</span>
+  </div>
+  <p class="mockup-desc">
+    متجر إلكتروني متكامل للحلول والمنتجات الرقمية الجاهزة وباقات الهوية والتسويق السريع.
+  </p>
+  <div class="browser-mockup">
+    <div class="bm-header">
+      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
+      <div class="bm-url">https://d-arrow.com/store</div>
+    </div>
+    <img src="/images/darrow/darrow-store.png" alt="متجر دي آرو" loading="lazy" />
+  </div>
+</div>
+
+---
+
+## 3. المميزات الهندسية والتقنية
+
+<div class="feature-grid-cards">
+  <div class="feature-card-item">
+    <h4>هندسة ثنائية اللغة RTL / LTR</h4>
+    <p>تصميم عربي أصيل بانسيابية تامة، مع إمكانية التبديل للإنجليزية بضغطة زر واحدة في جميع الصفحات.</p>
+  </div>
+  <div class="feature-card-item">
+    <h4>منظومة الخطوط المخصصة</h4>
+    <p>دمج خط 29LT Bukra الفاخر للعناوين العربية مع خطوط Gilroy و TT Hoves للبيانات والأرقام.</p>
+  </div>
+  <div class="feature-card-item">
+    <h4>القوائم المنسدلة الذكية</h4>
+    <p>قوائم تنقل غنية بالأيقونات والبطاقات المصغرة للوصول السريع لأكثر من 20 خدمة وقطاع.</p>
+  </div>
+  <div class="feature-card-item">
+    <h4>سرعة تحميل فائقة</h4>
+    <p>تحقيق أداء عالي على مؤشرات Google Web Vitals بسرعة تحميل أقل من 0.7 ثانية على شبكات الجوال.</p>
+  </div>
+</div>
+
+---
+
+## 4. الهوية البصرية ونظام التصميم
 
 إلى جانب البرمجة والتطوير، تم ابتكار منظومة الهوية البصرية لعلامة دي آرو:
 
@@ -365,10 +597,10 @@ In addition to full-stack web engineering, I developed the unified brand identit
 
 ---
 
-## 4. النتائج والأثر الفعلي
+## 5. النتائج والأثر الفعلي
 
 - **تسليم المشروع من الصفر إلى الإطلاق النهائي** في 4 أسابيع.
 - **تحقيق مؤشرات أداء قياسية (Core Web Vitals)** مع سرعة استجابة فائقة.
-- **إطلاق القنوات التسويقية الرقمية بنجاح** لخدمة عملاء الوكالة في الرياض، الشرقية، ودول الخليج.
+- **إطلاق القنوات التسويقية الرقمية بنجاح** لخدمة عملاء الوكالة في الرياض، الشرقية، ودول الخليج عبر [d-arrow.com](https://d-arrow.com/).
 
 </div>
