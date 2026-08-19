@@ -1924,7 +1924,8 @@ import robotImg from "../../public/images/robot.png";
 					muted
 					loop
 					playsinline
-					poster="/images/character-transform/character-studio-cover.jpg"
+					webkit-playsinline
+					preload="auto"
 				></video>
 				<div class="cvh-bottom-fade"></div>
 			</section>
@@ -2563,12 +2564,17 @@ import robotImg from "../../public/images/robot.png";
 			// Ensure cinematic video plays reliably
 			const bgVideo = document.querySelector('.cvh-video') as HTMLVideoElement;
 			if (bgVideo) {
+				bgVideo.muted = true;
+				bgVideo.defaultMuted = true;
 				const playVideo = () => {
 					bgVideo.play().catch(() => {});
 				};
 				playVideo();
+				window.addEventListener('load', playVideo);
+				document.addEventListener('DOMContentLoaded', playVideo);
 				document.addEventListener('touchstart', playVideo, { once: true });
 				document.addEventListener('click', playVideo, { once: true });
+				document.addEventListener('scroll', playVideo, { once: true });
 			}
 		</script>
 	</body>
