@@ -4,15 +4,13 @@ title_ar: "دي آرو – المنظومة الرقمية المتكاملة و
 description: "Full-cycle digital engineering: Designed and built the official D-Arrow web platform from scratch with Next.js, bilingual RTL/LTR architecture, interactive pricing engines, influencer portal, and enterprise design system."
 description_ar: "تطوير وهندسة رقمية شاملة: تصميم وبرمجة المنصة الرسمية لوكالة دي آرو (D-Arrow) من الصفر بتقنيات Next.js، مع بنية ثنائية اللغة RTL/LTR، وحاسبة باقات تفاعلية، وبوابة المؤثرين، ومنظومة هوية مؤسسية متكاملة."
 date: 2026-08-04
-cover: "/images/darrow/darrow-web-hero.png"
+cover: "/images/darrow/mockup-darrow-hero.webp"
 gallery:
-  - "/images/darrow/darrow-web-hero.png"
-  - "/images/darrow/darrow-influencer.png"
-  - "/images/darrow/darrow-pricing-full.png"
-  - "/images/darrow/darrow-cafe.png"
-  - "/images/darrow/darrow-store.png"
-  - "/images/darrow/darrow-why-us.png"
-  - "/images/darrow/darrow-web-services.png"
+  - "/images/darrow/mockup-darrow-hero.webp"
+  - "/images/darrow/mockup-darrow-influencer.webp"
+  - "/images/darrow/mockup-darrow-pricing.webp"
+  - "/images/darrow/mockup-darrow-cafe.webp"
+  - "/images/darrow/mockup-darrow-store.webp"
   - "/images/darrow/darrow-hero.png"
   - "/images/darrow/darrow-1.png"
   - "/images/darrow/darrow-2.png"
@@ -118,59 +116,66 @@ tags:
   box-shadow: 0 10px 35px rgba(255, 77, 109, 0.6);
 }
 
-/* Premium Device Mockups */
-.mockup-container {
+/* Premium Device Mockup Display */
+.device-showcase-block {
   margin: 3.5rem 0;
-  position: relative;
 }
-.mockup-title {
-  font-size: 1.3rem;
+.dsb-title {
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 }
-.mockup-desc {
+.dsb-desc {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   line-height: 1.6;
 }
-.browser-mockup {
+.device-mockup-frame {
   border-radius: 20px;
-  background: #14162e;
-  border: 1px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(255, 77, 109, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 77, 109, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.4s ease, border-color 0.4s ease;
 }
-.browser-mockup:hover {
-  border-color: rgba(255, 77, 109, 0.35);
+.device-mockup-frame:hover {
+  border-color: rgba(255, 77, 109, 0.4);
   transform: translateY(-4px);
 }
-.bm-header {
+.device-mockup-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Video Player Box */
+.video-showcase-box {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0b0d1f;
+  border: 1px solid rgba(255, 77, 109, 0.3);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(255, 77, 109, 0.15);
+  margin: 3rem 0;
+}
+.video-showcase-box video {
+  width: 100%;
+  display: block;
+}
+.vsb-header {
   display: flex;
   align-items: center;
   padding: 0.9rem 1.4rem;
-  background: #0b0d1f;
+  background: #070913;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   gap: 0.8rem;
 }
-.bm-dots {
-  display: flex;
-  gap: 7px;
-}
-.bm-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-}
-.bm-dot.red { background: #ff5f56; }
-.bm-dot.yellow { background: #ffbd2e; }
-.bm-dot.green { background: #27c93f; }
-.bm-url {
+.vsb-dots { display: flex; gap: 7px; }
+.vsb-dot { width: 11px; height: 11px; border-radius: 50%; }
+.vsb-dot.red { background: #ff5f56; }
+.vsb-dot.yellow { background: #ffbd2e; }
+.vsb-dot.green { background: #27c93f; }
+.vsb-url {
   background: rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   padding: 0.3rem 1.2rem;
@@ -180,26 +185,6 @@ tags:
   flex: 1;
   max-width: 360px;
   font-family: monospace;
-}
-.browser-mockup img, .browser-mockup video {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* Video Showcase Box */
-.video-showcase-box {
-  border-radius: 20px;
-  overflow: hidden;
-  background: #0b0d1f;
-  border: 1px solid rgba(255, 77, 109, 0.25);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 77, 109, 0.15);
-  margin: 3rem 0;
-}
-.video-showcase-box video {
-  width: 100%;
-  display: block;
-  border-radius: 0 0 20px 20px;
 }
 
 .tech-pills {
@@ -286,101 +271,67 @@ tags:
 
 ---
 
-## 1. Video Showcase & Dynamic Interactions
+## 1. Live Video Showcase & Ambient Animations
 
 <div class="video-showcase-box">
-  <div class="bm-header">
-    <div class="bm-dots">
-      <div class="bm-dot red"></div>
-      <div class="bm-dot yellow"></div>
-      <div class="bm-dot green"></div>
-    </div>
-    <div class="bm-url">https://d-arrow.com/influencer • Live Experience</div>
+  <div class="vsb-header">
+    <div class="vsb-dots"><div class="vsb-dot red"></div><div class="vsb-dot yellow"></div><div class="vsb-dot green"></div></div>
+    <div class="vsb-url">https://d-arrow.com/influencer • Live Experience</div>
   </div>
   <video src="/images/darrow/darrow-showcase-video.mp4" controls autoplay muted loop playsinline></video>
 </div>
 
 ---
 
-## 2. Core Engineered Portals & Modules
+## 2. Core Engineered Portals & Realistic Device Mockups
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>01. Next-Generation Homepage & Hero Experience</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">01. Next-Generation Homepage & Hero Experience</div>
+  <p class="dsb-desc">
     Engineered with dynamic video background integration, ambient gradient lighting (#FF4D6D to #FF9A3C), and real-time metric counter animations.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/</div>
-    </div>
-    <img src="/images/darrow/darrow-web-hero.png" alt="D-Arrow Homepage Hero" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-hero.webp" alt="D-Arrow Homepage MacBook Mockup" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>02. Influencer Collaboration & Onboarding Portal</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">02. Influencer Collaboration & Onboarding Portal</div>
+  <p class="dsb-desc">
     A dedicated onboarding platform for content creators and digital influencers across Saudi Arabia, streamlining campaign matching and registration.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/influencer</div>
-    </div>
-    <img src="/images/darrow/darrow-influencer.png" alt="D-Arrow Influencer Portal" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-influencer.webp" alt="D-Arrow Influencer Portal Mockup" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>03. Interactive Packages & Quotation Engine</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">03. Interactive Packages & Quotation Engine</div>
+  <p class="dsb-desc">
     A multi-tier pricing calculator allowing prospective clients to explore service scopes, compare features, and initiate customized quotes seamlessly.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/pricing</div>
-    </div>
-    <img src="/images/darrow/darrow-pricing-full.png" alt="D-Arrow Pricing Packages" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-pricing.webp" alt="D-Arrow Pricing Packages Mockup" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>04. Specialized Industry Hubs (Cafes, Restaurants, Automotive, Retail)</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">04. Specialized Industry Hubs (Cafes, Restaurants, Automotive, Retail)</div>
+  <p class="dsb-desc">
     Tailored project hubs providing industry-specific digital solutions, market analysis, and case study breakdowns for regional business owners.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/projects/cafe</div>
-    </div>
-    <img src="/images/darrow/darrow-cafe.png" alt="D-Arrow Industry Hubs" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-cafe.webp" alt="D-Arrow Industry Hubs Mockup" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>05. Digital Store & Product Solutions</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">05. Digital Store & Product Solutions</div>
+  <p class="dsb-desc">
     Integrated digital store offering ready-to-deploy software packages, branding kits, and pre-packaged marketing campaigns.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/store</div>
-    </div>
-    <img src="/images/darrow/darrow-store.png" alt="D-Arrow Digital Store" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-store.webp" alt="D-Arrow Digital Store Mockup" loading="lazy" />
   </div>
 </div>
 
@@ -467,98 +418,64 @@ In addition to full-stack web engineering, I developed the unified brand identit
 ## 1. استعراض الفيديو والتفاعلات الحية
 
 <div class="video-showcase-box">
-  <div class="bm-header">
-    <div class="bm-dots">
-      <div class="bm-dot red"></div>
-      <div class="bm-dot yellow"></div>
-      <div class="bm-dot green"></div>
-    </div>
-    <div class="bm-url">https://d-arrow.com/influencer • التجربة التفاعلية الحية</div>
+  <div class="vsb-header">
+    <div class="vsb-dots"><div class="vsb-dot red"></div><div class="vsb-dot yellow"></div><div class="vsb-dot green"></div></div>
+    <div class="vsb-url">https://d-arrow.com/influencer • التجربة التفاعلية الحية</div>
   </div>
   <video src="/images/darrow/darrow-showcase-video.mp4" controls autoplay muted loop playsinline></video>
 </div>
 
 ---
 
-## 2. البوابات والموديولات المطورة
+## 2. البوابات والموديولات المطورة في موكابس أجهزة واقعية
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>01. الواجهة الرئيسية التفاعلية (Homepage & Hero)</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">01. الواجهة الرئيسية التفاعلية (Homepage & Hero)</div>
+  <p class="dsb-desc">
     واجهة مدمجة بفيديو ديناميكي مع إضاءة متدرجة باللونين الوردي والبرتقالي وعدادات خبرة متحركة لحظياً.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/</div>
-    </div>
-    <img src="/images/darrow/darrow-web-hero.png" alt="واجهة دي آرو الرئيسية" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-hero.webp" alt="واجهة دي آرو الرئيسية داخل ماك بوك" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>02. بوابة انضمام وتسجيل المؤثرين (Influencer Portal)</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">02. بوابة انضمام وتسجيل المؤثرين (Influencer Portal)</div>
+  <p class="dsb-desc">
     بوابة مخصصة تتيح للمؤثرين وصناع المحتوى في السعودية الانضمام إلى شبكة دي آرو والمشاركة في الحملات الإعلانية.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/influencer</div>
-    </div>
-    <img src="/images/darrow/darrow-influencer.png" alt="بوابة المؤثرين دي آرو" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-influencer.webp" alt="بوابة المؤثرين دي آرو داخل ماك بوك" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>03. مصفوفة الباقات وحاسبة الأسعار التفاعلية (Pricing Engine)</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">03. مصفوفة الباقات وحاسبة الأسعار التفاعلية (Pricing Engine)</div>
+  <p class="dsb-desc">
     نظام باقات متكامل يسمح للشركات بمقارنة المزايا واختيار الباقة المناسبة وطلب عرض السعر فوراً.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/pricing</div>
-    </div>
-    <img src="/images/darrow/darrow-pricing-full.png" alt="باقات دي آرو" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-pricing.webp" alt="باقات دي آرو داخل ماك بوك" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>04. قطاعات المشاريع المتخصصة (طور مشروعك: كافيهات، مطاعم، سيارات، أزياء)</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">04. قطاعات المشاريع المتخصصة (طور مشروعك: كافيهات، مطاعم، سيارات، أزياء)</div>
+  <p class="dsb-desc">
     صفحات متخصصة لكل قطاع تجاري تقدم حلولاً تسويقية مخصصة تناسب طبيعة النشاط واحتياجات السوق السعودي.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/projects/cafe</div>
-    </div>
-    <img src="/images/darrow/darrow-cafe.png" alt="قطاع الكافيهات والمطاعم" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-cafe.webp" alt="قطاع الكافيهات والمطاعم داخل ماك بوك" loading="lazy" />
   </div>
 </div>
 
-<div class="mockup-container">
-  <div class="mockup-title">
-    <span>05. متجر دي آرو الرقمي (Digital Agency Store)</span>
-  </div>
-  <p class="mockup-desc">
+<div class="device-showcase-block">
+  <div class="dsb-title">05. متجر دي آرو الرقمي (Digital Agency Store)</div>
+  <p class="dsb-desc">
     متجر إلكتروني متكامل للحلول والمنتجات الرقمية الجاهزة وباقات الهوية والتسويق السريع.
   </p>
-  <div class="browser-mockup">
-    <div class="bm-header">
-      <div class="bm-dots"><div class="bm-dot red"></div><div class="bm-dot yellow"></div><div class="bm-dot green"></div></div>
-      <div class="bm-url">https://d-arrow.com/store</div>
-    </div>
-    <img src="/images/darrow/darrow-store.png" alt="متجر دي آرو" loading="lazy" />
+  <div class="device-mockup-frame">
+    <img src="/images/darrow/mockup-darrow-store.webp" alt="متجر دي آرو داخل ماك بوك" loading="lazy" />
   </div>
 </div>
 
