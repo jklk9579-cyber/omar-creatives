@@ -1919,14 +1919,18 @@ import robotImg from "../../public/images/robot.png";
 			<section class="cinematic-video-hero">
 				<video
 					class="cvh-video"
-					src="/videos/character-studio-transformation.mp4"
 					autoplay
 					muted
 					loop
 					playsinline
 					webkit-playsinline
 					preload="auto"
-				></video>
+					tabindex="-1"
+					aria-hidden="true"
+				>
+					<source src="/videos/character-studio-transformation.webm" type="video/webm" />
+					<source src="/videos/character-studio-transformation.mp4" type="video/mp4" />
+				</video>
 				<div class="cvh-bottom-fade"></div>
 			</section>
 
@@ -2592,7 +2596,7 @@ import robotImg from "../../public/images/robot.png";
 		<Footer />
 
 		<script>
-			// Ensure cinematic video plays and loops reliably without freezing
+			// Ensure cinematic video plays and loops seamlessly
 			const bgVideo = document.querySelector('.cvh-video') as HTMLVideoElement;
 			if (bgVideo) {
 				bgVideo.muted = true;
@@ -2611,12 +2615,17 @@ import robotImg from "../../public/images/robot.png";
 
 				playSafe();
 
+				bgVideo.addEventListener('loadeddata', playSafe);
+				bgVideo.addEventListener('canplay', playSafe);
+				bgVideo.addEventListener('canplaythrough', playSafe);
 				bgVideo.addEventListener('ended', () => {
 					bgVideo.currentTime = 0;
 					playSafe();
 				});
-
 				bgVideo.addEventListener('pause', () => {
+					playSafe();
+				});
+				bgVideo.addEventListener('stalled', () => {
 					playSafe();
 				});
 
@@ -2626,7 +2635,7 @@ import robotImg from "../../public/images/robot.png";
 
 				window.addEventListener('load', playSafe);
 				document.addEventListener('DOMContentLoaded', playSafe);
-				['touchstart', 'click', 'scroll'].forEach((evt) => {
+				['touchstart', 'click', 'scroll', 'mousemove'].forEach((evt) => {
 					window.addEventListener(evt, playSafe, { passive: true });
 				});
 			}
