@@ -2135,118 +2135,77 @@ import robotImg from "../../public/images/robot.png";
 				</div>
 			</section>
 
-			<!-- Services Section -->
+			<!-- Services / Core Competencies Section -->
 			<section class="section section-dark">
 				<div class="section-header animate-fadeInUp">
 					<div>
-						<p class="section-label" data-i18n="services.title">
-							How I Can Help
+						<p class="section-label">
+							<span class="lang-en">Core Specializations</span>
+							<span class="lang-ar">الخبرات والقدرات الأساسية</span>
 						</p>
-						<h2 data-i18n="services.label">Services</h2>
+						<h2>
+							<span class="lang-en">What I Build & Own</span>
+							<span class="lang-ar">ما أصممه وأقوم بهندسته</span>
+						</h2>
 						<p class="section-desc">
-							I provide a wide range of creative and technical
-							solutions tailored to your specific needs. From
-							high-performance, responsive web applications built
-							with the latest technologies to cutting-edge
-							AI-generated content and unique brand identities
-							that help you stand out in the digital landscape.
+							<span class="lang-en">Focused on three integrated disciplines where high-craft digital design meets modern front-end engineering and AI acceleration.</span>
+							<span class="lang-ar">التركيز على ثلاثة مسارات متكاملة تجمع بين دقة التصميم الرقمي، وهندسة واجهات الويب الحديثة، وتسريع الإنتاج بالذكاء الاصطناعي.</span>
 						</p>
 					</div>
-					<a href="/services" class="view-all"
-						><span data-i18n="services.viewAll"
-							>Service Catalog</span
-						> →</a
-					>
+					<a href="/services" class="view-all">
+						<span class="lang-en">View Capabilities</span>
+						<span class="lang-ar">تفاصيل الخبرات</span> →
+					</a>
 				</div>
 				<div class="services-container">
-					<div class="robot-mascot animate-fadeInUp">
-						<Image src={robotImg} alt="AI Robot Mascot" />
-					</div>
-					<div class="services-grid stagger-animation">
+					<div class="services-grid stagger-animation" style="grid-template-columns: repeat(3, 1fr); width: 100%;">
 						<div class="service-card">
 							<div class="service-icon">
-								<svg
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.5"
-								>
-									<path
-										d="M12 2a3 3 0 0 0-3 3v1H6a3 3 0 0 0-3 3v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V9a3 3 0 0 0-3-3h-3V5a3 3 0 0 0-3-3z"
-									></path>
-									<circle cx="9" cy="13" r="1.5"></circle>
-									<circle cx="15" cy="13" r="1.5"></circle>
-									<path d="M9 17h6" stroke-linecap="round"
-									></path>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+									<polyline points="16 18 22 12 16 6"></polyline>
+									<polyline points="8 6 2 12 8 18"></polyline>
 								</svg>
 							</div>
-							<p class="service-title">AI Content</p>
-							<p>
-								Creating stunning visuals and copy with
-								cutting-edge AI tools.
+							<p class="service-title lang-en">Design-to-Code Web Platforms</p>
+							<p class="service-title lang-ar">تطوير منصات الويب الحديثة</p>
+							<p class="lang-en">
+								Engineering high-performance web applications with Next.js, Astro, Tailwind CSS, and edge deployment — built for sub-second speed, flawless responsiveness, and SEO.
+							</p>
+							<p class="lang-ar">
+								هندسة وبرمجة منصات وتطبيقات ويب فائقة السرعة باستخدام Next.js و Astro مع تحسين محركات البحث وتوافق كامل ثنائي اللغة.
 							</p>
 						</div>
 						<div class="service-card">
 							<div class="service-icon">
-								<svg
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.5"
-								>
-									<circle cx="12" cy="12" r="10"></circle>
-									<path
-										d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-									></path>
-								</svg>
-							</div>
-							<p class="service-title">Web Development</p>
-							<p>
-								Fast, modern websites with clean code and great
-								UX.
-							</p>
-						</div>
-						<div class="service-card">
-							<div class="service-icon">
-								<svg
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.5"
-								>
-									<rect
-										x="5"
-										y="2"
-										width="14"
-										height="20"
-										rx="3"></rect>
-									<path d="M12 18h.01" stroke-linecap="round"
-									></path>
-									<path d="M9 5h6"></path>
-								</svg>
-							</div>
-							<p class="service-title">App Development</p>
-							<p>
-								Native and cross-platform mobile apps users
-								love.
-							</p>
-						</div>
-						<div class="service-card">
-							<div class="service-icon">
-								<svg
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.5"
-								>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
 									<path d="M12 2L2 7l10 5 10-5-10-5z"></path>
 									<path d="M2 17l10 5 10-5"></path>
 									<path d="M2 12l10 5 10-5"></path>
 								</svg>
 							</div>
-							<p class="service-title">UI/UX Design</p>
-							<p>
-								Beautiful interfaces that tell your brand story.
+							<p class="service-title lang-en">Design Systems & UI/UX</p>
+							<p class="service-title lang-ar">نظم التصميم وواجهات المستخدم</p>
+							<p class="lang-en">
+								Architecting scalable Figma component libraries, multi-weight typography hierarchies, design tokens, and high-conversion user interfaces.
+							</p>
+							<p class="lang-ar">
+								بناء وتطوير مكتبات ونظم التصميم في فيجما، وتدرجات الألوان، وهندسة الخطوط العربية المتجاوبة لتعزيز سهولة الاستخدام.
+							</p>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+									<path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
+									<path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</div>
+							<p class="service-title lang-en">Generative AI & Media Pipelines</p>
+							<p class="service-title lang-ar">حلول ومسارات الذكاء الاصطناعي</p>
+							<p class="lang-en">
+								Leveraging generative AI tooling and automated creative pipelines for rapid visual prototyping, cinematic media, and accelerated asset delivery.
+							</p>
+							<p class="lang-ar">
+								دمج أحدث مسارات وأدوات الذكاء الاصطناعي التوليدي لإنتاج المحتوى البصري وتصميم النماذج التفاعلية بسرعة استثنائية.
 							</p>
 						</div>
 					</div>
