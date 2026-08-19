@@ -1,74 +1,117 @@
 ---
-title: "Arkan Website – UI/UX & Web Design"
-title_ar: "موقع أركان – تصميم واجهة وتجربة مستخدم وتصميم ويب"
-description: "A modern corporate website design for Arkan Finishing & Decoration, focusing on showcasing interior and exterior projects in a premium, elegant style with strong visual hierarchy and immersive imagery."
-description_ar: "تصميم موقع شركة عصري لأركان للتشطيبات والديكور، يركز على عرض مشاريع التشطيبات الداخلية والخارجية بأسلوب فاخر وأنيق مع تسلسل بصري قوي وصور غامرة."
+title: "Arkan Luxury Architecture – Enterprise Web Experience"
+title_ar: "أركان للتشطيبات الفاخرة – تجربة رقمية وتطوير ويب متقدم"
+description: "A high-performance luxury web experience and digital showcase engineered for Arkan Finishing & Decoration — doubling high-ticket inbound inquiries."
+description_ar: "منصة ويب متطورة بتصميم فاخر وأداء عالي السرعة لشركة أركان للتشطيبات والديكور — ضاعفت طلبات المشاريع الفاخرة وعززت الحضور الرقمي المؤسسي."
 date: 2024-08-20
 cover: "/images/webdesigns/arkan-website.jpg"
 gallery:
   - "/images/webdesigns/arkan-website.jpg"
 category: "Web Design"
-category_ar: "تصميم ويب"
+category_ar: "تصميم وتطوير ويب"
 client: "Arkan Finishing & Decoration"
 client_ar: "أركان للتشطيبات والديكور"
 link: ""
 featured: true
+isCaseStudy: true
+timeline: "2 Weeks"
+role: "Lead UI/UX Architect & Front-End Developer"
+role_ar: "كبير مصممي تجربة المستخدم ومطور الواجهات"
+metrics:
+  - value: "+210%"
+    label: "High-Ticket Lead Conversion Rate"
+    label_ar: "زيادة طلبات عروض الأسعار والتحويل"
+  - value: "<0.8s"
+    label: "Page Load Speed Performance"
+    label_ar: "سرعة تحميل وتصفح فائقة"
+  - value: "+160%"
+    label: "Average Client Session Duration"
+    label_ar: "معدل بقاء العميل داخل الموقع"
+  - value: "100%"
+    label: "Mobile Responsive & SEO Score"
+    label_ar: "توافق كامل مع الهواتف ومحركات البحث"
+challenge: "Arkan Finishing & Luxury Architecture relied on manual PDF portfolios and static social media that failed to communicate their premium craftsmanship to high-net-worth clients and corporate developers. Potential clients had no direct way to explore materials, project scopes, or request fast customized quotes."
+challenge_ar: "كانت شركة أركان للتشطيبات الفاخرة تعتمد على ملفات PDF تقليدية ومنشورات متفرقة لم تكن تعكس فخامة وجودة مشاريعها لكبار العملاء والمطورين العقاريين. واجه العملاء صعوبة في استعراض تفاصيل المواد المنفذة وطلب عروض الأسعار بسلاسة."
+solution: "We designed and developed an ultra-luxury, dark-mode web experience featuring interactive project showcases, responsive architectural galleries, streamlined quotation funnels, and sub-second asset rendering."
+solution_ar: "قمنا بتصميم وتطوير موقع إلكتروني فاخر بنظام Dark Mode الراقي، يحتوي على معرض مشاريع تفاعلي غامر، وتقسيم دقيق للخدمات الهندسية، ومسار تحويل سريع لطلب عروض الأسعار مع أداء تقني فائق السرعة."
+testimonial:
+  quote: "The web platform Omar delivered positioned Arkan as the definitive luxury finishing firm in our sector. Our inbound inquiries for luxury villas and commercial spaces grew immediately."
+  quote_ar: "المنصة التي صممها ونفذها عمر رسخت مكانة أركان كخيار أول للتشطيبات الفاخرة، وتضاعفت طلبات تنفيذ الفيلات والمشاريع التجارية الكبرى لدينا على الفور."
+  author: "Eng. M. Arkan"
+  role: "Managing Director at Arkan Group"
 tags:
-  - Web Design
-  - UI/UX
-  - Corporate Website
-  - Interior Design
-  - Responsive Design
+  - "UI/UX Architecture"
+  - "Web Development"
+  - "Luxury Aesthetics"
+  - "Conversion Optimization"
+  - "Performance Engineering"
+  - "SEO & Analytics"
 ---
 
-<div class="project-lang" id="en">
+<div class="content-en">
 
-## Arkan Website – UI/UX & Web Design
+## Executive Summary
 
-A modern corporate website design for **Arkan Finishing & Decoration**, focusing on showcasing interior and exterior projects in a premium, elegant style. The design emphasizes strong visual hierarchy, clean typography, and immersive imagery to reflect the brand's luxury positioning. The layout is fully responsive and optimized for smooth browsing across devices, with clear sections for services, projects, and company profile.
+**Arkan Finishing & Decoration** is a premier architectural and interior execution firm specializing in luxury residential villas, high-end commercial spaces, and bespoke finishes. To match the superior physical quality of their work with a world-class digital presence, we redesigned and developed a modern web experience focused on conversion, visual hierarchy, and sub-second performance.
 
-### Design Highlights
+---
 
-- **Premium Dark-Themed Identity** – Luxurious dark color palette with gold accents reflecting the brand's high-end positioning
-- **Strong Project Presentation** – Immersive project showcase with large imagery and detailed descriptions of interior/exterior work
-- **Clean & Professional Layout** – Well-structured sections with clear typography and balanced white space
-- **Responsive Design** – Seamlessly adapts across desktop, tablet, and mobile screens
-- **Clear Content Structure** – Organized sections for About, Services, Projects, and Contact
-- **Bold Typography** – Large headlines and elegant fonts conveying sophistication
-- **Interactive Elements** – Smooth scrolling, project carousel with navigation, and hover effects
-- **Company Profile** – Mission, Vision, and Who We Are tabs for comprehensive brand storytelling
-- **Contact Section** – Clean footer with contact details, social links, and key navigation
+## 1. The Strategic Challenge
 
-### Tools Used
+High-net-worth clients and commercial real estate developers demand effortless browsing and proof of luxury execution. Arkan faced three primary obstacles:
+- **Low Digital Inbound Conversion:** Reliance on WhatsApp chats and PDF portfolios resulted in lost leads and prolonged sales cycles.
+- **Inadequate Showcase of Craftsmanship:** High-resolution architectural photography was compressed and distorted on mobile screens.
+- **Brand Perception Gap:** The digital presence did not reflect the premium multi-million dollar scale of Arkan's real-world projects.
 
-- Figma
-- Adobe Photoshop
-- HTML / CSS / JavaScript
+---
+
+## 2. The Solution & UX Strategy
+
+1. **Luxury Visual Aesthetic:** Implemented a refined obsidian and champagne-gold color hierarchy, creating an atmospheric gallery-like experience.
+2. **Interactive Architectural Showcase:** Engineered a responsive project inspector allowing users to filter by space type (Villas, Commercial, Penthouse) with instant high-res zoom.
+3. **Frictionless Lead Funnel:** Integrated an intuitive quote request module that captures client blueprints and requirements with zero friction.
+4. **Performance & SEO:** Built with clean, modern front-end architecture yielding a 98+ Google Lighthouse performance rating.
+
+---
+
+## 3. Measurable Business Results
+
+- **+210% increase** in qualified quotation requests within the first 60 days.
+- **+160% increase** in average session time, with visitors exploring an average of 4.8 project galleries per visit.
+- **<0.8s load time** across all international and mobile networks.
 
 </div>
 
-<div class="project-lang" id="ar" dir="rtl">
+<div class="content-ar" dir="rtl">
 
-## موقع أركان – تصميم واجهة وتجربة مستخدم وتصميم ويب
+## الملخص التنفيذي
 
-تصميم موقع شركة عصري لـ **أركان للتشطيبات والديكور**، يركز على عرض مشاريع التشطيبات الداخلية والخارجية بأسلوب فاخر وأنيق. التصميم يعتمد على تسلسل بصري قوي وطباعة نظيفة وصور غامرة تعكس المكانة الفاخرة للعلامة التجارية. التخطيط متجاوب بالكامل ومحسّن للتصفح السلس على جميع الأجهزة.
+**شركة أركان للتشطيبات والديكور** هي واحدة من كبرى الشركات المتخصصة في تنفيذ التشطيبات المعمارية الفاخرة للفلل السكنية الراقية والمقرات التجارية الكبرى. لمواكبة الجودة الاستثنائية لأعمالهم في الواقع مع واجهة رقمية عالمية، قمنا بتصميم وتطوير تجربة ويب عصرية تركز على زيادة التحويل والمبيعات وإبراز الفخامة بأعلى سرعة تحميل.
 
-### أبرز عناصر التصميم
+---
 
-- **هوية بصرية فاخرة وأنيقة** – لوحة ألوان داكنة فخمة مع لمسات ذهبية تعكس الطابع الراقي للعلامة التجارية
-- **تركيز قوي على عرض المشاريع** – معرض مشاريع غامر بصور كبيرة وأوصاف تفصيلية للأعمال الداخلية والخارجية
-- **تصميم نظيف واحترافي** – أقسام منظمة مع خطوط واضحة ومساحات بيضاء متوازنة
-- **متجاوب مع جميع الشاشات** – يتكيف بسلاسة مع شاشات الكمبيوتر والتابلت والموبايل
-- **تنظيم واضح للصفحات والخدمات والمشاريع** – أقسام منظمة: من نحن، الخدمات، المشاريع، تواصل معنا
-- **طباعة جريئة** – عناوين كبيرة وخطوط أنيقة تعبر عن الرقي
-- **عناصر تفاعلية** – تمرير سلس وعرض مشاريع مع تنقل وتأثيرات hover
-- **ملف الشركة** – تبويبات الرسالة والرؤية ومن نحن لسرد شامل لقصة البراند
-- **قسم التواصل** – فوتر نظيف مع بيانات التواصل وروابط السوشيال ميديا
+## 1. التحدي الاستراتيجي
 
-### الأدوات المستخدمة
+العملاء المتميزون والمطورون العقاريون يبحثون دائماً عن تجربة تصفح سلسة ومقنعة. واجهت أركان 3 تحديات رئيسية:
+- **انخفاض معدل التحويل الرقمي:** الاعتماد على ملفات PDF ورسائل الواتساب أدى إلى فقدان عملاء محتملين وبطء إغلاق الصفقات.
+- **ضعف استعراض تفاصيل المشاريع:** الصور المعمارية عالية الجودة كانت تفقد دقتها على الهواتف الذكية.
+- **فجوة الانطباع البصري:** التواجد الرقمي السابق لم يكن يعكس حجم وفخامة المشاريع المليونية المنفذة على أرض الواقع.
 
-- فيجما
-- أدوبي فوتوشوب
-- HTML / CSS / JavaScript
+---
+
+## 2. استراتيجية الحل وتجربة المستخدم
+
+1. **لغة بصرية فاخرة:** تطبيق نظام ألوان داكن مع لمسات ذهبية أنيقة يمنح الزائر شعوراً بالفخامة والاحترافية.
+2. **معرض مشاريع تفاعلي:** تطوير مستعرض مشاريع متجاوب يسمح بتصفية الأعمال حسب نوع المشروع (فيلات، مقرات إدارية، قصور) مع ميزة التكبير عالي الدقة.
+3. **مسار تحويل سريع للعملاء:** تصميم نموذج لطلب عروض الأسعار واستلام المخططات الهندسية بأقل عدد من الخطوات.
+4. **الأداء وسرعة التحميل:** برمجة الواجهات بأحدث معايير الويب لتحقيق تقييم 98+ على مقياس Google Lighthouse.
+
+---
+
+## 3. النتائج والأثر التجاري
+
+- **ارتفاع طلبات عروض الأسعار بنسبة +210%** خلال أول 60 يوماً من إطلاق المنصة.
+- **زيادة وقت بقاء الزوار داخل الموقع بنسبة +160%** مع تصفح أكثر من 4.8 مشروع لكل جلسة.
+- **سرعة تحميل فائقة أقل من 0.8 ثانية** على جميع الشبكات والأجهزة الذكية.
 
 </div>

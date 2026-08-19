@@ -52,6 +52,36 @@ const projects = defineCollection({
 		video_url: z.string().optional(),
 		featured: z.boolean().default(false),
 		tags: z.array(z.string()).optional(),
+		// Enterprise Case Study Specific Fields
+		isCaseStudy: z.boolean().optional(),
+		timeline: z.string().optional(),
+		role: z.string().optional(),
+		role_ar: z.string().optional(),
+		metrics: z.array(z.object({
+			value: z.string(),
+			label: z.string(),
+			label_ar: z.string().optional(),
+			icon: z.string().optional(),
+		})).optional(),
+		challenge: z.string().optional(),
+		challenge_ar: z.string().optional(),
+		solution: z.string().optional(),
+		solution_ar: z.string().optional(),
+		impact: z.string().optional(),
+		impact_ar: z.string().optional(),
+		testimonial: z.object({
+			quote: z.string(),
+			quote_ar: z.string().optional(),
+			author: z.string(),
+			role: z.string(),
+			avatar: z.string().optional(),
+		}).optional(),
+		beforeAfter: z.object({
+			beforeImg: z.string(),
+			afterImg: z.string(),
+			beforeLabel: z.string().optional(),
+			afterLabel: z.string().optional(),
+		}).optional(),
 	}),
 });
 

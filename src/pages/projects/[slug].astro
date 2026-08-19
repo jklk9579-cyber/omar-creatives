@@ -4,7 +4,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE } from "../../consts";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
 	const projects = await getCollection("projects");
@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const { Content } = await render(project);
 const {
 	title,
 	title_ar,
@@ -29,6 +30,21 @@ const {
 	link,
 	date,
 	video_url,
+	featured,
+	tags,
+	isCaseStudy,
+	timeline,
+	role,
+	role_ar,
+	metrics,
+	challenge,
+	challenge_ar,
+	solution,
+	solution_ar,
+	impact,
+	impact_ar,
+	testimonial,
+	beforeAfter,
 } = project.data;
 
 const allProjects = await getCollection("projects");
@@ -1019,18 +1035,534 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				}
 			}
 
-			@media (max-width: 480px) {
-				.info-cards {
-					grid-template-columns: 1fr;
-				}
-				.gallery-grid {
-					grid-template-columns: 1fr;
-				}
-				.hero-badge {
-					top: 1rem;
-					left: 1rem;
-					font-size: 0.65rem;
-				}
+			/* ── Enterprise Case Study System ── */
+			.case-study-hero-badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.4rem 1rem;
+				background: rgba(245, 158, 11, 0.12);
+				border: 1px solid rgba(245, 158, 11, 0.35);
+				border-radius: 50px;
+				font-size: 0.78rem;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: #f59e0b;
+				margin-bottom: 1.2rem;
+				box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+			}
+			.case-study-hero-badge svg {
+				width: 14px;
+				height: 14px;
+			}
+
+			/* ── Key Impact Metrics ── */
+			.metrics-section {
+				max-width: 1200px;
+				margin: 2.5rem auto 3.5rem;
+				padding: 0 2rem;
+				position: relative;
+				z-index: 2;
+			}
+			.metrics-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 1.25rem;
+			}
+			.metric-card {
+				position: relative;
+				background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 18px;
+				padding: 1.8rem 1.5rem;
+				text-align: center;
+				overflow: hidden;
+				backdrop-filter: blur(20px);
+				transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+			}
+			.metric-card:hover {
+				transform: translateY(-4px);
+				border-color: rgba(245, 158, 11, 0.35);
+				box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.1);
+			}
+			.metric-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 2px;
+				background: var(--accent-gradient);
+				opacity: 0.8;
+			}
+			.metric-value {
+				font-size: 2.5rem;
+				font-weight: 800;
+				letter-spacing: -0.02em;
+				background: linear-gradient(135deg, #ffffff 30%, #f59e0b 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				line-height: 1.1;
+				margin-bottom: 0.6rem;
+			}
+			.metric-label {
+				font-size: 0.85rem;
+				color: rgba(255, 255, 255, 0.65);
+				line-height: 1.4;
+				font-weight: 500;
+			}
+
+			/* ── Challenge vs Solution Bento ── */
+			.ps-section {
+				max-width: 1200px;
+				margin: 3.5rem auto;
+				padding: 0 2rem;
+				position: relative;
+				z-index: 2;
+			}
+			.ps-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.5rem;
+			}
+			.ps-card {
+				background: rgba(255, 255, 255, 0.02);
+				border: 1px solid rgba(255, 255, 255, 0.07);
+				border-radius: 20px;
+				padding: 2.2rem;
+				position: relative;
+				backdrop-filter: blur(20px);
+				transition: border-color 0.3s ease, transform 0.3s ease;
+			}
+			.ps-card:hover {
+				transform: translateY(-3px);
+			}
+			.ps-card.challenge-card {
+				border-left: 3px solid #ef4444;
+			}
+			body.is-ar .ps-card.challenge-card {
+				border-left: 1px solid rgba(255, 255, 255, 0.07);
+				border-right: 3px solid #ef4444;
+			}
+			.ps-card.solution-card {
+				border-left: 3px solid #10b981;
+			}
+			body.is-ar .ps-card.solution-card {
+				border-left: 1px solid rgba(255, 255, 255, 0.07);
+				border-right: 3px solid #10b981;
+			}
+			.ps-tag {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				font-size: 0.72rem;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				margin-bottom: 1rem;
+				padding: 0.3rem 0.8rem;
+				border-radius: 6px;
+			}
+			.ps-tag.challenge-tag {
+				background: rgba(239, 68, 68, 0.12);
+				color: #f87171;
+				border: 1px solid rgba(239, 68, 68, 0.25);
+			}
+			.ps-tag.solution-tag {
+				background: rgba(16, 185, 129, 0.12);
+				color: #34d399;
+				border: 1px solid rgba(16, 185, 129, 0.25);
+			}
+			.ps-title {
+				font-size: 1.35rem;
+				font-weight: 700;
+				color: #ffffff;
+				margin-bottom: 1rem;
+			}
+			.ps-desc {
+				font-size: 0.95rem;
+				line-height: 1.7;
+				color: rgba(255, 255, 255, 0.72);
+			}
+
+			/* ── Interactive Before & After Slider ── */
+			.before-after-section {
+				max-width: 1200px;
+				margin: 3.5rem auto;
+				padding: 0 2rem;
+				position: relative;
+				z-index: 2;
+			}
+			.ba-header {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+			}
+			.ba-header h2 {
+				font-size: 1.4rem;
+				font-weight: 700;
+				color: #fff;
+				margin: 0;
+			}
+			.ba-header .line {
+				flex: 1;
+				height: 1px;
+				background: linear-gradient(90deg, rgba(245, 158, 11, 0.3), transparent);
+			}
+			.ba-wrapper {
+				position: relative;
+				width: 100%;
+				max-height: 600px;
+				aspect-ratio: 16 / 9;
+				border-radius: 18px;
+				overflow: hidden;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+				user-select: none;
+				touch-action: none;
+				cursor: ew-resize;
+			}
+			.ba-img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				pointer-events: none;
+			}
+			.ba-after-container {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				clip-path: inset(0 0 0 50%);
+			}
+			.ba-handle {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				width: 3px;
+				background: #ffffff;
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), 0 0 10px rgba(245, 158, 11, 0.6);
+				z-index: 10;
+				transform: translateX(-50%);
+			}
+			.ba-handle-button {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				background: #111111;
+				border: 2px solid #ffffff;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #ffffff;
+			}
+			.ba-handle-button svg {
+				width: 20px;
+				height: 20px;
+			}
+			.ba-badge {
+				position: absolute;
+				top: 1.2rem;
+				padding: 0.4rem 1rem;
+				border-radius: 50px;
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				background: rgba(0, 0, 0, 0.75);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				color: #fff;
+				z-index: 8;
+			}
+			.ba-badge.before { left: 1.2rem; }
+			.ba-badge.after { right: 1.2rem; color: #f59e0b; }
+
+			/* ── Case Study Detailed Prose ── */
+			.project-content-section {
+				max-width: 1000px;
+				margin: 3.5rem auto 4.5rem;
+				padding: 0 2rem;
+				position: relative;
+				z-index: 2;
+			}
+			.case-study-prose {
+				background: rgba(255, 255, 255, 0.015);
+				border: 1px solid rgba(255, 255, 255, 0.06);
+				border-radius: 24px;
+				padding: 3.5rem 3rem;
+				backdrop-filter: blur(20px);
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+				line-height: 1.85;
+				color: rgba(255, 255, 255, 0.8);
+			}
+			.case-study-prose h2 {
+				font-size: 1.85rem;
+				font-weight: 700;
+				color: #ffffff;
+				margin: 2.5rem 0 1rem;
+				padding-bottom: 0.6rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+				display: flex;
+				align-items: center;
+				gap: 0.6rem;
+			}
+			.case-study-prose h2:first-of-type {
+				margin-top: 0;
+			}
+			.case-study-prose h3 {
+				font-size: 1.35rem;
+				font-weight: 600;
+				color: #f59e0b;
+				margin: 2rem 0 0.8rem;
+			}
+			.case-study-prose p {
+				font-size: 1.05rem;
+				margin-bottom: 1.4rem;
+				color: rgba(255, 255, 255, 0.78);
+			}
+			.case-study-prose ul, .case-study-prose ol {
+				margin: 1rem 0 1.8rem 1.5rem;
+				padding: 0;
+			}
+			body.is-ar .case-study-prose ul, body.is-ar .case-study-prose ol {
+				margin: 1rem 1.5rem 1.8rem 0;
+			}
+			.case-study-prose li {
+				margin-bottom: 0.6rem;
+				font-size: 1rem;
+				color: rgba(255, 255, 255, 0.75);
+			}
+			.case-study-prose strong {
+				color: #ffffff;
+				font-weight: 600;
+			}
+			.case-study-prose blockquote {
+				border-left: 3px solid #f59e0b;
+				padding: 1rem 1.5rem;
+				margin: 1.8rem 0;
+				background: rgba(245, 158, 11, 0.05);
+				border-radius: 0 12px 12px 0;
+				font-style: italic;
+				color: rgba(255, 255, 255, 0.9);
+			}
+			body.is-ar .case-study-prose blockquote {
+				border-left: none;
+				border-right: 3px solid #f59e0b;
+				border-radius: 12px 0 0 12px;
+			}
+
+			/* ── Deliverables & Tech Stack ── */
+			.tags-section {
+				max-width: 1200px;
+				margin: 2.5rem auto;
+				padding: 0 2rem;
+				position: relative;
+				z-index: 2;
+			}
+			.tags-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6rem;
+			}
+			.tag-pill {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				padding: 0.45rem 1.1rem;
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 50px;
+				font-size: 0.8rem;
+				color: rgba(255, 255, 255, 0.75);
+				font-weight: 500;
+				transition: all 0.25s ease;
+			}
+			.tag-pill:hover {
+				background: rgba(245, 158, 11, 0.1);
+				border-color: rgba(245, 158, 11, 0.3);
+				color: #f59e0b;
+				transform: translateY(-2px);
+			}
+
+			/* ── Client Testimonial Endorsement ── */
+			.testimonial-section {
+				max-width: 1000px;
+				margin: 3.5rem auto;
+				padding: 0 2rem;
+				position: relative;
+				z-index: 2;
+			}
+			.testimonial-card {
+				background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+				border: 1px solid rgba(245, 158, 11, 0.25);
+				border-radius: 24px;
+				padding: 2.8rem;
+				position: relative;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+			}
+			.testimonial-stars {
+				display: flex;
+				gap: 4px;
+				color: #f59e0b;
+				margin-bottom: 1.2rem;
+			}
+			.testimonial-stars svg {
+				width: 18px;
+				height: 18px;
+				fill: currentColor;
+			}
+			.testimonial-quote {
+				font-size: 1.25rem;
+				line-height: 1.7;
+				color: #ffffff;
+				font-style: italic;
+				margin-bottom: 1.8rem;
+			}
+			.testimonial-author-meta {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+			.testimonial-avatar {
+				width: 52px;
+				height: 52px;
+				border-radius: 50%;
+				border: 2px solid rgba(245, 158, 11, 0.4);
+				object-fit: cover;
+				background: #222;
+			}
+			.testimonial-name {
+				font-weight: 700;
+				font-size: 1.05rem;
+				color: #ffffff;
+			}
+			.testimonial-title {
+				font-size: 0.85rem;
+				color: rgba(255, 255, 255, 0.5);
+			}
+
+			/* ── Enterprise Global CTA ── */
+			.enterprise-cta-section {
+				max-width: 1200px;
+				margin: 5rem auto;
+				padding: 0 2rem;
+				position: relative;
+				z-index: 2;
+			}
+			.enterprise-cta-box {
+				background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(10, 10, 10, 0.8) 100%);
+				border: 1px solid rgba(245, 158, 11, 0.3);
+				border-radius: 28px;
+				padding: 3.5rem 3rem;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+				box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 158, 11, 0.1);
+			}
+			.enterprise-cta-box::before {
+				content: '';
+				position: absolute;
+				top: -100px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 500px;
+				height: 200px;
+				background: radial-gradient(ellipse, rgba(245, 158, 11, 0.25), transparent 70%);
+				pointer-events: none;
+			}
+			.cta-pill {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.35rem 0.9rem;
+				border-radius: 50px;
+				background: rgba(255, 255, 255, 0.08);
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: #f59e0b;
+				margin-bottom: 1.2rem;
+			}
+			.cta-title {
+				font-size: 2.2rem;
+				font-weight: 800;
+				color: #ffffff;
+				margin-bottom: 1rem;
+				letter-spacing: -0.02em;
+			}
+			.cta-desc {
+				font-size: 1.05rem;
+				color: rgba(255, 255, 255, 0.7);
+				max-width: 650px;
+				margin: 0 auto 2.2rem;
+				line-height: 1.6;
+			}
+			.cta-buttons {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1.2rem;
+				flex-wrap: wrap;
+			}
+			.cta-btn-primary {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.6rem;
+				padding: 0.9rem 2rem;
+				background: var(--accent-gradient);
+				color: #000000;
+				font-weight: 700;
+				font-size: 0.95rem;
+				border-radius: 50px;
+				text-decoration: none;
+				box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35);
+				transition: transform 0.25s ease, box-shadow 0.25s ease;
+			}
+			.cta-btn-primary:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 12px 40px rgba(245, 158, 11, 0.5);
+			}
+			.cta-btn-secondary {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.6rem;
+				padding: 0.9rem 2rem;
+				background: rgba(255, 255, 255, 0.06);
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				color: #ffffff;
+				font-weight: 600;
+				font-size: 0.95rem;
+				border-radius: 50px;
+				text-decoration: none;
+				transition: all 0.25s ease;
+			}
+			.cta-btn-secondary:hover {
+				background: rgba(255, 255, 255, 0.12);
+				border-color: rgba(255, 255, 255, 0.3);
+				transform: translateY(-3px);
+			}
+
+			@media (max-width: 768px) {
+				.ps-grid { grid-template-columns: 1fr; }
+				.case-study-prose { padding: 2rem 1.5rem; }
+				.cta-title { font-size: 1.6rem; }
+				.enterprise-cta-box { padding: 2.5rem 1.5rem; }
+				.metric-value { font-size: 2rem; }
 			}
 		</style>
 	</head>
@@ -1087,6 +1619,19 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 
 		<!-- ── Project Header ── -->
 		<div class="project-header reveal">
+			{
+				(isCaseStudy || (metrics && metrics.length > 0) || challenge) && (
+					<div>
+						<span class="case-study-hero-badge">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+								<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+							</svg>
+							<span class="lang-en">Verified Case Study & ROI Impact</span>
+							<span class="lang-ar">دراسة حالة موثقة ونتائج مثبتة</span>
+						</span>
+					</div>
+				)
+			}
 			<h1 class="project-title lang-en">{title}</h1>
 			<h1 class="project-title lang-ar">{title_ar || title}</h1>
 			<p class="project-desc lang-en">{description}</p>
@@ -1125,6 +1670,23 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 					<div class="value lang-en">{category}</div>
 					<div class="value lang-ar">{category_ar || category}</div>
 				</div>
+				{
+					role && (
+						<div class="info-card">
+							<div class="label">Role / Role Scope</div>
+							<div class="value lang-en">{role}</div>
+							<div class="value lang-ar">{role_ar || role}</div>
+						</div>
+					)
+				}
+				{
+					timeline && (
+						<div class="info-card">
+							<div class="label">Timeline</div>
+							<div class="value">{timeline}</div>
+						</div>
+					)
+				}
 				<div class="info-card">
 					<div class="label" data-i18n="project.date">Date</div>
 					<div class="value">{formattedDate}</div>
@@ -1168,10 +1730,23 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 						>
 							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
 						</svg>
-						<span data-i18n="project.visit">Visit Project</span>
+						<span data-i18n="project.visit">Visit Live Project</span>
 					</a>
 				)
 			}
+			<a
+				href="https://wa.me/201027170133?text=Hi%20Omar,%20I'm%20interested%20in%20a%20project%20similar%20to%20"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn-primary"
+				style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #fff;"
+			>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+				</svg>
+				<span class="lang-en">Inquire Similar Project</span>
+				<span class="lang-ar">طلب مشروع مماثل</span>
+			</a>
 			<button class="btn-secondary" id="shareBtn">
 				<svg
 					viewBox="0 0 24 24"
@@ -1189,6 +1764,85 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				<span data-i18n="project.share">Share</span>
 			</button>
 		</div>
+
+		<!-- ── Key Impact Metrics ── -->
+		{
+			metrics && metrics.length > 0 && (
+				<section class="metrics-section reveal">
+					<div class="metrics-grid">
+						{metrics.map((m) => (
+							<div class="metric-card">
+								<div class="metric-value">{m.value}</div>
+								<div class="metric-label lang-en">{m.label}</div>
+								<div class="metric-label lang-ar">{m.label_ar || m.label}</div>
+							</div>
+						))}
+					</div>
+				</section>
+			)
+		}
+
+		<!-- ── Problem vs Solution Bento Grid ── -->
+		{
+			(challenge || solution) && (
+				<section class="ps-section reveal">
+					<div class="ps-grid">
+						{challenge && (
+							<div class="ps-card challenge-card">
+								<div class="ps-tag challenge-tag">
+									<span class="lang-en">The Challenge / Problem</span>
+									<span class="lang-ar">التحدي والمشكلة</span>
+								</div>
+								<div class="ps-title lang-en">The Strategic Hurdle</div>
+								<div class="ps-title lang-ar">التحدي الأساسي للعميل</div>
+								<div class="ps-desc lang-en">{challenge}</div>
+								<div class="ps-desc lang-ar">{challenge_ar || challenge}</div>
+							</div>
+						)}
+						{solution && (
+							<div class="ps-card solution-card">
+								<div class="ps-tag solution-tag">
+									<span class="lang-en">The Engineering & Creative Solution</span>
+									<span class="lang-ar">الحل الإبداعي والتقني</span>
+								</div>
+								<div class="ps-title lang-en">Our Execution Approach</div>
+								<div class="ps-title lang-ar">استراتيجية الحل والتنفيذ</div>
+								<div class="ps-desc lang-en">{solution}</div>
+								<div class="ps-desc lang-ar">{solution_ar || solution}</div>
+							</div>
+						)}
+					</div>
+				</section>
+			)
+		}
+
+		<!-- ── Interactive Before & After Slider ── -->
+		{
+			beforeAfter && (
+				<section class="before-after-section reveal">
+					<div class="ba-header">
+						<h2 class="lang-en">Transformation: Before & After</h2>
+						<h2 class="lang-ar">التحول البصري: قبل وبعد</h2>
+						<div class="line" />
+					</div>
+					<div class="ba-wrapper" id="beforeAfterSlider">
+						<img src={beforeAfter.beforeImg} alt="Before" class="ba-img" />
+						<div class="ba-badge before">{beforeAfter.beforeLabel || "Before"}</div>
+						<div class="ba-after-container" id="baAfterContainer">
+							<img src={beforeAfter.afterImg} alt="After" class="ba-img" />
+							<div class="ba-badge after">{beforeAfter.afterLabel || "After (Redesign)"}</div>
+						</div>
+						<div class="ba-handle" id="baHandle">
+							<div class="ba-handle-button">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+									<path d="m8 7-5 5 5 5M16 7l5 5-5 5" />
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+			)
+		}
 
 		<!-- ── Project Video ── -->
 		{
@@ -1213,11 +1867,66 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				</div>
 			)
 		}
+
+		<!-- ── Deep Case Study Markdown Content ── -->
+		<section class="project-content-section reveal">
+			<div class="case-study-prose">
+				<Content />
+			</div>
+		</section>
+
+		<!-- ── Deliverables & Skills Tags ── -->
+		{
+			tags && tags.length > 0 && (
+				<section class="tags-section reveal">
+					<div class="tags-container">
+						{tags.map((t) => (
+							<span class="tag-pill">
+								<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+									<polyline points="20 6 9 17 4 12"></polyline>
+								</svg>
+								{t}
+							</span>
+						))}
+					</div>
+				</section>
+			)
+		}
+
+		<!-- ── Client Testimonial Endorsement ── -->
+		{
+			testimonial && (
+				<section class="testimonial-section reveal">
+					<div class="testimonial-card">
+						<div class="testimonial-stars">
+							{[...Array(5)].map(() => (
+								<svg viewBox="0 0 24 24">
+									<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+								</svg>
+							))}
+						</div>
+						<div class="testimonial-quote lang-en">"{testimonial.quote}"</div>
+						<div class="testimonial-quote lang-ar">"{testimonial.quote_ar || testimonial.quote}"</div>
+						<div class="testimonial-author-meta">
+							{testimonial.avatar && (
+								<img src={testimonial.avatar} alt={testimonial.author} class="testimonial-avatar" />
+							)}
+							<div>
+								<div class="testimonial-name">{testimonial.author}</div>
+								<div class="testimonial-title">{testimonial.role}</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			)
+		}
+
+		<!-- ── Gallery Section ── -->
 		{
 			galleryImages.length > 0 && (
 				<section class="gallery-section reveal">
 					<div class="gallery-header">
-						<h2 data-i18n="project.gallery">Gallery</h2>
+						<h2 data-i18n="project.gallery">Visual Assets & Gallery</h2>
 						<div class="line" />
 						<span class="count">
 							{galleryImages.length}{" "}
@@ -1254,6 +1963,40 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				</section>
 			)
 		}
+
+		<!-- ── Global Enterprise CTA ── -->
+		<section class="enterprise-cta-section reveal">
+			<div class="enterprise-cta-box">
+				<div class="cta-pill">
+					<span class="lang-en">Global Collaboration & Remote Ready</span>
+					<span class="lang-ar">جاهزية للعمل مع الشركات العالمية عن بُعد</span>
+				</div>
+				<h2 class="cta-title lang-en">Ready to Elevate Your Brand to Global Standards?</h2>
+				<h2 class="cta-title lang-ar">جاهز لنقل علامتك التجارية إلى المستوى العالمي؟</h2>
+				<p class="cta-desc lang-en">
+					Whether you need full-scale brand engineering, viral AI video productions, or high-performance digital platforms — we deliver tier-1 quality on time.
+				</p>
+				<p class="cta-desc lang-ar">
+					سواء كنت تبحث عن بناء هوية تجارية متكاملة، إنتاج فيديوهات فيروسية بالذكاء الاصطناعي، أو تطوير منصات رقمية عالية الأداء — نقدم أعلى معايير الجودة والالتزام بالمواعيد.
+				</p>
+				<div class="cta-buttons">
+					<a href="/contact" class="cta-btn-primary">
+						<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+							<path d="M5 12h14M12 5l7 7-7 7"></path>
+						</svg>
+						<span class="lang-en">Book a Strategy Session</span>
+						<span class="lang-ar">حجز جلسة استشارية</span>
+					</a>
+					<a href="https://wa.me/201027170133" target="_blank" rel="noopener noreferrer" class="cta-btn-secondary">
+						<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+						</svg>
+						<span class="lang-en">Direct WhatsApp Chat</span>
+						<span class="lang-ar">محادثة واتساب مباشرة</span>
+					</a>
+				</div>
+			</div>
+		</section>
 
 		<!-- ── Prev / Next Navigation ── -->
 		{
@@ -1560,6 +2303,43 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 						}, 2000);
 					}
 				});
+
+			// ── Before & After Slider ──
+			const baSlider = document.getElementById("beforeAfterSlider");
+			const baAfter = document.getElementById("baAfterContainer");
+			const baHandle = document.getElementById("baHandle");
+
+			if (baSlider && baAfter && baHandle) {
+				let isDragging = false;
+
+				function setSliderPosition(x) {
+					const rect = baSlider.getBoundingClientRect();
+					let pos = ((x - rect.left) / rect.width) * 100;
+					pos = Math.max(0, Math.min(100, pos));
+					baAfter.style.clipPath = `inset(0 0 0 ${pos}%)`;
+					baHandle.style.left = `${pos}%`;
+				}
+
+				baSlider.addEventListener("mousedown", (e) => {
+					isDragging = true;
+					setSliderPosition(e.clientX);
+				});
+				window.addEventListener("mouseup", () => { isDragging = false; });
+				window.addEventListener("mousemove", (e) => {
+					if (!isDragging) return;
+					setSliderPosition(e.clientX);
+				});
+
+				baSlider.addEventListener("touchstart", (e) => {
+					isDragging = true;
+					setSliderPosition(e.touches[0].clientX);
+				}, { passive: true });
+				window.addEventListener("touchend", () => { isDragging = false; });
+				window.addEventListener("touchmove", (e) => {
+					if (!isDragging) return;
+					setSliderPosition(e.touches[0].clientX);
+				}, { passive: true });
+			}
 
 			// ── Scroll Reveal ──
 			const revealObserver = new IntersectionObserver(
