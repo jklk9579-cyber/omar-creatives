@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build && node -e \"fs.copyFileSync('.assetsignore', 'dist/.assetsignore')\"",
     "preview": "astro preview",
+    "build:resume": "node scripts/generate-pdf-resume.mjs",
     "astro": "astro"
   },
   "dependencies": {

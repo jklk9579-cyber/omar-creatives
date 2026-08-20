@@ -1,0 +1,607 @@
+import fs from 'fs';
+import path from 'path';
+import { spawnSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+
+const edgePaths = [
+  'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+  'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
+  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
+];
+
+let browserPath = edgePaths.find(p => fs.existsSync(p));
+if (!browserPath) {
+  console.error('No Chrome or Edge browser found for PDF generation!');
+  process.exit(1);
+}
+
+console.log('Using browser:', browserPath);
+
+// HTML Template for English Resume
+const resumeHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Omar Abdelfattah - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0d0f17;
+      color: #e2e8f0;
+      line-height: 1.45;
+      font-size: 9pt;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 12mm 14mm;
+      position: relative;
+      background: #0d0f17;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 1.5px solid rgba(245, 158, 11, 0.3);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .header-left h1 {
+      font-size: 22pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+    .header-left .title {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #f59e0b;
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .header-left .tagline {
+      font-size: 8.5pt;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 8pt;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .header-right a {
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .header-right .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+    }
+
+    /* Two-column layout */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 62mm;
+      gap: 14px;
+      flex: 1;
+    }
+
+    /* Section Styling */
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #f59e0b;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .section-title svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+
+    /* Project / Experience Cards */
+    .item {
+      margin-bottom: 10px;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .item-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .item-link {
+      color: #f59e0b;
+      font-size: 7.5pt;
+      font-family: 'JetBrains Mono', monospace;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 5px;
+    }
+    .item-subtitle {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+    .item-date {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .item-desc {
+      font-size: 8pt;
+      color: #cbd5e1;
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+    .bullet-list {
+      margin-top: 3px;
+      padding-left: 12px;
+    }
+    .bullet-list li {
+      font-size: 7.8pt;
+      color: #cbd5e1;
+      margin-bottom: 2px;
+      line-height: 1.35;
+    }
+    .bullet-list li strong {
+      color: #ffffff;
+    }
+
+    /* Tags / Badges */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .tag {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #fbbf24;
+      font-size: 6.8pt;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    /* Sidebar Blocks */
+    .sidebar-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+    }
+    .skill-group {
+      margin-bottom: 6px;
+    }
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+    .skill-group-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+    .skill-list {
+      font-size: 7.8pt;
+      color: #e2e8f0;
+      line-height: 1.4;
+    }
+
+    /* Highlights Banner */
+    .highlight-card {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(56, 189, 248, 0.08) 100%);
+      border-left: 3px solid #f59e0b;
+      padding: 6px 8px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 10px;
+    }
+    .highlight-card p {
+      font-size: 7.8pt;
+      color: #f1f5f9;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: Core Profile, Engineering Flagships & Technical Arsenal -->
+  <div class="page">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <h1>Omar Abdelfattah</h1>
+        <div class="title">Senior Creative Developer & AI Specialist</div>
+        <div class="tagline">Bridging Figma Design Systems, Next.js / Astro Edge Engineering & AI Generative Media</div>
+      </div>
+      <div class="header-right">
+        <div class="contact-item"><strong>Portfolio:</strong> <a href="https://omarcreatives.com">omarcreatives.com</a></div>
+        <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@omarcreatives.com">contact@omarcreatives.com</a></div>
+        <div class="contact-item"><strong>WhatsApp:</strong> +20 121 186 7464</div>
+        <div class="contact-item"><strong>Location:</strong> Cairo, Egypt (Remote / Global)</div>
+        <div class="contact-item"><strong>Status:</strong> Available for Senior Roles & Enterprise Contracts</div>
+      </div>
+    </header>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="highlight-card">
+      <p>
+        <strong>Executive Summary:</strong> Versatile Creative Technologist with 5+ years of experience delivering high-performance web platforms, enterprise design-to-code architectures, and cutting-edge generative AI pipelines. Proven track record architecting live production ecosystems for regional enterprises (D-Arrow, Mathwaa, Emirates Real Estate) with 98+ PageSpeed benchmarks, sub-second edge response times, and pixel-perfect bi-directional (RTL/LTR) localized UI systems.
+      </p>
+    </div>
+
+    <!-- MAIN TWO-COLUMN CONTENT -->
+    <div class="grid-container">
+      
+      <!-- LEFT COLUMN: Flagship Engineering Projects -->
+      <div class="main-col">
+        
+        <div class="section-title">Flagship Production Systems & Architectures</div>
+
+        <!-- Project 1: D-Arrow Platform -->
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">D-Arrow Investment & Marketing Platform</span>
+              <a href="https://d-arrow.com" class="item-link">[Live: d-arrow.com]</a>
+            </div>
+            <span class="item-date">2026 | Lead Arch & Dev</span>
+          </div>
+          <div class="item-subtitle">Full-Stack Design-to-Code Platform & Enterprise Portal</div>
+          <p class="item-desc">Architected and engineered the end-to-end digital infrastructure for D-Arrow from scratch:</p>
+          <ul class="bullet-list">
+            <li>Built high-performance <strong>Next.js 14 / TypeScript</strong> multi-page ecosystem deployed on edge infrastructure with zero layout shifts and sub-second TTFB.</li>
+            <li>Engineered dynamic client-side <strong>Investment & ROI Calculation Engines</strong>, influencer booking portal, and structured quotation workflows.</li>
+            <li>Designed a scalable <strong>Figma Design System</strong> (120+ tokens, responsive Arabic/English typographic grid, dark mode aesthetics).</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">RTL/LTR Architecture</span>
+            <span class="tag">Edge Runtime</span>
+          </div>
+        </div>
+
+        <!-- Project 2: Mathwaa Association Platform -->
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">Mathwaa Association Digital Ecosystem</span>
+              <a href="https://mathwaa.org.sa" class="item-link">[Live: mathwaa.org.sa]</a>
+            </div>
+            <span class="item-date">2026 | Full-Stack Eng</span>
+          </div>
+          <div class="item-subtitle">High-Speed Non-Profit Platform & Donor Conversion Funnel</div>
+          <ul class="bullet-list">
+            <li>Engineered modern institutional web platform using <strong>Astro + TypeScript</strong> with static generation and edge hydration.</li>
+            <li>Achieved <strong>99/100 Google Lighthouse</strong> performance score with rigorous Arabic typography and zero CLS.</li>
+            <li>Built high-converting donation funnel UI and integrated official government social registry links.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Astro</span>
+            <span class="tag">Edge SSR</span>
+            <span class="tag">Lighthouse 99</span>
+            <span class="tag">Responsive UX</span>
+            <span class="tag">Micro-Animations</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Emirates Real Estate AI Campaign -->
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">Emirates Real Estate AI Cinematic Video</span>
+              <a href="https://omarcreatives.com/projects/ai-cinematic-commercial" class="item-link">[View Project]</a>
+            </div>
+            <span class="item-date">2026 | AI Director & Tech</span>
+          </div>
+          <div class="item-subtitle">Next-Gen Generative AI Media Pipeline & Commercial Production</div>
+          <ul class="bullet-list">
+            <li>Directed and synthesized full commercial campaign without live camera shoots using advanced AI video diffusion pipelines.</li>
+            <li>Maintained 100% facial and architectural consistency across dynamic multi-angle camera movements with cinematic spatial audio.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Generative AI</span>
+            <span class="tag">Runway Gen-3</span>
+            <span class="tag">Midjourney v6</span>
+            <span class="tag">ElevenLabs</span>
+            <span class="tag">Color Grading</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Arkan Contracting Enterprise Portal -->
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">Arkan Contracting & Investment Corporate Platform</span>
+              <a href="https://omarcreatives.com/projects/arkan-website" class="item-link">[View Project]</a>
+            </div>
+            <span class="item-date">2025 | UI/UX & Web Dev</span>
+          </div>
+          <div class="item-subtitle">High-Ticket B2B Inbound Engine & Project Catalog</div>
+          <ul class="bullet-list">
+            <li>Designed and coded luxury corporate portfolio with interactive category filtering, technical specs modal system, and WhatsApp lead funnel.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive UI</span>
+            <span class="tag">Figma Design System</span>
+            <span class="tag">SEO Architecture</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Technical Skills & Specializations -->
+      <div class="side-col">
+        
+        <div class="section-title">Technical Arsenal</div>
+
+        <div class="sidebar-block">
+          <div class="skill-group">
+            <div class="skill-group-title">Front-End & Frameworks</div>
+            <div class="skill-list">Next.js 14/15, Astro, React, TypeScript, JavaScript (ESNext), Tailwind CSS, Vanilla CSS3 / PostCSS, HTML5 Semantic.</div>
+          </div>
+          <div class="skill-group" style="margin-top: 6px;">
+            <div class="skill-group-title">Architecture & Performance</div>
+            <div class="skill-list">Bi-directional RTL/LTR, Static Site Generation (SSG), Edge Functions, Cloudflare Workers/Pages, Zero-CLS Optimization, Web Core Vitals.</div>
+          </div>
+        </div>
+
+        <div class="section-title">AI & Generative Pipelines</div>
+        <div class="sidebar-block">
+          <div class="skill-group">
+            <div class="skill-group-title">AI Video & Imagery</div>
+            <div class="skill-list">Midjourney, Flux.1, Runway Gen-3, Luma Dream Machine, Stable Diffusion, Consistent Character LoRA training.</div>
+          </div>
+          <div class="skill-group" style="margin-top: 6px;">
+            <div class="skill-group-title">Audio & Workflow Automation</div>
+            <div class="skill-list">ElevenLabs Voice Cloning, FFmpeg CLI automation, Whisper, Prompt Engineering.</div>
+          </div>
+        </div>
+
+        <div class="section-title">Design & Craftsmanship</div>
+        <div class="sidebar-block">
+          <div class="skill-group">
+            <div class="skill-group-title">Design Systems & Tools</div>
+            <div class="skill-list">Figma (Variables, Auto-Layout, Components, Tokens), Adobe Illustrator, Adobe Photoshop, Premiere Pro, After Effects.</div>
+          </div>
+        </div>
+
+        <div class="section-title">Languages & Localization</div>
+        <div class="sidebar-block">
+          <div class="skill-list">
+            • <strong>Arabic:</strong> Native (Expert RTL Typography)<br>
+            • <strong>English:</strong> Professional Working Proficiency
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PAGE 2: Professional Experience, Creative Production & Methodology -->
+  <div class="page">
+
+    <!-- PAGE 2 HEADER -->
+    <header class="header" style="margin-bottom: 10px;">
+      <div class="header-left">
+        <h2 style="font-size: 14pt; color: #fff; font-weight: 800;">Omar Abdelfattah — Professional Experience & Leadership</h2>
+      </div>
+      <div class="header-right">
+        <span style="color: #f59e0b; font-family: 'JetBrains Mono', monospace; font-size: 8pt;">Page 2 of 2 | Verification: omarcreatives.com</span>
+      </div>
+    </header>
+
+    <div class="grid-container">
+
+      <!-- LEFT COLUMN: Career History & Key Roles -->
+      <div class="main-col">
+
+        <div class="section-title">Work Experience & Leadership</div>
+
+        <!-- Role 1 -->
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">Principal Creative Technologist & Founder</span>
+              <span style="color: #f59e0b; font-size: 8pt;"> | Omar Creatives</span>
+            </div>
+            <span class="item-date">2022 – Present | Cairo / Remote</span>
+          </div>
+          <div class="item-subtitle">High-Craft Web Engineering, Brand Systems & AI Production</div>
+          <ul class="bullet-list">
+            <li>Partnered with 20+ regional businesses, tech startups, and NGOs across Saudi Arabia, UAE, and Egypt to design and deploy bespoke digital platforms.</li>
+            <li>Standardized modern Design-to-Code delivery pipeline, bridging the gap between Figma mockups and high-velocity production code with zero technical debt.</li>
+            <li>Authored complete digital identities, multi-platform media assets, and automated generative AI pipelines, cutting client asset delivery turnaround by 60%.</li>
+            <li>Conducted full SEO audits and technical performance refactoring, consistently raising client Lighthouse scores from <60 to >95.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">Lead UI/UX Engineer & Digital Designer</span>
+              <span style="color: #f59e0b; font-size: 8pt;"> | D-Arrow Marketing & Investment</span>
+            </div>
+            <span class="item-date">2024 – 2026</span>
+          </div>
+          <div class="item-subtitle">Platform Architecture & Enterprise Identity</div>
+          <ul class="bullet-list">
+            <li>Architected the complete company web platform and investor interface, handling both desktop and mobile user journeys seamlessly.</li>
+            <li>Created 50+ custom UI components, data visualization charts, and dynamic price estimators with clean maintainable TypeScript code.</li>
+            <li>Designed and executed full marketing campaigns and social media identity guidelines adhering to strict brand consistency.</li>
+          </ul>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <span class="item-title">Senior Visual Designer & Multimedia Specialist</span>
+              <span style="color: #f59e0b; font-size: 8pt;"> | Freelance & Contract</span>
+            </div>
+            <span class="item-date">2019 – 2022</span>
+          </div>
+          <div class="item-subtitle">Brand Identity & Digital Advertising Campaigns</div>
+          <ul class="bullet-list">
+            <li>Executed over 100+ commercial advertising posters, packaging systems, and digital marketing creatives for commercial brands (Falez, Seropipe, Souqoom, Romwear, Kalista).</li>
+            <li>Delivered high-converting visual assets for fashion, e-commerce, and SaaS product launches.</li>
+          </ul>
+        </div>
+
+        <!-- Section: Design-to-Code Engineering Workflow -->
+        <div class="section-title" style="margin-top: 12px;">Methodology & Design-to-Code Workflow</div>
+        <div class="item">
+          <p class="item-desc" style="font-size: 8pt; line-height: 1.4;">
+            <strong>1. Tokenized Design in Figma:</strong> Establishing modular spacing, semantic color variables, multi-lingual typographic scales, and state matrices.<br>
+            <strong>2. Clean Component Architecture:</strong> Building modular, accessible, and performant components in Next.js / Astro with strict TypeScript interfaces.<br>
+            <strong>3. Edge Optimization & SEO:</strong> Implementing zero-overhead asset delivery, pre-rendered static routes, dynamic meta tags, and structured JSON-LD schemas.<br>
+            <strong>4. Automated AI Augmentation:</strong> Integrating AI tools for instant visual variation, localized audio synthesis, and automated asset scaling.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Selected Client Portfolio & Education -->
+      <div class="side-col">
+
+        <div class="section-title">Selected Brand Roster</div>
+        <div class="sidebar-block">
+          <div class="skill-list" style="font-size: 7.6pt; line-height: 1.5;">
+            • <strong>D-Arrow</strong> (Marketing & Investment)<br>
+            • <strong>Mathwaa</strong> (Saudi Association)<br>
+            • <strong>Emirates Real Estate</strong> (UAE)<br>
+            • <strong>Arkan</strong> (Contracting & Real Estate)<br>
+            • <strong>Al-Awsat News</strong> (Digital Media)<br>
+            • <strong>Souqoom</strong> (E-Commerce Platform)<br>
+            • <strong>Kalista & Romwear</strong> (Apparel)<br>
+            • <strong>Seropipe & Falez</strong> (FMCG Brands)
+          </div>
+        </div>
+
+        <div class="section-title">Key Differentiators</div>
+        <div class="sidebar-block">
+          <div class="skill-list" style="font-size: 7.6pt; line-height: 1.4;">
+            ✓ <strong>Zero Developer-Designer Gap:</strong> Can write production code and design award-worthy interfaces without handoff loss.<br><br>
+            ✓ <strong>Bilingual RTL Native:</strong> Deep understanding of Arabic typographic hierarchy, line-heights, and responsive bidirectional UI.<br><br>
+            ✓ <strong>Speed & Reliability:</strong> Relentless focus on Lighthouse 95+, sub-second edge delivery, and modern build tooling.
+          </div>
+        </div>
+
+        <div class="section-title">Education & Credentials</div>
+        <div class="sidebar-block">
+          <div class="skill-list" style="font-size: 7.6pt; line-height: 1.4;">
+            • <strong>Bachelor's Degree</strong> in Relevant Discipline (Egypt)<br>
+            • <strong>Continuous Professional Learning:</strong> Advanced Next.js, Modern CSS Architecture, Generative AI Engineering & Diffusion Models.
+          </div>
+        </div>
+
+        <div class="section-title">Get in Touch</div>
+        <div class="sidebar-block" style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3);">
+          <div class="skill-list" style="font-size: 7.6pt; line-height: 1.5; color: #fbbf24;">
+            <strong>Ready to Collaborate:</strong><br>
+            Direct: <a href="mailto:contact@omarcreatives.com" style="color: #fff; text-decoration: underline;">contact@omarcreatives.com</a><br>
+            WhatsApp: <a href="https://wa.me/201211867464" style="color: #fff; text-decoration: underline;">+20 121 186 7464</a><br>
+            Live: <a href="https://omarcreatives.com" style="color: #fff; text-decoration: underline;">omarcreatives.com</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
+`;
+
+// Write HTML file
+const htmlPath = path.join(rootDir, 'dist_resume.html');
+fs.writeFileSync(htmlPath, resumeHtml, 'utf8');
+console.log('Resume HTML written to:', htmlPath);
+
+// Target output PDF path in project root and in public directory so it can be downloaded directly from website!
+const outputPdfRoot = path.join(rootDir, 'Omar_Abdelfattah_Resume.pdf');
+const outputPdfPublic = path.join(rootDir, 'public', 'Omar_Abdelfattah_Resume.pdf');
+
+console.log('Generating PDF via headless browser...');
+
+const res = spawnSync(browserPath, [
+  '--headless',
+  '--disable-gpu',
+  '--run-all-compositor-stages-before-draw',
+  '--no-pdf-header-footer',
+  `--print-to-pdf=${outputPdfRoot}`,
+  htmlPath
+], { encoding: 'utf8', timeout: 30000 });
+
+if (fs.existsSync(outputPdfRoot)) {
+  const sizeKB = (fs.statSync(outputPdfRoot).size / 1024).toFixed(1);
+  console.log('SUCCESS! PDF generated successfully at:', outputPdfRoot, `(${sizeKB} KB)`);
+  fs.copyFileSync(outputPdfRoot, outputPdfPublic);
+  console.log('Also copied to public folder for direct website download:', outputPdfPublic);
+} else {
+  console.error('PDF generation failed:', res.stderr || res.stdout);
+  process.exit(1);
+}

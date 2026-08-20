@@ -183,7 +183,7 @@ import robotImg from "../../public/images/robot.png";
 				padding-top: 145px;
 				box-sizing: border-box;
 				overflow: hidden;
-				background: #000;
+				background: #000 url('/images/character-studio-poster.jpg') center 20% / cover no-repeat;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -1924,6 +1924,7 @@ import robotImg from "../../public/images/robot.png";
 					loop
 					playsinline
 					webkit-playsinline
+					poster="/images/character-studio-poster.jpg"
 					preload="auto"
 					tabindex="-1"
 					aria-hidden="true"
@@ -2596,7 +2597,7 @@ import robotImg from "../../public/images/robot.png";
 		<Footer />
 
 		<script>
-			// Ensure cinematic video plays and loops seamlessly
+			// Ensure cinematic video plays continuously and loops seamlessly
 			const bgVideo = document.querySelector('.cvh-video') as HTMLVideoElement;
 			if (bgVideo) {
 				bgVideo.muted = true;
@@ -2615,24 +2616,18 @@ import robotImg from "../../public/images/robot.png";
 
 				playSafe();
 
+				// Heartbeat check: guarantees video is playing and resumes if browser paused it
+				setInterval(playSafe, 1000);
+
 				bgVideo.addEventListener('loadeddata', playSafe);
 				bgVideo.addEventListener('canplay', playSafe);
 				bgVideo.addEventListener('canplaythrough', playSafe);
-				bgVideo.addEventListener('ended', () => {
-					bgVideo.currentTime = 0;
-					playSafe();
-				});
-				bgVideo.addEventListener('pause', () => {
-					playSafe();
-				});
-				bgVideo.addEventListener('stalled', () => {
-					playSafe();
-				});
 
 				document.addEventListener('visibilitychange', () => {
 					if (!document.hidden) playSafe();
 				});
 
+				window.addEventListener('focus', playSafe);
 				window.addEventListener('load', playSafe);
 				document.addEventListener('DOMContentLoaded', playSafe);
 				['touchstart', 'click', 'scroll', 'mousemove'].forEach((evt) => {
