@@ -46,6 +46,13 @@ import ctaCharacterImg from "../../public/images/about-character-cutout.png";
 			})}
 		/>
 		<style>
+			/* Remove main's default padding-top so the video starts directly under the header */
+			main {
+				padding-top: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+			}
+
 			/* Hero Section - Premium Design */
 			.hero {
 				min-height: 100vh;
@@ -174,10 +181,12 @@ import ctaCharacterImg from "../../public/images/about-character-cutout.png";
 			.cinematic-video-hero {
 				position: relative;
 				width: 100%;
-				height: calc(100vh - var(--header-height, 169px));
-				height: calc(100svh - var(--header-height, 169px));
-				min-height: calc(100svh - var(--header-height, 169px));
-				margin-top: var(--header-height, 169px);
+				height: 100vh;
+				height: 100svh;
+				min-height: 100svh;
+				/* No margin-top needed — section starts at top of main (which has no padding-top now).
+				   The header is fixed/overlaid on top of this section intentionally (cinematic fullscreen). */
+				margin-top: 0;
 				padding: 0;
 				box-sizing: border-box;
 				overflow: hidden;
@@ -247,10 +256,10 @@ import ctaCharacterImg from "../../public/images/about-character-cutout.png";
 
 			@media (max-width: 900px) {
 				.cinematic-video-hero {
-					margin-top: var(--header-height, 89px);
-					height: calc(100vh - var(--header-height, 89px));
-					height: calc(100svh - var(--header-height, 89px));
-					min-height: calc(100svh - var(--header-height, 89px));
+					margin-top: 0;
+					height: 100vh;
+					height: 100svh;
+					min-height: 100svh;
 				}
 			}
 
