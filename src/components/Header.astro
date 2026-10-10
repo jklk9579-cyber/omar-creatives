@@ -158,6 +158,14 @@ const navClass = (href: string) =>
 	</div>
 </div>
 <style>
+	:root {
+		--header-height: 169px;
+	}
+	@media (max-width: 900px) {
+		:root {
+			--header-height: 89px;
+		}
+	}
 	header {
 		position: fixed;
 		top: 0;
@@ -585,8 +593,21 @@ const navClass = (href: string) =>
 
 	// Compact header after scrolling
 	const headerEl = document.querySelector("header");
-	const updateHeader = () =>
+	const syncHeaderHeight = () => {
+		if (headerEl && window.scrollY <= 10) {
+			document.documentElement.style.setProperty(
+				"--header-height",
+				`${headerEl.offsetHeight}px`
+			);
+		}
+	};
+	const updateHeader = () => {
 		headerEl?.classList.toggle("scrolled", window.scrollY > 80);
+	};
 	window.addEventListener("scroll", updateHeader, { passive: true });
+	window.addEventListener("resize", () => {
+		syncHeaderHeight();
+	}, { passive: true });
+	syncHeaderHeight();
 	updateHeader();
 </script>
