@@ -17,7 +17,6 @@ import { Image } from "astro:assets";
 import heroImg from "../../public/images/hero-studio.png";
 import aboutImg from "../../public/images/about-studio.png";
 import ctaCharacterImg from "../../public/images/about-character-cutout.png";
-import nightStudioImg from "../../public/images/omar-night-studio.jpg";
 ---
 
 <!doctype html>
@@ -651,58 +650,7 @@ import nightStudioImg from "../../public/images/omar-night-studio.jpg";
 				margin-top: 2rem;
 			}
 
-			/* Studio Pipeline Strip */
-			.studio-pipeline-strip {
-				margin-top: 3.5rem;
-				position: relative;
-				border-radius: 24px;
-				overflow: hidden;
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px rgba(245, 158, 11, 0.1);
-			}
-			.pipeline-photo-wrap {
-				position: relative;
-				max-height: 460px;
-				overflow: hidden;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			.pipeline-photo-wrap img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				max-height: 460px;
-				display: block;
-			}
-			.pipeline-badge {
-				position: absolute;
-				bottom: 1.5rem;
-				left: 1.5rem;
-				display: inline-flex;
-				align-items: center;
-				gap: 0.75rem;
-				background: rgba(13, 13, 18, 0.88);
-				backdrop-filter: blur(12px);
-				border: 1px solid rgba(255, 255, 255, 0.12);
-				padding: 0.65rem 1.25rem;
-				border-radius: 100px;
-				font-size: 0.85rem;
-				font-weight: 500;
-				color: var(--text-primary);
-			}
-			:global([dir="rtl"]) .pipeline-badge {
-				left: auto;
-				right: 1.5rem;
-				font-family: "Tafkir", "Cairo", system-ui, sans-serif;
-			}
-			.live-dot {
-				width: 8px;
-				height: 8px;
-				border-radius: 50%;
-				background: #10b981;
-				box-shadow: 0 0 10px #10b981;
-			}
+
 			@media (max-width: 900px) {
 				.about-intro {
 					grid-template-columns: 1fr;
@@ -2577,20 +2525,7 @@ import nightStudioImg from "../../public/images/omar-night-studio.jpg";
 						<p class="pillar-desc lang-ar">تواصل واضح ومباشر، وتحديثات منتظمة وتوثيق دقيق، مع مرونة تامة في العمل والتنسيق عبر فرق العمل عن بُعد.</p>
 					</div>
 				</div>
-				<div class="studio-pipeline-strip animate-fadeInUp delay-500">
-					<div class="pipeline-photo-wrap">
-						<Image
-							src={nightStudioImg}
-							alt="Production Command Center - Multi-Monitor & AI Compute Pipeline"
-							loading="lazy"
-						/>
-						<div class="pipeline-badge">
-							<span class="live-dot"></span>
-							<span class="lang-en">Production Command Center • 4K Multi-Monitor & AI Compute Pipeline</span>
-							<span class="lang-ar">غرفة الإنتاج والتطوير • محطة عمل متعددة الشاشات ومعالجة بالذكاء الاصطناعي</span>
-						</div>
-					</div>
-				</div>
+
 			</section>
 
 			<!-- About Me Section -->
