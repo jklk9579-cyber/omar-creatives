@@ -2,10 +2,20 @@
   "extends": "astro/tsconfigs/strict",
   "include": [
     ".astro/types.d.ts",
-    "**/*"
+    "src/**/*",
+    "tests/**/*",
+    "*.ts",
+    "*.mjs"
   ],
   "exclude": [
-    "dist"
+    "dist",
+    "omar-creatives",
+    "claude-code-via-antigravity",
+    "favicon-package",
+    "netlify",
+    "scripts",
+    "node_modules",
+    "eslint.config.mjs"
   ],
   "compilerOptions": {
     "strictNullChecks": true,

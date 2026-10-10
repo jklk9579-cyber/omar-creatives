@@ -749,3 +749,83 @@ body {
 	font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
 }
 
+/* ── Mobile base experience ── */
+html {
+	scroll-padding-top: 110px; /* offset for the fixed header on anchor jumps */
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	-webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+	/* Prevent stray horizontal panning on phones */
+	body {
+		overflow-x: clip;
+	}
+}
+
+/* ── UX Enhancements: mobile, tablet & desktop ── */
+
+/* Smooth in-page scrolling */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Remove 300ms tap delay and double-tap-zoom on interactive elements */
+a,
+button,
+[role="button"],
+label,
+summary,
+input,
+select,
+textarea {
+	touch-action: manipulation;
+}
+
+/* Visible focus ring for keyboard users (accessibility) */
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Instant press feedback on touch devices */
+@media (pointer: coarse) {
+	a:active,
+	button:active,
+	[role="button"]:active {
+		opacity: 0.7;
+	}
+}
+
+/* Prevent iOS auto-zooming the page when focusing form fields */
+@media (max-width: 768px) {
+	input,
+	select,
+	textarea {
+		font-size: 16px !important;
+	}
+}
+
+/* Respect users who prefer reduced motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
