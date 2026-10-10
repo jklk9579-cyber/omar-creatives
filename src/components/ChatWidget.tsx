@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'preact/hooks';
 // ─── Inline Styles (injected on mount) ───────────────────────────────
 const CHAT_STYLES = `
 /* ── Chat Widget Container ── */
-.chat-widget{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;font-family:'Inter',system-ui,sans-serif}
+.chat-widget{position:fixed;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));right:1.5rem;z-index:9999;font-family:'Inter',system-ui,sans-serif}
 
 /* ── Mascot Toggle Button ── */
 .chat-toggle-btn{
@@ -106,7 +106,7 @@ const CHAT_STYLES = `
 
 /* ── Mobile & Scaling ── */
 @media(max-width:480px){
-  .chat-widget{bottom:1rem;right:1rem}
+  .chat-widget{bottom:calc(1rem + env(safe-area-inset-bottom,0px));right:1rem}
   .chat-window{width:calc(100vw - 2rem);height:75vh;right:0;bottom:90px;border-radius:24px}
   .chat-toggle-btn{width:75px;height:75px}
   .chat-toggle-btn.open{width:65px;height:65px}

@@ -347,7 +347,7 @@ import CookieConsent from "./CookieConsent.astro";
 	/* Back to top button (long pages UX) */
 	.back-to-top {
 		position: fixed;
-		bottom: 1.5rem;
+		bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
 		left: 1.5rem;
 		width: 48px;
 		height: 48px;
@@ -384,7 +384,7 @@ import CookieConsent from "./CookieConsent.astro";
 	}
 	@media (max-width: 768px) {
 		.back-to-top {
-			bottom: 1rem;
+			bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
 			left: 1rem;
 			width: 44px;
 			height: 44px;

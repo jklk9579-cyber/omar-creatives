@@ -828,4 +828,71 @@ button:focus:not(:focus-visible) {
 		transition-duration: 0.01ms !important;
 	}
 }
+/* ============================================
+   UI POLISH LAYER (global enhancements)
+   ============================================ */
 
+/* Themed dark scrollbar with accent hover */
+html {
+scrollbar-width: thin;
+scrollbar-color: #262626 var(--bg-primary);
+}
+::-webkit-scrollbar {
+width: 10px;
+height: 10px;
+}
+::-webkit-scrollbar-track {
+background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+background: #262626;
+border-radius: 999px;
+border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+background: var(--accent);
+}
+::-webkit-scrollbar-corner {
+background: var(--bg-primary);
+}
+@media (max-width: 768px) {
+::-webkit-scrollbar {
+width: 4px;
+height: 4px;
+}
+}
+
+/* Typography: balanced headings and refined paragraph wrapping */
+h1,
+h2,
+h3,
+h4 {
+text-wrap: balance;
+}
+p {
+text-wrap: pretty;
+}
+
+/* Tactile press feedback on buttons (complements existing hover styles) */
+.btn:active {
+transform: scale(0.96);
+}
+
+/* JS-clickable cards afford a pointer cursor */
+[data-link] {
+cursor: pointer;
+}
+
+/* Gradient accent text utility */
+.text-gradient {
+background: var(--accent-gradient);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+-webkit-text-fill-color: transparent;
+}
+
+/* Native disclosure elements affordance */
+details summary {
+cursor: pointer;
+}

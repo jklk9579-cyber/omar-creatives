@@ -1,0 +1,23 @@
+/* Tailwind CSS v4 - incremental adoption layer.
+   Preflight is intentionally NOT imported so it cannot break the existing
+   handcrafted CSS. Only theme tokens + utilities are loaded, placed in
+   cascade layers (lower precedence than the unlayered legacy CSS).
+   New components can use utilities like text-accent, bg-bg-card, font-arabic. */
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@theme {
+  /* Colors mapped from :root design tokens in global.css */
+  --color-bg-primary: #050505;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-card: #111111;
+  --color-bg-card-hover: #1a1a1a;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #fbbf24;
+
+  /* Fonts */
+  --font-arabic: 'GumelaArabic', 'Cairo', 'Tajawal', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
