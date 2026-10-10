@@ -16,6 +16,8 @@ const recentPosts = posts
 import { Image } from "astro:assets";
 import heroImg from "../../public/images/hero-studio.png";
 import aboutImg from "../../public/images/about-studio.png";
+import ctaCharacterImg from "../../public/images/about-character-cutout.png";
+import nightStudioImg from "../../public/images/omar-night-studio.jpg";
 ---
 
 <!doctype html>
@@ -71,19 +73,19 @@ import aboutImg from "../../public/images/about-studio.png";
 				position: relative;
 				display: flex;
 				justify-content: center;
-				align-items: center;
-				min-height: auto;
+				align-items: flex-end;
+				min-height: 560px;
 			}
 
 			.hero-image-circle {
 				position: absolute;
-				top: 50%;
+				bottom: 8%;
 				left: 50%;
-				transform: translate(-50%, -50%);
-				width: 480px;
-				height: 480px;
-				background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(234, 88, 12, 0.15) 50%, transparent 75%);
-				filter: blur(40px);
+				transform: translateX(-50%);
+				width: 500px;
+				height: 500px;
+				background: radial-gradient(circle, rgba(245, 158, 11, 0.38) 0%, rgba(234, 88, 12, 0.16) 50%, transparent 75%);
+				filter: blur(45px);
 				border-radius: 50%;
 				z-index: 0;
 				pointer-events: none;
@@ -92,15 +94,16 @@ import aboutImg from "../../public/images/about-studio.png";
 			.hero-image-container img {
 				position: relative;
 				z-index: 1;
-				width: min(100%, 540px);
-				height: auto;
+				height: 620px;
+				max-height: 80vh;
+				width: auto;
 				max-width: 100%;
-				object-fit: cover;
-				border-radius: 24px;
-				border: 1px solid rgba(255, 255, 255, 0.12);
-				box-shadow:
-					0 30px 80px rgba(0, 0, 0, 0.6),
-					0 0 60px rgba(245, 158, 11, 0.12);
+				object-fit: contain;
+				object-position: bottom;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+				filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 35px rgba(245, 158, 11, 0.18));
 			}
 
 			.hero-side-elements {
@@ -572,10 +575,9 @@ import aboutImg from "../../public/images/about-studio.png";
 			/* About Me Section */
 			.about-intro {
 				display: grid;
-				grid-template-columns: auto 1fr;
-				gap: 6rem;
+				grid-template-columns: minmax(320px, 480px) 1fr;
+				gap: 4.5rem;
 				align-items: center;
-				justify-items: center;
 			}
 			.about-image {
 				position: relative;
@@ -584,15 +586,15 @@ import aboutImg from "../../public/images/about-studio.png";
 				align-items: center;
 			}
 			.about-image img {
-				width: min(100%, 520px);
+				width: 100%;
 				height: auto;
 				position: relative;
 				z-index: 1;
 				border-radius: 24px;
-				border: 1px solid rgba(255, 255, 255, 0.1);
+				border: 1px solid rgba(255, 255, 255, 0.12);
 				box-shadow:
-					0 30px 80px rgba(0, 0, 0, 0.55),
-					0 0 70px rgba(245, 158, 11, 0.18);
+					0 30px 80px rgba(0, 0, 0, 0.65),
+					0 0 60px rgba(245, 158, 11, 0.15);
 			}
 			.about-image::before {
 				content: "";
@@ -600,11 +602,11 @@ import aboutImg from "../../public/images/about-studio.png";
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				width: 400px;
-				height: 400px;
+				width: 440px;
+				height: 440px;
 				background: radial-gradient(
 					circle at center,
-					rgba(245, 158, 11, 0.12) 0%,
+					rgba(245, 158, 11, 0.15) 0%,
 					transparent 70%
 				);
 				z-index: 0;
@@ -623,8 +625,8 @@ import aboutImg from "../../public/images/about-studio.png";
 			}
 			.about-text h2 {
 				font-size: 2.75rem;
-				margin-bottom: 1.5rem;
-				line-height: 1.2;
+				margin-bottom: 1.25rem;
+				line-height: 1.25;
 			}
 			.about-text h2 .highlight {
 				background: var(--accent-gradient);
@@ -634,17 +636,72 @@ import aboutImg from "../../public/images/about-studio.png";
 			}
 			.about-text p {
 				color: var(--text-secondary);
-				font-size: 1.15rem;
-				line-height: 1.8;
-				margin-bottom: 1.5rem;
+				font-size: 1.1rem;
+				line-height: 1.85;
+				margin-bottom: 1.25rem;
 			}
 			.about-text .lead {
-				font-size: 1.3rem;
+				font-size: 1.25rem;
 				color: var(--text-primary);
 				font-weight: 500;
+				line-height: 1.75;
+				margin-bottom: 1.5rem;
 			}
 			.about-cta {
-				margin-top: 2.5rem;
+				margin-top: 2rem;
+			}
+
+			/* Studio Pipeline Strip */
+			.studio-pipeline-strip {
+				margin-top: 3.5rem;
+				position: relative;
+				border-radius: 24px;
+				overflow: hidden;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px rgba(245, 158, 11, 0.1);
+			}
+			.pipeline-photo-wrap {
+				position: relative;
+				max-height: 460px;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.pipeline-photo-wrap img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				max-height: 460px;
+				display: block;
+			}
+			.pipeline-badge {
+				position: absolute;
+				bottom: 1.5rem;
+				left: 1.5rem;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.75rem;
+				background: rgba(13, 13, 18, 0.88);
+				backdrop-filter: blur(12px);
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				padding: 0.65rem 1.25rem;
+				border-radius: 100px;
+				font-size: 0.85rem;
+				font-weight: 500;
+				color: var(--text-primary);
+			}
+			:global([dir="rtl"]) .pipeline-badge {
+				left: auto;
+				right: 1.5rem;
+				font-family: "Tafkir", "Cairo", system-ui, sans-serif;
+			}
+			.live-dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: #10b981;
+				box-shadow: 0 0 10px #10b981;
 			}
 			@media (max-width: 900px) {
 				.about-intro {
@@ -1289,8 +1346,7 @@ import aboutImg from "../../public/images/about-studio.png";
 				);
 				border: 1px solid rgba(245, 158, 11, 0.15);
 				border-radius: 32px;
-				padding: 5rem;
-				text-align: center;
+				padding: 4rem 4.5rem;
 				position: relative;
 				overflow: hidden;
 			}
@@ -1307,6 +1363,25 @@ import aboutImg from "../../public/images/about-studio.png";
 					var(--accent),
 					transparent
 				);
+			}
+			.cta-inner-grid {
+				display: grid;
+				grid-template-columns: 1.25fr 0.75fr;
+				gap: 3rem;
+				align-items: center;
+				text-align: left;
+			}
+			.cta-character-col {
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+			}
+			.cta-character-img {
+				max-height: 340px;
+				width: auto;
+				max-width: 100%;
+				object-fit: contain;
+				filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.75));
 			}
 			.project-content .project-title {
 				font-size: 1.4rem;
@@ -1335,6 +1410,26 @@ import aboutImg from "../../public/images/about-studio.png";
 				font-size: 2.75rem;
 				margin-bottom: 1rem;
 				font-weight: 700;
+				line-height: 1.25;
+			}
+			.cta-section p {
+				color: var(--text-secondary);
+				font-size: 1.15rem;
+				line-height: 1.8;
+				margin-bottom: 2rem;
+			}
+			@media (max-width: 900px) {
+				.cta-section {
+					padding: 3rem 2rem;
+				}
+				.cta-inner-grid {
+					grid-template-columns: 1fr;
+					text-align: center;
+					gap: 2rem;
+				}
+				.cta-character-img {
+					max-height: 260px;
+				}
 			}
 			/* ── Brand Trust Strip ── */
 			.brand-trust-strip {
@@ -1938,11 +2033,11 @@ import aboutImg from "../../public/images/about-studio.png";
 
 			:global([dir="rtl"]) .hero h1 {
 				font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
-				font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-				font-weight: 300;
-				line-height: 0.9;
+				font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+				font-weight: 700;
+				line-height: 1.3;
 				letter-spacing: 0;
-				margin-bottom: 0.5rem;
+				margin-bottom: 0.75rem;
 			}
 
 			:global([dir="rtl"]) .hero h1 .line {
@@ -1951,9 +2046,9 @@ import aboutImg from "../../public/images/about-studio.png";
 
 			:global([dir="rtl"]) .hero-description {
 				font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
-				font-size: 1rem;
-				line-height: 1.3;
-				margin-bottom: 1.25rem;
+				font-size: 1.15rem;
+				line-height: 1.85;
+				margin-bottom: 1.75rem;
 			}
 
 			:global([dir="rtl"]) .hero-cta {
@@ -1974,6 +2069,8 @@ import aboutImg from "../../public/images/about-studio.png";
 
 			:global([dir="rtl"]) .about-intro {
 				direction: rtl;
+				grid-template-columns: minmax(320px, 480px) 1fr;
+				gap: 4.5rem;
 			}
 
 			:global([dir="rtl"]) .about-text {
@@ -1982,20 +2079,24 @@ import aboutImg from "../../public/images/about-studio.png";
 
 			:global([dir="rtl"]) .about-text h2 {
 				font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
-				font-size: clamp(2rem, 4.5vw, 3.2rem);
-				font-weight: 300;
-				line-height: 0.9;
-				margin-bottom: 0.4rem;
+				font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+				font-weight: 700;
+				line-height: 1.35;
+				margin-bottom: 1.25rem;
 			}
 
 			:global([dir="rtl"]) .about-text p {
 				font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
-				line-height: 1.3;
-				margin-bottom: 0.4rem;
+				font-size: 1.12rem;
+				line-height: 1.9;
+				margin-bottom: 1.25rem;
 			}
 
 			:global([dir="rtl"]) .about-text .lead {
-				font-size: 1.15rem;
+				font-size: 1.25rem;
+				font-weight: 600;
+				line-height: 1.8;
+				margin-bottom: 1.5rem;
 			}
 
 			:global([dir="rtl"]) .about-cta {
@@ -2013,14 +2114,15 @@ import aboutImg from "../../public/images/about-studio.png";
 
 			:global([dir="rtl"]) .section-label {
 				font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
-				font-size: 0.9rem;
+				font-size: 0.95rem;
 			}
 
 			:global([dir="rtl"]) .section-header h2 {
 				font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 				font-size: clamp(2rem, 4vw, 3rem);
-				font-weight: 300;
-				line-height: 0.9;
+				font-weight: 700;
+				line-height: 1.35;
+				margin-bottom: 0.5rem;
 			}
 
 			:global([dir="rtl"]) .view-all {
@@ -2042,15 +2144,15 @@ import aboutImg from "../../public/images/about-studio.png";
 			:global([dir="rtl"]) .service-card h3 {
 				font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 				font-size: 1.5rem;
-				font-weight: 300;
-				margin-bottom: 0.3rem;
-				line-height: 0.9;
+				font-weight: 700;
+				margin-bottom: 0.5rem;
+				line-height: 1.3;
 			}
 
 			:global([dir="rtl"]) .service-card p {
 				font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
-				font-size: 0.95rem;
-				line-height: 1.3;
+				font-size: 0.98rem;
+				line-height: 1.8;
 			}
 
 			:global([dir="rtl"]) .card-link {
@@ -2079,14 +2181,15 @@ import aboutImg from "../../public/images/about-studio.png";
 			:global([dir="rtl"]) .project-card h3 {
 				font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 				font-size: 1.6rem;
-				font-weight: 300;
-				line-height: 0.9;
+				font-weight: 700;
+				line-height: 1.3;
+				margin-bottom: 0.5rem;
 			}
 
 			:global([dir="rtl"]) .project-card p {
 				font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
-				font-size: 0.9rem;
-				line-height: 1.3;
+				font-size: 0.95rem;
+				line-height: 1.8;
 			}
 
 			:global([dir="rtl"]) .project-link {
@@ -2105,14 +2208,15 @@ import aboutImg from "../../public/images/about-studio.png";
 			:global([dir="rtl"]) .blog-card h3 {
 				font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 				font-size: 1.5rem;
-				font-weight: 300;
-				line-height: 0.9;
+				font-weight: 700;
+				line-height: 1.3;
+				margin-bottom: 0.5rem;
 			}
 
 			:global([dir="rtl"]) .blog-card p {
 				font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
-				font-size: 0.9rem;
-				line-height: 1.3;
+				font-size: 0.95rem;
+				line-height: 1.8;
 			}
 
 			:global([dir="rtl"]) .blog-meta {
@@ -2122,24 +2226,27 @@ import aboutImg from "../../public/images/about-studio.png";
 			}
 
 			:global([dir="rtl"]) .cta-section {
-				text-align: center;
 				direction: rtl;
+			}
+
+			:global([dir="rtl"]) .cta-inner-grid {
+				direction: rtl;
+				text-align: right;
 			}
 
 			:global([dir="rtl"]) .cta-section h2 {
 				font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
 				font-size: clamp(2rem, 4.5vw, 3.2rem);
-				font-weight: 300;
-				line-height: 0.9;
-				margin-bottom: 0.4rem;
-				text-align: center;
+				font-weight: 700;
+				line-height: 1.35;
+				margin-bottom: 1rem;
 			}
 
 			:global([dir="rtl"]) .cta-section p {
 				font-family: "Tafkir", "Cairo", "Tajawal", sans-serif;
-				font-size: 1rem;
-				line-height: 1.3;
-				text-align: center;
+				font-size: 1.15rem;
+				line-height: 1.85;
+				margin-bottom: 2rem;
 			}
 
 			:global([dir="rtl"]) .cta-buttons {
@@ -2468,6 +2575,20 @@ import aboutImg from "../../public/images/about-studio.png";
 						<div class="pillar-title lang-ar">استقلالية وتواصل سلس</div>
 						<p class="pillar-desc lang-en">Clear communication, proactive async updates, clean git history, structured documentation, and smooth collaboration across distributed time zones.</p>
 						<p class="pillar-desc lang-ar">تواصل واضح ومباشر، وتحديثات منتظمة وتوثيق دقيق، مع مرونة تامة في العمل والتنسيق عبر فرق العمل عن بُعد.</p>
+					</div>
+				</div>
+				<div class="studio-pipeline-strip animate-fadeInUp delay-500">
+					<div class="pipeline-photo-wrap">
+						<Image
+							src={nightStudioImg}
+							alt="Production Command Center - Multi-Monitor & AI Compute Pipeline"
+							loading="lazy"
+						/>
+						<div class="pipeline-badge">
+							<span class="live-dot"></span>
+							<span class="lang-en">Production Command Center • 4K Multi-Monitor & AI Compute Pipeline</span>
+							<span class="lang-ar">غرفة الإنتاج والتطوير • محطة عمل متعددة الشاشات ومعالجة بالذكاء الاصطناعي</span>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -2869,14 +2990,16 @@ import aboutImg from "../../public/images/about-studio.png";
 			<!-- CTA Section -->
 			<section class="section">
 				<div class="cta-section animate-scaleIn">
-					<h2 data-i18n="cta.title">
-						Let's Create Something Amazing
-					</h2>
-					<p data-i18n="cta.description">
-						Have a project in mind? I'd love to hear about it and
-						explore how we can work together.
-					</p>
-					<div class="hero-cta">
+					<div class="cta-inner-grid">
+						<div class="cta-content-col">
+							<h2 data-i18n="cta.title">
+								Let's Create Something Amazing
+							</h2>
+							<p data-i18n="cta.description">
+								Have a project in mind? I'd love to hear about it and
+								explore how we can work together.
+							</p>
+							<div class="hero-cta cta-buttons">
 						<a
 							href="https://wa.me/201211867464"
 							class="btn btn-primary"
@@ -2913,6 +3036,16 @@ import aboutImg from "../../public/images/about-studio.png";
 						</a>
 					</div>
 				</div>
+				<div class="cta-character-col animate-fadeInUp delay-200">
+					<Image
+						src={ctaCharacterImg}
+						alt="Omar Abdelfattah & Robot Creative Mascot"
+						class="cta-character-img"
+						loading="lazy"
+					/>
+				</div>
+			</div>
+		</div>
 			</section>
 		</main>
 		<Footer />
