@@ -3,7 +3,19 @@
   "compatibility_date": "2026-08-03",
   "compatibility_flags": ["nodejs_compat"],
   "main": "./dist/_worker.js/index.js",
+  "workers_dev": true,
   "assets": {
-    "directory": "./dist"
-  }
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "omarcreatives.com/*",
+      "zone_name": "omarcreatives.com"
+    },
+    {
+      "pattern": "www.omarcreatives.com/*",
+      "zone_name": "omarcreatives.com"
+    }
+  ]
 }
