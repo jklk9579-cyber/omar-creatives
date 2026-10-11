@@ -255,6 +255,13 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			.video-wrapper video {
 				object-fit: contain; /* Show full native video resolution without pixelation/cropping */
 			}
+			.video-wrapper.is-vertical {
+				max-width: 440px;
+				aspect-ratio: 9 / 16;
+			}
+			.video-wrapper.is-vertical video {
+				object-fit: cover;
+			}
 
 			/* ── Animations ── */
 			@keyframes fadeInUp {
@@ -428,6 +435,34 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				max-height: 75vh;
 				object-fit: contain;
 				background: rgba(0, 0, 0, 0.3);
+			}
+			.hero-video-container {
+				width: 100%;
+				max-width: 1000px;
+				margin: 0 auto;
+				position: relative;
+				border-radius: 20px;
+				overflow: hidden;
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				background: #000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+			}
+			.hero-video-container.is-vertical {
+				max-width: 440px;
+				aspect-ratio: 9 / 16;
+			}
+			.hero-video-container video {
+				width: 100%;
+				height: 100%;
+				display: block;
+				object-fit: contain;
+				background: #000;
+			}
+			.hero-video-container.is-vertical video {
+				object-fit: cover;
 			}
 			.hero-badge {
 				position: absolute;
@@ -1591,30 +1626,46 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			</a>
 		</div>
 
-		<!-- ── Hero Image ── -->
+		<!-- ── Hero Media (Video or Image) ── -->
 		<section class="project-hero">
-			<div class="hero-image-container" data-lightbox-trigger="0">
-				<span class="hero-badge">
-					<svg viewBox="0 0 24 24" fill="currentColor"
-						><path
-							d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-						></path></svg
-					>
-					<span data-i18n-key="category">{category}</span>
-				</span>
-				<img src={cover} alt={title} loading="eager" />
-				<div class="hero-zoom-hint">
-					<svg
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						><circle cx="11" cy="11" r="8"></circle><path
-							d="m21 21-4.3-4.3M11 8v6M8 11h6"></path></svg
-					>
-					<span>Click to zoom</span>
-				</div>
-			</div>
+			{
+				video_url ? (
+					<div class:list={["hero-video-container", { "is-vertical": video_url.includes("reel") || video_url.includes("dr-abu-alia") || video_url.includes("vertical") }]}>
+						<span class="hero-badge">
+							<svg viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+							</svg>
+							<span data-i18n-key="category">{category}</span>
+						</span>
+						<video controls playsinline preload="auto" poster={cover} class="hero-video-player">
+							<source src={video_url} type="video/mp4" />
+						</video>
+					</div>
+				) : (
+					<div class="hero-image-container" data-lightbox-trigger="0">
+						<span class="hero-badge">
+							<svg viewBox="0 0 24 24" fill="currentColor"
+								><path
+									d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+								></path></svg
+							>
+							<span data-i18n-key="category">{category}</span>
+						</span>
+						<img src={cover} alt={title} loading="eager" />
+						<div class="hero-zoom-hint">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								><circle cx="11" cy="11" r="8"></circle><path
+									d="m21 21-4.3-4.3M11 8v6M8 11h6"></path></svg
+							>
+							<span>Click to zoom</span>
+						</div>
+					</div>
+				)
+			}
 		</section>
 
 		<!-- ── Project Header ── -->
