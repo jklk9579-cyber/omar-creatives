@@ -15,7 +15,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
@@ -26,19 +25,22 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Large video files (root level)
-*.webm
-*.mp4
-moll-1.webm
-moll.webm
-نهخ.webm
-design-reference.pdf
+# Large video files (root level only)
+/*.webm
+/*.mp4
+/moll-1.webm
+/moll.webm
+/moll1.webm
+/نهخ.webm
+/design-reference.pdf
+/b730eee7b639c7b4.mp4
 
-# Large video files in public
-public/*.mp4
-# Ship project videos with the site
-!public/about-video.mp4
-!public/vision-2030.mp4
+# Track and deploy essential public videos
+!public/videos/
+!public/videos/*
+!public/*.mp4
+!public/*.webm
+!public/images/darrow/*.mp4
 
 # Font zip archives
 public/fonts/*.zip
