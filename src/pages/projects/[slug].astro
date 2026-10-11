@@ -124,7 +124,12 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 		/>
 		<style>
 			body {
-				padding-top: 80px;
+				padding-top: var(--header-height, 169px);
+			}
+			@media (max-width: 900px) {
+				body {
+					padding-top: var(--header-height, 89px);
+				}
 			}
 
 			/* ── Language: show ONLY one language on project detail (title, desc, content body) ── */
@@ -416,6 +421,9 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				border: 1px solid rgba(255, 255, 255, 0.06);
 				cursor: zoom-in;
 				animation: scaleIn 0.8s ease forwards;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			.hero-image-container::after {
 				content: "";
@@ -423,18 +431,20 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 				inset: 0;
 				background: linear-gradient(
 					180deg,
-					transparent 60%,
-					rgba(5, 5, 5, 0.8) 100%
+					transparent 75%,
+					rgba(5, 5, 5, 0.6) 100%
 				);
 				pointer-events: none;
 				z-index: 1;
 			}
 			.hero-image-container img {
-				width: 100%;
+				width: auto;
+				max-width: 100%;
+				height: auto;
+				max-height: 82vh;
 				display: block;
-				max-height: 75vh;
 				object-fit: contain;
-				background: rgba(0, 0, 0, 0.3);
+				margin: 0 auto;
 			}
 			.hero-video-container {
 				width: 100%;
@@ -998,17 +1008,19 @@ const formattedDate = new Date(date).toLocaleDateString("en-US", {
 			/* ── Responsive ── */
 			@media (max-width: 768px) {
 				body {
-					padding-top: 70px;
+					padding-top: var(--header-height, 89px);
 				}
 				.project-hero {
 					padding: 0 1rem;
-					margin-top: 1.5rem;
+					margin-top: 1rem;
 				}
 				.hero-image-container {
 					border-radius: 14px;
 				}
 				.hero-image-container img {
-					max-height: 60vh;
+					max-height: 75vh;
+					width: auto;
+					max-width: 100%;
 				}
 				.project-header {
 					padding: 1.5rem 1rem 0;
