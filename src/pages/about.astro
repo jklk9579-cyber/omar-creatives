@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import TechnicalArsenal from "../components/TechnicalArsenal.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
@@ -706,60 +707,8 @@ import { SITE_TITLE } from "../consts";
 				</div>
 			</section>
 
-			<!-- Tools Section -->
-			<section class="tools-section">
-				<div class="section-title">
-					<h2 data-i18n="aboutPage.toolsTitle">
-						Tools & Technologies
-					</h2>
-					<p data-i18n="aboutPage.toolsSubtitle">
-						The tools I use to bring ideas to life
-					</p>
-				</div>
-
-				<div class="tools-grid">
-					<div class="tool-item">
-						<span class="tool-icon">⚛️</span>
-						<span class="tool-name">React</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🔷</span>
-						<span class="tool-name">TypeScript</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🚀</span>
-						<span class="tool-name">Next.js</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🌟</span>
-						<span class="tool-name">Astro</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🎯</span>
-						<span class="tool-name">Node.js</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🐍</span>
-						<span class="tool-name">Python</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🗃️</span>
-						<span class="tool-name">MongoDB</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🐘</span>
-						<span class="tool-name">PostgreSQL</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">🎨</span>
-						<span class="tool-name">Figma</span>
-					</div>
-					<div class="tool-item">
-						<span class="tool-icon">☁️</span>
-						<span class="tool-name">AWS</span>
-					</div>
-				</div>
-			</section>
+			<!-- Technical Arsenal & Core Tech Stack Section -->
+			<TechnicalArsenal />
 
 			<!-- CTA Section -->
 			<section class="cta-section">
