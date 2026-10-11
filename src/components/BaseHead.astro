@@ -4,7 +4,6 @@
 import "../styles/global.css";
 import "../styles/tailwind.css";
 import type { ImageMetadata } from "astro";
-import FallbackImage from "../assets/blog-placeholder-1.jpg";
 import { SITE_TITLE } from "../consts";
 
 interface Props {
@@ -16,13 +15,14 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage, keywords } = Astro.props;
+const { title, description, image = "/images/og-image.jpg", keywords } = Astro.props;
 
 // Resolve the share/social image: accepts an imported asset or a URL string
+const siteBase = Astro.site || new URL("https://omarcreatives.com");
 const ogImageUrl =
   typeof image === "string"
-    ? new URL(image, Astro.url).href
-    : new URL(image.src, Astro.url).href;
+    ? new URL(image, siteBase).href
+    : new URL(image.src, siteBase).href;
 ---
 
 <!-- Global Metadata -->
@@ -124,12 +124,18 @@ const ogImageUrl =
 <meta name="description" content={description} />
 <meta name="author" content="Omar Abdelfattah" />
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:site_name" content="Omar Creatives" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:secure_url" content={ogImageUrl} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Omar Creatives | Creative Developer & AI Specialist" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
