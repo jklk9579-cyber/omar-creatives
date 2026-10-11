@@ -66,42 +66,53 @@ const navClass = (href: string) =>
 	</nav>
 </header>
 
-<!-- ── Mobile drawer + backdrop (outside header so the X stays reachable) ── -->
+<!-- ── Mobile drawer + backdrop ── -->
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <div class="mobile-menu" id="mobileMenu">
+	<div class="mm-header">
+		<a href="/" class="mm-brand">
+			<img src="/images/logo.png" alt="Omar Creatives" class="mm-logo" />
+		</a>
+		<button class="mm-close-btn" id="mobileMenuCloseBtn" aria-label="Close menu">
+			<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+	</div>
 	<nav class="mm-links">
-		<a href="/" class:list={navClass("/")}
-			><span class="mm-index">01</span
-			><span data-i18n="nav.home">Home</span></a
-		>
-		<a href="/services" class:list={navClass("/services")}
-			><span class="mm-index">02</span
-			><span data-i18n="nav.services">Services</span></a
-		>
-		<a href="/projects" class:list={navClass("/projects")}
-			><span class="mm-index">03</span
-			><span data-i18n="nav.work">Work</span></a
-		>
-		<a href="/testimonials" class:list={navClass("/testimonials")}
-			><span class="mm-index">04</span
-			><span data-i18n="nav.testimonials">Testimonials</span></a
-		>
-		<a href="/blog" class:list={navClass("/blog")}
-			><span class="mm-index">05</span
-			><span data-i18n="nav.blog">Blog</span></a
-		>
-		<a href="/about" class:list={navClass("/about")}
-			><span class="mm-index">06</span
-			><span data-i18n="nav.about">About</span></a
-		>
-		<a href="/faq" class:list={navClass("/faq")}
-			><span class="mm-index">07</span
-			><span data-i18n="nav.faq">FAQ</span></a
-		>
+		<a href="/" class:list={navClass("/")}>
+			<span class="mm-index">01</span>
+			<span class="mm-text" data-i18n="nav.home">Home</span>
+		</a>
+		<a href="/services" class:list={navClass("/services")}>
+			<span class="mm-index">02</span>
+			<span class="mm-text" data-i18n="nav.services">Services</span>
+		</a>
+		<a href="/projects" class:list={navClass("/projects")}>
+			<span class="mm-index">03</span>
+			<span class="mm-text" data-i18n="nav.work">Work</span>
+		</a>
+		<a href="/testimonials" class:list={navClass("/testimonials")}>
+			<span class="mm-index">04</span>
+			<span class="mm-text" data-i18n="nav.testimonials">Testimonials</span>
+		</a>
+		<a href="/blog" class:list={navClass("/blog")}>
+			<span class="mm-index">05</span>
+			<span class="mm-text" data-i18n="nav.blog">Blog</span>
+		</a>
+		<a href="/about" class:list={navClass("/about")}>
+			<span class="mm-index">06</span>
+			<span class="mm-text" data-i18n="nav.about">About</span>
+		</a>
+		<a href="/faq" class:list={navClass("/faq")}>
+			<span class="mm-index">07</span>
+			<span class="mm-text" data-i18n="nav.faq">FAQ</span>
+		</a>
 	</nav>
-	<a href="/contact" class="mobile-cta"
-		><span data-i18n="nav.letsTalk">Contact Me</span></a
-	>
+	<a href="/contact" class="mobile-cta">
+		<span data-i18n="nav.letsTalk">Contact Me</span>
+	</a>
 	<div class="mm-social">
 		<a
 			href="https://wa.me/201211867464"
@@ -257,38 +268,52 @@ const navClass = (href: string) =>
 	.mobile-menu-btn {
 		display: none;
 		flex-direction: column;
-		gap: 5px;
-		background: none;
-		border: none;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+		width: 44px;
+		height: 44px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
 		cursor: pointer;
-		padding: 0.5rem;
+		padding: 0;
 		z-index: 1001;
-	}
-	.mobile-menu-btn span {
-		width: 24px;
-		height: 2px;
-		background: var(--text-primary);
 		transition: all 0.3s ease;
 	}
+	.mobile-menu-btn:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(245, 158, 11, 0.4);
+	}
+	.mobile-menu-btn span {
+		width: 22px;
+		height: 2px;
+		background: var(--text-primary);
+		transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+		border-radius: 2px;
+	}
 	.mobile-menu-btn.active span:nth-child(1) {
-		transform: rotate(45deg) translate(5px, 5px);
+		transform: translateY(8px) rotate(45deg);
 	}
 	.mobile-menu-btn.active span:nth-child(2) {
 		opacity: 0;
+		transform: scale(0);
 	}
 	.mobile-menu-btn.active span:nth-child(3) {
-		transform: rotate(-45deg) translate(5px, -5px);
+		transform: translateY(-8px) rotate(-45deg);
 	}
 
 	/* ── Premium side drawer (mobile menu) ── */
 	.mobile-backdrop {
 		position: fixed;
 		inset: 0;
-		background: rgba(0, 0, 0, 0.55);
+		background: rgba(0, 0, 0, 0.65);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 		opacity: 0;
 		visibility: hidden;
 		transition: opacity 0.4s ease, visibility 0.4s ease;
-		z-index: 998;
+		z-index: 1004;
 	}
 	.mobile-backdrop.active {
 		opacity: 1;
@@ -300,66 +325,113 @@ const navClass = (href: string) =>
 		top: 0;
 		bottom: 0;
 		right: 0;
-		width: min(84vw, 400px);
-		background: rgba(10, 10, 10, 0.97);
-		backdrop-filter: blur(24px);
-		-webkit-backdrop-filter: blur(24px);
-		border-left: 1px solid var(--border-light);
+		width: min(86vw, 380px);
+		background: rgba(12, 12, 12, 0.98);
+		backdrop-filter: blur(28px);
+		-webkit-backdrop-filter: blur(28px);
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
 		flex-direction: column;
-		padding: 5.5rem 1.25rem calc(1.75rem + env(safe-area-inset-bottom));
+		padding: 1.5rem 1.25rem calc(1.75rem + env(safe-area-inset-bottom));
 		transform: translateX(105%);
-		transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-		z-index: 999;
+		transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+		z-index: 1005;
 		overflow-y: auto;
 		overscroll-behavior: contain;
+		box-shadow: -15px 0 50px rgba(0, 0, 0, 0.8);
 	}
 	.mobile-menu.active {
 		transform: translateX(0);
 	}
-	.mm-links {
+	.mm-header {
 		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 1.25rem;
+		margin-bottom: 0.75rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	.mm-brand {
+		display: flex;
+		align-items: center;
+	}
+	.mm-logo {
+		height: 48px;
+		width: auto;
+		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+	}
+	.mm-close-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		color: var(--text-primary);
+		cursor: pointer;
+		transition: all 0.25s ease;
+	}
+	.mm-close-btn:hover {
+		background: rgba(245, 158, 11, 0.15);
+		border-color: var(--accent);
+		color: var(--accent);
+		transform: scale(1.05);
+	}
+	.mm-links {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 0.35rem;
+		width: 100%;
+		padding: 0;
+		margin: 0;
 	}
 	.mm-links a,
 	.mobile-menu .mobile-cta {
-		display: flex;
+		display: flex !important;
+		flex-direction: row !important;
 		align-items: center;
 		gap: 0.9rem;
-		padding: 0.85rem 0.9rem;
+		padding: 0.85rem 1rem;
 		color: var(--text-secondary);
 		text-decoration: none;
-		border-radius: 14px;
-		font-size: 1.3rem;
+		border-radius: 12px;
+		font-size: 1.25rem;
 		font-family: "Motivate", "Inter", sans-serif;
-		opacity: 0;
-		transition:
-			opacity 0.2s ease,
-			color 0.25s ease,
-			background 0.25s ease;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid transparent;
+		box-sizing: border-box;
+		white-space: nowrap;
+		transition: all 0.25s ease;
 	}
 	.mm-links a .mm-index {
-		font-size: 0.75rem;
-		font-family: "Inter", sans-serif;
-		font-weight: 600;
+		font-size: 0.8rem;
+		font-family: "Inter", monospace, sans-serif;
+		font-weight: 700;
 		letter-spacing: 1px;
 		color: var(--accent);
-		opacity: 0.65;
+		opacity: 0.75;
+		min-width: 24px;
+	}
+	.mm-links a .mm-text {
+		flex: 1;
+		font-weight: 500;
 	}
 	.mm-links a:hover {
 		color: var(--text-primary);
-		background: rgba(255, 255, 255, 0.05);
+		background: rgba(255, 255, 255, 0.06);
+		border-color: rgba(255, 255, 255, 0.08);
 	}
 	.mm-links a.active {
 		color: var(--accent);
-		background: rgba(245, 158, 11, 0.08);
+		background: rgba(245, 158, 11, 0.1);
+		border-color: rgba(245, 158, 11, 0.25);
 	}
-	/* Staggered keyframe entrance — bulletproof across mobile browsers,
-	   and hover feedback stays instant (keyframes own only opacity/transform) */
+	/* Staggered entrance */
 	@keyframes mmIn {
 		from {
 			opacity: 0;
-			transform: translateX(24px);
+			transform: translateX(18px);
 		}
 		to {
 			opacity: 1;
@@ -368,16 +440,16 @@ const navClass = (href: string) =>
 	}
 	.mobile-menu.active .mm-links a,
 	.mobile-menu.active .mobile-cta {
-		animation: mmIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+		animation: mmIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 	}
-	.mobile-menu.active .mm-links a:nth-child(1) { animation-delay: 0.08s; }
-	.mobile-menu.active .mm-links a:nth-child(2) { animation-delay: 0.14s; }
-	.mobile-menu.active .mm-links a:nth-child(3) { animation-delay: 0.2s; }
-	.mobile-menu.active .mm-links a:nth-child(4) { animation-delay: 0.26s; }
-	.mobile-menu.active .mm-links a:nth-child(5) { animation-delay: 0.32s; }
-	.mobile-menu.active .mm-links a:nth-child(6) { animation-delay: 0.38s; }
-	.mobile-menu.active .mm-links a:nth-child(7) { animation-delay: 0.44s; }
-	.mobile-menu.active .mobile-cta { animation-delay: 0.5s; }
+	.mobile-menu.active .mm-links a:nth-child(1) { animation-delay: 0.06s; }
+	.mobile-menu.active .mm-links a:nth-child(2) { animation-delay: 0.11s; }
+	.mobile-menu.active .mm-links a:nth-child(3) { animation-delay: 0.16s; }
+	.mobile-menu.active .mm-links a:nth-child(4) { animation-delay: 0.21s; }
+	.mobile-menu.active .mm-links a:nth-child(5) { animation-delay: 0.26s; }
+	.mobile-menu.active .mm-links a:nth-child(6) { animation-delay: 0.31s; }
+	.mobile-menu.active .mm-links a:nth-child(7) { animation-delay: 0.36s; }
+	.mobile-menu.active .mobile-cta { animation-delay: 0.42s; }
 
 	/* CTA */
 	.mobile-menu .mobile-cta {
@@ -387,7 +459,8 @@ const navClass = (href: string) =>
 		font-weight: 600;
 		font-size: 1.15rem;
 		justify-content: center;
-		padding: 1.1rem;
+		padding: 1rem;
+		text-align: center;
 	}
 
 	/* Social shortcuts pinned to the bottom */
@@ -515,30 +588,49 @@ const navClass = (href: string) =>
 		padding: 0.85rem 1.5rem;
 	}
 
-	/* RTL drawer: slides in from the left */
+	/* RTL drawer: cleanly styled on right side with proper Arabic typography */
 	:global([dir="rtl"]) .mobile-menu {
-		right: auto;
-		left: 0;
-		border-left: none;
-		border-right: 1px solid var(--border-light);
+		right: 0;
+		left: auto;
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
+		border-right: none;
 		text-align: right;
 		direction: rtl;
-		transform: translateX(-105%);
+		transform: translateX(105%);
 	}
 	:global([dir="rtl"]) .mobile-menu.active {
 		transform: translateX(0);
 	}
-	:global([dir="rtl"]) .mobile-menu .mm-links a,
-	:global([dir="rtl"]) .mobile-menu .mobile-cta {
+	:global([dir="rtl"]) .mm-header {
+		flex-direction: row;
+		direction: rtl;
+	}
+	:global([dir="rtl"]) .mm-links {
+		display: flex !important;
+		flex-direction: column !important;
+		text-align: right;
+		direction: rtl;
+	}
+	:global([dir="rtl"]) .mm-links a {
+		flex-direction: row !important;
+		text-align: right;
+		direction: rtl;
 		font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
-		font-size: 1.45rem;
+		font-size: 1.35rem;
 		font-weight: 300;
 	}
-	/* RTL entrance slides in from the left */
+	:global([dir="rtl"]) .mobile-menu .mobile-cta {
+		font-family: "GumelaArabic", "Cairo", "Tajawal", sans-serif;
+		font-size: 1.35rem;
+		font-weight: 300;
+	}
+	:global([dir="rtl"]) .mm-links a .mm-index {
+		font-family: "Inter", monospace, sans-serif;
+	}
 	@keyframes mmInRtl {
 		from {
 			opacity: 0;
-			transform: translateX(-24px);
+			transform: translateX(18px);
 		}
 		to {
 			opacity: 1;
@@ -558,6 +650,7 @@ const navClass = (href: string) =>
 	const menuBtn = document.getElementById("mobileMenuBtn");
 	const mobileMenu = document.getElementById("mobileMenu");
 	const backdrop = document.getElementById("mobileBackdrop");
+	const closeBtn = document.getElementById("mobileMenuCloseBtn");
 
 	const openMenu = () => {
 		menuBtn?.classList.add("active");
@@ -575,11 +668,12 @@ const navClass = (href: string) =>
 		document.body.classList.remove("menu-open");
 	};
 
-	// Tap the dark backdrop to close
+	// Tap the dark backdrop or dedicated close button to close
 	backdrop?.addEventListener("click", closeMenu);
+	closeBtn?.addEventListener("click", closeMenu);
 
 	menuBtn?.addEventListener("click", () => {
-		if (menuBtn.classList.contains("active")) {
+		if (mobileMenu?.classList.contains("active")) {
 			closeMenu();
 		} else {
 			openMenu();
@@ -587,7 +681,7 @@ const navClass = (href: string) =>
 	});
 
 	// Close the menu after choosing a link (mobile UX)
-	mobileMenu?.querySelectorAll("a").forEach((link) => {
+	mobileMenu?.querySelectorAll(".mm-links a, .mobile-cta").forEach((link) => {
 		link.addEventListener("click", closeMenu);
 	});
 

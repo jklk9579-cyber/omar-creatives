@@ -218,5 +218,12 @@
     
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
+    if (document.body) {
+      document.body.classList.remove('is-en', 'is-ar');
+      document.body.classList.add(lang === 'ar' ? 'is-ar' : 'is-en');
+    }
+    if (typeof (window as any).i18n?.translatePage === 'function') {
+      (window as any).i18n.translatePage();
+    }
   }
 </script>

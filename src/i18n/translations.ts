@@ -3,11 +3,12 @@ export const translations = {
     // Navigation
     nav: {
       home: "Home",
-      services: "Expertise",
+      services: "Services",
       work: "Work",
       testimonials: "Testimonials",
       blog: "Blog",
       about: "About Me",
+      faq: "FAQ",
       letsTalk: "Contact Me",
     },
     // Hero Section
@@ -131,12 +132,13 @@ export const translations = {
     // Navigation
     nav: {
       home: "الرئيسية",
-      services: "خبراتي",
+      services: "الخدمات",
       work: "أعمالي",
       testimonials: "آراء العملاء",
       blog: "المدونة",
       about: "نبذة عني",
-      letsTalk: "اتصل بي",
+      faq: "الأسئلة الشائعة",
+      letsTalk: "تواصل معي",
     },
     // Hero Section
     hero: {

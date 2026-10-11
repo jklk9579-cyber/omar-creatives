@@ -59,7 +59,7 @@ body.is-en .lang-en { display: block !important; }
 
 @font-face {
 	font-family: "Tenwork";
-	src: url("/fonts/Tenwork.ttf") format("truetype");
+	src: url("/fonts/AnyConv.com__GC-Tenwork-Demo-BF69539fed3b96c.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -91,7 +91,7 @@ body.is-en .lang-en { display: block !important; }
 
 @font-face {
 	font-family: "SinarGrotesk";
-	src: url("/fonts/SinarGrotesk-Bold-Trial.otf") format("opentype");
+	src: url("/fonts/SinarGrotesk-SemiBold-Trial.otf") format("opentype");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -508,7 +508,7 @@ body {
 }
 
 /* Navigation LTR (English) */
-[dir="ltr"] nav {
+[dir="ltr"] header > nav {
 	flex-direction: row;
 	direction: ltr;
 }
@@ -522,7 +522,7 @@ body {
 }
 
 /* Navigation RTL */
-[dir="rtl"] nav {
+[dir="rtl"] header > nav {
 	flex-direction: row;
 }
 

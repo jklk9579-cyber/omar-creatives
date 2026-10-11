@@ -576,6 +576,12 @@ function translate(key) {
 
 function translatePage() {
   const lang = getCurrentLanguage();
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  if (document.body) {
+    document.body.classList.remove('is-en', 'is-ar');
+    document.body.classList.add(lang === 'ar' ? 'is-ar' : 'is-en');
+  }
 
   // Translate all elements with data-i18n attribute
   document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -594,8 +600,12 @@ function translatePage() {
   });
 }
 
-// Run translation on page load
-document.addEventListener('DOMContentLoaded', translatePage);
+// Run translation on page load or immediately if already loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', translatePage);
+} else {
+  translatePage();
+}
 
 // Export for use in other scripts
 window.i18n = { translate, translatePage, getCurrentLanguage };
